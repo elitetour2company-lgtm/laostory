@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "pretendard/dist/web/static/pretendard.css";
+
+:root {
+  --color-forest: #123c32;
+  --color-forest-light: #1c5245;
+  --color-ivory: #f7f5ef;
+  --color-gold: #c8a96b;
+  --color-gold-soft: #e2d2ae;
+  --color-white: #ffffff;
+  --color-text: #1c1c1c;
+  --color-text-soft: #6b6b6b;
+  --color-border: #e7e3da;
+  --color-bg: #faf9f6;
+
+  --font-kr: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@theme inline {
+  --color-forest: var(--color-forest);
+  --color-forest-light: var(--color-forest-light);
+  --color-ivory: var(--color-ivory);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-text: var(--color-text);
+  --color-text-soft: var(--color-text-soft);
+  --color-border: var(--color-border);
+  --color-bg: var(--color-bg);
+
+  --font-sans: var(--font-kr);
+  --font-display: var(--font-kr);
+
+  --animate-fade-up: fade-up 0.7s ease forwards;
+  --animate-fade-in: fade-in 0.6s ease forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-kr);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-forest);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
