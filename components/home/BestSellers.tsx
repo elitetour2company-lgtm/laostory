@@ -24,12 +24,9 @@ export default async function BestSellers() {
           </Link>
         </div>
 
-        <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:mt-12 md:grid md:grid-cols-4 md:gap-5 md:overflow-visible md:pb-0">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-12 md:grid-cols-4 md:gap-5">
           {bestSellerProducts.map((product) => (
-            <div
-              key={product.slug}
-              className="min-w-[78%] snap-start sm:min-w-[45%] md:min-w-0"
-            >
+            <div key={product.slug}>
               <ProductCard product={product} hideFeaturedBadge />
             </div>
           ))}

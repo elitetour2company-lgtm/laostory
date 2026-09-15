@@ -32,11 +32,11 @@ export default async function ReviewSection() {
           </p>
         ) : null}
 
-        <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:mt-12 md:grid md:grid-cols-4 md:gap-5 md:overflow-visible md:pb-0">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-12 md:grid-cols-4 md:gap-5">
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="min-w-[80%] flex-shrink-0 snap-center rounded-xl border border-border bg-white p-6 sm:min-w-[46%] md:min-w-0"
+              className="rounded-xl border border-border bg-white p-4 sm:p-6"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-0.5 text-gold">

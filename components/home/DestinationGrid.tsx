@@ -56,14 +56,14 @@ export default async function DestinationGrid() {
           align="center"
         />
 
-        {/* Mobile: horizontal scroll */}
-        <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:hidden">
+        {/* Mobile: 2-column grid */}
+        <div className="mt-10 grid grid-cols-2 gap-3 md:hidden">
           {destinations.map((dest) => (
             <DestinationCard
               key={dest.slug}
               dest={dest}
-              className="aspect-[3/4] min-w-[70%] flex-shrink-0 snap-center"
-              sizes="70vw"
+              className="aspect-[3/4]"
+              sizes="50vw"
             />
           ))}
         </div>
