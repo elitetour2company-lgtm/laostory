@@ -156,7 +156,7 @@ export default function WishlistView() {
                     <p className="text-xs font-medium tracking-wide text-gold">{item.subtitle}</p>
                     <h3 className="mt-1.5 text-[16px] font-semibold text-text">{item.title}</h3>
                     <p className="mt-3 text-[15px] font-semibold text-forest">
-                      {formatPrice(item.price)}
+                      {item.price === 0 ? "가격 문의" : formatPrice(item.price)}
                     </p>
                   </div>
                 </Link>

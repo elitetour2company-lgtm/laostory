@@ -44,6 +44,44 @@ export default function GuestPriceCalculator({
   const decrement = () => setGuests((g) => Math.max(1, g - 1));
   const increment = () => setGuests((g) => Math.min(maxGuests, g + 1));
 
+  if (price === 0) {
+    // No public price (matches how 블루투어 shows "금액별도문의" for this item) —
+    // skip the calculator entirely and go straight to a quote request.
+    const inquiryHref = `/consultation?items=${encodeURIComponent(
+      `${itemName} - 가격 문의`
+    )}`;
+    const flatLabel = topLabel ?? unitLabel;
+
+    if (compact) {
+      return (
+        <>
+          <div>
+            {flatLabel ? <p className="text-[11px] text-text-soft">{flatLabel}</p> : null}
+            <p className="text-[16px] font-semibold text-forest">가격 문의</p>
+          </div>
+          <Button href={inquiryHref} variant="primary" className="flex-shrink-0">
+            상담 신청
+          </Button>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <div>
+          {flatLabel ? <p className="text-[13px] text-text-soft">{flatLabel}</p> : null}
+          <p className="mt-1 text-[22px] font-semibold text-forest">가격 문의</p>
+          <p className="mt-1 text-[13px] text-text-soft">
+            일정·인원에 따라 견적이 달라져 상담 후 안내해드립니다.
+          </p>
+        </div>
+        <Button href={inquiryHref} variant="primary" className="mt-5 w-full">
+          1:1 상담 신청
+        </Button>
+      </>
+    );
+  }
+
   if (!enableCalculator) {
     // Flat price display, no guest stepper — used for per-vehicle ("1대기준")
     // pricing where multiplying by guest count would be misleading.

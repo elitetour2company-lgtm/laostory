@@ -65,28 +65,34 @@ export default function ProductCard({
             {product.duration}
           </span>
           <span className="flex flex-col items-end">
-            {product.originalPrice && product.originalPrice > product.price ? (
-              <span className="flex items-center gap-1.5 text-[11px]">
-                <span className="text-text-soft/70 line-through">
-                  {formatPrice(product.originalPrice)}
+            {product.price === 0 ? (
+              <span className="text-[15px] font-semibold text-forest">가격 문의</span>
+            ) : (
+              <>
+                {product.originalPrice && product.originalPrice > product.price ? (
+                  <span className="flex items-center gap-1.5 text-[11px]">
+                    <span className="text-text-soft/70 line-through">
+                      {formatPrice(product.originalPrice)}
+                    </span>
+                    <span className="font-semibold text-red-600">
+                      {Math.round(
+                        ((product.originalPrice - product.price) / product.originalPrice) * 100
+                      )}
+                      %
+                    </span>
+                  </span>
+                ) : null}
+                <span className="text-[10px] text-text-soft/80">1인기준</span>
+                <span className="text-[15px] font-semibold text-forest">
+                  {formatPrice(product.price)}
                 </span>
-                <span className="font-semibold text-red-600">
-                  {Math.round(
-                    ((product.originalPrice - product.price) / product.originalPrice) * 100
-                  )}
-                  %
-                </span>
-              </span>
-            ) : null}
-            <span className="text-[10px] text-text-soft/80">1인기준</span>
-            <span className="text-[15px] font-semibold text-forest">
-              {formatPrice(product.price)}
-            </span>
-            {product.priceUsd ? (
-              <span className="text-[11px] text-text-soft">
-                {formatPriceUsd(product.priceUsd)}
-              </span>
-            ) : null}
+                {product.priceUsd ? (
+                  <span className="text-[11px] text-text-soft">
+                    {formatPriceUsd(product.priceUsd)}
+                  </span>
+                ) : null}
+              </>
+            )}
           </span>
         </div>
       </div>

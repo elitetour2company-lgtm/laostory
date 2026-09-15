@@ -82,11 +82,54 @@
  *   CC-BY-SA-4.0 — GPS-verified match to the actual Blue Lagoon 1 site.
  * - minivanVientiane: "Nissan Civilian in Vientiane" by Ilya Plekhanov,
  *   CC-BY-SA-3.0 — generic Laos passenger minibus, no third-party branding.
+ * - hiaceCommuterNewgen: "2020 HiAce Commuter (Thai-Spec) 2.8 6AT" by
+ *   Thitichai R, CC-BY-SA-4.0 — the current (2019+, semi-bonnet) Toyota
+ *   HiAce Commuter, the correct van generation actually used for
+ *   Vientiane charter/airport service; replaces the old cab-over
+ *   minibus stand-ins on airport transfer and charter-van listings.
  * - watPhouChampasak: "Three quarter view of the ruined Khmer Hindu temple
  *   of Wat Phou with blue sky in Champasak, Laos" — CC-BY-SA-4.0, real
  *   Pakse-area UNESCO landmark.
  * - bolavenCoffeePlantation: "Coffee plantations Bolaven Plateau 02.jpg" —
  *   CC-BY-SA-4.0, real Pakse-area coffee-growing plateau.
+ * - bolavenZiplineAction: "Bolaven - woman riding zip line at Tad Fane
+ *   waterfalls - Aug 2024" by Dominic Nelson (BigDom), CC-BY-SA-4.0 — real
+ *   Laos zipline (Tad Fane, Bolaven Plateau), replaces a low-res
+ *   (447x296) zipline photo.
+ * - belizeBluecreekZipline: "Zipline over Blue Creek, Belize" by
+ *   abnederveld, CC-BY-2.0 — owner-selected replacement for the
+ *   짚라인+카약킹+버기카4시간 tour's hero (turquoise creek visible through
+ *   the canopy, helmet POV framing); honest non-Laos stand-in.
+ * - vangviengKayakAction: "Kayaking in Vang Vieng" by Christophe95,
+ *   CC-BY-SA-4.0, GPS-verified Vang Vieng (Nam Song river) — real kayaking
+ *   action. Note: a rival tour operator's brand ("RIVERSIDETOURS") is
+ *   legible on one foreground kayak; acceptable but worth a crop/note.
+ * - vangviengThamXangCave: "Vang Vieng-Tham Xang-14-innen" by Gerd
+ *   Eichmann, CC-BY-SA-4.0 — real interior of Tham Xang ("Elephant Cave"),
+ *   Vang Vieng. Used for both the zipline+elephant-cave half-day tour and
+ *   the zipline+elephant-cave+tubing+kayak one-day tour, since both
+ *   genuinely visit this same real cave.
+ * - vangviengThamPhukhamCave: "Tham Phu Kham, Vang Vieng, Laos" by
+ *   yeowatzup, CC-BY-2.0 — real interior (reclining Buddha shrine) of Tham
+ *   Phu Kham, the cave directly above Blue Lagoon 1; used for the
+ *   elephant-cave+tubing+kayak+blue-lagoon-1 combo tour since this is the
+ *   actual cave at that specific blue lagoon.
+ * - caveTubingBelize: "Tubing, Belize 2013" by Samantha Beddoes, CC-BY-2.0
+ *   — honest non-Laos stand-in for cave tubing (Commons has no Laos cave
+ *   tubing action photo), replaces a dark/grainy low-res action-cam frame.
+ * - buggy4seatPolaris: "Polaris RZR XP 1000 EPS - Calico Ghost Town" by
+ *   Tomás Del Coro, CC-BY-SA-2.0 — honest non-Laos stand-in for a genuine
+ *   4-seat/2-row buggy (the previous photo was the same image used for
+ *   the 2-seat tour, and visually reads as a 2-seat vehicle).
+ * - paramotorDondetFront: "Two-seater paramotor - Powered paragliding in
+ *   flight - 3 quarter view a sunny afternoon in Don Det Laos" by Basile
+ *   Morin, CC-BY-SA-4.0 — real Laos paramotor tandem flight (Don Det, Si
+ *   Phan Don), replaces a low-res (500x313) selfie photo.
+ * - mekongSunsetDondet: "Silhouette of a fisherman standing on his pirogue
+ *   at sunset with orange clouds in Don Det, Si Phan Don, Laos" by Basile
+ *   Morin, CC-BY-SA-4.0 (Commons Featured Picture) — real Laos Mekong
+ *   sunset with a person actively fishing, replaces a photo with no
+ *   sunset color and no traditional performance.
  *
  * Owner-provided photography (not Wikimedia — supplied directly by the
  * agency, on-site photos of the actual named venue; no CC attribution
@@ -143,6 +186,12 @@
  *   assigned by the agency owner to the destinations gallery, the
  *   Mekong sunset cruise tour gallery, and the Luang Prabang·Vang Vieng
  *   3-night free package product gallery.
+ * - lcrTrainFrontview: LCR (Laos-China Railway) high-speed train, front
+ *   3/4 view at a station platform — supplied by the agency owner, usage
+ *   rights obtained from the Lao Ministry of Public Works and Transport
+ *   (라오스 교통청). Original had a visible "LCR" corporate watermark in
+ *   the bottom-right corner; cropped out (bottom ~14% of frame) rather
+ *   than inpainted, since it only touched empty trackbed/gravel.
  */
 
 const img = (file: string) => `/images/${file}`;
@@ -152,6 +201,7 @@ const src = {
   vangViengClouds: img("vangvieng-clouds.jpg"),
   vangViengPaddy: img("vangvieng-paddy.jpg"),
   vangViengBungalows: img("vangvieng-bungalows.jpg"),
+  vangviengPoolvillaReal: img("vangvieng-poolvilla-real.jpg"),
   mekongRiverfront: img("mekong-riverfront.jpg"),
   phaThatLuang: img("pha-that-luang.jpg"),
   luangPrabangTemple: img("luangprabang-temple.jpg"),
@@ -178,6 +228,17 @@ const src = {
   mekongSunsetCruiseLP: img("mekong-sunset-cruise-lp.jpg"),
   blueLagoonVangVieng: img("blue-lagoon-vangvieng.jpg"),
   minivanVientiane: img("minivan-vientiane.jpg"),
+  hiaceCommuterNewgen: img("hiace-commuter-newgen.jpg"),
+  bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
+  belizeBluecreekZipline: img("belize-bluecreek-zipline.jpg"),
+  vangviengKayakAction: img("vangvieng-kayak-action.jpg"),
+  vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
+  vangviengThamPhukhamCave: img("vangvieng-tham-phukham-cave.jpg"),
+  caveTubingBelize: img("cave-tubing-belize.jpg"),
+  buggy4seatPolaris: img("buggy-4seat-polaris.jpg"),
+  paramotorDondetFront: img("paramotor-dondet-front.jpg"),
+  mekongSunsetDondet: img("mekong-sunset-dondet.jpg"),
+  lcrTrainFrontview: img("train-lcr-frontview.jpg"),
   watPhouChampasak: img("wat-phou-champasak.jpg"),
   bolavenCoffeePlantation: img("bolaven-coffee-plantation.jpg"),
 
@@ -316,6 +377,7 @@ type ImageKey =
   | "destination-pakse-g2"
   | "product-1"
   | "product-2"
+  | "product-noshopping-vientiane"
   | "product-3"
   | "product-4"
   | "product-5"
@@ -400,6 +462,8 @@ type ImageKey =
   | "tour-zipline-cave"
   | "tour-hotair-balloon"
   | "tour-buggy"
+  | "tour-buggy-4seat"
+  | "vv-elephantcave-oneday"
   | "train-lcr-exterior"
   | "train-lcr-interior"
   | "train-vientiane-station"
@@ -474,15 +538,15 @@ export const images: Record<ImageKey, string | undefined> = {
 
   "category-package": src.luangPrabangTemple,
   "category-freetravel": src.vangViengPaddy,
-  "category-villa": src.amantakaPoolSuite,
+  "category-villa": src.amantakaMainPool,
   // Real Lakeview CC photo (Vientiane) — replaces the earlier non-Laos golf stand-in.
-  "category-golf": src.lakeviewCCBridge,
+  "category-golf": src.longbienCCWelcomeSignVivid,
   // Real hot air balloon over Vang Vieng — replaces a Tad Lo elephant photo (wrong region; most of our tours are Vang Vieng activities, not the elephant sanctuary 500km south).
   "category-tour": src.hotairBalloonVangVieng,
-  "category-transport": src.wattayAirportShuttle,
+  "category-transport": src.hiaceCommuterNewgen,
 
   "destination-vientiane": src.phaThatLuang,
-  "destination-vangvieng": src.vangViengHero,
+  "destination-vangvieng": src.vangviengViewpointFlag,
   "destination-luangprabang": src.kuangSiFalls,
   "destination-pakse": src.tadFane,
   // Real Wat Phou ruins, Champasak province — genuine Pakse-area landmark.
@@ -492,7 +556,8 @@ export const images: Record<ImageKey, string | undefined> = {
 
   "product-1": src.riceFarmers,
   // Reuses the real Vang Vieng guesthouse photo (same as villa-1) — accurate location match, no new file needed.
-  "product-2": src.vangViengBungalows,
+  "product-2": src.vangviengPoolvillaReal,
+  "product-noshopping-vientiane": src.vientianePatuxaiSunset,
   // Honest non-Laos stand-in — see golf attribution note above.
   "product-3": src.golfBunker,
   "product-4": src.luangPrabangNightMarket,
@@ -518,8 +583,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "golf-1": src.golfSunsetHill,
   "golf-2": src.golfBunker,
   "golf-3": src.golfBackupTeeOff,
-  // No single photo shows both a golf course and a pool villa together — uses the real Amantaka pool suite (genuine private-villa imagery) since the text label already names the golf half.
-  "golf-villa-combo": src.amantakaPoolSuite,
+  // Real Vang Vieng pool villa (vangviengPoolvillaReal) — this banner/pick text names Vang Vieng specifically, so the Luang Prabang Amantaka photo used previously was both a repeat of villa-hero/villa-3 and the wrong region.
+  "golf-villa-combo": src.vangviengPoolvillaReal,
 
   "picks-luangprabang-activity": src.takBatMonks,
 
@@ -616,21 +681,23 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-luang-prabang-golf-club-g4": src.luangprabangGolfGreenMountain,
   "course-luang-prabang-golf-club-g5": src.luangprabangGolfRiverView,
 
-  // Real Tham Jang cave entrance in Vang Vieng — matches this zipline/cave tour's actual location.
-  "tour-zipline-cave": src.thamJangCave,
+  // Real Tham Xang ("Elephant Cave") interior — matches this zipline/elephant-cave tour's actual destination.
+  "tour-zipline-cave": src.vangviengThamXangCave,
 
   "tour-hotair-balloon": src.hotairBalloonVangVieng,
   "tour-buggy": src.buggyVangVieng,
-  "train-lcr-exterior": src.lcrTrainExterior,
-  "train-lcr-interior": src.lcrTrainInterior,
-  "train-vientiane-station": src.vientianeRailwayStation,
-  "tour-mekong-cruise-lp": src.mekongSunsetCruiseLP,
+  // Genuine 4-seat/2-row buggy (the shared "tour-buggy" photo above reads as a 2-seat vehicle).
+  "tour-buggy-4seat": src.buggy4seatPolaris,
+  "train-lcr-exterior": src.lcrTrainFrontview,
+  "train-lcr-interior": src.lcrTrainFrontview,
+  "train-vientiane-station": src.lcrTrainFrontview,
+  "tour-mekong-cruise-lp": src.mekongSunsetDondet,
   "tour-blue-lagoon": src.blueLagoonVangVieng,
-  "transport-minivan": src.minivanVientiane,
+  "transport-minivan": src.hiaceCommuterNewgen,
 
   // Owner-provided real Vang Vieng activity photos.
   "vv-bluelagoon-swim": src.vangviengBluelagoonSwim,
-  "vv-bluelagoon-slide": src.vangviengBluelagoonSlide,
+  "vv-bluelagoon-slide": src.vangviengBluelagoonTreeswingPose,
   "vv-bluelagoon-view": src.vangviengBluelagoonView,
   "vv-kayak-group-launch": src.vangviengKayakGroupLaunch,
   "vv-kayak-people": src.vangviengKayakPeople,
@@ -640,15 +707,19 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-zipline-woman": src.vangviengZiplineWoman,
   "vv-zipline-canyon": src.vangviengZiplineCanyon,
   "vv-zipline-canopy": src.vangviengZiplineCanopy,
-  "vv-zipline-group": src.vangviengZiplineGroup,
+  // Real Vang Vieng kayaking action (Nam Song river) — this half-day tour's own kayak element wasn't shown before.
+  "vv-zipline-group": src.vangviengKayakAction,
   "vv-zipline-bridge": src.vangviengZiplineBridge,
   "vv-zipline-river-bridge": src.vangviengZiplineRiverBridge,
-  "vv-zipline-cliff": src.vangviengZiplineCliff,
+  "vv-zipline-cliff": src.bolavenZiplineAction,
   "vv-cave-interior1": src.vangviengCaveInterior1,
   "vv-cave-stalactite": src.vangviengCaveStalactite,
   "vv-cave-ceiling": src.vangviengCaveCeiling,
-  "vv-cave-tubing": src.vangviengCaveTubing,
-  "vv-cave-kayak": src.vangviengCaveKayak,
+  "vv-cave-tubing": src.caveTubingBelize,
+  // Same real Tham Xang ("Elephant Cave") as "tour-zipline-cave" — this tour also visits it, just without blue lagoon.
+  "vv-elephantcave-oneday": src.vangviengThamXangCave,
+  // Tham Phu Kham is the actual cave directly above Blue Lagoon 1 — matches this tour's specific "블루라군1" stop.
+  "vv-cave-kayak": src.vangviengThamPhukhamCave,
   "vv-cave-walkway": src.vangviengCaveWalkway,
   "vv-balloon-multi-aerial": src.vangviengBalloonMultiAerial,
   "vv-balloon-sky": src.vangviengBalloonSky,
@@ -659,14 +730,15 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-paramotor-kiting": src.vangviengParamotorFlying,
   "vv-buggy-mud-wheel": src.vangviengBuggyMudWheel,
   "vv-buggy-pov-driving": src.vangviengBuggyPovDriving,
-  "vv-zipline-waterfall-aerial": src.vangviengZiplineWaterfallAerial,
+  // Owner-picked: zipline over turquoise Blue Creek, Belize.
+  "vv-zipline-waterfall-aerial": src.belizeBluecreekZipline,
   "vv-bluelagoon-swing-clean": src.vangviengBluelagoonSwingClean,
   "vv-balloon-twin-sunset": src.vangviengBalloonTwinSunset,
   "vv-kayak-two-boats": src.vangviengKayakTwoBoats,
   "vv-kayak-balloon-combo": src.vangviengKayakBalloonCombo,
   "vv-zipline-platform-prep": src.vangviengZiplinePlatformPrep,
   "vv-bluelagoon-treeswing-pose": src.vangviengBluelagoonTreeswingPose,
-  "vv-paramotor-tandem-selfie": src.vangviengParamotorTandemSelfie,
+  "vv-paramotor-tandem-selfie": src.paramotorDondetFront,
   "vv-paramotor-sunset-silhouette": src.vangviengParamotorSunsetSilhouette,
   "vv-paramotor-pov-ricefields": src.vangviengParamotorPovRicefields,
 

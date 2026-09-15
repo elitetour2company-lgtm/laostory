@@ -31,7 +31,11 @@ async function getCategoryStats(): Promise<Record<string, string | null>> {
   const freeProducts = products.filter((p) => p.type === "자유여행");
   const golfProducts = products.filter((p) => p.type === "골프");
 
-  const min = (prices: number[]) => (prices.length ? Math.min(...prices) : null);
+  // Exclude 0 ("가격 문의" / price-on-request items) from the "from ₩X" stat.
+  const min = (prices: number[]) => {
+    const real = prices.filter((p) => p > 0);
+    return real.length ? Math.min(...real) : null;
+  };
 
   return {
     "패키지 여행": stats(packageProducts.length, min(packageProducts.map((p) => p.price))),
