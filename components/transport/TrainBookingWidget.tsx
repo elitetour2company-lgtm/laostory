@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Clock, Minus, Plus, Train } from "lucide-react";
 import { TRAIN_SCHEDULES } from "@/lib/data/train-schedules";
 import { formatPrice } from "@/lib/format";
+import { getImage } from "@/data/images";
+import CoverImage from "@/components/ui/CoverImage";
 
 function todayISO(): string {
   const d = new Date();
@@ -62,7 +64,12 @@ export default function TrainBookingWidget({
   })();
 
   return (
-    <div className="rounded-xl border border-border bg-white p-4">
+    <div className="overflow-hidden rounded-xl border border-border bg-white">
+      <div className="relative aspect-[16/9] w-full">
+        <CoverImage src={getImage("train-lcr-exterior")} alt={title} sizes="(min-width: 1024px) 50vw, 100vw" />
+      </div>
+
+      <div className="p-4">
       <div className="flex items-start gap-2.5">
         <span className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-forest/10 text-forest">
           <Train size={15} strokeWidth={2} />
@@ -192,6 +199,7 @@ export default function TrainBookingWidget({
       >
         {applyHref ? "신청하기" : "날짜와 시간을 선택해주세요"}
       </a>
+      </div>
     </div>
   );
 }
