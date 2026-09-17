@@ -43,6 +43,26 @@ export async function upsertProductAction(
     }
   }
 
+  const customizationQaRaw = String(formData.get("customizationQa") ?? "").trim();
+  let customizationQa: unknown = null;
+  if (customizationQaRaw) {
+    try {
+      customizationQa = JSON.parse(customizationQaRaw);
+    } catch {
+      return { error: "일정 변경 Q&A(JSON) 형식이 올바르지 않습니다." };
+    }
+  }
+
+  const destinationHighlightsRaw = String(formData.get("destinationHighlights") ?? "").trim();
+  let destinationHighlights: unknown = null;
+  if (destinationHighlightsRaw) {
+    try {
+      destinationHighlights = JSON.parse(destinationHighlightsRaw);
+    } catch {
+      return { error: "도시별 소개(JSON) 형식이 올바르지 않습니다." };
+    }
+  }
+
   const payload = {
     slug,
     title,
@@ -72,6 +92,12 @@ export async function upsertProductAction(
     excluded: parseLines(String(formData.get("excluded") ?? "")),
     itinerary,
     featured: formData.get("featured") === "on",
+    minParticipants: (() => {
+      const raw = String(formData.get("minParticipants") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
+    customizationQa,
+    destinationHighlights,
   };
 
   try {

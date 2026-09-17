@@ -239,6 +239,8 @@ export default async function GolfCourseDetailPage({
             priceUsd={course.priceUsd}
             weekendPrice={course.weekendPrice}
             weekendPriceUsd={course.weekendPriceUsd}
+            oddHeadcountCartFee={course.oddHeadcountCartFee}
+            oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />
         </aside>
       </Container>
@@ -252,6 +254,8 @@ export default async function GolfCourseDetailPage({
             priceUsd={course.priceUsd}
             weekendPrice={course.weekendPrice}
             weekendPriceUsd={course.weekendPriceUsd}
+            oddHeadcountCartFee={course.oddHeadcountCartFee}
+            oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />
         </div>
       </div>

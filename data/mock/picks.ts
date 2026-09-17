@@ -3,9 +3,9 @@ export const ourPicks = [
     tag: "에디터 픽",
     title: "블루라군에서 즐기는 방비엥 액티비티 데이",
     description:
-      "카약, 튜빙, 블루라군 다이빙까지 하루 만에 즐기는 방비엥 대표 액티비티 코스.",
-    meta: "반일투어 · 방비엥",
-    href: "/tours/vang-vieng-blue-lagoon-day",
+      "짚라인, 동굴 튜빙, 카약, 블루라군 다이빙까지 하루 만에 즐기는 방비엥 대표 액티비티 코스.",
+    meta: "원데이투어 · 방비엥",
+    href: "/tours/vang-vieng-oneday-zipline-cave-kayak-bluelagoon1",
     imageKey: "vv-bluelagoon-slide",
   },
   {
@@ -19,11 +19,11 @@ export const ourPicks = [
   },
   {
     tag: "에디터 픽",
-    title: "골프 후 이어지는 방비엥 풀빌라 1박",
+    title: "라운딩 끝나고 즐기는 풀빌라 골프 3박 5일",
     description:
-      "라운딩을 마친 뒤 프라이빗 풀빌라에서 마무리하는 골퍼를 위한 조합.",
-    meta: "골프 + 풀빌라 · 방비엥",
-    href: "/travel/laos-golf-premium",
+      "세 차례 라운딩을 마친 뒤 프라이빗 풀빌라에서 쉬어가는 골퍼를 위한 조합.",
+    meta: "골프 + 풀빌라 · 비엔티안",
+    href: "/travel/laos-golf-poolvilla-3nights",
     imageKey: "golf-villa-combo",
   },
 ] as const;

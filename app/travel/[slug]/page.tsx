@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Check, X as XIcon, BedDouble, UtensilsCrossed } from "lucide-react";
+import { Check, X as XIcon, BedDouble, UtensilsCrossed, MapPin, MessageCircleQuestion } from "lucide-react";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
 import PhotoGallery from "@/components/ui/PhotoGallery";
@@ -79,6 +79,7 @@ export default async function TravelDetailPage({
     { value: `${product.included?.length ?? 0}가지`, label: "포함사항" },
     ...(totalMeals > 0 ? [{ value: `${totalMeals}회`, label: "식사 포함" }] : []),
     { value: `${cityCount}개`, label: "방문 도시" },
+    ...(product.minParticipants ? [{ value: `${product.minParticipants}명`, label: "최소 인원" }] : []),
   ];
 
   return (
@@ -158,6 +159,38 @@ export default async function TravelDetailPage({
             </div>
           ) : null}
 
+          {product.destinationHighlights?.length ? (
+            <div className="mt-10">
+              <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
+                이 여행이 들르는 도시
+              </h2>
+              <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                {product.destinationHighlights.map((h) => (
+                  <div
+                    key={h.city}
+                    className="overflow-hidden rounded-xl border border-border bg-white"
+                  >
+                    {h.image ? (
+                      <div className="relative aspect-[16/10] w-full">
+                        <CoverImage src={getImage(h.image)} alt={h.city} sizes="(min-width: 768px) 50vw, 100vw" />
+                      </div>
+                    ) : null}
+                    <div className="p-5">
+                      <p className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-gold">
+                        <MapPin size={13} strokeWidth={2} />
+                        {h.city}
+                      </p>
+                      <p className="mt-1.5 text-[14.5px] font-semibold text-text">{h.title}</p>
+                      <p className="mt-1.5 text-[13px] leading-relaxed text-text-soft">
+                        {h.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
           {product.itinerary ? (
             <div className="mt-10">
               <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
@@ -169,6 +202,11 @@ export default async function TravelDetailPage({
                     <span className="font-display flex-shrink-0 text-[15px] font-semibold text-gold">
                       Day {day.day}
                     </span>
+                    {day.image ? (
+                      <div className="relative hidden h-20 w-28 flex-shrink-0 overflow-hidden rounded-lg sm:block">
+                        <CoverImage src={getImage(day.image)} alt={day.title} sizes="112px" />
+                      </div>
+                    ) : null}
                     <div>
                       <p className="text-[14.5px] font-semibold text-text">
                         {day.title}
@@ -197,6 +235,34 @@ export default async function TravelDetailPage({
                         </div>
                       ) : null}
                     </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {product.customizationQA?.length ? (
+            <div className="mt-10">
+              <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
+                이렇게 바꾸셔도 됩니다
+              </h2>
+              <div className="mt-5 flex flex-col gap-4">
+                {product.customizationQA.map((qa) => (
+                  <div
+                    key={qa.question}
+                    className="rounded-xl border border-border bg-ivory p-5"
+                  >
+                    <p className="flex items-start gap-2 text-[14px] font-semibold text-text">
+                      <MessageCircleQuestion
+                        size={17}
+                        strokeWidth={2}
+                        className="mt-0.5 flex-shrink-0 text-forest"
+                      />
+                      &ldquo;{qa.question}&rdquo;
+                    </p>
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-text-soft">
+                      {qa.answer}
+                    </p>
                   </div>
                 ))}
               </div>

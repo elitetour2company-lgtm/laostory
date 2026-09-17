@@ -1,5 +1,5 @@
 import { supabaseServer } from "@/lib/supabase/server";
-import { Product, ProductType, ItineraryDay } from "@/types";
+import { Product, ProductType, ItineraryDay, CustomizationQA, DestinationHighlight } from "@/types";
 import { getRatingSummaries } from "@/lib/data/reviews";
 
 const TYPE_MAP: Record<string, ProductType> = {
@@ -29,6 +29,9 @@ type ProductRow = {
   excluded: string[];
   itinerary: ItineraryDay[] | null;
   featured: boolean;
+  min_participants: number | null;
+  customization_qa: CustomizationQA[] | null;
+  destination_highlights: DestinationHighlight[] | null;
 };
 
 function mapRow(row: ProductRow): Product {
@@ -52,6 +55,9 @@ function mapRow(row: ProductRow): Product {
     included: row.included,
     excluded: row.excluded,
     itinerary: row.itinerary ?? undefined,
+    minParticipants: row.min_participants ?? undefined,
+    customizationQA: row.customization_qa ?? undefined,
+    destinationHighlights: row.destination_highlights ?? undefined,
   };
 }
 

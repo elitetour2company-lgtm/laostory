@@ -18,7 +18,7 @@ const labelClass = "mb-1.5 block text-[13px] font-medium text-text-soft";
 export default function ConsultationForm() {
   const searchParams = useSearchParams();
   const itemsParam = searchParams.get("items");
-  const initialMessage = itemsParam ? `[찜한 상품] ${itemsParam}\n\n` : "";
+  const initialMessage = itemsParam ? `[문의 상품] ${itemsParam}\n\n` : "";
   const initialTravelDate = searchParams.get("travelDate") ?? "";
   const initialStyle = searchParams.get("style");
   const defaultStyle =

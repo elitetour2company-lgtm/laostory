@@ -148,6 +148,26 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
           />
         </label>
         <label>
+          <span className={labelClass}>
+            홀수 인원 카트비 추가요금 (원 — 선택, 2인 1카트 기준 홀수 인원일 때 인당 추가되는 금액)
+          </span>
+          <input
+            name="oddHeadcountCartFee"
+            type="number"
+            defaultValue={course?.odd_headcount_cart_fee ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>홀수 인원 카트비 추가요금 (달러 — 선택)</span>
+          <input
+            name="oddHeadcountCartFeeUsd"
+            type="number"
+            defaultValue={course?.odd_headcount_cart_fee_usd ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
           <span className={labelClass}>대표 이미지 키 (data/images.ts 참고)</span>
           <input name="image" defaultValue={course?.image ?? ""} className={fieldClass} />
         </label>

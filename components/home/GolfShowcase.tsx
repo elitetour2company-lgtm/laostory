@@ -49,7 +49,7 @@ export default async function GolfShowcase() {
         </div>
 
         <Link
-          href="/travel/laos-golf-premium"
+          href="/travel/laos-golf-poolvilla-3nights"
           className="group relative mt-6 flex flex-col overflow-hidden rounded-xl md:mt-8 md:flex-row md:items-center"
         >
           <div className="relative h-40 w-full overflow-hidden md:h-auto md:w-64 md:flex-shrink-0 md:self-stretch">

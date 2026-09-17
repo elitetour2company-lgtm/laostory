@@ -8,6 +8,19 @@ export interface ItineraryDay {
   description: string;
   hotel?: string;
   meals?: string[];
+  image?: string;
+}
+
+export interface CustomizationQA {
+  question: string;
+  answer: string;
+}
+
+export interface DestinationHighlight {
+  city: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 export interface Product {
@@ -32,6 +45,9 @@ export interface Product {
   itinerary?: ItineraryDay[];
   rating?: number;
   reviewCount?: number;
+  minParticipants?: number;
+  customizationQA?: CustomizationQA[];
+  destinationHighlights?: DestinationHighlight[];
 }
 
 export interface Villa {
@@ -64,6 +80,9 @@ export interface GolfCourse {
   /** Sat/Sun green fee. Undefined means the course charges the same rate every day. */
   weekendPrice?: number;
   weekendPriceUsd?: number;
+  /** Extra per-seat cart fee charged when the group can't split evenly into 2-seat carts. Undefined means no cart, or the course doesn't apply this surcharge. */
+  oddHeadcountCartFee?: number;
+  oddHeadcountCartFeeUsd?: number;
   image?: string;
   gallery: string[];
   yardage?: number;

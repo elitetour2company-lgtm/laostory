@@ -105,6 +105,15 @@ export default function ProductForm({ product }: { product?: AdminProductRow }) 
           <input name="badge" defaultValue={product?.badge ?? ""} className={fieldClass} />
         </label>
         <label>
+          <span className={labelClass}>최소 인원 (선택, 비워두면 표시 안 됨)</span>
+          <input
+            name="minParticipants"
+            type="number"
+            defaultValue={product?.min_participants ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
           <span className={labelClass}>
             대표 이미지 키 (data/images.ts 참고, 예: product-1)
           </span>
@@ -171,7 +180,43 @@ export default function ProductForm({ product }: { product?: AdminProductRow }) 
           }
           rows={8}
           placeholder={
-            '[\n  { "day": 1, "title": "도착", "description": "공항 픽업 후 숙소 체크인" }\n]'
+            '[\n  { "day": 1, "title": "도착", "description": "공항 픽업 후 숙소 체크인", "hotel": "OO호텔", "meals": ["석식"], "image": "kuang-si-falls" }\n]'
+          }
+          className={`${fieldClass} resize-none font-mono text-[12.5px]`}
+        />
+      </label>
+
+      <label className="block">
+        <span className={labelClass}>
+          도시별 소개 (JSON 형식 — 선택, 비워두면 표시 안 됨)
+        </span>
+        <textarea
+          name="destinationHighlights"
+          defaultValue={
+            product?.destination_highlights
+              ? JSON.stringify(product.destination_highlights, null, 2)
+              : ""
+          }
+          rows={6}
+          placeholder={
+            '[\n  { "city": "루앙프라방", "title": "새벽 탁발의 도시", "description": "유네스코 세계문화유산으로...", "image": "luangprabang-almsgiving-morning" }\n]'
+          }
+          className={`${fieldClass} resize-none font-mono text-[12.5px]`}
+        />
+      </label>
+
+      <label className="block">
+        <span className={labelClass}>
+          일정 변경 Q&A (JSON 형식 — 선택, 비워두면 표시 안 됨)
+        </span>
+        <textarea
+          name="customizationQa"
+          defaultValue={
+            product?.customization_qa ? JSON.stringify(product.customization_qa, null, 2) : ""
+          }
+          rows={6}
+          placeholder={
+            '[\n  { "question": "새벽 탁발은 너무 이른데요", "answer": "빼셔도 됩니다. 대신 그 시간에 더 주무시고..." }\n]'
           }
           className={`${fieldClass} resize-none font-mono text-[12.5px]`}
         />

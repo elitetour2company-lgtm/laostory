@@ -20,7 +20,9 @@ export default function ProductCard({
     <div className="group relative overflow-hidden rounded-xl border border-border bg-white transition-shadow duration-300 hover:shadow-[0_8px_28px_-8px_rgba(18,60,50,0.18)]">
       <Link
         href={`/travel/${product.slug}`}
-        aria-label={`${product.title} - ${formatPrice(product.price)}`}
+        aria-label={`${product.title} - ${
+          product.price === 0 ? "가격 문의" : formatPrice(product.price)
+        }`}
         className="absolute inset-0 z-10"
       />
       <div className="relative aspect-[4/3] overflow-hidden">

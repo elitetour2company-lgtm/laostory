@@ -22,6 +22,9 @@ export type AdminProductRow = {
   itinerary: { day: number; title: string; description: string }[] | null;
   featured: boolean;
   status: string;
+  min_participants: number | null;
+  customization_qa: { question: string; answer: string }[] | null;
+  destination_highlights: { city: string; title: string; description: string; image?: string }[] | null;
 };
 
 export async function getAdminProducts(): Promise<AdminProductRow[]> {

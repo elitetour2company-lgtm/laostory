@@ -186,6 +186,14 @@
  *   assigned by the agency owner to the destinations gallery, the
  *   Mekong sunset cruise tour gallery, and the Luang Prabang·Vang Vieng
  *   3-night free package product gallery.
+ * - asiaClubVangviengHero + asiaClubVangviengGallery1-4: Asia Club golf
+ *   course, Vang Vieng — real photos of this specific course, provided
+ *   by the agency owner (2026-09-17). Hero is a rainbow-over-the-green
+ *   shot (most striking of the batch); gallery adds a karst-mountain
+ *   fairway view, two wide lake/fairway landscapes, and a clean
+ *   putting-green shot. Out of 14 supplied photos, 9 were left unused
+ *   (redundant group/umbrella shots, close-up cart shots, and a
+ *   construction-site-adjacent frame).
  * - lcrTrainFrontview: LCR (Laos-China Railway) high-speed train, front
  *   3/4 view at a station platform — supplied by the agency owner, usage
  *   rights obtained from the Lao Ministry of Public Works and Transport
@@ -274,6 +282,12 @@ const src = {
   booyoungCCGallery10: img("booyoung-cc-10.png"),
   booyoungCCGallery11: img("booyoung-cc-12.png"),
   booyoungCCGallery12: img("booyoung-cc-13.png"),
+
+  asiaClubVangviengHero: img("asia-club-vangvieng-2.jpeg"),
+  asiaClubVangviengGallery1: img("asia-club-vangvieng-1.jpeg"),
+  asiaClubVangviengGallery2: img("asia-club-vangvieng-3.jpeg"),
+  asiaClubVangviengGallery3: img("asia-club-vangvieng-4.jpeg"),
+  asiaClubVangviengGallery4: img("asia-club-vangvieng-5.jpeg"),
 
   vangviengBluelagoonSwim: img("vangvieng-bluelagoon-swim.png"),
   vangviengBluelagoonSlide: img("vangvieng-bluelagoon-slide.png"),
@@ -453,6 +467,11 @@ type ImageKey =
   | "course-booyoung-cc-g11"
   | "course-booyoung-cc-g12"
   | "course-booyoung-cc-g13"
+  | "course-asia-club-vangvieng"
+  | "course-asia-club-vangvieng-g1"
+  | "course-asia-club-vangvieng-g2"
+  | "course-asia-club-vangvieng-g3"
+  | "course-asia-club-vangvieng-g4"
   | "course-luang-prabang-golf-club"
   | "course-luang-prabang-golf-club-g1"
   | "course-luang-prabang-golf-club-g2"
@@ -664,6 +683,13 @@ export const images: Record<ImageKey, string | undefined> = {
 
   // Owner-provided real photo of Booyoung (SEA Games) Golf Club, Vientiane.
   "course-booyoung-cc": src.booyoungCCClubhouseAerial,
+
+  // Owner-provided real photos of Asia Club, Vang Vieng.
+  "course-asia-club-vangvieng": src.asiaClubVangviengHero,
+  "course-asia-club-vangvieng-g1": src.asiaClubVangviengGallery1,
+  "course-asia-club-vangvieng-g2": src.asiaClubVangviengGallery2,
+  "course-asia-club-vangvieng-g3": src.asiaClubVangviengGallery3,
+  "course-asia-club-vangvieng-g4": src.asiaClubVangviengGallery4,
   "course-booyoung-cc-g1": src.booyoungCCGallery1,
   "course-booyoung-cc-g2": src.booyoungCCGallery2,
   "course-booyoung-cc-g3": src.booyoungCCGallery3,

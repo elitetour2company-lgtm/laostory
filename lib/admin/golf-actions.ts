@@ -55,6 +55,14 @@ export async function upsertGolfCourseAction(
       const raw = String(formData.get("weekendPriceUsd") ?? "").trim();
       return raw ? Number(raw) : null;
     })(),
+    oddHeadcountCartFee: (() => {
+      const raw = String(formData.get("oddHeadcountCartFee") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
+    oddHeadcountCartFeeUsd: (() => {
+      const raw = String(formData.get("oddHeadcountCartFeeUsd") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
     yardage: (() => {
       const raw = String(formData.get("yardage") ?? "").trim();
       return raw ? Number(raw) : null;

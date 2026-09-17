@@ -11,6 +11,8 @@ type Props = {
   priceUsd?: number;
   weekendPrice?: number;
   weekendPriceUsd?: number;
+  oddHeadcountCartFee?: number;
+  oddHeadcountCartFeeUsd?: number;
   maxGuests?: number;
   compact?: boolean;
 };
@@ -41,6 +43,8 @@ export default function GolfPriceCalculator({
   priceUsd,
   weekendPrice,
   weekendPriceUsd,
+  oddHeadcountCartFee,
+  oddHeadcountCartFeeUsd,
   maxGuests = 20,
   compact = false,
 }: Props) {
@@ -52,8 +56,14 @@ export default function GolfPriceCalculator({
   const unitPriceUsd = weekend && weekendPriceUsd ? weekendPriceUsd : priceUsd;
   const hasWeekendRate = Boolean(weekendPrice && weekendPrice !== price);
 
-  const total = unitPrice * guests;
-  const totalUsd = unitPriceUsd !== undefined ? unitPriceUsd * guests : undefined;
+  // A lone golfer has no cart to split, so the surcharge only kicks in once a
+  // group of 3+ can't divide evenly into 2-seat carts.
+  const needsOddCart = guests >= 3 && guests % 2 !== 0;
+  const cartSurcharge = needsOddCart && oddHeadcountCartFee ? oddHeadcountCartFee : 0;
+  const cartSurchargeUsd = needsOddCart && oddHeadcountCartFeeUsd ? oddHeadcountCartFeeUsd : 0;
+
+  const total = unitPrice * guests + cartSurcharge;
+  const totalUsd = unitPriceUsd !== undefined ? unitPriceUsd * guests + cartSurchargeUsd : undefined;
 
   const decrement = () => setGuests((g) => Math.max(1, g - 1));
   const increment = () => setGuests((g) => Math.min(maxGuests, g + 1));
@@ -133,6 +143,9 @@ export default function GolfPriceCalculator({
               {weekend ? "주말가" : "평일가"} {formatPrice(unitPrice)} × {guests}인
             </p>
           ) : null}
+          {cartSurcharge > 0 ? (
+            <p className="text-[10px] text-text-soft">홀수 인원 카트비 +{formatPrice(cartSurcharge)}</p>
+          ) : null}
         </div>
         <Button href={bookingHref} variant="primary" className="flex-shrink-0">
           예약하기
@@ -166,6 +179,11 @@ export default function GolfPriceCalculator({
         {guests > 1 ? (
           <p className="mt-0.5 text-[12px] text-text-soft">
             <span className="tabular-nums">{formatPrice(unitPrice)}</span> × {guests}인
+          </p>
+        ) : null}
+        {cartSurcharge > 0 ? (
+          <p className="mt-0.5 text-[12px] text-text-soft">
+            홀수 인원 카트비 +<span className="tabular-nums">{formatPrice(cartSurcharge)}</span>
           </p>
         ) : null}
         {totalUsd !== undefined ? (
