@@ -20,6 +20,8 @@ type GolfRow = {
   original_price: number | null;
   price_usd: number | null;
   original_price_usd: number | null;
+  weekend_price: number | null;
+  weekend_price_usd: number | null;
   image: string | null;
   gallery: string[] | null;
   yardage: number | null;
@@ -42,6 +44,8 @@ function mapRow(row: GolfRow): GolfCourse {
     originalPrice: row.original_price ?? undefined,
     priceUsd: row.price_usd ?? undefined,
     originalPriceUsd: row.original_price_usd ?? undefined,
+    weekendPrice: row.weekend_price ?? undefined,
+    weekendPriceUsd: row.weekend_price_usd ?? undefined,
     image: row.image ?? undefined,
     gallery: row.gallery ?? [],
     yardage: row.yardage ?? undefined,

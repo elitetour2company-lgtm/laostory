@@ -10,7 +10,7 @@ import TravelNotices from "@/components/ui/TravelNotices";
 import WishlistButton from "@/components/ui/WishlistButton";
 import ShareButton from "@/components/ui/ShareButton";
 import LocationMap from "@/components/ui/LocationMap";
-import GuestPriceCalculator from "@/components/ui/GuestPriceCalculator";
+import GolfPriceCalculator from "@/components/golf/GolfPriceCalculator";
 import { getGolfCourseBySlug, getGolfCourseSlugs } from "@/lib/data/golf";
 import { getReviewsForProduct } from "@/lib/data/reviews";
 import { getImage } from "@/data/images";
@@ -233,29 +233,25 @@ export default async function GolfCourseDetailPage({
         </div>
 
         <aside className="hidden h-fit rounded-xl border border-border bg-white p-6 md:sticky md:top-28 md:block">
-          <GuestPriceCalculator
+          <GolfPriceCalculator
             itemName={course.name}
-            topLabel="그린피"
-            unitLabel="1인기준"
             price={course.price}
-            originalPrice={course.originalPrice}
             priceUsd={course.priceUsd}
-            originalPriceUsd={course.originalPriceUsd}
+            weekendPrice={course.weekendPrice}
+            weekendPriceUsd={course.weekendPriceUsd}
           />
         </aside>
       </Container>
 
       <div className="fixed inset-x-0 bottom-16 z-40 border-t border-border bg-white/95 p-4 backdrop-blur-sm md:hidden">
         <div className="flex items-center justify-between gap-4">
-          <GuestPriceCalculator
+          <GolfPriceCalculator
             compact
             itemName={course.name}
-            topLabel="그린피"
-            unitLabel="1인기준"
             price={course.price}
-            originalPrice={course.originalPrice}
             priceUsd={course.priceUsd}
-            originalPriceUsd={course.originalPriceUsd}
+            weekendPrice={course.weekendPrice}
+            weekendPriceUsd={course.weekendPriceUsd}
           />
         </div>
       </div>

@@ -75,7 +75,6 @@ export default async function TransportPage() {
                     slug={item.slug}
                     title={item.title}
                     route={item.route}
-                    price={item.price}
                   />
                 ) : (
                   <div

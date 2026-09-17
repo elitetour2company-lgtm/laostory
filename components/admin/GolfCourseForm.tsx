@@ -128,6 +128,26 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
           />
         </label>
         <label>
+          <span className={labelClass}>
+            주말(토·일) 가격 (원 — 선택, 비워두면 평일과 동일한 가격으로 표시됩니다)
+          </span>
+          <input
+            name="weekendPrice"
+            type="number"
+            defaultValue={course?.weekend_price ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>주말(토·일) 가격 (달러 — 선택)</span>
+          <input
+            name="weekendPriceUsd"
+            type="number"
+            defaultValue={course?.weekend_price_usd ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
           <span className={labelClass}>대표 이미지 키 (data/images.ts 참고)</span>
           <input name="image" defaultValue={course?.image ?? ""} className={fieldClass} />
         </label>

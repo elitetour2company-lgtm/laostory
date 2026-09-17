@@ -25,12 +25,10 @@ export default function TrainBookingWidget({
   slug,
   title,
   route,
-  price,
 }: {
   slug: string;
   title: string;
   route: string;
-  price: number;
 }) {
   const scheduleKey = slug.replace(/^train-/, "");
   const departures = TRAIN_SCHEDULES[scheduleKey] ?? [];
@@ -41,7 +39,7 @@ export default function TrainBookingWidget({
   const [children, setChildren] = useState(0);
 
   const selected = departures.find((d) => d.code === selectedCode) ?? null;
-  const total = price * (adults + children);
+  const total = (selected?.price ?? 0) * (adults + children);
 
   const min = todayISO();
 
@@ -52,7 +50,7 @@ export default function TrainBookingWidget({
 
   const applyHref = (() => {
     if (!date || !selected) return null;
-    const items = `${title} / ${formatDateKorean(date)} ${selected.code}편 (${selected.depart} 출발) / 성인 ${adults}명${
+    const items = `${title} / ${formatDateKorean(date)} ${selected.code}편 (${selected.depart} 출발, ${formatPrice(selected.price)}) / 성인 ${adults}명${
       children > 0 ? `, 아동 ${children}명` : ""
     }`;
     const params = new URLSearchParams({
@@ -114,12 +112,19 @@ export default function TrainBookingWidget({
                       : "border-border text-text hover:border-forest/40"
                   }`}
                 >
-                  <span className="flex items-center gap-2">
-                    <Clock size={13} strokeWidth={1.5} />
-                    {d.depart} → {d.arrive}
+                  <span className="flex flex-col gap-0.5">
+                    <span className="flex items-center gap-2">
+                      <Clock size={13} strokeWidth={1.5} />
+                      {d.depart} → {d.arrive}
+                    </span>
+                    <span className="text-[11.5px] text-text-soft">
+                      {d.code} · {d.duration}
+                    </span>
                   </span>
-                  <span className="text-[11.5px] text-text-soft">
-                    {d.code} · {d.duration}
+                  <span
+                    className={`text-[13px] font-semibold ${isSelected ? "text-forest" : "text-text"}`}
+                  >
+                    {formatPrice(d.price)}
                   </span>
                 </button>
               );

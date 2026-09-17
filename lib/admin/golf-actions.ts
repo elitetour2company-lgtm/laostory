@@ -47,6 +47,14 @@ export async function upsertGolfCourseAction(
       const raw = String(formData.get("originalPriceUsd") ?? "").trim();
       return raw ? Number(raw) : null;
     })(),
+    weekendPrice: (() => {
+      const raw = String(formData.get("weekendPrice") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
+    weekendPriceUsd: (() => {
+      const raw = String(formData.get("weekendPriceUsd") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
     yardage: (() => {
       const raw = String(formData.get("yardage") ?? "").trim();
       return raw ? Number(raw) : null;

@@ -61,6 +61,9 @@ export interface GolfCourse {
   originalPrice?: number;
   priceUsd?: number;
   originalPriceUsd?: number;
+  /** Sat/Sun green fee. Undefined means the course charges the same rate every day. */
+  weekendPrice?: number;
+  weekendPriceUsd?: number;
   image?: string;
   gallery: string[];
   yardage?: number;

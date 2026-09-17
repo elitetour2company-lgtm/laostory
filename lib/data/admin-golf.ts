@@ -13,6 +13,8 @@ export type AdminGolfCourseRow = {
   original_price: number | null;
   price_usd: number | null;
   original_price_usd: number | null;
+  weekend_price: number | null;
+  weekend_price_usd: number | null;
   image: string | null;
   gallery: string[];
   yardage: number | null;
