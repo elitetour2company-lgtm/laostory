@@ -23,7 +23,7 @@ const CONTENT: Record<NoticeType, { cautions: string[]; preparations: string[] }
       "골프 장갑·모자·선글라스",
       "선크림 및 개인 세면도구",
       "현지에서는 원화 사용이 불가하니 달러로 환전해 오세요.",
-      "건기(11~3월)에는 아침저녁으로 선선해 얇은 겉옷이 필요하고, 우기(5~10월)에도 장마처럼 계속 내리기보다 짧은 스콜이 지나가는 정도입니다.",
+      "건기(11~3월)에는 아침저녁으로 선선해서 얇은 겉옷이 필요하고, 우기(5~10월)에도 장마처럼 계속 내리기보다 짧은 스콜이 지나가는 정도입니다.",
     ],
   },
   travel: {
@@ -53,8 +53,21 @@ const CONTENT: Record<NoticeType, { cautions: string[]; preparations: string[] }
   },
 };
 
-export default function TravelNotices({ type }: { type: NoticeType }) {
-  const { cautions, preparations } = CONTENT[type];
+export default function TravelNotices({
+  type,
+  extraCautions,
+  extraPreparations,
+}: {
+  type: NoticeType;
+  /** Product-specific notes appended after the shared cautions for this type (e.g. a tour's exact age/height limits). */
+  extraCautions?: string[];
+  extraPreparations?: string[];
+}) {
+  const base = CONTENT[type];
+  const cautions = extraCautions?.length ? [...base.cautions, ...extraCautions] : base.cautions;
+  const preparations = extraPreparations?.length
+    ? [...base.preparations, ...extraPreparations]
+    : base.preparations;
 
   return (
     <div className="mt-10">

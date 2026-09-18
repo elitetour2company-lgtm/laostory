@@ -194,7 +194,11 @@ export default async function TourDetailPage({
             <p className="mt-2 text-[13.5px] text-text-soft">{tour.meetingPoint}</p>
           </div>
 
-          <TravelNotices type="tour" />
+          <TravelNotices
+            type="tour"
+            extraCautions={tour.extraCautions}
+            extraPreparations={tour.extraPreparations}
+          />
 
           <div className="mt-10">
             <BookingProcess />

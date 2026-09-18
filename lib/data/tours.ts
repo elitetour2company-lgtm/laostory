@@ -23,6 +23,8 @@ type TourRow = {
   excluded: string[];
   schedule: ScheduleItem[];
   meeting_point: string;
+  extra_cautions: string[] | null;
+  extra_preparations: string[] | null;
 };
 
 function mapRow(row: TourRow): Tour {
@@ -41,6 +43,8 @@ function mapRow(row: TourRow): Tour {
     excluded: row.excluded,
     schedule: row.schedule,
     meetingPoint: row.meeting_point,
+    extraCautions: row.extra_cautions ?? undefined,
+    extraPreparations: row.extra_preparations ?? undefined,
   };
 }
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock, AlertTriangle } from "lucide-react";
 import Container from "@/components/ui/Container";
 import PageHeader from "@/components/ui/PageHeader";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -121,6 +121,29 @@ export default async function TransportPage() {
           </Container>
         );
       })}
+
+      <Container className="border-t border-border py-10 md:py-14">
+        <h3 className="flex items-center gap-1.5 text-[15px] font-semibold text-forest">
+          <AlertTriangle size={16} strokeWidth={2} />
+          유의사항
+        </h3>
+        <ul className="mt-3 space-y-2">
+          {[
+            "기차 수하물은 성인 20kg, 아동 10kg까지 무료입니다.",
+            "기차 아동은 키 150cm 이하 50% 할인, 키 120cm 이하는 1명까지 무료이며 상담 신청 후 적용해드립니다. 신청 화면의 예상 금액은 아동도 성인 요금 기준으로 계산됩니다.",
+            "기차 1등석·비즈니스석은 별도 문의로 안내해드립니다.",
+            "기차 시간표는 사정에 따라 일부 편이 운행되지 않을 수 있으며, 예약 시 운행 여부를 확인해드립니다.",
+            "전세밴·공항 픽업/샌딩은 15인승 차량 기준이며, 조인밴은 성수기에 더 큰 차량으로 대체될 수 있습니다.",
+            "조인밴은 방비엥·비엔티안 양방향 하루 3회(09:00·12:00·14:00) 고정 출발이며, 방향에 따라 픽업 포함 여부가 다를 수 있습니다.",
+            "비행기 연착 등으로 픽업 시간이 변경되는 경우 사전에 연락 주시면 추가 요금 없이 조정해드립니다.",
+          ].map((c) => (
+            <li key={c} className="flex items-start gap-2 text-[13px] leading-relaxed text-text-soft">
+              <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-text-soft/60" />
+              {c}
+            </li>
+          ))}
+        </ul>
+      </Container>
 
       <Container className="pb-14 text-center md:pb-20">
         <a

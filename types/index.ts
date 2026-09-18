@@ -116,6 +116,9 @@ export interface Tour {
   meetingPoint: string;
   rating?: number;
   reviewCount?: number;
+  /** Tour-specific safety/age/height notes appended after the shared "tour" TravelNotices cautions. */
+  extraCautions?: string[];
+  extraPreparations?: string[];
 }
 
 export interface TransportOption {
