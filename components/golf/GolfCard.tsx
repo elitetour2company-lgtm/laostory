@@ -23,7 +23,7 @@ export default function GolfCard({ course }: { course: GolfCourse }) {
         />
         <div className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-forest">
           <Flag size={12} strokeWidth={2} />
-          {course.holes} Holes
+          {course.holes}홀
         </div>
         <WishlistButton
           type="golf"

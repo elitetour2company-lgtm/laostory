@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <LegalContent
       title="이용약관"
-      updatedAt="준비중"
+      updatedAt="준비 중"
       sections={[
         {
           heading: "제1조 (목적)",

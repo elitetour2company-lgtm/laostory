@@ -102,7 +102,7 @@ export default async function GolfCourseDetailPage({
           <div className="grid grid-cols-2 gap-3 border-b border-border pb-8 sm:grid-cols-4">
             <div className="rounded-lg bg-ivory p-4">
               <p className="text-[20px] font-semibold text-forest">{course.holes}</p>
-              <p className="mt-0.5 text-[12px] text-text-soft">Holes</p>
+              <p className="mt-0.5 text-[12px] text-text-soft">홀 수</p>
             </div>
             <div className="rounded-lg bg-ivory p-4">
               <p className="text-[20px] font-semibold text-forest">
@@ -239,6 +239,11 @@ export default async function GolfCourseDetailPage({
             priceUsd={course.priceUsd}
             weekendPrice={course.weekendPrice}
             weekendPriceUsd={course.weekendPriceUsd}
+            peakSeasonLabel={course.peakSeasonLabel}
+            peakSeasonPrice={course.peakSeasonPrice}
+            peakSeasonPriceUsd={course.peakSeasonPriceUsd}
+            peakSeasonWeekendPrice={course.peakSeasonWeekendPrice}
+            peakSeasonWeekendPriceUsd={course.peakSeasonWeekendPriceUsd}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />
@@ -254,6 +259,11 @@ export default async function GolfCourseDetailPage({
             priceUsd={course.priceUsd}
             weekendPrice={course.weekendPrice}
             weekendPriceUsd={course.weekendPriceUsd}
+            peakSeasonLabel={course.peakSeasonLabel}
+            peakSeasonPrice={course.peakSeasonPrice}
+            peakSeasonPriceUsd={course.peakSeasonPriceUsd}
+            peakSeasonWeekendPrice={course.peakSeasonWeekendPrice}
+            peakSeasonWeekendPriceUsd={course.peakSeasonWeekendPriceUsd}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />

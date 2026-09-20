@@ -135,7 +135,7 @@ export default async function TransportPage() {
             "기차 시간표는 사정에 따라 일부 편이 운행되지 않을 수 있으며, 예약 시 운행 여부를 확인해드립니다.",
             "전세밴·공항 픽업/샌딩은 15인승 차량 기준이며, 조인밴은 성수기에 더 큰 차량으로 대체될 수 있습니다.",
             "조인밴은 방비엥·비엔티안 양방향 하루 3회(09:00·12:00·14:00) 고정 출발이며, 방향에 따라 픽업 포함 여부가 다를 수 있습니다.",
-            "비행기 연착 등으로 픽업 시간이 변경되는 경우 사전에 연락 주시면 추가 요금 없이 조정해드립니다.",
+            "비행기 연착 등으로 픽업 시간이 변경되는 경우 사전에 연락 주시면 추가요금 없이 조정해드립니다.",
           ].map((c) => (
             <li key={c} className="flex items-start gap-2 text-[13px] leading-relaxed text-text-soft">
               <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-text-soft/60" />

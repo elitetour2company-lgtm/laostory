@@ -17,7 +17,7 @@ export default async function AdminDashboardPage() {
     { label: "오늘 신규 문의", value: stats.todayInquiries, icon: CalendarDays },
     { label: "미처리 문의", value: stats.pendingInquiries, icon: Clock },
     { label: "전체 문의", value: stats.totalInquiries, icon: MessageSquare },
-    { label: "매출 (준비중)", value: "-", icon: TrendingUp },
+    { label: "매출 (준비 중)", value: "-", icon: TrendingUp },
   ];
 
   return (

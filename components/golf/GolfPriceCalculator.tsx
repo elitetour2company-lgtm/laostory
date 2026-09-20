@@ -11,6 +11,11 @@ type Props = {
   priceUsd?: number;
   weekendPrice?: number;
   weekendPriceUsd?: number;
+  peakSeasonLabel?: string;
+  peakSeasonPrice?: number;
+  peakSeasonPriceUsd?: number;
+  peakSeasonWeekendPrice?: number;
+  peakSeasonWeekendPriceUsd?: number;
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;
   maxGuests?: number;
@@ -30,6 +35,19 @@ function isWeekend(iso: string): boolean {
   return day === 0 || day === 6;
 }
 
+// Labels look like "12월~3월" — parse the two month numbers, which may wrap
+// across a calendar year (e.g. Oct through Mar).
+function parseSeasonMonths(label?: string): [number, number] | null {
+  if (!label) return null;
+  const match = label.match(/(\d+)월\s*~\s*(\d+)월/);
+  if (!match) return null;
+  return [Number(match[1]), Number(match[2])];
+}
+
+function isMonthInSeason(month: number, [start, end]: [number, number]): boolean {
+  return start <= end ? month >= start && month <= end : month >= start || month <= end;
+}
+
 function formatDateKorean(iso: string): string {
   const [y, m, d] = iso.split("-").map(Number);
   const date = new Date(y, m - 1, d);
@@ -43,6 +61,11 @@ export default function GolfPriceCalculator({
   priceUsd,
   weekendPrice,
   weekendPriceUsd,
+  peakSeasonLabel,
+  peakSeasonPrice,
+  peakSeasonPriceUsd,
+  peakSeasonWeekendPrice,
+  peakSeasonWeekendPriceUsd,
   oddHeadcountCartFee,
   oddHeadcountCartFeeUsd,
   maxGuests = 20,
@@ -52,9 +75,40 @@ export default function GolfPriceCalculator({
   const [guests, setGuests] = useState(1);
 
   const weekend = date ? isWeekend(date) : false;
-  const unitPrice = weekend && weekendPrice ? weekendPrice : price;
-  const unitPriceUsd = weekend && weekendPriceUsd ? weekendPriceUsd : priceUsd;
-  const hasWeekendRate = Boolean(weekendPrice && weekendPrice !== price);
+  const seasonMonths = parseSeasonMonths(peakSeasonLabel);
+  const isPeakSeason = Boolean(
+    date && seasonMonths && peakSeasonPrice && isMonthInSeason(Number(date.split("-")[1]), seasonMonths)
+  );
+
+  const unitPrice = isPeakSeason
+    ? weekend && peakSeasonWeekendPrice
+      ? peakSeasonWeekendPrice
+      : peakSeasonPrice!
+    : weekend && weekendPrice
+      ? weekendPrice
+      : price;
+  const unitPriceUsd = isPeakSeason
+    ? weekend && peakSeasonWeekendPriceUsd
+      ? peakSeasonWeekendPriceUsd
+      : peakSeasonPriceUsd
+    : weekend && weekendPriceUsd
+      ? weekendPriceUsd
+      : priceUsd;
+  const hasWeekendRate = Boolean(
+    isPeakSeason ? peakSeasonWeekendPrice && peakSeasonWeekendPrice !== peakSeasonPrice : weekendPrice && weekendPrice !== price
+  );
+  const hasPeakSeason = Boolean(seasonMonths && peakSeasonPrice);
+  const rateNote = !date
+    ? hasPeakSeason
+      ? `${peakSeasonLabel}에는 성수기 요금이 적용돼요`
+      : null
+    : isPeakSeason
+      ? `성수기(${peakSeasonLabel})${hasWeekendRate ? ` ${weekend ? "주말" : "평일"}` : ""} 요금이 적용돼요`
+      : hasWeekendRate
+        ? `${weekend ? "주말(토·일)" : "평일"} 요금이 적용돼요`
+        : hasPeakSeason
+          ? `${peakSeasonLabel} 외에는 지금 요금이 적용돼요`
+          : null;
 
   // A lone golfer has no cart to split, so the surcharge only kicks in once a
   // group of 3+ can't divide evenly into 2-seat carts.
@@ -138,9 +192,9 @@ export default function GolfPriceCalculator({
             <span className="tabular-nums">{formatPrice(total)}</span>
             <span className="text-[10.5px] font-normal text-text-soft">1인기준</span>
           </p>
-          {date && hasWeekendRate ? (
+          {date && (hasWeekendRate || isPeakSeason) ? (
             <p className="text-[10px] text-text-soft">
-              {weekend ? "주말가" : "평일가"} {formatPrice(unitPrice)} × {guests}인
+              {isPeakSeason ? "성수기가" : weekend ? "주말가" : "평일가"} {formatPrice(unitPrice)} × {guests}인
             </p>
           ) : null}
           {cartSurcharge > 0 ? (
@@ -161,11 +215,7 @@ export default function GolfPriceCalculator({
 
         <div className="mt-3">{dateField}</div>
 
-        {date && hasWeekendRate ? (
-          <p className="mt-1.5 text-[12px] text-text-soft">
-            {weekend ? "주말(토·일)" : "평일"} 요금이 적용돼요
-          </p>
-        ) : null}
+        {rateNote ? <p className="mt-1.5 text-[12px] text-text-soft">{rateNote}</p> : null}
 
         <div className="mt-3 flex items-center gap-3">
           <span className="text-[13px] text-text-soft">인원</span>
@@ -191,9 +241,17 @@ export default function GolfPriceCalculator({
             <span className="tabular-nums">{formatPriceUsd(totalUsd)}</span>
           </p>
         ) : null}
-        {hasWeekendRate ? (
+        {weekendPrice && weekendPrice !== price ? (
           <p className="mt-2 text-[11.5px] text-text-soft">
-            평일 {formatPrice(price)} · 주말 {formatPrice(weekendPrice!)}
+            평일 {formatPrice(price)} · 주말 {formatPrice(weekendPrice)}
+          </p>
+        ) : null}
+        {hasPeakSeason ? (
+          <p className="mt-0.5 text-[11.5px] text-text-soft">
+            {peakSeasonLabel} 성수기{" "}
+            {peakSeasonWeekendPrice && peakSeasonWeekendPrice !== peakSeasonPrice
+              ? `평일 ${formatPrice(peakSeasonPrice!)} · 주말 ${formatPrice(peakSeasonWeekendPrice)}`
+              : formatPrice(peakSeasonPrice!)}
           </p>
         ) : null}
       </div>

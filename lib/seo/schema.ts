@@ -7,7 +7,8 @@ export function organizationSchema() {
     name: SITE_NAME,
     alternateName: SITE_NAME_EN,
     url: SITE_URL,
-    telephone: CONTACT.phone,
+    // 전화번호가 아직 설정되지 않아 안내 문구("준비 중")가 들어 있을 때는 구조화 데이터에 넣지 않는다.
+    ...(/\d/.test(CONTACT.phone) ? { telephone: CONTACT.phone } : {}),
     sameAs: [CONTACT.kakaoUrl, CONTACT.telegramUrl, CONTACT.instagramUrl, CONTACT.facebookUrl].filter(
       (url) => url && url !== "#"
     ),

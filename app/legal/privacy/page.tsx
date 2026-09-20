@@ -11,7 +11,7 @@ export default function PrivacyPage() {
   return (
     <LegalContent
       title="개인정보처리방침"
-      updatedAt="준비중"
+      updatedAt="준비 중"
       sections={[
         {
           heading: "1. 수집하는 개인정보 항목",

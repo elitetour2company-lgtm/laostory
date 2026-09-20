@@ -12,6 +12,6 @@ export const MOBILE_NAV = [
   { label: "상품", href: "/travel" },
   { label: "골프", href: "/golf" },
   { label: "풀빌라", href: "/villas" },
-  { label: "찜한여행", href: "/wishlist" },
+  { label: "찜한상품", href: "/wishlist" },
   { label: "상담", href: "/consultation" },
 ] as const;

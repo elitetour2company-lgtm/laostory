@@ -38,7 +38,7 @@ async function getCategoryStats(): Promise<Record<string, string | null>> {
   };
 
   return {
-    "패키지 여행": stats(packageProducts.length, min(packageProducts.map((p) => p.price))),
+    패키지여행: stats(packageProducts.length, min(packageProducts.map((p) => p.price))),
     자유여행: stats(freeProducts.length, min(freeProducts.map((p) => p.price))),
     "풀빌라·호텔": stats(villas.length, min(villas.map((v) => v.price))),
     골프여행: stats(

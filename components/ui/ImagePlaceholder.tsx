@@ -16,7 +16,7 @@ export default function ImagePlaceholder({
         {label ? (
           <span className="text-xs font-medium tracking-wide">{label}</span>
         ) : null}
-        <span className="text-[10.5px] tracking-wide text-text-soft/60">사진 준비중</span>
+        <span className="text-[10.5px] tracking-wide text-text-soft/60">사진 준비 중</span>
       </div>
     </div>
   );

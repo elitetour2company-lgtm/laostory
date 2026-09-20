@@ -104,12 +104,12 @@ export default function Footer() {
 
         <div className="mt-14 border-t border-white/10 pt-8 text-xs leading-relaxed text-white/60">
           <p>
-            {SITE_NAME} | 대표 : 성명 준비중 | 사업자등록번호 : 000-00-00000
-            (준비중) | 통신판매업신고 : 제0000-라오스0000호 (준비중)
+            {SITE_NAME} | 대표 : 성명 준비 중 | 사업자등록번호 : 000-00-00000
+            (준비 중) | 통신판매업신고 : 제0000-라오스0000호 (준비 중)
           </p>
           <p className="mt-1.5">
-            관광사업자 등록번호 : 준비중 | 주소 : 라오스 현지 사무소 주소
-            준비중 | 대표전화 : {CONTACT.phone} | 이메일 : {CONTACT.email}
+            관광사업자 등록번호 : 준비 중 | 주소 : 라오스 현지 사무소 주소
+            준비 중 | 대표전화 : {CONTACT.phone} | 이메일 : {CONTACT.email}
           </p>
           <p className="mt-4 text-white/50">
             © {year} {SITE_NAME_EN}. All rights reserved. 본 사이트의 사업자

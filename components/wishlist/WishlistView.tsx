@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Heart, Trash2 } from "lucide-react";
 import Button from "@/components/ui/Button";
@@ -27,11 +27,14 @@ type TourRow = { slug: string; title: string; destination: string; image: string
 
 export default function WishlistView() {
   const [items, setItems] = useState<DisplayItem[] | null>(null);
+  const requestSeq = useRef(0);
 
   useEffect(() => {
     let cancelled = false;
 
     async function load() {
+      // 빠르게 연속 삭제할 때 늦게 도착한 이전 응답이 최신 상태를 덮어쓰지 않도록 요청 순번을 확인한다.
+      const seq = ++requestSeq.current;
       const saved = getWishlist();
       const bySlug = (type: WishlistItem["type"]) =>
         saved.filter((i) => i.type === type).map((i) => i.slug);
@@ -82,7 +85,7 @@ export default function WishlistView() {
         })),
       ];
 
-      if (!cancelled) setItems(result);
+      if (!cancelled && seq === requestSeq.current) setItems(result);
     }
 
     load();

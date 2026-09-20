@@ -149,6 +149,56 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
         </label>
         <label>
           <span className={labelClass}>
+            성수기 구간 (예: 12월~3월 — 선택, 비워두면 연중 동일 가격으로 표시됩니다)
+          </span>
+          <input
+            name="peakSeasonLabel"
+            type="text"
+            placeholder="예: 12월~3월"
+            defaultValue={course?.peak_season_label ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>성수기 가격 (원 — 선택)</span>
+          <input
+            name="peakSeasonPrice"
+            type="number"
+            defaultValue={course?.peak_season_price ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>성수기 가격 (달러 — 선택)</span>
+          <input
+            name="peakSeasonPriceUsd"
+            type="number"
+            defaultValue={course?.peak_season_price_usd ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>
+            성수기 주말 가격 (원 — 선택, 성수기에도 주중/주말 가격이 다른 골프장만 입력)
+          </span>
+          <input
+            name="peakSeasonWeekendPrice"
+            type="number"
+            defaultValue={course?.peak_season_weekend_price ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>성수기 주말 가격 (달러 — 선택)</span>
+          <input
+            name="peakSeasonWeekendPriceUsd"
+            type="number"
+            defaultValue={course?.peak_season_weekend_price_usd ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>
             홀수 인원 카트비 추가요금 (원 — 선택, 2인 1카트 기준 홀수 인원일 때 인당 추가되는 금액)
           </span>
           <input

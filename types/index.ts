@@ -80,6 +80,13 @@ export interface GolfCourse {
   /** Sat/Sun green fee. Undefined means the course charges the same rate every day. */
   weekendPrice?: number;
   weekendPriceUsd?: number;
+  /** Label for the higher-demand months (e.g. "12월~3월"). Undefined means the course charges the same rate year-round. */
+  peakSeasonLabel?: string;
+  peakSeasonPrice?: number;
+  peakSeasonPriceUsd?: number;
+  /** Sat/Sun rate during peak season, for courses that vary by both season and weekday. */
+  peakSeasonWeekendPrice?: number;
+  peakSeasonWeekendPriceUsd?: number;
   /** Extra per-seat cart fee charged when the group can't split evenly into 2-seat carts. Undefined means no cart, or the course doesn't apply this surcharge. */
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;

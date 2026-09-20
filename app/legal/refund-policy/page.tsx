@@ -11,7 +11,7 @@ export default function RefundPolicyPage() {
   return (
     <LegalContent
       title="예약·취소 규정"
-      updatedAt="준비중"
+      updatedAt="준비 중"
       sections={[
         {
           heading: "1. 예약 확정",
