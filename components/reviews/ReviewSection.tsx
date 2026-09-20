@@ -13,24 +13,28 @@ import { Review } from "@/types";
 const MAX_FILE_BYTES = 5 * 1024 * 1024;
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp"];
 
-type ProductType = "product" | "tour" | "golf_course";
+type ProductType = "product" | "tour" | "golf_course" | "villa";
 
 // DB `reviews.category` enum codes (see CATEGORY_MAP in lib/data/reviews.ts).
-type CategoryCode = "GOLF" | "POOL_VILLA" | "FREE_TRAVEL" | "PACKAGE_TOUR" | "TOUR";
+type CategoryCode = "GOLF" | "POOL_VILLA" | "HOTEL" | "FREE_TRAVEL" | "PACKAGE_TOUR" | "TOUR";
 
 const CATEGORY_LABEL: Record<CategoryCode, Review["category"]> = {
   GOLF: "골프",
   POOL_VILLA: "풀빌라",
+  HOTEL: "호텔",
   FREE_TRAVEL: "자유여행",
   PACKAGE_TOUR: "패키지",
   TOUR: "투어",
 };
 
-// Fallback when the page doesn't pass an explicit categoryCode.
+// Fallback when the page doesn't pass an explicit categoryCode. Villa pages
+// always pass an explicit categoryCode (POOL_VILLA vs HOTEL depends on the
+// specific listing), so this default is never actually relied on for "villa".
 const DEFAULT_CATEGORY: Record<ProductType, CategoryCode> = {
   golf_course: "GOLF",
   tour: "TOUR",
   product: "FREE_TRAVEL",
+  villa: "POOL_VILLA",
 };
 
 const fieldClass =

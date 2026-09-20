@@ -237,6 +237,8 @@ const src = {
   blueLagoonVangVieng: img("blue-lagoon-vangvieng.jpg"),
   minivanVientiane: img("minivan-vientiane.jpg"),
   hiaceCommuterNewgen: img("hiace-commuter-newgen.jpg"),
+  // Owner-provided portrait photo (white Toyota HiAce on a palm-lined city street) — used for the homepage category card.
+  categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
   belizeBluecreekZipline: img("belize-bluecreek-zipline.jpg"),
   vangviengKayakAction: img("vangvieng-kayak-action.jpg"),
@@ -288,6 +290,36 @@ const src = {
   asiaClubVangviengGallery2: img("asia-club-vangvieng-3.jpeg"),
   asiaClubVangviengGallery3: img("asia-club-vangvieng-4.jpeg"),
   asiaClubVangviengGallery4: img("asia-club-vangvieng-5.jpeg"),
+
+  yuwanVientianeHero: img("yuwan-vientiane-hero.png"),
+  yuwanVientianeGallery1: img("yuwan-vientiane-room-twin.webp"),
+  yuwanVientianeGallery2: img("yuwan-vientiane-room-king.webp"),
+  yuwanVientianeGallery3: img("yuwan-vientiane-pool.webp"),
+  yuwanVientianeGallery4: img("yuwan-vientiane-lobby.webp"),
+  yuwanVientianeGallery5: img("yuwan-vientiane-restaurant.webp"),
+  yuwanVientianeGallery6: img("yuwan-vientiane-suite.webp"),
+  yuwanVientianeGallery7: img("yuwan-vientiane-bathroom.webp"),
+
+  amariVientianeHero: img("amari-vientiane-hero.png"),
+  amariVientianeGallery1: img("amari-vientiane-sunset-sign.webp"),
+  amariVientianeGallery2: img("amari-vientiane-room-king.webp"),
+  amariVientianeGallery3: img("amari-vientiane-aerial.webp"),
+  amariVientianeGallery4: img("amari-vientiane-lobby.webp"),
+  amariVientianeGallery5: img("amari-vientiane-suite.webp"),
+  amariVientianeGallery6: img("amari-vientiane-restaurant.webp"),
+  amariVientianeGallery7: img("amari-vientiane-pool.webp"),
+  amariVientianeGallery8: img("amari-vientiane-bathroom.webp"),
+  amariVientianeGallery9: img("amari-vientiane-room-twin.webp"),
+
+  muongthanhVientianeHero: img("muongthanh-vientiane-hero.png"),
+  muongthanhVientianeGallery1: img("muongthanh-vientiane-night.webp"),
+  muongthanhVientianeGallery2: img("muongthanh-vientiane-skyrestaurant.webp"),
+  muongthanhVientianeGallery3: img("muongthanh-vientiane-breakfast.webp"),
+  muongthanhVientianeGallery4: img("muongthanh-vientiane-room-king.webp"),
+  muongthanhVientianeGallery5: img("muongthanh-vientiane-lobby.webp"),
+  muongthanhVientianeGallery6: img("muongthanh-vientiane-room-twin.webp"),
+  muongthanhVientianeGallery7: img("muongthanh-vientiane-pool.webp"),
+  muongthanhVientianeGallery8: img("muongthanh-vientiane-bathroom.webp"),
 
   vangviengBluelagoonSwim: img("vangvieng-bluelagoon-swim.png"),
   vangviengBluelagoonSlide: img("vangvieng-bluelagoon-slide.png"),
@@ -403,6 +435,33 @@ type ImageKey =
   | "villa-1"
   | "villa-2"
   | "villa-3"
+  | "hotel-yuwan-vientiane"
+  | "hotel-yuwan-vientiane-g1"
+  | "hotel-yuwan-vientiane-g2"
+  | "hotel-yuwan-vientiane-g3"
+  | "hotel-yuwan-vientiane-g4"
+  | "hotel-yuwan-vientiane-g5"
+  | "hotel-yuwan-vientiane-g6"
+  | "hotel-yuwan-vientiane-g7"
+  | "hotel-amari-vientiane"
+  | "hotel-amari-vientiane-g1"
+  | "hotel-amari-vientiane-g2"
+  | "hotel-amari-vientiane-g3"
+  | "hotel-amari-vientiane-g4"
+  | "hotel-amari-vientiane-g5"
+  | "hotel-amari-vientiane-g6"
+  | "hotel-amari-vientiane-g7"
+  | "hotel-amari-vientiane-g8"
+  | "hotel-amari-vientiane-g9"
+  | "hotel-muongthanh-vientiane"
+  | "hotel-muongthanh-vientiane-g1"
+  | "hotel-muongthanh-vientiane-g2"
+  | "hotel-muongthanh-vientiane-g3"
+  | "hotel-muongthanh-vientiane-g4"
+  | "hotel-muongthanh-vientiane-g5"
+  | "hotel-muongthanh-vientiane-g6"
+  | "hotel-muongthanh-vientiane-g7"
+  | "hotel-muongthanh-vientiane-g8"
   | "golf-hero"
   | "golf-1"
   | "golf-2"
@@ -562,7 +621,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "category-golf": src.longbienCCWelcomeSignVivid,
   // Real hot air balloon over Vang Vieng — replaces a Tad Lo elephant photo (wrong region; most of our tours are Vang Vieng activities, not the elephant sanctuary 500km south).
   "category-tour": src.hotairBalloonVangVieng,
-  "category-transport": src.hiaceCommuterNewgen,
+  "category-transport": src.categoryTransportVan,
 
   "destination-vientiane": src.phaThatLuang,
   "destination-vangvieng": src.vangviengViewpointFlag,
@@ -596,6 +655,39 @@ export const images: Record<ImageKey, string | undefined> = {
   "villa-2": undefined,
   // Amantaka is a real heritage-style resort in Luang Prabang — private pool suite, accurate match for "헤리티지 풀빌라".
   "villa-3": src.amantakaPoolSuite,
+
+  // Real 유은 호텔 (Vientiane) photography — owner-provided exterior hero plus room/facility photos.
+  "hotel-yuwan-vientiane": src.yuwanVientianeHero,
+  "hotel-yuwan-vientiane-g1": src.yuwanVientianeGallery1,
+  "hotel-yuwan-vientiane-g2": src.yuwanVientianeGallery2,
+  "hotel-yuwan-vientiane-g3": src.yuwanVientianeGallery3,
+  "hotel-yuwan-vientiane-g4": src.yuwanVientianeGallery4,
+  "hotel-yuwan-vientiane-g5": src.yuwanVientianeGallery5,
+  "hotel-yuwan-vientiane-g6": src.yuwanVientianeGallery6,
+  "hotel-yuwan-vientiane-g7": src.yuwanVientianeGallery7,
+
+  // Real 아마리 호텔 (Vientiane) photography — owner-provided sunset drone hero plus room/facility photos.
+  "hotel-amari-vientiane": src.amariVientianeHero,
+  "hotel-amari-vientiane-g1": src.amariVientianeGallery1,
+  "hotel-amari-vientiane-g2": src.amariVientianeGallery2,
+  "hotel-amari-vientiane-g3": src.amariVientianeGallery3,
+  "hotel-amari-vientiane-g4": src.amariVientianeGallery4,
+  "hotel-amari-vientiane-g5": src.amariVientianeGallery5,
+  "hotel-amari-vientiane-g6": src.amariVientianeGallery6,
+  "hotel-amari-vientiane-g7": src.amariVientianeGallery7,
+  "hotel-amari-vientiane-g8": src.amariVientianeGallery8,
+  "hotel-amari-vientiane-g9": src.amariVientianeGallery9,
+
+  // Real 무엉탄 럭셔리 호텔 (Vientiane) photography — owner-provided daytime hero plus room/facility photos.
+  "hotel-muongthanh-vientiane": src.muongthanhVientianeHero,
+  "hotel-muongthanh-vientiane-g1": src.muongthanhVientianeGallery1,
+  "hotel-muongthanh-vientiane-g2": src.muongthanhVientianeGallery2,
+  "hotel-muongthanh-vientiane-g3": src.muongthanhVientianeGallery3,
+  "hotel-muongthanh-vientiane-g4": src.muongthanhVientianeGallery4,
+  "hotel-muongthanh-vientiane-g5": src.muongthanhVientianeGallery5,
+  "hotel-muongthanh-vientiane-g6": src.muongthanhVientianeGallery6,
+  "hotel-muongthanh-vientiane-g7": src.muongthanhVientianeGallery7,
+  "hotel-muongthanh-vientiane-g8": src.muongthanhVientianeGallery8,
 
   // Honest non-Laos stand-ins for all golf slots below — Wikimedia Commons has zero Laos golf course photography (verified). Each slot uses a different photo so no two golf cards repeat the same image.
   "golf-hero": src.golfWaterHazard,

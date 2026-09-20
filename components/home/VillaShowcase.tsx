@@ -9,8 +9,8 @@ import { getImage } from "@/data/images";
 
 export default async function VillaShowcase() {
   const featuredVillas = await getAllVillas();
-  // No real villa inventory yet — hide the section rather than show an
-  // empty list next to the hero photo. Remove this guard once villas exist.
+  // Hide the section entirely when there's no published inventory yet,
+  // rather than show an empty list next to the hero photo.
   if (featuredVillas.length === 0) return null;
 
   return (
@@ -18,14 +18,14 @@ export default async function VillaShowcase() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
-            eyebrow="Private Villas"
-            title="라오스에서 만나는 나만의 프라이빗 공간"
+            eyebrow="Stays"
+            title="풀빌라부터 호텔까지, 편안한 숙소를 찾아보세요"
           />
           <Link
             href="/villas"
             className="hidden shrink-0 items-center gap-1.5 border-b border-forest py-2 text-sm font-medium text-forest transition-colors hover:text-forest-light md:inline-flex"
           >
-            풀빌라 전체보기
+            숙소 전체보기
             <ArrowRight size={14} strokeWidth={2} />
           </Link>
         </div>
@@ -77,7 +77,7 @@ export default async function VillaShowcase() {
                 </div>
                 <div className="flex flex-shrink-0 flex-col items-end justify-center gap-2">
                   <span className="text-sm font-semibold text-forest">
-                    {formatPrice(villa.price)}
+                    {villa.price === 0 ? "가격 문의" : formatPrice(villa.price)}
                   </span>
                   <ArrowRight
                     size={15}
@@ -95,7 +95,7 @@ export default async function VillaShowcase() {
             href="/villas"
             className="inline-flex items-center gap-1.5 border-b border-forest py-2 text-sm font-medium text-forest"
           >
-            풀빌라 전체보기
+            숙소 전체보기
             <ArrowRight size={14} strokeWidth={2} />
           </Link>
         </div>

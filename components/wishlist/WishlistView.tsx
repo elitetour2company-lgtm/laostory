@@ -24,6 +24,7 @@ type DisplayItem = {
 type ProductRow = { slug: string; title: string; category: string; destination: string; image: string | null; price: number };
 type GolfRow = { slug: string; name: string; location: string; image: string | null; price: number };
 type TourRow = { slug: string; title: string; destination: string; image: string | null; price: number };
+type VillaRow = { slug: string; name: string; location: string; image: string | null; price: number };
 
 export default function WishlistView() {
   const [items, setItems] = useState<DisplayItem[] | null>(null);
@@ -42,8 +43,9 @@ export default function WishlistView() {
       const travelSlugs = bySlug("travel");
       const golfSlugs = bySlug("golf");
       const tourSlugs = bySlug("tour");
+      const villaSlugs = bySlug("villa");
 
-      const [travelRes, golfRes, tourRes] = await Promise.all([
+      const [travelRes, golfRes, tourRes, villaRes] = await Promise.all([
         travelSlugs.length
           ? supabase.from("products").select("slug,title,category,destination,image,price").in("slug", travelSlugs)
           : Promise.resolve({ data: [] as ProductRow[] }),
@@ -53,6 +55,9 @@ export default function WishlistView() {
         tourSlugs.length
           ? supabase.from("tours").select("slug,title,destination,image,price").in("slug", tourSlugs)
           : Promise.resolve({ data: [] as TourRow[] }),
+        villaSlugs.length
+          ? supabase.from("villas").select("slug,name,location,image,price").eq("is_published", true).in("slug", villaSlugs)
+          : Promise.resolve({ data: [] as VillaRow[] }),
       ]);
 
       const result: DisplayItem[] = [
@@ -82,6 +87,15 @@ export default function WishlistView() {
           image: r.image ?? undefined,
           price: r.price,
           href: `/tours/${r.slug}`,
+        })),
+        ...((villaRes.data ?? []) as VillaRow[]).map((r) => ({
+          type: "villa" as const,
+          slug: r.slug,
+          title: r.name,
+          subtitle: r.location,
+          image: r.image ?? undefined,
+          price: r.price,
+          href: `/villas/${r.slug}`,
         })),
       ];
 

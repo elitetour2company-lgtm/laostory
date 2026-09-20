@@ -1,5 +1,6 @@
 import { supabaseServer } from "@/lib/supabase/server";
 import { Villa } from "@/types";
+import { getRatingSummaries } from "@/lib/data/reviews";
 
 type VillaRow = {
   slug: string;
@@ -11,6 +12,7 @@ type VillaRow = {
   has_private_pool: boolean;
   price: number;
   image: string | null;
+  gallery: string[] | null;
   description: string;
   facilities: string[];
   nearby: string[];
@@ -27,27 +29,41 @@ function mapRow(row: VillaRow): Villa {
     hasPrivatePool: row.has_private_pool,
     price: row.price,
     image: row.image ?? undefined,
+    gallery: row.gallery ?? [],
     description: row.description,
     facilities: row.facilities,
     nearby: row.nearby,
   };
 }
 
-// Villa/hotel products are on hold until real inventory is confirmed
-// (owner is still sourcing actual properties) — the 3 rows still in the
-// `villas` table are placeholder data from early development and must not
-// be shown to real visitors. Short-circuiting these fetchers to empty
-// keeps the existing "coming soon" empty states on /villas and related
-// pages, without touching the DB rows. Remove these early returns once
-// real villa listings are entered via the admin.
+// `is_published` gates rows in the `villas` table so early-development
+// placeholder rows never reach real visitors — only rows the owner has
+// confirmed as real inventory (name/price/photos verified) are published.
 export async function getAllVillas(): Promise<Villa[]> {
-  return [];
+  const [{ data, error }, ratings] = await Promise.all([
+    supabaseServer.from("villas").select("*").eq("is_published", true).order("created_at", { ascending: true }),
+    getRatingSummaries("villa"),
+  ]);
+  if (error || !data) return [];
+  return data.map((row) => {
+    const summary = ratings[row.slug];
+    return { ...mapRow(row), rating: summary?.rating, reviewCount: summary?.count };
+  });
 }
 
-export async function getVillaBySlug(_slug: string): Promise<Villa | null> {
-  return null;
+export async function getVillaBySlug(slug: string): Promise<Villa | null> {
+  const { data, error } = await supabaseServer
+    .from("villas")
+    .select("*")
+    .eq("slug", slug)
+    .eq("is_published", true)
+    .maybeSingle();
+  if (error || !data) return null;
+  return mapRow(data);
 }
 
 export async function getVillaSlugs(): Promise<string[]> {
-  return [];
+  const { data, error } = await supabaseServer.from("villas").select("slug").eq("is_published", true);
+  if (error || !data) return [];
+  return data.map((r) => r.slug);
 }

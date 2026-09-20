@@ -154,7 +154,7 @@ export default async function DestinationDetailPage({
 
       {relatedVillas.length > 0 && (
         <Container className="mt-14 border-t border-border pt-10 md:mt-16 md:pt-14">
-          <SectionHeading eyebrow="Private Villas" title="관련 풀빌라" />
+          <SectionHeading eyebrow="Stays" title="관련 숙소" />
           <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
             {relatedVillas.map((v) => (
               <VillaCard key={v.slug} villa={v} />

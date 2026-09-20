@@ -1,6 +1,6 @@
 const KEY = "laostory_wishlist";
 
-export type WishlistType = "travel" | "golf" | "tour";
+export type WishlistType = "travel" | "golf" | "tour" | "villa";
 export type WishlistItem = { type: WishlistType; slug: string };
 
 function readAll(): WishlistItem[] {

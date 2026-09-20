@@ -32,9 +32,9 @@ export default async function VillasPage({
   return (
     <>
       <PageHeader
-        eyebrow="Private Villas"
+        eyebrow="Stays"
         title="풀빌라·호텔"
-        description="라오스에서 만나는 나만의 프라이빗 공간, 지역별로 골라보세요."
+        description="라오스에서 묵을 곳, 지역별로 골라보세요."
       />
 
       <Container className="py-10 md:py-14">

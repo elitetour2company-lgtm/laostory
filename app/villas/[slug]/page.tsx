@@ -3,12 +3,18 @@ import { notFound } from "next/navigation";
 import { Users, BedDouble, Bath, Waves, Check, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
+import PhotoGallery from "@/components/ui/PhotoGallery";
 import Button from "@/components/ui/Button";
+import LocationMap from "@/components/ui/LocationMap";
+import WishlistButton from "@/components/ui/WishlistButton";
+import ShareButton from "@/components/ui/ShareButton";
 import { getVillaBySlug, getVillaSlugs } from "@/lib/data/villas";
+import { getReviewsForProduct } from "@/lib/data/reviews";
 import { getImage } from "@/data/images";
 import { formatPrice } from "@/lib/format";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, productSchema } from "@/lib/seo/schema";
+import ReviewSection from "@/components/reviews/ReviewSection";
 
 export async function generateStaticParams() {
   const slugs = await getVillaSlugs();
@@ -46,6 +52,12 @@ export default async function VillaDetailPage({
   const villa = await getVillaBySlug(slug);
   if (!villa) notFound();
 
+  const reviews = await getReviewsForProduct("villa", villa.slug);
+
+  const bookingHref = `/consultation?items=${encodeURIComponent(
+    `${villa.name} - ${villa.price === 0 ? "가격 문의" : formatPrice(villa.price)}`
+  )}`;
+
   const keyInfo = [
     { icon: Users, label: `최대 ${villa.maxGuests}명` },
     { icon: BedDouble, label: `침실 ${villa.bedrooms}개` },
@@ -79,6 +91,10 @@ export default async function VillaDetailPage({
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-forest/5 to-transparent" />
+        <div className="absolute right-4 top-20 flex items-center gap-2 md:top-24">
+          <ShareButton title={villa.name} />
+          <WishlistButton type="villa" slug={villa.slug} />
+        </div>
         <Container className="absolute inset-x-0 bottom-0 pb-6 md:pb-10">
           <p className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-gold-soft">
             <MapPin size={13} strokeWidth={2} />
@@ -103,6 +119,26 @@ export default async function VillaDetailPage({
               </span>
             ))}
           </div>
+
+          <LocationMap query={`${villa.name}, ${villa.location}, 라오스`} />
+
+          {villa.gallery.length > 0 ? (
+            <div className="mt-8">
+              <PhotoGallery
+                photos={[
+                  ...(getImage(villa.image)
+                    ? [{ key: "hero", src: getImage(villa.image)!, alt: villa.name }]
+                    : []),
+                  ...villa.gallery
+                    .map((key, i) => {
+                      const src = getImage(key);
+                      return src ? { key, src, alt: `${villa.name} 사진 ${i + 2}` } : null;
+                    })
+                    .filter((p): p is { key: string; src: string; alt: string } => p !== null),
+                ]}
+              />
+            </div>
+          ) : null}
 
           <p className="mt-6 text-[15px] leading-relaxed text-text md:text-base">
             {villa.description}
@@ -141,17 +177,32 @@ export default async function VillaDetailPage({
               ))}
             </ul>
           </div>
+
+          <ReviewSection
+            productType="villa"
+            productSlug={villa.slug}
+            productName={villa.name}
+            initialReviews={reviews}
+            categoryCode={villa.hasPrivatePool ? "POOL_VILLA" : "HOTEL"}
+            destination={villa.location}
+          />
         </div>
 
         <aside className="hidden h-fit rounded-xl border border-border bg-white p-6 md:sticky md:top-28 md:block">
-          <p className="text-[13px] text-text-soft">1박기준</p>
-          <p className="mt-1 text-[22px] font-semibold text-forest">
-            {formatPrice(villa.price)}
-          </p>
-          <Button href="/consultation" variant="primary" className="mt-5 w-full">
+          {villa.price === 0 ? (
+            <p className="text-[22px] font-semibold text-forest">가격 문의</p>
+          ) : (
+            <>
+              <p className="text-[13px] text-text-soft">1박기준</p>
+              <p className="mt-1 text-[22px] font-semibold text-forest">
+                {formatPrice(villa.price)}
+              </p>
+            </>
+          )}
+          <Button href={bookingHref} variant="primary" className="mt-5 w-full">
             예약하기
           </Button>
-          <Button href="/consultation" variant="ghost" className="mt-2.5 w-full">
+          <Button href={bookingHref} variant="ghost" className="mt-2.5 w-full">
             1:1 여행상담
           </Button>
         </aside>
@@ -160,12 +211,18 @@ export default async function VillaDetailPage({
       <div className="fixed inset-x-0 bottom-16 z-40 border-t border-border bg-white/95 p-4 backdrop-blur-sm md:hidden">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-[11px] text-text-soft">1박기준</p>
-            <p className="text-[16px] font-semibold text-forest">
-              {formatPrice(villa.price)}
-            </p>
+            {villa.price === 0 ? (
+              <p className="text-[16px] font-semibold text-forest">가격 문의</p>
+            ) : (
+              <>
+                <p className="text-[11px] text-text-soft">1박기준</p>
+                <p className="text-[16px] font-semibold text-forest">
+                  {formatPrice(villa.price)}
+                </p>
+              </>
+            )}
           </div>
-          <Button href="/consultation" variant="primary" className="flex-shrink-0">
+          <Button href={bookingHref} variant="primary" className="flex-shrink-0">
             예약하기
           </Button>
         </div>

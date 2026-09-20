@@ -6,10 +6,12 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import ProductCard from "@/components/product/ProductCard";
 import GolfCard from "@/components/golf/GolfCard";
 import TourCard from "@/components/tour/TourCard";
+import VillaCard from "@/components/villa/VillaCard";
 import { getAllProducts } from "@/lib/data/products";
 import { getAllGolfCourses } from "@/lib/data/golf";
 import { getAllTours } from "@/lib/data/tours";
 import { getAllTransportOptions } from "@/lib/data/transport";
+import { getAllVillas } from "@/lib/data/villas";
 import { formatPrice } from "@/lib/format";
 
 export async function generateMetadata({
@@ -47,11 +49,12 @@ export default async function SearchPage({
     );
   }
 
-  const [allProducts, allGolfCourses, allTours, allTransportOptions] = await Promise.all([
+  const [allProducts, allGolfCourses, allTours, allTransportOptions, allVillas] = await Promise.all([
     getAllProducts(),
     getAllGolfCourses(),
     getAllTours(),
     getAllTransportOptions(),
+    getAllVillas(),
   ]);
 
   const q_ = query.toLowerCase();
@@ -68,9 +71,12 @@ export default async function SearchPage({
   const transportOptions = allTransportOptions.filter((t) =>
     [t.title, t.route, t.category].some((f) => f.toLowerCase().includes(q_))
   );
+  const villas = allVillas.filter((v) =>
+    [v.name, v.location].some((f) => f.toLowerCase().includes(q_))
+  );
 
   const totalCount =
-    products.length + golfCourses.length + tours.length + transportOptions.length;
+    products.length + golfCourses.length + tours.length + transportOptions.length + villas.length;
 
   return (
     <>
@@ -122,6 +128,17 @@ export default async function SearchPage({
               <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-8 md:grid-cols-3">
                 {tours.map((tour) => (
                   <TourCard key={tour.slug} tour={tour} />
+                ))}
+              </div>
+            </Container>
+          ) : null}
+
+          {villas.length > 0 ? (
+            <Container className="border-t border-border py-10 first:border-t-0 md:py-14">
+              <SectionHeading eyebrow="Stays" title="숙소" />
+              <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-8 md:grid-cols-3">
+                {villas.map((villa) => (
+                  <VillaCard key={villa.slug} villa={villa} />
                 ))}
               </div>
             </Container>

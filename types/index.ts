@@ -60,9 +60,12 @@ export interface Villa {
   hasPrivatePool: boolean;
   price: number;
   image?: string;
+  gallery: string[];
   description: string;
   facilities: string[];
   nearby: string[];
+  rating?: number;
+  reviewCount?: number;
 }
 
 export interface GolfCourse {
@@ -156,7 +159,7 @@ export interface Review {
   customerName: string;
   destination: string;
   product: string;
-  category: "골프" | "풀빌라" | "자유여행" | "패키지" | "투어";
+  category: "골프" | "풀빌라" | "호텔" | "자유여행" | "패키지" | "투어";
   date: string;
   rating: number;
   content: string;

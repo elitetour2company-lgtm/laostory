@@ -4,6 +4,7 @@ import { Review } from "@/types";
 const CATEGORY_MAP: Record<string, Review["category"]> = {
   GOLF: "골프",
   POOL_VILLA: "풀빌라",
+  HOTEL: "호텔",
   FREE_TRAVEL: "자유여행",
   PACKAGE_TOUR: "패키지",
   TOUR: "투어",
@@ -48,7 +49,7 @@ export async function getAllReviews(): Promise<Review[]> {
 }
 
 export async function getRatingSummaries(
-  productType: "product" | "tour" | "golf_course"
+  productType: "product" | "tour" | "golf_course" | "villa"
 ): Promise<Record<string, { rating: number; count: number }>> {
   const { data, error } = await supabaseServer
     .from("reviews")
@@ -74,7 +75,7 @@ export async function getRatingSummaries(
 }
 
 export async function getReviewsForProduct(
-  productType: "product" | "tour" | "golf_course",
+  productType: "product" | "tour" | "golf_course" | "villa",
   productSlug: string
 ): Promise<Review[]> {
   const { data, error } = await supabaseServer

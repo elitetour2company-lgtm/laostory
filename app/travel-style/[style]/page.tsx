@@ -112,7 +112,7 @@ export default async function TravelStylePage({
 
       {config.showVillas && featuredVillas.length > 0 && (
         <Container className="border-t border-border py-10 md:py-14">
-          <SectionHeading eyebrow="Private Villas" title="추천 풀빌라" />
+          <SectionHeading eyebrow="Stays" title="추천 숙소" />
           <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
             {featuredVillas.map((v) => (
               <VillaCard key={v.slug} villa={v} />
