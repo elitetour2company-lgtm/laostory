@@ -38,12 +38,8 @@
  * - luangPrabangNightMarket: "Luang Prabang Night Market 2016 (HDR)" by Ekrem Canli, CC-BY-SA-4.0
  * - takBatMonks: "A man gives to the last monk in the line" (Tak Bat
  *   alms-giving, Luang Prabang) by shankar s., CC-BY-2.0
- * - amantakaPoolSuite: "Swimming pool of Khan Pool Suite in Amantaka
- *   luxury Resort & Hotel in Luang Prabang, Laos" by Basile Morin,
- *   CC-BY-SA-4.0 — a genuine private pool suite at a real Luang
- *   Prabang resort
- * - amantakaMainPool: "Swimming pool and main building of Amantaka
- *   luxury Resort & Hotel in Luang Prabang, Laos" by Basile Morin, CC-BY-SA-4.0
+ * - (amantakaPoolSuite / amantakaMainPool were removed once the owner
+ *   supplied a photo of the villa actually sold in the golf+villa package)
  * - tadFane: "Tad Fane Waterfall" by Supanut Arunoprayote, CC-BY-4.0
  * - tadLoElephant: "Asian elephant walking in Tad Lo river at golden hour" by Basile Morin, CC-BY-SA-4.0
  * - riceFarmers: "Two farmers ... paddy field of Vang Vieng" by Basile Morin, CC-BY-SA-4.0
@@ -212,8 +208,9 @@ const src = {
   kuangSiFalls: img("kuang-si-falls.jpg"),
   luangPrabangNightMarket: img("luangprabang-nightmarket.jpg"),
   takBatMonks: img("takbat-monks.jpg"),
-  amantakaPoolSuite: img("amantaka-pool-suite.jpg"),
-  amantakaMainPool: img("amantaka-main-pool.jpg"),
+  // Owner-provided night shot of the pool villa used in the golf+villa package (960px original, two crops).
+  poolvillaNightTall: img("poolvilla-night-tall.jpg"),
+  poolvillaNightWide: img("poolvilla-night-wide.jpg"),
   tadFane: img("tad-fane-waterfall.jpg"),
   tadLoElephant: img("tad-lo-elephant.jpg"),
   riceFarmers: img("rice-farmers.jpg"),
@@ -430,6 +427,8 @@ type ImageKey =
   | "villa-1"
   | "villa-2"
   | "villa-3"
+  | "poolvilla-night-tall"
+  | "poolvilla-night-wide"
   | "hotel-yuwan-vientiane"
   | "hotel-yuwan-vientiane-g1"
   | "hotel-yuwan-vientiane-g2"
@@ -613,7 +612,7 @@ export const images: Record<ImageKey, string | undefined> = {
 
   "category-package": src.luangPrabangTemple,
   "category-freetravel": src.vangViengPaddy,
-  "category-villa": src.amantakaMainPool,
+  "category-villa": src.poolvillaNightTall,
   // Owner-provided Lao CC drone shot (Vientiane) — fairway runs top-to-bottom, so it survives the tall 4:5 card crop; no signage text.
   "category-golf": src.laoCCAerialTown,
   // Real hot air balloon over Vang Vieng — replaces a Tad Lo elephant photo (wrong region; most of our tours are Vang Vieng activities, not the elephant sanctuary 500km south).
@@ -646,13 +645,15 @@ export const images: Record<ImageKey, string | undefined> = {
   "product-9": src.golfBackupTeeOff,
   "product-10": src.golfBackupFairwayPath,
 
-  "villa-hero": src.amantakaPoolSuite,
+  "villa-hero": src.poolvillaNightTall,
+  "poolvilla-night-tall": src.poolvillaNightTall,
+  "poolvilla-night-wide": src.poolvillaNightWide,
   // Real Vang Vieng guesthouse bungalow row (terrace/exterior). No pool visible, but a genuine local villa-style stay.
   "villa-1": src.vangViengBungalows,
   // TODO: no real "Vientiane + Mekong view + pool villa" photo exists on Commons. Left as an honest placeholder rather than a misleading substitute.
   "villa-2": undefined,
-  // Amantaka is a real heritage-style resort in Luang Prabang — private pool suite, accurate match for "헤리티지 풀빌라".
-  "villa-3": src.amantakaPoolSuite,
+  // Unpublished placeholder row — shares the owner's villa photo so nothing references the deleted Amantaka file.
+  "villa-3": src.poolvillaNightTall,
 
   // Real 유은 호텔 (Vientiane) photography — owner-provided exterior hero plus room/facility photos.
   "hotel-yuwan-vientiane": src.yuwanVientianeHero,
@@ -692,14 +693,14 @@ export const images: Record<ImageKey, string | undefined> = {
   "golf-1": src.golfSunsetHill,
   "golf-2": src.golfBunker,
   "golf-3": src.golfBackupTeeOff,
-  // Real Vang Vieng pool villa (vangviengPoolvillaReal) — this banner/pick text names Vang Vieng specifically, so the Luang Prabang Amantaka photo used previously was both a repeat of villa-hero/villa-3 and the wrong region.
-  "golf-villa-combo": src.vangviengPoolvillaReal,
+  // Owner's villa photo (wide crop) — replaces the 600px vangviengPoolvillaReal thumbnail.
+  "golf-villa-combo": src.poolvillaNightWide,
 
   "picks-luangprabang-activity": src.takBatMonks,
 
   "guide-1": src.vangViengPaddy,
   "guide-2": src.vangViengClouds,
-  "guide-3": src.amantakaMainPool,
+  "guide-3": src.poolvillaNightWide,
   // Honest non-Laos stand-in — see golf attribution note above.
   "guide-4": src.laoCCFairwayPond,
   // Real Luang Prabang temple photo — accurate match for the Luang Prabang guide.
