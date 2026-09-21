@@ -730,8 +730,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-mekong-cc": src.mekongCCHero2,
   // Owner-provided real photo of Lao CC, Vientiane.
   "course-lao-cc": src.laoCCAerialClover,
-  // Owner-provided real aerial photo of Longbien Golf Club, Vientiane.
-  "course-longbien-cc": src.longbienCCClubhouseAerial,
+  // Owner-provided real photo of Longbien Golf Club's clubhouse sign, Vientiane.
+  "course-longbien-cc": src.longbienCCGallery6,
 
   // Gallery photos — Mekong Golf & Resort, Vientiane.
   "course-mekong-cc-g1": src.mekongCCGallery1,
