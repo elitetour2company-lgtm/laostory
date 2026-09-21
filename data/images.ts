@@ -606,8 +606,10 @@ type ImageKey =
   | "luangprabang-kuangsi-alt";
 
 export const images: Record<ImageKey, string | undefined> = {
-  hero: src.vangViengHero,
-  "editorial-vangvieng": src.vangViengClouds,
+  // Interim swap until the owner sources a 3000px+ hero: the dawn sea-of-clouds shot has far more drama for
+  // the first screen, and the calmer paddy-reflection shot suits the quieter editorial band below it.
+  hero: src.vangViengClouds,
+  "editorial-vangvieng": src.vangViengHero,
 
   "category-package": src.luangPrabangTemple,
   "category-freetravel": src.vangViengPaddy,

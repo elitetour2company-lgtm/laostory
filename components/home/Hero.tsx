@@ -19,7 +19,7 @@ export default function Hero() {
         <p className="text-sm font-medium tracking-[0.25em] text-white/85">
           LAOS
         </p>
-        <h1 className="font-display mt-5 max-w-2xl text-[38px] font-semibold leading-[1.2] text-white md:text-[58px]">
+        <h1 className="font-display mt-5 max-w-2xl break-keep text-[38px] font-semibold leading-[1.2] text-white md:text-[58px]">
           당신의 다음 여행, 라오스
         </h1>
         <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/80 md:text-base">
