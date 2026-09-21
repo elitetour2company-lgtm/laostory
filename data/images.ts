@@ -82,11 +82,6 @@
  *   CC-BY-SA-4.0 — GPS-verified match to the actual Blue Lagoon 1 site.
  * - minivanVientiane: "Nissan Civilian in Vientiane" by Ilya Plekhanov,
  *   CC-BY-SA-3.0 — generic Laos passenger minibus, no third-party branding.
- * - hiaceCommuterNewgen: "2020 HiAce Commuter (Thai-Spec) 2.8 6AT" by
- *   Thitichai R, CC-BY-SA-4.0 — the current (2019+, semi-bonnet) Toyota
- *   HiAce Commuter, the correct van generation actually used for
- *   Vientiane charter/airport service; replaces the old cab-over
- *   minibus stand-ins on airport transfer and charter-van listings.
  * - watPhouChampasak: "Three quarter view of the ruined Khmer Hindu temple
  *   of Wat Phou with blue sky in Champasak, Laos" — CC-BY-SA-4.0, real
  *   Pakse-area UNESCO landmark.
@@ -236,8 +231,7 @@ const src = {
   mekongSunsetCruiseLP: img("mekong-sunset-cruise-lp.jpg"),
   blueLagoonVangVieng: img("blue-lagoon-vangvieng.jpg"),
   minivanVientiane: img("minivan-vientiane.jpg"),
-  hiaceCommuterNewgen: img("hiace-commuter-newgen.jpg"),
-  // Owner-provided portrait photo (white Toyota HiAce on a palm-lined city street) — used for the homepage category card.
+  // Owner-provided photo (white Toyota HiAce on a palm-lined city street) — homepage category card and all van thumbnails.
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
   belizeBluecreekZipline: img("belize-bluecreek-zipline.jpg"),
@@ -811,7 +805,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "train-vientiane-station": src.lcrTrainFrontview,
   "tour-mekong-cruise-lp": src.mekongSunsetDondet,
   "tour-blue-lagoon": src.blueLagoonVangVieng,
-  "transport-minivan": src.hiaceCommuterNewgen,
+  "transport-minivan": src.categoryTransportVan,
 
   // Owner-provided real Vang Vieng activity photos.
   "vv-bluelagoon-swim": src.vangviengBluelagoonSwim,
