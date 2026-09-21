@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Users, BedDouble, Waves, Star } from "lucide-react";
 import { Villa } from "@/types";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, formatPriceUsd } from "@/lib/format";
 import CoverImage from "@/components/ui/CoverImage";
 import WishlistButton from "@/components/ui/WishlistButton";
 import { getImage } from "@/data/images";
@@ -61,6 +61,9 @@ export default function VillaCard({ villa }: { villa: Villa }) {
               <span className="text-[15px] font-semibold text-forest">
                 {formatPrice(villa.price)}
               </span>
+              {villa.priceUsd ? (
+                <span className="text-[11px] text-text-soft">{formatPriceUsd(villa.priceUsd)}</span>
+              ) : null}
             </span>
           )}
         </div>

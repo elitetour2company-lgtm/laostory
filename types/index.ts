@@ -59,6 +59,7 @@ export interface Villa {
   bathrooms: number;
   hasPrivatePool: boolean;
   price: number;
+  priceUsd?: number;
   image?: string;
   gallery: string[];
   description: string;

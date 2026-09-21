@@ -11,6 +11,7 @@ type VillaRow = {
   bathrooms: number;
   has_private_pool: boolean;
   price: number;
+  price_usd: number | null;
   image: string | null;
   gallery: string[] | null;
   description: string;
@@ -28,6 +29,7 @@ function mapRow(row: VillaRow): Villa {
     bathrooms: row.bathrooms,
     hasPrivatePool: row.has_private_pool,
     price: row.price,
+    priceUsd: row.price_usd ?? undefined,
     image: row.image ?? undefined,
     gallery: row.gallery ?? [],
     description: row.description,

@@ -3,7 +3,7 @@ import { Users, BedDouble, Waves, ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CoverImage from "@/components/ui/CoverImage";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, formatPriceUsd } from "@/lib/format";
 import { getAllVillas } from "@/lib/data/villas";
 import { getImage } from "@/data/images";
 
@@ -76,8 +76,13 @@ export default async function VillaShowcase() {
                   </div>
                 </div>
                 <div className="flex flex-shrink-0 flex-col items-end justify-center gap-2">
-                  <span className="text-sm font-semibold text-forest">
-                    {villa.price === 0 ? "가격 문의" : formatPrice(villa.price)}
+                  <span className="flex flex-col items-end">
+                    <span className="text-sm font-semibold text-forest">
+                      {villa.price === 0 ? "가격 문의" : formatPrice(villa.price)}
+                    </span>
+                    {villa.price !== 0 && villa.priceUsd ? (
+                      <span className="text-[11px] text-text-soft">{formatPriceUsd(villa.priceUsd)}</span>
+                    ) : null}
                   </span>
                   <ArrowRight
                     size={15}

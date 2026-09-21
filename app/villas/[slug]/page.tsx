@@ -11,7 +11,7 @@ import ShareButton from "@/components/ui/ShareButton";
 import { getVillaBySlug, getVillaSlugs } from "@/lib/data/villas";
 import { getReviewsForProduct } from "@/lib/data/reviews";
 import { getImage } from "@/data/images";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, formatPriceUsd } from "@/lib/format";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, productSchema } from "@/lib/seo/schema";
 import ReviewSection from "@/components/reviews/ReviewSection";
@@ -54,9 +54,11 @@ export default async function VillaDetailPage({
 
   const reviews = await getReviewsForProduct("villa", villa.slug);
 
-  const bookingHref = `/consultation?items=${encodeURIComponent(
-    `${villa.name} - ${villa.price === 0 ? "가격 문의" : formatPrice(villa.price)}`
-  )}`;
+  const priceLabel =
+    villa.price === 0
+      ? "가격 문의"
+      : `${formatPrice(villa.price)}${villa.priceUsd ? ` (${formatPriceUsd(villa.priceUsd)})` : ""}`;
+  const bookingHref = `/consultation?items=${encodeURIComponent(`${villa.name} - ${priceLabel}`)}`;
 
   const keyInfo = [
     { icon: Users, label: `최대 ${villa.maxGuests}명` },
@@ -197,6 +199,9 @@ export default async function VillaDetailPage({
               <p className="mt-1 text-[22px] font-semibold text-forest">
                 {formatPrice(villa.price)}
               </p>
+              {villa.priceUsd ? (
+                <p className="mt-0.5 text-[13px] text-text-soft">{formatPriceUsd(villa.priceUsd)}</p>
+              ) : null}
             </>
           )}
           <Button href={bookingHref} variant="primary" className="mt-5 w-full">
@@ -216,8 +221,13 @@ export default async function VillaDetailPage({
             ) : (
               <>
                 <p className="text-[11px] text-text-soft">1박기준</p>
-                <p className="text-[16px] font-semibold text-forest">
+                <p className="flex items-baseline gap-1.5 text-[16px] font-semibold text-forest">
                   {formatPrice(villa.price)}
+                  {villa.priceUsd ? (
+                    <span className="text-[11px] font-normal text-text-soft">
+                      {formatPriceUsd(villa.priceUsd)}
+                    </span>
+                  ) : null}
                 </p>
               </>
             )}
