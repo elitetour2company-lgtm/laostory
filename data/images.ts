@@ -809,7 +809,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "tour-buggy": src.buggyVangVieng,
   // Genuine 4-seat/2-row buggy (the shared "tour-buggy" photo above reads as a 2-seat vehicle).
   "tour-buggy-4seat": src.buggy4seatPolaris,
-  "train-lcr-exterior": src.lcrTrainViaductWide,
+  "train-lcr-exterior": src.lcrTrainFrontview,
   "train-lcr-interior": src.lcrTrainFrontview,
   "train-vientiane-station": src.lcrTrainFrontview,
   "tour-mekong-cruise-lp": src.mekongSunsetDondet,
