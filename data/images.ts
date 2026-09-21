@@ -372,6 +372,7 @@ const src = {
   laoCCElephantMascot: img("lao-cc-elephant-mascot.png"),
   longbienCCClubhouseAerial: img("longbien-cc-clubhouse-aerial.jpg"),
   longbienCCGoldenGreen: img("longbien-cc-golden-green.webp"),
+  longbienCCWelcomeSignVivid: img("longbien-cc-welcome-sign-vivid.webp"),
   booyoungCCClubhouseAerial: img("booyoung-cc-clubhouse-aerial.jpg"),
   booyoungCCElephant: img("booyoung-cc-elephant.jpg"),
 
@@ -730,8 +731,10 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-mekong-cc": src.mekongCCHero2,
   // Owner-provided real photo of Lao CC, Vientiane.
   "course-lao-cc": src.laoCCAerialClover,
-  // Owner-provided real photo of Longbien Golf Club's clubhouse sign, Vientiane.
-  "course-longbien-cc": src.longbienCCGallery6,
+  // Owner-chosen welcome-sign photo, Longbien Golf Club, Vientiane — "CLUB" is
+  // foreshortened by the camera angle and hard to read, but the owner prefers
+  // this shot over the clearer clubhouse-sign alternative (course-longbien-cc-g6).
+  "course-longbien-cc": src.longbienCCWelcomeSignVivid,
 
   // Gallery photos — Mekong Golf & Resort, Vientiane.
   "course-mekong-cc-g1": src.mekongCCGallery1,
