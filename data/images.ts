@@ -373,6 +373,7 @@ const src = {
   laoCCElephantMascot: img("lao-cc-elephant-mascot.png"),
   longbienCCClubhouseAerial: img("longbien-cc-clubhouse-aerial.jpg"),
   longbienCCGoldenGreen: img("longbien-cc-golden-green.webp"),
+  golfCourseSunsetGreen: img("golf-course-sunset-green.jpg"),
   longbienCCWelcomeSignVivid: img("longbien-cc-welcome-sign-vivid.webp"),
   booyoungCCClubhouseAerial: img("booyoung-cc-clubhouse-aerial.jpg"),
   booyoungCCElephant: img("booyoung-cc-elephant.jpg"),
@@ -691,7 +692,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "hotel-muongthanh-vientiane-g8": src.muongthanhVientianeGallery8,
 
   // Honest non-Laos stand-ins for all golf slots below — Wikimedia Commons has zero Laos golf course photography (verified). Each slot uses a different photo so no two golf cards repeat the same image.
-  "golf-hero": src.longbienCCGoldenGreen,
+  "golf-hero": src.golfCourseSunsetGreen,
   "golf-1": src.golfSunsetHill,
   "golf-2": src.golfBunker,
   "golf-3": src.golfBackupTeeOff,
