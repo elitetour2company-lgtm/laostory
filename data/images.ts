@@ -367,6 +367,7 @@ const src = {
   laoCCAerialClover: img("lao-cc-aerial-clover.jpg"),
   laoCCFountainClubhouse: img("lao-cc-fountain-clubhouse.webp"),
   laoCCAerialTown: img("lao-cc-aerial-town.webp"),
+  golfCourseSunriseGreens: img("golf-course-sunrise-greens.jpg"),
   laoCCFairwayPond: img("lao-cc-fairway-pond.webp"),
   laoCCTopiarySign: img("lao-cc-topiary-sign.jpg"),
   laoCCElephantMascot: img("lao-cc-elephant-mascot.png"),
@@ -615,7 +616,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "category-freetravel": src.vangViengPaddy,
   "category-villa": src.poolvillaNightTall,
   // Owner-provided Lao CC drone shot (Vientiane) — fairway runs top-to-bottom, so it survives the tall 4:5 card crop; no signage text.
-  "category-golf": src.laoCCAerialTown,
+  "category-golf": src.golfCourseSunriseGreens,
   // Real hot air balloon over Vang Vieng — replaces a Tad Lo elephant photo (wrong region; most of our tours are Vang Vieng activities, not the elephant sanctuary 500km south).
   "category-tour": src.hotairBalloonVangVieng,
   "category-transport": src.categoryTransportVan,
