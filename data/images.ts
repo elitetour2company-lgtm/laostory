@@ -50,8 +50,9 @@
  * - poolBali / poolSunset / poolDanang / riverFisherman: NOT Laos —
  *   kept only as raw files from the previous pass, no longer referenced
  *   below (see git history if needed)
- * - golfSunsetHill / golfBunker / golfWaterHazard / golfBackupTeeOff /
+ * - golfSunsetHill / golfBunker / golfBackupTeeOff /
  *   golfBackupFairwayPath: generic tropical golf courses (Thailand),
+ *   (golfWaterHazard was removed once real Laos course photos existed)
  *   NOT Laos. Wikimedia Commons has zero Laos golf course photography
  *   (verified against the site's own sports-venue category tree) —
  *   these are used only as an honest "golf, generally" stand-in and
@@ -218,7 +219,6 @@ const src = {
   riceFarmers: img("rice-farmers.jpg"),
   golfSunsetHill: img("golf-sunset-hill.jpg"),
   golfBunker: img("golf-bunker.jpg"),
-  golfWaterHazard: img("golf-water-hazard.jpg"),
   golfBackupTeeOff: img("golf-backup-teeoff.jpg"),
   golfBackupFairwayPath: img("golf-backup-fairwaypath.jpg"),
   wattayAirportShuttle: img("wattay-airport-shuttle.jpg"),
@@ -226,6 +226,8 @@ const src = {
   hotairBalloonVangVieng: img("hotair-balloon-vangvieng.jpg"),
   buggyVangVieng: img("buggy-vangvieng.jpg"),
   lcrTrainExterior: img("lcr-train-exterior.jpg"),
+  // Landscape crop of lcrTrainExterior (the original is portrait, which put the train outside the 21:9 hero band).
+  lcrTrainViaductWide: img("lcr-train-viaduct-wide.jpg"),
   lcrTrainInterior: img("lcr-train-interior.jpg"),
   vientianeRailwayStation: img("vientiane-railway-station.jpg"),
   mekongSunsetCruiseLP: img("mekong-sunset-cruise-lp.jpg"),
@@ -373,7 +375,6 @@ const src = {
   laoCCElephantMascot: img("lao-cc-elephant-mascot.png"),
   longbienCCClubhouseAerial: img("longbien-cc-clubhouse-aerial.jpg"),
   longbienCCGoldenGreen: img("longbien-cc-golden-green.webp"),
-  longbienCCWelcomeSignVivid: img("longbien-cc-welcome-sign-vivid.webp"),
   booyoungCCClubhouseAerial: img("booyoung-cc-clubhouse-aerial.jpg"),
   booyoungCCElephant: img("booyoung-cc-elephant.jpg"),
 
@@ -611,8 +612,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "category-package": src.luangPrabangTemple,
   "category-freetravel": src.vangViengPaddy,
   "category-villa": src.amantakaMainPool,
-  // Real Lakeview CC photo (Vientiane) — replaces the earlier non-Laos golf stand-in.
-  "category-golf": src.longbienCCWelcomeSignVivid,
+  // Owner-provided Lao CC drone shot (Vientiane) — fairway runs top-to-bottom, so it survives the tall 4:5 card crop; no signage text.
+  "category-golf": src.laoCCAerialTown,
   // Real hot air balloon over Vang Vieng — replaces a Tad Lo elephant photo (wrong region; most of our tours are Vang Vieng activities, not the elephant sanctuary 500km south).
   "category-tour": src.hotairBalloonVangVieng,
   "category-transport": src.categoryTransportVan,
@@ -620,7 +621,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "destination-vientiane": src.phaThatLuang,
   "destination-vangvieng": src.vangviengViewpointFlag,
   "destination-luangprabang": src.kuangSiFalls,
-  "destination-pakse": src.tadFane,
+  // Tad Fane twin falls with a zipliner — landscape, so the falls survive the 21:9 hero crop (the plain tadFane shot is portrait-ish).
+  "destination-pakse": src.bolavenZiplineAction,
   // Real Wat Phou ruins, Champasak province — genuine Pakse-area landmark.
   "destination-pakse-g1": src.watPhouChampasak,
   // Real Bolaven Plateau coffee plantation — genuine Pakse-area landmark.
@@ -684,7 +686,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "hotel-muongthanh-vientiane-g8": src.muongthanhVientianeGallery8,
 
   // Honest non-Laos stand-ins for all golf slots below — Wikimedia Commons has zero Laos golf course photography (verified). Each slot uses a different photo so no two golf cards repeat the same image.
-  "golf-hero": src.golfWaterHazard,
+  "golf-hero": src.longbienCCGoldenGreen,
   "golf-1": src.golfSunsetHill,
   "golf-2": src.golfBunker,
   "golf-3": src.golfBackupTeeOff,
@@ -697,7 +699,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-2": src.vangViengClouds,
   "guide-3": src.amantakaMainPool,
   // Honest non-Laos stand-in — see golf attribution note above.
-  "guide-4": src.golfBackupFairwayPath,
+  "guide-4": src.laoCCFairwayPond,
   // Real Luang Prabang temple photo — accurate match for the Luang Prabang guide.
   "guide-5": src.luangPrabangTemple,
   // Real Vientiane riverfront photo — accurate match for the Vientiane guide.
@@ -705,7 +707,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // Real Tad Fane waterfall (Pakse/Bolaven Plateau area) — accurate match for the Pakse guide.
   "guide-7": src.tadFane,
   // Laos-transportation-guide — real LCR train, directly on-topic.
-  "guide-8": src.lcrTrainExterior,
+  "guide-8": src.lcrTrainViaductWide,
   // Laos-visa-guide — real Wattay airport (entry point), reasonable thematic fit.
   "guide-9": src.wattayAirportShuttle,
   // Laos-safety-tips — generic real Vang Vieng scenery.
@@ -726,7 +728,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // Owner-provided real photo of Lao CC, Vientiane.
   "course-lao-cc": src.laoCCAerialClover,
   // Owner-provided real aerial photo of Longbien Golf Club, Vientiane.
-  "course-longbien-cc": src.longbienCCWelcomeSignVivid,
+  "course-longbien-cc": src.longbienCCClubhouseAerial,
 
   // Gallery photos — Mekong Golf & Resort, Vientiane.
   "course-mekong-cc-g1": src.mekongCCGallery1,
@@ -800,7 +802,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "tour-buggy": src.buggyVangVieng,
   // Genuine 4-seat/2-row buggy (the shared "tour-buggy" photo above reads as a 2-seat vehicle).
   "tour-buggy-4seat": src.buggy4seatPolaris,
-  "train-lcr-exterior": src.lcrTrainFrontview,
+  "train-lcr-exterior": src.lcrTrainViaductWide,
   "train-lcr-interior": src.lcrTrainFrontview,
   "train-vientiane-station": src.lcrTrainFrontview,
   "tour-mekong-cruise-lp": src.mekongSunsetDondet,
