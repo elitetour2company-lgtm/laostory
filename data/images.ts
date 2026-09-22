@@ -197,6 +197,7 @@ const img = (file: string) => `/images/${file}`;
 
 const src = {
   vangViengHero: img("vangvieng-hero.jpg"),
+  muangphuangFloatingBungalows: img("muangphuang-floating-bungalows.jpg"),
   vangViengClouds: img("vangvieng-clouds.jpg"),
   vangViengPaddy: img("vangvieng-paddy.jpg"),
   vangViengBungalows: img("vangvieng-bungalows.jpg"),
@@ -408,6 +409,7 @@ const src = {
 type ImageKey =
   | "hero"
   | "editorial-vangvieng"
+  | "product-muangphuang-vangvieng"
   | "category-package"
   | "category-freetravel"
   | "category-villa"
@@ -616,6 +618,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // the first screen, and the calmer paddy-reflection shot suits the quieter editorial band below it.
   hero: src.vangViengClouds,
   "editorial-vangvieng": src.vangViengHero,
+  "product-muangphuang-vangvieng": src.muangphuangFloatingBungalows,
 
   "category-package": src.luangPrabangTemple,
   "category-freetravel": src.vangViengPaddy,
