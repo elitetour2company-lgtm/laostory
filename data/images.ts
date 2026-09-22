@@ -242,6 +242,7 @@ const src = {
   caveTubingBelize: img("cave-tubing-belize.jpg"),
   bluelagoon3SwingTower: img("bluelagoon3-swing-tower.jpg"),
   buggy4seatPolaris: img("buggy-4seat-polaris.jpg"),
+  vangviengBuggy4seatFamily: img("vangvieng-buggy-4seat-family.jpg"),
   paramotorDondetFront: img("paramotor-dondet-front.jpg"),
   mekongSunsetDondet: img("mekong-sunset-dondet.jpg"),
   lcrTrainFrontview: img("train-lcr-frontview.jpg"),
@@ -812,7 +813,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "tour-hotair-balloon": src.hotairBalloonVangVieng,
   "tour-buggy": src.buggyVangVieng,
   // Genuine 4-seat/2-row buggy (the shared "tour-buggy" photo above reads as a 2-seat vehicle).
-  "tour-buggy-4seat": src.buggy4seatPolaris,
+  "tour-buggy-4seat": src.vangviengBuggy4seatFamily,
   "train-lcr-exterior": src.lcrTrainFrontview,
   "train-lcr-interior": src.lcrTrainFrontview,
   "train-vientiane-station": src.lcrTrainFrontview,
