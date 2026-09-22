@@ -233,6 +233,7 @@ const src = {
   // Owner-provided photo (white Toyota HiAce on a palm-lined city street) — homepage category card and all van thumbnails.
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
+  vangviengZiplineRiver: img("vangvieng-zipline-river.jpg"),
   belizeBluecreekZipline: img("belize-bluecreek-zipline.jpg"),
   vangviengKayakAction: img("vangvieng-kayak-action.jpg"),
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
@@ -833,7 +834,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-zipline-group": src.vangviengKayakAction,
   "vv-zipline-bridge": src.vangviengZiplineBridge,
   "vv-zipline-river-bridge": src.vangviengZiplineRiverBridge,
-  "vv-zipline-cliff": src.bolavenZiplineAction,
+  "vv-zipline-cliff": src.vangviengZiplineRiver,
   "vv-cave-interior1": src.vangviengCaveInterior1,
   "vv-cave-stalactite": src.vangviengCaveStalactite,
   "vv-cave-ceiling": src.vangviengCaveCeiling,
