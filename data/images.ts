@@ -204,6 +204,7 @@ const src = {
   vangViengBungalows: img("vangvieng-bungalows.jpg"),
   vangviengPoolvillaReal: img("vangvieng-poolvilla-real.jpg"),
   mekongRiverfront: img("mekong-riverfront.jpg"),
+  laosKipBanknotes: img("laos-kip-banknotes.jpg"),
   phaThatLuang: img("pha-that-luang.jpg"),
   luangPrabangTemple: img("luangprabang-temple.jpg"),
   kuangSiFalls: img("kuang-si-falls.jpg"),
@@ -488,6 +489,7 @@ type ImageKey =
   | "guide-13"
   | "guide-14"
   | "guide-15"
+  | "guide-currency-exchange"
   | "course-mekong-cc"
   | "course-lao-cc"
   | "course-longbien-cc"
@@ -737,6 +739,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-14": src.luangPrabangNightMarket,
   // Laos-sim-esim-guide — real Pha That Luang (generic Vientiane/city backdrop).
   "guide-15": src.phaThatLuang,
+  // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
+  "guide-currency-exchange": src.laosKipBanknotes,
 
   // Owner-provided real photo of Mekong Golf & Resort, Vientiane.
   "course-mekong-cc": src.mekongCCClubhouseBunker,
