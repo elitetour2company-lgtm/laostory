@@ -199,6 +199,7 @@ const src = {
   vangViengHero: img("vangvieng-hero.jpg"),
   muangphuangFloatingBungalows: img("muangphuang-floating-bungalows.jpg"),
   vangViengClouds: img("vangvieng-clouds.jpg"),
+  vangviengBalloonAerialDawn: img("vangvieng-balloon-aerial-dawn.jpg"),
   vangViengPaddy: img("vangvieng-paddy.jpg"),
   vangViengBungalows: img("vangvieng-bungalows.jpg"),
   vangviengPoolvillaReal: img("vangvieng-poolvilla-real.jpg"),
@@ -616,7 +617,7 @@ type ImageKey =
 export const images: Record<ImageKey, string | undefined> = {
   // Interim swap until the owner sources a 3000px+ hero: the dawn sea-of-clouds shot has far more drama for
   // the first screen, and the calmer paddy-reflection shot suits the quieter editorial band below it.
-  hero: src.vangViengClouds,
+  hero: src.vangviengBalloonAerialDawn,
   "editorial-vangvieng": src.vangViengHero,
   "product-muangphuang-vangvieng": src.muangphuangFloatingBungalows,
 
