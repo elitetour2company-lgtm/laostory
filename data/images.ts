@@ -367,6 +367,7 @@ const src = {
   luangprabangGolfGreenMountain: img("luangprabang-golf-green-mountain.webp"),
   luangprabangGolfRiverView: img("luangprabang-golf-river-view.webp"),
   mekongCCHero2: img("mekong-cc-hero2.jpg"),
+  mekongCCClubhouseBunker: img("mekong-cc-clubhouse-bunker.jpg"),
   mekongCCAerial: img("mekong-cc-aerial.jpg"),
   mekongCCBunkers: img("mekong-cc-bunkers.jpg"),
   mekongCCCartpath: img("mekong-cc-cartpath.jpg"),
@@ -738,7 +739,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-15": src.phaThatLuang,
 
   // Owner-provided real photo of Mekong Golf & Resort, Vientiane.
-  "course-mekong-cc": src.mekongCCHero2,
+  "course-mekong-cc": src.mekongCCClubhouseBunker,
   // Owner-provided real photo of Lao CC, Vientiane.
   "course-lao-cc": src.laoCCAerialClover,
   // Owner-chosen welcome-sign photo, Longbien Golf Club, Vientiane — "CLUB" is
