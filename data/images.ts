@@ -113,10 +113,9 @@
  *   Tomás Del Coro, CC-BY-SA-2.0 — honest non-Laos stand-in for a genuine
  *   4-seat/2-row buggy (the previous photo was the same image used for
  *   the 2-seat tour, and visually reads as a 2-seat vehicle).
- * - paramotorDondetFront: "Two-seater paramotor - Powered paragliding in
- *   flight - 3 quarter view a sunny afternoon in Don Det Laos" by Basile
- *   Morin, CC-BY-SA-4.0 — real Laos paramotor tandem flight (Don Det, Si
- *   Phan Don), replaces a low-res (500x313) selfie photo.
+ * - paramotorDondetFront: owner-sourced real tandem paramotor photo over
+ *   Vang Vieng's karst peaks at sunset — replaces a square, sky-only photo
+ *   (that one was actually shot in Don Det, hence the variable name).
  * - mekongSunsetDondet: "Silhouette of a fisherman standing on his pirogue
  *   at sunset with orange clouds in Don Det, Si Phan Don, Laos" by Basile
  *   Morin, CC-BY-SA-4.0 (Commons Featured Picture) — real Laos Mekong
@@ -243,7 +242,7 @@ const src = {
   bluelagoon3SwingTower: img("bluelagoon3-swing-tower.jpg"),
   buggy4seatPolaris: img("buggy-4seat-polaris.jpg"),
   vangviengBuggy4seatFamily: img("vangvieng-buggy-4seat-family.jpg"),
-  paramotorDondetFront: img("paramotor-dondet-front.jpg"),
+  paramotorDondetFront: img("vangvieng-paramotor-sunset.jpg"),
   mekongSunsetDondet: img("mekong-sunset-dondet.jpg"),
   lcrTrainFrontview: img("train-lcr-frontview.jpg"),
   watPhouChampasak: img("wat-phou-champasak.jpg"),
