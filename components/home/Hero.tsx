@@ -11,7 +11,7 @@ export default function Hero() {
         alt="Vang Vieng, Laos"
         priority
         sizes="100vw"
-        className="absolute inset-0"
+        className="absolute inset-0 object-[50%_15%]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-forest/70 via-forest/10 to-forest/25" />
 
