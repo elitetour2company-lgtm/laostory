@@ -834,7 +834,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-zipline-canyon": src.vangviengZiplineCanyon,
   "vv-zipline-canopy": src.vangviengZiplineCanopy,
   // Real Vang Vieng kayaking action (Nam Song river) — this half-day tour's own kayak element wasn't shown before.
-  "vv-zipline-group": src.vangviengKayakAction,
+  // Reuses the same zipline photo as vv-elephantcave-oneday (owner's choice).
+  "vv-zipline-group": src.vangviengZiplineJungle,
   "vv-zipline-bridge": src.vangviengZiplineBridge,
   "vv-zipline-river-bridge": src.vangviengZiplineRiverBridge,
   "vv-zipline-cliff": src.vangviengZiplineRiver,
