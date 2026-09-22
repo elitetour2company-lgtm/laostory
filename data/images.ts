@@ -616,10 +616,10 @@ type ImageKey =
   | "luangprabang-kuangsi-alt";
 
 export const images: Record<ImageKey, string | undefined> = {
-  // Interim swap until the owner sources a 3000px+ hero: the dawn sea-of-clouds shot has far more drama for
-  // the first screen, and the calmer paddy-reflection shot suits the quieter editorial band below it.
-  hero: src.vangviengBalloonAerialDawn,
-  "editorial-vangvieng": src.vangViengHero,
+  // The wide karst+paddy-reflection shot works far better in the ultra-wide hero band than a portrait
+  // balloon photo does (no empty-sky crop on desktop); the sea-of-clouds shot moves to the editorial band.
+  hero: src.vangViengHero,
+  "editorial-vangvieng": src.vangViengClouds,
   "product-muangphuang-vangvieng": src.muangphuangFloatingBungalows,
 
   "category-package": src.luangPrabangTemple,
