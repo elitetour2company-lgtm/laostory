@@ -237,6 +237,7 @@ const src = {
   vangviengBuggyKarst: img("vangvieng-buggy-karst.jpg"),
   vangviengKayakAction: img("vangvieng-kayak-action.jpg"),
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
+  vangviengZiplineJungle: img("vangvieng-zipline-jungle.jpg"),
   vangviengThamPhukhamCave: img("vangvieng-tham-phukham-cave.jpg"),
   caveTubingBelize: img("cave-tubing-belize.jpg"),
   bluelagoon3SwingTower: img("bluelagoon3-swing-tower.jpg"),
@@ -842,7 +843,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-cave-ceiling": src.vangviengCaveCeiling,
   "vv-cave-tubing": src.bluelagoon3SwingTower,
   // Same real Tham Xang ("Elephant Cave") as "tour-zipline-cave" — this tour also visits it, just without blue lagoon.
-  "vv-elephantcave-oneday": src.vangviengThamXangCave,
+  "vv-elephantcave-oneday": src.vangviengZiplineJungle,
   // Tham Phu Kham is the actual cave directly above Blue Lagoon 1 — matches this tour's specific "블루라군1" stop.
   // Reuses the Blue Lagoon 1 photo (same destination as vv-bluelagoon-swim) —
   // the old dark cave-interior photo undersold this as a "fun water tour".
