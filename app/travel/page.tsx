@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 const FILTERS: { label: string; value: "all" | ProductType; queryAlias?: string }[] = [
   { label: "전체", value: "all" },
   { label: "자유여행", value: "자유여행", queryAlias: "free" },
-  { label: "패키지여행", value: "패키지여행", queryAlias: "package" },
   { label: "골프", value: "골프" },
   { label: "풀빌라", value: "풀빌라" },
 ];
