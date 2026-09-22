@@ -1,5 +1,11 @@
 export const categories = [
   {
+    label: "패키지여행",
+    description: "검증된 일정으로 편안하게 떠나는 라오스",
+    href: "/travel?type=package",
+    imageKey: "category-package",
+  },
+  {
     label: "자유여행",
     description: "나만의 속도로 즐기는 라오스 여행",
     href: "/travel?type=free",
