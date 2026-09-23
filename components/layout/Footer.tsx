@@ -65,7 +65,7 @@ export default function Footer() {
               골프, 풀빌라, 단체여행까지 라오스 전문가가 함께합니다.
             </p>
             <div className="mt-6 flex gap-3">
-              {SOCIAL.map(({ label, href, mark }) => (
+              {SOCIAL.filter((item) => item.href && item.href !== "#").map(({ label, href, mark }) => (
                 <a
                   key={label}
                   href={href}
