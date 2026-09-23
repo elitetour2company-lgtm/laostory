@@ -244,6 +244,11 @@ export default async function GolfCourseDetailPage({
             peakSeasonPriceUsd={course.peakSeasonPriceUsd}
             peakSeasonWeekendPrice={course.peakSeasonWeekendPrice}
             peakSeasonWeekendPriceUsd={course.peakSeasonWeekendPriceUsd}
+            midSeasonLabel={course.midSeasonLabel}
+            midSeasonPrice={course.midSeasonPrice}
+            midSeasonPriceUsd={course.midSeasonPriceUsd}
+            midSeasonWeekendPrice={course.midSeasonWeekendPrice}
+            midSeasonWeekendPriceUsd={course.midSeasonWeekendPriceUsd}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />
@@ -264,6 +269,11 @@ export default async function GolfCourseDetailPage({
             peakSeasonPriceUsd={course.peakSeasonPriceUsd}
             peakSeasonWeekendPrice={course.peakSeasonWeekendPrice}
             peakSeasonWeekendPriceUsd={course.peakSeasonWeekendPriceUsd}
+            midSeasonLabel={course.midSeasonLabel}
+            midSeasonPrice={course.midSeasonPrice}
+            midSeasonPriceUsd={course.midSeasonPriceUsd}
+            midSeasonWeekendPrice={course.midSeasonWeekendPrice}
+            midSeasonWeekendPriceUsd={course.midSeasonWeekendPriceUsd}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />

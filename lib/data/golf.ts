@@ -27,6 +27,11 @@ type GolfRow = {
   peak_season_price_usd: number | null;
   peak_season_weekend_price: number | null;
   peak_season_weekend_price_usd: number | null;
+  mid_season_label: string | null;
+  mid_season_price: number | null;
+  mid_season_price_usd: number | null;
+  mid_season_weekend_price: number | null;
+  mid_season_weekend_price_usd: number | null;
   odd_headcount_cart_fee: number | null;
   odd_headcount_cart_fee_usd: number | null;
   image: string | null;
@@ -58,6 +63,11 @@ function mapRow(row: GolfRow): GolfCourse {
     peakSeasonPriceUsd: row.peak_season_price_usd ?? undefined,
     peakSeasonWeekendPrice: row.peak_season_weekend_price ?? undefined,
     peakSeasonWeekendPriceUsd: row.peak_season_weekend_price_usd ?? undefined,
+    midSeasonLabel: row.mid_season_label ?? undefined,
+    midSeasonPrice: row.mid_season_price ?? undefined,
+    midSeasonPriceUsd: row.mid_season_price_usd ?? undefined,
+    midSeasonWeekendPrice: row.mid_season_weekend_price ?? undefined,
+    midSeasonWeekendPriceUsd: row.mid_season_weekend_price_usd ?? undefined,
     oddHeadcountCartFee: row.odd_headcount_cart_fee ?? undefined,
     oddHeadcountCartFeeUsd: row.odd_headcount_cart_fee_usd ?? undefined,
     image: row.image ?? undefined,

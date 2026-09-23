@@ -20,6 +20,11 @@ export type AdminGolfCourseRow = {
   peak_season_price_usd: number | null;
   peak_season_weekend_price: number | null;
   peak_season_weekend_price_usd: number | null;
+  mid_season_label: string | null;
+  mid_season_price: number | null;
+  mid_season_price_usd: number | null;
+  mid_season_weekend_price: number | null;
+  mid_season_weekend_price_usd: number | null;
   odd_headcount_cart_fee: number | null;
   odd_headcount_cart_fee_usd: number | null;
   image: string | null;

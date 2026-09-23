@@ -91,6 +91,12 @@ export interface GolfCourse {
   /** Sat/Sun rate during peak season, for courses that vary by both season and weekday. */
   peakSeasonWeekendPrice?: number;
   peakSeasonWeekendPriceUsd?: number;
+  /** Shoulder-season window (e.g. "10월~11월") priced between the base and peak rates. Peak takes precedence where months overlap. */
+  midSeasonLabel?: string;
+  midSeasonPrice?: number;
+  midSeasonPriceUsd?: number;
+  midSeasonWeekendPrice?: number;
+  midSeasonWeekendPriceUsd?: number;
   /** Extra per-seat cart fee charged when the group can't split evenly into 2-seat carts. Undefined means no cart, or the course doesn't apply this surcharge. */
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;

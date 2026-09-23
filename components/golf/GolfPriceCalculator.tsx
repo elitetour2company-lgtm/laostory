@@ -16,6 +16,11 @@ type Props = {
   peakSeasonPriceUsd?: number;
   peakSeasonWeekendPrice?: number;
   peakSeasonWeekendPriceUsd?: number;
+  midSeasonLabel?: string;
+  midSeasonPrice?: number;
+  midSeasonPriceUsd?: number;
+  midSeasonWeekendPrice?: number;
+  midSeasonWeekendPriceUsd?: number;
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;
   maxGuests?: number;
@@ -66,6 +71,11 @@ export default function GolfPriceCalculator({
   peakSeasonPriceUsd,
   peakSeasonWeekendPrice,
   peakSeasonWeekendPriceUsd,
+  midSeasonLabel,
+  midSeasonPrice,
+  midSeasonPriceUsd,
+  midSeasonWeekendPrice,
+  midSeasonWeekendPriceUsd,
   oddHeadcountCartFee,
   oddHeadcountCartFeeUsd,
   maxGuests = 20,
@@ -80,35 +90,63 @@ export default function GolfPriceCalculator({
     date && seasonMonths && peakSeasonPrice && isMonthInSeason(Number(date.split("-")[1]), seasonMonths)
   );
 
+  const midMonths = parseSeasonMonths(midSeasonLabel);
+  const isMidSeason = Boolean(
+    !isPeakSeason &&
+      date &&
+      midMonths &&
+      midSeasonPrice &&
+      isMonthInSeason(Number(date.split("-")[1]), midMonths)
+  );
+
   const unitPrice = isPeakSeason
     ? weekend && peakSeasonWeekendPrice
       ? peakSeasonWeekendPrice
       : peakSeasonPrice!
-    : weekend && weekendPrice
-      ? weekendPrice
-      : price;
+    : isMidSeason
+      ? weekend && midSeasonWeekendPrice
+        ? midSeasonWeekendPrice
+        : midSeasonPrice!
+      : weekend && weekendPrice
+        ? weekendPrice
+        : price;
   const unitPriceUsd = isPeakSeason
     ? weekend && peakSeasonWeekendPriceUsd
       ? peakSeasonWeekendPriceUsd
       : peakSeasonPriceUsd
-    : weekend && weekendPriceUsd
-      ? weekendPriceUsd
-      : priceUsd;
+    : isMidSeason
+      ? weekend && midSeasonWeekendPriceUsd
+        ? midSeasonWeekendPriceUsd
+        : midSeasonPriceUsd
+      : weekend && weekendPriceUsd
+        ? weekendPriceUsd
+        : priceUsd;
   const hasWeekendRate = Boolean(
-    isPeakSeason ? peakSeasonWeekendPrice && peakSeasonWeekendPrice !== peakSeasonPrice : weekendPrice && weekendPrice !== price
+    isPeakSeason
+      ? peakSeasonWeekendPrice && peakSeasonWeekendPrice !== peakSeasonPrice
+      : isMidSeason
+        ? midSeasonWeekendPrice && midSeasonWeekendPrice !== midSeasonPrice
+        : weekendPrice && weekendPrice !== price
   );
   const hasPeakSeason = Boolean(seasonMonths && peakSeasonPrice);
+  const hasMidSeason = Boolean(midMonths && midSeasonPrice);
+  const otherSeasonLabels = [
+    hasMidSeason ? midSeasonLabel : null,
+    hasPeakSeason ? peakSeasonLabel : null,
+  ].filter(Boolean);
   const rateNote = !date
-    ? hasPeakSeason
-      ? `${peakSeasonLabel}에는 성수기 요금이 적용돼요`
+    ? hasPeakSeason || hasMidSeason
+      ? `${otherSeasonLabels.join(", ")}에는 시즌 요금이 적용돼요`
       : null
     : isPeakSeason
       ? `성수기(${peakSeasonLabel})${hasWeekendRate ? ` ${weekend ? "주말" : "평일"}` : ""} 요금이 적용돼요`
-      : hasWeekendRate
-        ? `${weekend ? "주말(토·일)" : "평일"} 요금이 적용돼요`
-        : hasPeakSeason
-          ? `${peakSeasonLabel} 외에는 지금 요금이 적용돼요`
-          : null;
+      : isMidSeason
+        ? `${midSeasonLabel}${hasWeekendRate ? ` ${weekend ? "주말" : "평일"}` : ""} 요금이 적용돼요`
+        : hasWeekendRate
+          ? `${weekend ? "주말(토·일)" : "평일"} 요금이 적용돼요`
+          : hasPeakSeason || hasMidSeason
+            ? `${otherSeasonLabels.join(", ")} 외에는 지금 요금이 적용돼요`
+            : null;
 
   // A lone golfer has no cart to split, so the surcharge only kicks in once a
   // group of 3+ can't divide evenly into 2-seat carts.
@@ -192,9 +230,9 @@ export default function GolfPriceCalculator({
             <span className="tabular-nums">{formatPrice(total)}</span>
             <span className="text-[10.5px] font-normal text-text-soft">1인기준</span>
           </p>
-          {date && (hasWeekendRate || isPeakSeason) ? (
+          {date && (hasWeekendRate || isPeakSeason || isMidSeason) ? (
             <p className="text-[10px] text-text-soft">
-              {isPeakSeason ? "성수기가" : weekend ? "주말가" : "평일가"} {formatPrice(unitPrice)} × {guests}인
+              {isPeakSeason ? "성수기가" : isMidSeason ? "시즌가" : weekend ? "주말가" : "평일가"} {formatPrice(unitPrice)} × {guests}인
             </p>
           ) : null}
           {cartSurcharge > 0 ? (
@@ -244,6 +282,14 @@ export default function GolfPriceCalculator({
         {weekendPrice && weekendPrice !== price ? (
           <p className="mt-2 text-[11.5px] text-text-soft">
             평일 {formatPrice(price)} · 주말 {formatPrice(weekendPrice)}
+          </p>
+        ) : null}
+        {hasMidSeason ? (
+          <p className="mt-0.5 text-[11.5px] text-text-soft">
+            {midSeasonLabel}{" "}
+            {midSeasonWeekendPrice && midSeasonWeekendPrice !== midSeasonPrice
+              ? `평일 ${formatPrice(midSeasonPrice!)} · 주말 ${formatPrice(midSeasonWeekendPrice)}`
+              : formatPrice(midSeasonPrice!)}
           </p>
         ) : null}
         {hasPeakSeason ? (

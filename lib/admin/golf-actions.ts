@@ -72,6 +72,23 @@ export async function upsertGolfCourseAction(
       const raw = String(formData.get("peakSeasonWeekendPriceUsd") ?? "").trim();
       return raw ? Number(raw) : null;
     })(),
+    midSeasonLabel: String(formData.get("midSeasonLabel") ?? "").trim(),
+    midSeasonPrice: (() => {
+      const raw = String(formData.get("midSeasonPrice") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
+    midSeasonPriceUsd: (() => {
+      const raw = String(formData.get("midSeasonPriceUsd") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
+    midSeasonWeekendPrice: (() => {
+      const raw = String(formData.get("midSeasonWeekendPrice") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
+    midSeasonWeekendPriceUsd: (() => {
+      const raw = String(formData.get("midSeasonWeekendPriceUsd") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
     oddHeadcountCartFee: (() => {
       const raw = String(formData.get("oddHeadcountCartFee") ?? "").trim();
       return raw ? Number(raw) : null;

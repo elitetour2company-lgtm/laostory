@@ -149,6 +149,54 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
         </label>
         <label>
           <span className={labelClass}>
+            중간 시즌 구간 (예: 10월~11월 — 선택, 기본 요금과 성수기 사이 요금이 있는 골프장만 입력)
+          </span>
+          <input
+            name="midSeasonLabel"
+            type="text"
+            placeholder="예: 10월~11월"
+            defaultValue={course?.mid_season_label ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>중간 시즌 가격 (원 — 선택)</span>
+          <input
+            name="midSeasonPrice"
+            type="number"
+            defaultValue={course?.mid_season_price ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>중간 시즌 가격 (달러 — 선택)</span>
+          <input
+            name="midSeasonPriceUsd"
+            type="number"
+            defaultValue={course?.mid_season_price_usd ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>중간 시즌 주말 가격 (원 — 선택)</span>
+          <input
+            name="midSeasonWeekendPrice"
+            type="number"
+            defaultValue={course?.mid_season_weekend_price ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>중간 시즌 주말 가격 (달러 — 선택)</span>
+          <input
+            name="midSeasonWeekendPriceUsd"
+            type="number"
+            defaultValue={course?.mid_season_weekend_price_usd ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>
             성수기 구간 (예: 12월~3월 — 선택, 비워두면 연중 동일 가격으로 표시됩니다)
           </span>
           <input
