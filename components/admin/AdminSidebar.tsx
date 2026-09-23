@@ -12,7 +12,6 @@ import {
   MessageSquare,
   Star,
   BookOpen,
-  Megaphone,
   Image as ImageIcon,
   Settings,
   LogOut,
@@ -30,7 +29,6 @@ const NAV = [
   { label: "문의 관리", href: "/admin/inquiries", icon: MessageSquare },
   { label: "후기 관리", href: "/admin/reviews", icon: Star },
   { label: "여행정보 관리", href: "/admin/guide", icon: BookOpen },
-  { label: "공지사항 관리", href: "/admin/notices", icon: Megaphone },
   { label: "배너 관리", href: "/admin/banners", icon: ImageIcon },
   { label: "사이트 설정", href: "/admin/settings", icon: Settings },
 ];

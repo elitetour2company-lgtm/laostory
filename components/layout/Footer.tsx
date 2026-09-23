@@ -23,7 +23,6 @@ const FOOTER_LINKS = [
       { label: "회사소개", href: "/about" },
       { label: "여행정보", href: "/guide" },
       { label: "여행지", href: "/destinations" },
-      { label: "공지사항", href: "/notices" },
       { label: "후기", href: "/reviews" },
       { label: "1:1 여행상담", href: "/consultation" },
     ],

@@ -8,6 +8,7 @@ type GuideRow = {
   excerpt: string;
   image: string | null;
   content: string[];
+  images: string[] | null;
 };
 
 function mapRow(row: GuideRow): GuideArticle {
@@ -18,6 +19,7 @@ function mapRow(row: GuideRow): GuideArticle {
     excerpt: row.excerpt,
     image: row.image ?? undefined,
     content: row.content,
+    images: row.images ?? [],
   };
 }
 

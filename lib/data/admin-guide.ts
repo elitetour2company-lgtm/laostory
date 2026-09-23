@@ -8,6 +8,7 @@ export type AdminGuideArticleRow = {
   excerpt: string;
   image: string | null;
   content: string[];
+  images: string[] | null;
 };
 
 export async function getAdminGuideArticles(): Promise<AdminGuideArticleRow[]> {

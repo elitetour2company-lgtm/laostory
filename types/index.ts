@@ -175,6 +175,7 @@ export interface GuideArticle {
   excerpt: string;
   image?: string;
   content?: string[];
+  images?: string[];
 }
 
 export interface Notice {
