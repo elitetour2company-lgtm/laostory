@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { upsertBannerAction, BannerFormState } from "@/lib/admin/banner-actions";
 import { AdminBannerRow } from "@/lib/data/admin-banners";
+import ImageUploader from "./ImageUploader";
 
 const fieldClass =
   "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[14px] text-text outline-none focus:border-forest";
@@ -14,6 +15,7 @@ export default function BannerForm({ banner }: { banner?: AdminBannerRow }) {
     action,
     undefined
   );
+  const [image, setImage] = useState(banner?.image ?? "");
 
   return (
     <form action={formAction} className="space-y-6">
@@ -22,10 +24,17 @@ export default function BannerForm({ banner }: { banner?: AdminBannerRow }) {
           <span className={labelClass}>배너명 *</span>
           <input name="title" defaultValue={banner?.title} required className={fieldClass} />
         </label>
-        <label>
-          <span className={labelClass}>이미지 키 (data/images.ts 참고) *</span>
-          <input name="image" defaultValue={banner?.image} required className={fieldClass} />
-        </label>
+        <div className="sm:col-span-2">
+          <span className={labelClass}>배너 사진 *</span>
+          <ImageUploader
+            value={image.startsWith("/api/site-images/") ? [image] : []}
+            onChange={(urls) => setImage(urls[0] ?? "")}
+            multiple={false}
+            maxSide={2400}
+            hint="가로로 긴 3:1 비율(예: 2400×800)로 만들어 올리시면 잘림 없이 보여요. 글자가 들어간 포스터는 좌우 여백을 두세요."
+          />
+          <input type="hidden" name="image" value={image} />
+        </div>
         <label>
           <span className={labelClass}>링크 (선택, 예: /travel)</span>
           <input name="href" defaultValue={banner?.href ?? ""} className={fieldClass} />

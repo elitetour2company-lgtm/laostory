@@ -909,5 +909,6 @@ export const images: Record<ImageKey, string | undefined> = {
 
 export function getImage(key?: string): string | undefined {
   if (!key) return undefined;
+  if (key.startsWith("/api/site-images/")) return key;
   return images[key as ImageKey];
 }

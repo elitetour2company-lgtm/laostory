@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { upsertNoticeAction, NoticeFormState } from "@/lib/admin/notice-actions";
 import { AdminNoticeRow } from "@/lib/data/admin-notices";
+import ImageUploader from "./ImageUploader";
 
 const fieldClass =
   "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[14px] text-text outline-none focus:border-forest";
@@ -14,6 +15,7 @@ export default function NoticeForm({ notice }: { notice?: AdminNoticeRow }) {
     action,
     undefined
   );
+  const [images, setImages] = useState<string[]>(notice?.images ?? []);
 
   return (
     <form action={formAction} className="space-y-6">
@@ -52,6 +54,16 @@ export default function NoticeForm({ notice }: { notice?: AdminNoticeRow }) {
           className={`${fieldClass} resize-none`}
         />
       </label>
+
+      <div>
+        <span className={labelClass}>사진 (본문 아래에 순서대로 표시됩니다)</span>
+        <ImageUploader
+          value={images}
+          onChange={setImages}
+          hint="휴대폰·PC 사진을 그대로 올려도 자동으로 줄여서 저장돼요."
+        />
+        <input type="hidden" name="images" value={JSON.stringify(images)} />
+      </div>
 
       {state?.error ? (
         <p className="text-[13px] font-medium text-red-600">{state.error}</p>

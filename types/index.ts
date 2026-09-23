@@ -182,5 +182,6 @@ export interface Notice {
   title: string;
   excerpt: string;
   content: string[];
+  images: string[];
   createdAt: string;
 }

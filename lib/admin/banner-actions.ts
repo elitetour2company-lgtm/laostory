@@ -15,7 +15,7 @@ export async function upsertBannerAction(
   const image = String(formData.get("image") ?? "").trim();
 
   if (!title || !image) {
-    return { error: "배너명, 이미지 키는 필수 입력 항목입니다." };
+    return { error: "배너명과 배너 사진은 필수 입력 항목입니다." };
   }
 
   const payload = {

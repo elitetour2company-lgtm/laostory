@@ -6,6 +6,7 @@ export type AdminNoticeRow = {
   title: string;
   excerpt: string;
   content: string[];
+  images: string[] | null;
   created_at: string;
 };
 

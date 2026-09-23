@@ -6,6 +6,7 @@ type NoticeRow = {
   title: string;
   excerpt: string;
   content: string[];
+  images: string[] | null;
   created_at: string;
 };
 
@@ -15,6 +16,7 @@ function mapRow(row: NoticeRow): Notice {
     title: row.title,
     excerpt: row.excerpt,
     content: row.content,
+    images: row.images ?? [],
     createdAt: row.created_at,
   };
 }

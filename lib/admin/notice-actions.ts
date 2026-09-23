@@ -6,6 +6,18 @@ import { adminRpc } from "@/lib/supabase/admin-rpc";
 
 export type NoticeFormState = { error?: string };
 
+function parseImages(value: string): string[] {
+  try {
+    const parsed: unknown = JSON.parse(value || "[]");
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(
+      (u): u is string => typeof u === "string" && u.startsWith("/api/site-images/")
+    );
+  } catch {
+    return [];
+  }
+}
+
 function parseParagraphs(value: string): string[] {
   return value
     .split("\n\n")
@@ -32,6 +44,7 @@ export async function upsertNoticeAction(
     title,
     excerpt: String(formData.get("excerpt") ?? "").trim(),
     content: parseParagraphs(String(formData.get("content") ?? "")),
+    images: parseImages(String(formData.get("images") ?? "")),
   };
 
   try {

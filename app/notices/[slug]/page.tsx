@@ -60,6 +60,21 @@ export default async function NoticeDetailPage({
             ))}
           </div>
 
+          {notice.images.length > 0 ? (
+            <div className="mt-8 space-y-4">
+              {notice.images.map((src) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={src}
+                  src={src}
+                  alt=""
+                  loading="lazy"
+                  className="h-auto w-full rounded-xl border border-border"
+                />
+              ))}
+            </div>
+          ) : null}
+
           <div className="mt-12 rounded-xl border border-border bg-ivory p-6 text-center">
             <p className="text-[15px] font-semibold text-forest">
               더 궁금한 점이 있으신가요?
