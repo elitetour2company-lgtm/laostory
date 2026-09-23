@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { Star, MessageSquareText } from "lucide-react";
 import Container from "@/components/ui/Container";
 import PageHeader from "@/components/ui/PageHeader";
-import Badge from "@/components/ui/Badge";
 import { getAllReviews } from "@/lib/data/reviews";
 import { Review } from "@/types";
 
@@ -49,13 +48,7 @@ export default async function ReviewsPage({
       />
 
       <Container className="py-10 md:py-14">
-        {filtered.every((r) => r.isSample) && filtered.length > 0 ? (
-          <p className="text-[12.5px] text-text-soft">
-            * 서비스 준비 단계로, 아래 후기는 실제 고객 후기가 아닌 샘플입니다.
-          </p>
-        ) : null}
-
-        <div className="mt-5 flex flex-wrap gap-2.5">
+        <div className="flex flex-wrap gap-2.5">
           {CATEGORIES.map((cat) => {
             const isActive = cat === activeCategory;
             const href = cat === "전체" ? "/reviews" : `/reviews?category=${cat}`;
@@ -82,20 +75,17 @@ export default async function ReviewsPage({
                 key={review.id}
                 className="rounded-xl border border-border bg-white p-6"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-0.5 text-gold">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        size={13}
-                        strokeWidth={0}
-                        fill={
-                          i < Math.round(review.rating) ? "currentColor" : "#E7E3DA"
-                        }
-                      />
-                    ))}
-                  </div>
-                  {review.isSample ? <Badge tone="neutral">샘플</Badge> : null}
+                <div className="flex items-center gap-0.5 text-gold">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={13}
+                      strokeWidth={0}
+                      fill={
+                        i < Math.round(review.rating) ? "currentColor" : "#E7E3DA"
+                      }
+                    />
+                  ))}
                 </div>
                 <p className="mt-3.5 text-[13.5px] leading-relaxed text-text">
                   {review.content}
@@ -123,9 +113,19 @@ export default async function ReviewsPage({
               </div>
             ))}
           </div>
+        ) : reviews.length === 0 ? (
+          <div className="mt-14 flex flex-col items-center gap-3 text-center">
+            <MessageSquareText size={28} strokeWidth={1.5} className="text-text-soft" />
+            <p className="text-[15px] font-medium text-text">
+              아직 등록된 후기가 없습니다
+            </p>
+            <p className="text-sm text-text-soft">
+              라오스토리와 함께한 첫 여행 이야기의 주인공이 되어주세요.
+            </p>
+          </div>
         ) : (
           <p className="mt-14 text-center text-[14.5px] text-text-soft">
-            조건에 맞는 결과가 아직 준비되어 있지 않습니다.
+            해당 카테고리의 후기가 아직 없습니다.
           </p>
         )}
       </Container>
