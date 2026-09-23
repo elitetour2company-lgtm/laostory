@@ -5,7 +5,7 @@ export const SITE_DESCRIPTION =
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 
 export const CONTACT = {
-  kakaoUrl: process.env.NEXT_PUBLIC_KAKAO_URL ?? "#",
+  kakaoUrl: process.env.NEXT_PUBLIC_KAKAO_URL ?? "https://pf.kakao.com/_IQNaX/chat",
   telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "#",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#",
   facebookUrl: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "#",
