@@ -69,6 +69,20 @@ export interface Villa {
   reviewCount?: number;
 }
 
+export interface GolfSpecialRate {
+  label: string;
+  price: number;
+  priceUsd?: number;
+  /** Month window like "4월~9월"; undefined means all year. */
+  months?: string;
+  /** Day-of-week numbers, 0 = Sunday. Undefined means every day. */
+  days?: number[];
+  /** Only applies to tee times after the afternoon cutoff. */
+  afternoon?: boolean;
+  /** Listed for reference but never applied automatically (e.g. eligibility needs confirming). */
+  showOnly?: boolean;
+}
+
 export interface GolfCourse {
   slug: string;
   name: string;
@@ -97,6 +111,8 @@ export interface GolfCourse {
   midSeasonPriceUsd?: number;
   midSeasonWeekendPrice?: number;
   midSeasonWeekendPriceUsd?: number;
+  /** Day-of-week / tee-time discounts (e.g. sports day, afternoon promo) layered over the season rates. */
+  specialRates?: GolfSpecialRate[];
   /** Extra per-seat cart fee charged when the group can't split evenly into 2-seat carts. Undefined means no cart, or the course doesn't apply this surcharge. */
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;

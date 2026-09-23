@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { formatPrice, formatPriceUsd } from "@/lib/format";
+import type { GolfSpecialRate } from "@/types";
 
 type Props = {
   itemName: string;
@@ -21,6 +22,7 @@ type Props = {
   midSeasonPriceUsd?: number;
   midSeasonWeekendPrice?: number;
   midSeasonWeekendPriceUsd?: number;
+  specialRates?: GolfSpecialRate[];
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;
   maxGuests?: number;
@@ -76,6 +78,7 @@ export default function GolfPriceCalculator({
   midSeasonPriceUsd,
   midSeasonWeekendPrice,
   midSeasonWeekendPriceUsd,
+  specialRates,
   oddHeadcountCartFee,
   oddHeadcountCartFeeUsd,
   maxGuests = 20,
@@ -83,6 +86,7 @@ export default function GolfPriceCalculator({
 }: Props) {
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState(1);
+  const [afternoon, setAfternoon] = useState(false);
 
   const weekend = date ? isWeekend(date) : false;
   const seasonMonths = parseSeasonMonths(peakSeasonLabel);
@@ -99,7 +103,7 @@ export default function GolfPriceCalculator({
       isMonthInSeason(Number(date.split("-")[1]), midMonths)
   );
 
-  const unitPrice = isPeakSeason
+  const regularUnitPrice = isPeakSeason
     ? weekend && peakSeasonWeekendPrice
       ? peakSeasonWeekendPrice
       : peakSeasonPrice!
@@ -110,7 +114,7 @@ export default function GolfPriceCalculator({
       : weekend && weekendPrice
         ? weekendPrice
         : price;
-  const unitPriceUsd = isPeakSeason
+  const regularUnitPriceUsd = isPeakSeason
     ? weekend && peakSeasonWeekendPriceUsd
       ? peakSeasonWeekendPriceUsd
       : peakSeasonPriceUsd
@@ -121,6 +125,30 @@ export default function GolfPriceCalculator({
       : weekend && weekendPriceUsd
         ? weekendPriceUsd
         : priceUsd;
+  const dayIndex = date
+    ? (() => {
+        const [y, m, d] = date.split("-").map(Number);
+        return new Date(y, m - 1, d).getDay();
+      })()
+    : null;
+  const monthNumber = date ? Number(date.split("-")[1]) : null;
+  const rateApplies = (r: GolfSpecialRate) => {
+    if (r.showOnly || dayIndex === null || monthNumber === null) return false;
+    if (r.afternoon && !afternoon) return false;
+    if (r.days && !r.days.includes(dayIndex)) return false;
+    if (r.months) {
+      const window = parseSeasonMonths(r.months);
+      if (!window || !isMonthInSeason(monthNumber, window)) return false;
+    }
+    return true;
+  };
+  const specialRate = (specialRates ?? [])
+    .filter(rateApplies)
+    .sort((a, b) => a.price - b.price)[0];
+  const useSpecial = Boolean(specialRate && specialRate.price < regularUnitPrice);
+  const unitPrice = useSpecial ? specialRate!.price : regularUnitPrice;
+  const unitPriceUsd = useSpecial ? specialRate!.priceUsd : regularUnitPriceUsd;
+  const hasAfternoonRate = (specialRates ?? []).some((r) => r.afternoon && !r.showOnly);
   const hasWeekendRate = Boolean(
     isPeakSeason
       ? peakSeasonWeekendPrice && peakSeasonWeekendPrice !== peakSeasonPrice
@@ -134,7 +162,9 @@ export default function GolfPriceCalculator({
     hasMidSeason ? midSeasonLabel : null,
     hasPeakSeason ? peakSeasonLabel : null,
   ].filter(Boolean);
-  const rateNote = !date
+  const rateNote = useSpecial
+    ? `${specialRate!.label} 요금이 적용돼요`
+    : !date
     ? hasPeakSeason || hasMidSeason
       ? `${otherSeasonLabels.join(", ")}에는 시즌 요금이 적용돼요`
       : null
@@ -201,6 +231,22 @@ export default function GolfPriceCalculator({
     </div>
   );
 
+  const afternoonToggle = hasAfternoonRate ? (
+    <label
+      className={`flex cursor-pointer items-center gap-1.5 text-text-soft ${
+        compact ? "mt-1 text-[10.5px]" : "mt-3 text-[12.5px]"
+      }`}
+    >
+      <input
+        type="checkbox"
+        checked={afternoon}
+        onChange={(e) => setAfternoon(e.target.checked)}
+        className="h-3.5 w-3.5 accent-forest"
+      />
+      오후 특가 티타임 (13:30 이후)
+    </label>
+  ) : null;
+
   const dateField = (
     <label className="block">
       <span className={`mb-1 block text-text-soft ${compact ? "text-[10.5px]" : "text-[12.5px] font-medium"}`}>
@@ -226,13 +272,14 @@ export default function GolfPriceCalculator({
             <div className="w-28 flex-shrink-0">{dateField}</div>
             <div className="ml-auto">{stepper}</div>
           </div>
+          {afternoonToggle}
           <p className="mt-1 flex items-baseline gap-1 text-[16px] font-semibold text-forest">
             <span className="tabular-nums">{formatPrice(total)}</span>
             <span className="text-[10.5px] font-normal text-text-soft">1인기준</span>
           </p>
-          {date && (hasWeekendRate || isPeakSeason || isMidSeason) ? (
+          {date && (hasWeekendRate || isPeakSeason || isMidSeason || useSpecial) ? (
             <p className="text-[10px] text-text-soft">
-              {isPeakSeason ? "성수기가" : isMidSeason ? "시즌가" : weekend ? "주말가" : "평일가"} {formatPrice(unitPrice)} × {guests}인
+              {useSpecial ? "특별가" : isPeakSeason ? "성수기가" : isMidSeason ? "시즌가" : weekend ? "주말가" : "평일가"} {formatPrice(unitPrice)} × {guests}인
             </p>
           ) : null}
           {cartSurcharge > 0 ? (
@@ -252,6 +299,8 @@ export default function GolfPriceCalculator({
         <p className="text-[13px] text-text-soft">그린피</p>
 
         <div className="mt-3">{dateField}</div>
+
+        {afternoonToggle}
 
         {rateNote ? <p className="mt-1.5 text-[12px] text-text-soft">{rateNote}</p> : null}
 
@@ -284,6 +333,13 @@ export default function GolfPriceCalculator({
             평일 {formatPrice(price)} · 주말 {formatPrice(weekendPrice)}
           </p>
         ) : null}
+        {(specialRates ?? []).map((r) => (
+          <p key={r.label + (r.months ?? "")} className="mt-0.5 text-[11.5px] text-text-soft">
+            {r.label}
+            {r.months ? ` ${r.months}` : ""} {formatPrice(r.price)}
+            {r.priceUsd ? ` (${formatPriceUsd(r.priceUsd)})` : ""}
+          </p>
+        ))}
         {hasMidSeason ? (
           <p className="mt-0.5 text-[11.5px] text-text-soft">
             {midSeasonLabel}{" "}

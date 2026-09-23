@@ -249,6 +249,7 @@ export default async function GolfCourseDetailPage({
             midSeasonPriceUsd={course.midSeasonPriceUsd}
             midSeasonWeekendPrice={course.midSeasonWeekendPrice}
             midSeasonWeekendPriceUsd={course.midSeasonWeekendPriceUsd}
+            specialRates={course.specialRates}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />
@@ -274,6 +275,7 @@ export default async function GolfCourseDetailPage({
             midSeasonPriceUsd={course.midSeasonPriceUsd}
             midSeasonWeekendPrice={course.midSeasonWeekendPrice}
             midSeasonWeekendPriceUsd={course.midSeasonWeekendPriceUsd}
+            specialRates={course.specialRates}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
           />

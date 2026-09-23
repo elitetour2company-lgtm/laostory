@@ -1,5 +1,5 @@
 import { supabaseServer } from "@/lib/supabase/server";
-import { GolfCourse } from "@/types";
+import { GolfCourse, GolfSpecialRate } from "@/types";
 import { getRatingSummaries } from "@/lib/data/reviews";
 
 const DIFFICULTY_MAP: Record<string, GolfCourse["difficulty"]> = {
@@ -32,6 +32,7 @@ type GolfRow = {
   mid_season_price_usd: number | null;
   mid_season_weekend_price: number | null;
   mid_season_weekend_price_usd: number | null;
+  special_rates: GolfSpecialRate[] | null;
   odd_headcount_cart_fee: number | null;
   odd_headcount_cart_fee_usd: number | null;
   image: string | null;
@@ -68,6 +69,7 @@ function mapRow(row: GolfRow): GolfCourse {
     midSeasonPriceUsd: row.mid_season_price_usd ?? undefined,
     midSeasonWeekendPrice: row.mid_season_weekend_price ?? undefined,
     midSeasonWeekendPriceUsd: row.mid_season_weekend_price_usd ?? undefined,
+    specialRates: row.special_rates && row.special_rates.length > 0 ? row.special_rates : undefined,
     oddHeadcountCartFee: row.odd_headcount_cart_fee ?? undefined,
     oddHeadcountCartFeeUsd: row.odd_headcount_cart_fee_usd ?? undefined,
     image: row.image ?? undefined,

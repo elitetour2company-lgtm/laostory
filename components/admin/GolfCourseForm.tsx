@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { upsertGolfCourseAction, GolfFormState } from "@/lib/admin/golf-actions";
 import { AdminGolfCourseRow } from "@/lib/data/admin-golf";
+import { serializeSpecialRates } from "@/lib/golf-special-rates";
 
 const DIFFICULTY_OPTIONS = [
   { value: "EASY", label: "쉬움" },
@@ -146,6 +147,24 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             defaultValue={course?.weekend_price_usd ?? ""}
             className={fieldClass}
           />
+        </label>
+        <label className="sm:col-span-2">
+          <span className={labelClass}>
+            특별 요금 (요일·오후 할인 — 선택, 한 줄에 하나씩)
+          </span>
+          <textarea
+            name="specialRates"
+            rows={5}
+            defaultValue={serializeSpecialRates(course?.special_rates ?? undefined)}
+            placeholder={
+              "스포츠데이(월·목) | 66 | 92000 | 4월~9월 | 월,목 |\n오후 특가(평일) | 80 | 112000 | 10월~10월 | 화,수,금 | 오후"
+            }
+            className={`${fieldClass} font-mono text-[12.5px]`}
+          />
+          <span className="mt-1 block text-[11.5px] text-text-soft">
+            형식: 이름 | 달러 | 원 | 적용 월(비우면 연중) | 요일(비우면 매일) | 옵션. 옵션의 &quot;오후&quot;는 오후 티타임 선택 시에만,
+            &quot;표시만&quot;은 계산에 넣지 않고 안내만 합니다.
+          </span>
         </label>
         <label>
           <span className={labelClass}>
