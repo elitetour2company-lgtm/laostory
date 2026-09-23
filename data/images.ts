@@ -244,6 +244,7 @@ const src = {
   vangviengThamPhukhamCave: img("vangvieng-tham-phukham-cave.jpg"),
   caveTubingBelize: img("cave-tubing-belize.jpg"),
   bluelagoon3SwingTower: img("bluelagoon3-swing-tower.jpg"),
+  bluelagoon3RopeSwingAction: img("bluelagoon3-rope-swing-action.jpg"),
   buggy4seatPolaris: img("buggy-4seat-polaris.jpg"),
   vangviengBuggy4seatFamily: img("vangvieng-buggy-4seat-family.jpg"),
   paramotorDondetFront: img("vangvieng-paramotor-sunset.jpg"),
@@ -851,7 +852,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-cave-interior1": src.vangviengCaveInterior1,
   "vv-cave-stalactite": src.vangviengCaveStalactite,
   "vv-cave-ceiling": src.vangviengCaveCeiling,
-  "vv-cave-tubing": src.bluelagoon3SwingTower,
+  "vv-cave-tubing": src.bluelagoon3RopeSwingAction,
   // Same real Tham Xang ("Elephant Cave") as "tour-zipline-cave" — this tour also visits it, just without blue lagoon.
   "vv-elephantcave-oneday": src.vangviengZiplineJungle,
   // Tham Phu Kham is the actual cave directly above Blue Lagoon 1 — matches this tour's specific "블루라군1" stop.
