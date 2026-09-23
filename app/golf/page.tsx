@@ -6,7 +6,9 @@ import PageHeader from "@/components/ui/PageHeader";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProductCard from "@/components/product/ProductCard";
 import GolfCard from "@/components/golf/GolfCard";
-import GolfPriceBoard from "@/components/golf/GolfPriceBoard";
+import Image from "next/image";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import SortSelect from "@/components/ui/SortSelect";
 import TravelDateFilter from "@/components/ui/TravelDateFilter";
 import { getAllProducts } from "@/lib/data/products";
@@ -34,6 +36,7 @@ export default async function GolfPage({
     (p) => p.title
   );
   const sortedCourses = sortItems(golfCourses, sort, (c) => c.name);
+  const hasPoster = existsSync(join(process.cwd(), "public/images/golf-price-poster.jpg"));
 
   return (
     <>
@@ -83,9 +86,18 @@ export default async function GolfPage({
           </p>
         </div>
 
-        <div className="mt-6">
-          <GolfPriceBoard courses={sortedCourses} />
-        </div>
+        {hasPoster ? (
+          <div className="mt-6 overflow-hidden rounded-xl border border-border">
+            <Image
+              src="/images/golf-price-poster.jpg"
+              alt="라오스토리 라오스 골프장 요금 안내"
+              width={1600}
+              height={1000}
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
+        ) : null}
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
           {sortedCourses.map((course) => (
