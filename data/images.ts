@@ -238,6 +238,7 @@ const src = {
   vangviengZiplineRiver: img("vangvieng-zipline-river.jpg"),
   belizeBluecreekZipline: img("belize-bluecreek-zipline.jpg"),
   vangviengBuggyKarst: img("vangvieng-buggy-karst.jpg"),
+  vangviengBuggyMudSplash: img("vangvieng-buggy-mud-splash.jpg"),
   vangviengKayakAction: img("vangvieng-kayak-action.jpg"),
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
   vangviengZiplineJungle: img("vangvieng-zipline-jungle.jpg"),
@@ -870,7 +871,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-buggy-mud-wheel": src.vangviengBuggyMudWheel,
   "vv-buggy-pov-driving": src.vangviengBuggyPovDriving,
   // Owner-picked: zipline over turquoise Blue Creek, Belize.
-  "vv-zipline-waterfall-aerial": src.vangviengBuggyKarst,
+  "vv-zipline-waterfall-aerial": src.vangviengBuggyMudSplash,
   "vv-bluelagoon-swing-clean": src.vangviengBluelagoonSwingClean,
   "vv-balloon-twin-sunset": src.vangviengBalloonTwinSunset,
   "vv-kayak-two-boats": src.vangviengKayakTwoBoats,
