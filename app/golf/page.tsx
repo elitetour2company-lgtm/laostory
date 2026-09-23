@@ -36,7 +36,7 @@ export default async function GolfPage({
     (p) => p.title
   );
   const sortedCourses = sortItems(golfCourses, sort, (c) => c.name);
-  const hasPoster = existsSync(join(process.cwd(), "public/images/golf-price-poster.jpg"));
+  const hasPoster = existsSync(join(process.cwd(), "public/images/golf-price-poster.png"));
 
   return (
     <>
@@ -89,10 +89,10 @@ export default async function GolfPage({
         {hasPoster ? (
           <div className="mt-6 overflow-hidden rounded-xl border border-border">
             <Image
-              src="/images/golf-price-poster.jpg"
+              src="/images/golf-price-poster.png"
               alt="라오스토리 라오스 골프장 요금 안내"
-              width={1600}
-              height={1000}
+              width={1728}
+              height={910}
               sizes="(min-width: 1280px) 1200px, 100vw"
               className="h-auto w-full"
             />
