@@ -345,6 +345,7 @@ const src = {
   vangviengCaveKayak: img("vangvieng-cave-kayak.png"),
   vangviengCaveWalkway: img("vangvieng-cave-walkway.png"),
   vangviengBalloonMultiAerial: img("vangvieng-balloon-multi-aerial.png"),
+  vangviengBalloonRiverTown: img("vangvieng-balloon-river-town.jpg"),
   vangviengBalloonSky: img("vangvieng-balloon-sky.png"),
   vangviengBalloonLaunch: img("vangvieng-balloon-launch.png"),
   vangviengBalloonMoon: img("vangvieng-balloon-moon.png"),
@@ -861,7 +862,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // the old dark cave-interior photo undersold this as a "fun water tour".
   "vv-cave-kayak": src.vangviengBluelagoonSwim,
   "vv-cave-walkway": src.vangviengCaveWalkway,
-  "vv-balloon-multi-aerial": src.vangviengBalloonMultiAerial,
+  "vv-balloon-multi-aerial": src.vangviengBalloonRiverTown,
   "vv-balloon-sky": src.vangviengBalloonSky,
   "vv-balloon-launch": src.vangviengBalloonLaunch,
   "vv-balloon-moon": src.vangviengBalloonMoon,
