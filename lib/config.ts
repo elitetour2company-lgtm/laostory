@@ -10,5 +10,5 @@ export const CONTACT = {
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#",
   facebookUrl: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "#",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "010-5434-8281",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "thiplaogolfgoodtour@gmail.com",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "jeonglogchoe64@gmail.com",
 };
