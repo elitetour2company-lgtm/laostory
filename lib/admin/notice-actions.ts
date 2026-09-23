@@ -18,11 +18,13 @@ export async function upsertNoticeAction(
   _prevState: NoticeFormState | undefined,
   formData: FormData
 ): Promise<NoticeFormState> {
-  const slug = String(formData.get("slug") ?? "").trim();
   const title = String(formData.get("title") ?? "").trim();
+  const slug =
+    String(formData.get("slug") ?? "").trim() ||
+    `notice-${new Date().toISOString().replace(/\D/g, "").slice(0, 14)}`;
 
-  if (!slug || !title) {
-    return { error: "슬러그, 제목은 필수 입력 항목입니다." };
+  if (!title) {
+    return { error: "제목은 필수 입력 항목입니다." };
   }
 
   const payload = {
@@ -40,6 +42,7 @@ export async function upsertNoticeAction(
 
   revalidatePath("/admin/notices");
   revalidatePath("/notices");
+  revalidatePath("/");
   redirect("/admin/notices");
 }
 
@@ -47,4 +50,5 @@ export async function deleteNoticeAction(id: string) {
   await adminRpc("admin_delete_row", { p_table: "notices", p_id: id });
   revalidatePath("/admin/notices");
   revalidatePath("/notices");
+  revalidatePath("/");
 }

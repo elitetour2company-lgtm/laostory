@@ -19,18 +19,17 @@ export default function NoticeForm({ notice }: { notice?: AdminNoticeRow }) {
     <form action={formAction} className="space-y-6">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <label>
-          <span className={labelClass}>슬러그 (URL, 영문/숫자/하이픈) *</span>
+          <span className={labelClass}>제목 *</span>
+          <input name="title" defaultValue={notice?.title} required className={fieldClass} />
+        </label>
+        <label>
+          <span className={labelClass}>슬러그 (URL) — 비워두면 자동 생성됩니다</span>
           <input
             name="slug"
             defaultValue={notice?.slug}
-            required
             className={fieldClass}
-            placeholder="2026-summer-notice"
+            placeholder="비워두셔도 됩니다"
           />
-        </label>
-        <label>
-          <span className={labelClass}>제목 *</span>
-          <input name="title" defaultValue={notice?.title} required className={fieldClass} />
         </label>
       </div>
 

@@ -2,6 +2,7 @@ import Hero from "@/components/home/Hero";
 import PromoBanner from "@/components/home/PromoBanner";
 import TripFinder from "@/components/home/TripFinder";
 import CategoryGrid from "@/components/home/CategoryGrid";
+import NoticeSection from "@/components/home/NoticeSection";
 import BestSellers from "@/components/home/BestSellers";
 import VillaShowcase from "@/components/home/VillaShowcase";
 import GolfShowcase from "@/components/home/GolfShowcase";
@@ -24,6 +25,7 @@ export default async function Home() {
       <TripFinder />
       <PromoBanner banners={banners} />
       <CategoryGrid />
+      <NoticeSection />
       <BestSellers />
       <VillaShowcase />
       <GolfShowcase />
