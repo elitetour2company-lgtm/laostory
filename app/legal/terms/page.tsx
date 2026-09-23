@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalContent from "@/components/legal/LegalContent";
-import { SITE_NAME } from "@/lib/config";
+import { SITE_NAME, BUSINESS } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "이용약관",
@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <LegalContent
       title="이용약관"
-      updatedAt="준비 중"
+      updatedAt="2026.09.24"
       sections={[
         {
           heading: "제1조 (목적)",
@@ -40,7 +40,9 @@ export default function TermsPage() {
         },
         {
           heading: "부칙",
-          body: ["사업자 등록 정보 및 상세 약관은 준비 중이며, 확정되는 대로 본 페이지에 반영됩니다."],
+          body: [
+            `이 약관을 제공하는 사업자는 ${BUSINESS.name}(대표 ${BUSINESS.representative}, 사업자등록번호 ${BUSINESS.registrationNumber}, 관광사업 운영허가번호 ${BUSINESS.tourismLicense}, 주소 ${BUSINESS.address})입니다.`,
+          ],
         },
       ]}
     />

@@ -12,3 +12,11 @@ export const CONTACT = {
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "010-5434-8281",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "jeonglogchoe64@gmail.com",
 };
+
+export const BUSINESS = {
+  name: "LAOS GOLF GOOD TOUR SOLE CO., LTD.",
+  representative: "Bang Thipphachom Anoulack",
+  registrationNumber: "01B-0010428",
+  tourismLicense: "13/26 ອທ.ນວ",
+  address: "Ban Haynamngern, Xaythany District, Vientiane Capital, Laos",
+};

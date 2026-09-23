@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "@/components/ui/Container";
-import { SITE_NAME, SITE_NAME_EN, CONTACT } from "@/lib/config";
+import { SITE_NAME, SITE_NAME_EN, CONTACT, BUSINESS } from "@/lib/config";
 
 const FOOTER_LINKS = [
   {
@@ -103,14 +103,13 @@ export default function Footer() {
 
         <div className="mt-14 border-t border-white/10 pt-8 text-xs leading-relaxed text-white/60">
           <p>
-            {SITE_NAME} (LAOS GOLF GOOD TOUR SOLE CO., LTD.) | 대표 : Bang
-            Thipphachom Anoulack | 사업자등록번호 : 01B-0010428 | 관광사업
-            운영허가번호 : 13/26 ອທ.ນວ
+            {SITE_NAME} ({BUSINESS.name}) | 대표 : {BUSINESS.representative} |
+            사업자등록번호 : {BUSINESS.registrationNumber} | 관광사업
+            운영허가번호 : {BUSINESS.tourismLicense}
           </p>
           <p className="mt-1.5">
-            주소 : Ban Haynamngern, Xaythany District, Vientiane Capital, Laos
-            | 대표전화 : {CONTACT.phone} | 현지 연락처 : +856 20 5204 7483 |
-            이메일 : {CONTACT.email}
+            주소 : {BUSINESS.address} | 대표전화 : {CONTACT.phone} | 현지
+            연락처 : +856 20 5204 7483 | 이메일 : {CONTACT.email}
           </p>
           <p className="mt-4 text-white/50">
             © {year} {SITE_NAME_EN}. All rights reserved.

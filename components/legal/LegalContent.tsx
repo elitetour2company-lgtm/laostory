@@ -16,8 +16,8 @@ export default function LegalContent({
       <Container className="py-10 md:py-14">
         <div className="mx-auto max-w-2xl">
           <p className="text-[12.5px] text-text-soft">
-            시행일: {updatedAt} (본 내용은 서비스 준비 단계의 초안이며, 실제
-            사업자 확정 및 법률 검토 후 최종 반영됩니다.)
+            시행일: {updatedAt} (정식 법률 자문을 거치지 않은 내용으로, 필요에
+            따라 개정될 수 있습니다.)
           </p>
 
           <div className="mt-10 space-y-10">

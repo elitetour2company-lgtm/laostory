@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalContent from "@/components/legal/LegalContent";
-import { SITE_NAME } from "@/lib/config";
+import { SITE_NAME, BUSINESS, CONTACT } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침",
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
   return (
     <LegalContent
       title="개인정보처리방침"
-      updatedAt="준비 중"
+      updatedAt="2026.09.24"
       sections={[
         {
           heading: "1. 수집하는 개인정보 항목",
@@ -39,7 +39,11 @@ export default function PrivacyPage() {
         },
         {
           heading: "5. 개인정보 보호책임자",
-          body: ["개인정보 보호책임자 지정 정보는 사업자 확정 후 본 페이지에 반영될 예정입니다."],
+          body: [
+            `개인정보 보호책임자 : ${BUSINESS.representative} (대표)`,
+            `연락처 : ${CONTACT.phone} / ${CONTACT.email}`,
+            "개인정보 처리에 관한 문의는 위 연락처로 접수해 주시면 지체 없이 답변드립니다.",
+          ],
         },
       ]}
     />
