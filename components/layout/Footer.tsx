@@ -104,16 +104,17 @@ export default function Footer() {
 
         <div className="mt-14 border-t border-white/10 pt-8 text-xs leading-relaxed text-white/60">
           <p>
-            {SITE_NAME} | 대표 : 성명 준비 중 | 사업자등록번호 : 000-00-00000
-            (준비 중) | 통신판매업신고 : 제0000-라오스0000호 (준비 중)
+            {SITE_NAME} (LAOS GOLF GOOD TOUR SOLE CO., LTD.) | 대표 : Bang
+            Thipphachom Anoulack | 사업자등록번호 : 01B-0010428 | 관광사업
+            운영허가번호 : 13/26 ອທ.ນວ
           </p>
           <p className="mt-1.5">
-            관광사업자 등록번호 : 준비 중 | 주소 : 라오스 현지 사무소 주소
-            준비 중 | 대표전화 : {CONTACT.phone} | 이메일 : {CONTACT.email}
+            주소 : Ban Haynamngern, Xaythany District, Vientiane Capital, Laos
+            | 대표전화 : {CONTACT.phone} | 현지 연락처 : +856 20 5204 7483 |
+            이메일 : {CONTACT.email}
           </p>
           <p className="mt-4 text-white/50">
-            © {year} {SITE_NAME_EN}. All rights reserved. 본 사이트의 사업자
-            정보와 연락처는 확정 전까지 placeholder로 표기됩니다.
+            © {year} {SITE_NAME_EN}. All rights reserved.
           </p>
         </div>
       </Container>

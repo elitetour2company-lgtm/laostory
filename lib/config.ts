@@ -9,6 +9,6 @@ export const CONTACT = {
   telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "#",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#",
   facebookUrl: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "#",
-  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "상담 전화번호 준비 중",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "이메일 준비 중",
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "010-5434-8281",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "thiplaogolfgoodtour@gmail.com",
 };
