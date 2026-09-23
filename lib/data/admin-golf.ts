@@ -1,5 +1,5 @@
 import { adminRpc } from "@/lib/supabase/admin-rpc";
-import type { GolfSpecialRate } from "@/types";
+import type { GolfExtraFee, GolfSpecialRate } from "@/types";
 
 export type AdminGolfCourseRow = {
   id: string;
@@ -27,6 +27,9 @@ export type AdminGolfCourseRow = {
   mid_season_weekend_price: number | null;
   mid_season_weekend_price_usd: number | null;
   special_rates: GolfSpecialRate[] | null;
+  extra_fees: GolfExtraFee[] | null;
+  odd_headcount_cart_fee_weekend: number | null;
+  odd_headcount_cart_fee_weekend_usd: number | null;
   odd_headcount_cart_fee: number | null;
   odd_headcount_cart_fee_usd: number | null;
   image: string | null;

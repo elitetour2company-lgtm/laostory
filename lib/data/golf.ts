@@ -1,5 +1,5 @@
 import { supabaseServer } from "@/lib/supabase/server";
-import { GolfCourse, GolfSpecialRate } from "@/types";
+import { GolfCourse, GolfExtraFee, GolfSpecialRate } from "@/types";
 import { getRatingSummaries } from "@/lib/data/reviews";
 
 const DIFFICULTY_MAP: Record<string, GolfCourse["difficulty"]> = {
@@ -33,6 +33,9 @@ type GolfRow = {
   mid_season_weekend_price: number | null;
   mid_season_weekend_price_usd: number | null;
   special_rates: GolfSpecialRate[] | null;
+  extra_fees: GolfExtraFee[] | null;
+  odd_headcount_cart_fee_weekend: number | null;
+  odd_headcount_cart_fee_weekend_usd: number | null;
   odd_headcount_cart_fee: number | null;
   odd_headcount_cart_fee_usd: number | null;
   image: string | null;
@@ -70,6 +73,9 @@ function mapRow(row: GolfRow): GolfCourse {
     midSeasonWeekendPrice: row.mid_season_weekend_price ?? undefined,
     midSeasonWeekendPriceUsd: row.mid_season_weekend_price_usd ?? undefined,
     specialRates: row.special_rates && row.special_rates.length > 0 ? row.special_rates : undefined,
+    extraFees: row.extra_fees && row.extra_fees.length > 0 ? row.extra_fees : undefined,
+    oddHeadcountCartFeeWeekend: row.odd_headcount_cart_fee_weekend ?? undefined,
+    oddHeadcountCartFeeWeekendUsd: row.odd_headcount_cart_fee_weekend_usd ?? undefined,
     oddHeadcountCartFee: row.odd_headcount_cart_fee ?? undefined,
     oddHeadcountCartFeeUsd: row.odd_headcount_cart_fee_usd ?? undefined,
     image: row.image ?? undefined,

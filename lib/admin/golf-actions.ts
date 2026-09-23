@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { adminRpc } from "@/lib/supabase/admin-rpc";
-import { parseSpecialRates } from "@/lib/golf-special-rates";
+import { parseExtraFees, parseSpecialRates } from "@/lib/golf-special-rates";
 
 export type GolfFormState = { error?: string };
 
@@ -91,6 +91,15 @@ export async function upsertGolfCourseAction(
       return raw ? Number(raw) : null;
     })(),
     specialRates: parseSpecialRates(String(formData.get("specialRates") ?? "")),
+    extraFees: parseExtraFees(String(formData.get("extraFees") ?? "")),
+    oddHeadcountCartFeeWeekend: (() => {
+      const raw = String(formData.get("oddHeadcountCartFeeWeekend") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
+    oddHeadcountCartFeeWeekendUsd: (() => {
+      const raw = String(formData.get("oddHeadcountCartFeeWeekendUsd") ?? "").trim();
+      return raw ? Number(raw) : null;
+    })(),
     oddHeadcountCartFee: (() => {
       const raw = String(formData.get("oddHeadcountCartFee") ?? "").trim();
       return raw ? Number(raw) : null;

@@ -1,4 +1,4 @@
-import type { GolfSpecialRate } from "@/types";
+import type { GolfExtraFee, GolfSpecialRate } from "@/types";
 
 const DAY_NAMES = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -51,4 +51,21 @@ export function parseSpecialRates(text: string): GolfSpecialRate[] {
     });
   }
   return rates;
+}
+
+// One item per line: "항목 | 내용", e.g. "캐디팁 | 18홀 기준 최소 30만낍(약 15달러)".
+export function serializeExtraFees(fees: GolfExtraFee[] | undefined): string {
+  return (fees ?? []).map((f) => `${f.label} | ${f.value}`).join("\n");
+}
+
+export function parseExtraFees(text: string): GolfExtraFee[] {
+  const fees: GolfExtraFee[] = [];
+  for (const line of text.split("\n")) {
+    const idx = line.indexOf("|");
+    if (idx < 0) continue;
+    const label = line.slice(0, idx).trim();
+    const value = line.slice(idx + 1).trim();
+    if (label && value) fees.push({ label, value });
+  }
+  return fees;
 }

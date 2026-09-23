@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import { upsertGolfCourseAction, GolfFormState } from "@/lib/admin/golf-actions";
 import { AdminGolfCourseRow } from "@/lib/data/admin-golf";
-import { serializeSpecialRates } from "@/lib/golf-special-rates";
+import { serializeExtraFees, serializeSpecialRates } from "@/lib/golf-special-rates";
 
 const DIFFICULTY_OPTIONS = [
   { value: "EASY", label: "쉬움" },
@@ -166,6 +166,19 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             &quot;표시만&quot;은 계산에 넣지 않고 안내만 합니다.
           </span>
         </label>
+        <label className="sm:col-span-2">
+          <span className={labelClass}>
+            불포함·현장 지불 비용 (캐디팁, 렌탈비 등 — 선택, 한 줄에 하나씩)
+          </span>
+          <textarea
+            name="extraFees"
+            rows={4}
+            defaultValue={serializeExtraFees(course?.extra_fees ?? undefined)}
+            placeholder={"캐디팁 | 18홀 기준 최소 30만낍(약 15달러)\n클럽 렌탈 | 약 35달러"}
+            className={`${fieldClass} font-mono text-[12.5px]`}
+          />
+          <span className="mt-1 block text-[11.5px] text-text-soft">형식: 항목 | 내용</span>
+        </label>
         <label>
           <span className={labelClass}>
             중간 시즌 구간 (예: 10월~11월 — 선택, 기본 요금과 성수기 사이 요금이 있는 골프장만 입력)
@@ -261,6 +274,24 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             name="peakSeasonWeekendPriceUsd"
             type="number"
             defaultValue={course?.peak_season_weekend_price_usd ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>홀수 인원 카트비 주말 추가요금 (원 — 선택, 평일과 다를 때만)</span>
+          <input
+            name="oddHeadcountCartFeeWeekend"
+            type="number"
+            defaultValue={course?.odd_headcount_cart_fee_weekend ?? ""}
+            className={fieldClass}
+          />
+        </label>
+        <label>
+          <span className={labelClass}>홀수 인원 카트비 주말 추가요금 (달러 — 선택)</span>
+          <input
+            name="oddHeadcountCartFeeWeekendUsd"
+            type="number"
+            defaultValue={course?.odd_headcount_cart_fee_weekend_usd ?? ""}
             className={fieldClass}
           />
         </label>

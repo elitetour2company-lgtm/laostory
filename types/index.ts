@@ -83,6 +83,11 @@ export interface GolfSpecialRate {
   showOnly?: boolean;
 }
 
+export interface GolfExtraFee {
+  label: string;
+  value: string;
+}
+
 export interface GolfCourse {
   slug: string;
   name: string;
@@ -116,6 +121,11 @@ export interface GolfCourse {
   /** Extra per-seat cart fee charged when the group can't split evenly into 2-seat carts. Undefined means no cart, or the course doesn't apply this surcharge. */
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;
+  /** Weekend surcharge when it differs from the weekday odd-headcount fee. */
+  oddHeadcountCartFeeWeekend?: number;
+  oddHeadcountCartFeeWeekendUsd?: number;
+  /** Costs paid on site and not included in the green fee (caddie tip, rentals, ...). */
+  extraFees?: GolfExtraFee[];
   image?: string;
   gallery: string[];
   yardage?: number;

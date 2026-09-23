@@ -192,6 +192,20 @@ export default async function GolfCourseDetailPage({
             </div>
           </div>
 
+          {course.extraFees && course.extraFees.length > 0 ? (
+            <div className="mt-8 rounded-lg bg-ivory p-5">
+              <h3 className="text-[15px] font-semibold text-forest">불포함 · 현장 지불 비용</h3>
+              <ul className="mt-3 space-y-2">
+                {course.extraFees.map((fee) => (
+                  <li key={fee.label} className="flex gap-3 text-[13.5px] text-text">
+                    <span className="w-24 flex-shrink-0 text-text-soft">{fee.label}</span>
+                    <span>{fee.value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
           <TravelNotices type="golf" />
 
           <div className="mt-10">
@@ -252,6 +266,8 @@ export default async function GolfCourseDetailPage({
             specialRates={course.specialRates}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
+            oddHeadcountCartFeeWeekend={course.oddHeadcountCartFeeWeekend}
+            oddHeadcountCartFeeWeekendUsd={course.oddHeadcountCartFeeWeekendUsd}
           />
         </aside>
       </Container>
@@ -278,6 +294,8 @@ export default async function GolfCourseDetailPage({
             specialRates={course.specialRates}
             oddHeadcountCartFee={course.oddHeadcountCartFee}
             oddHeadcountCartFeeUsd={course.oddHeadcountCartFeeUsd}
+            oddHeadcountCartFeeWeekend={course.oddHeadcountCartFeeWeekend}
+            oddHeadcountCartFeeWeekendUsd={course.oddHeadcountCartFeeWeekendUsd}
           />
         </div>
       </div>

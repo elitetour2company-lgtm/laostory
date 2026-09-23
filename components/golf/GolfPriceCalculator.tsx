@@ -25,6 +25,8 @@ type Props = {
   specialRates?: GolfSpecialRate[];
   oddHeadcountCartFee?: number;
   oddHeadcountCartFeeUsd?: number;
+  oddHeadcountCartFeeWeekend?: number;
+  oddHeadcountCartFeeWeekendUsd?: number;
   maxGuests?: number;
   compact?: boolean;
 };
@@ -81,6 +83,8 @@ export default function GolfPriceCalculator({
   specialRates,
   oddHeadcountCartFee,
   oddHeadcountCartFeeUsd,
+  oddHeadcountCartFeeWeekend,
+  oddHeadcountCartFeeWeekendUsd,
   maxGuests = 20,
   compact = false,
 }: Props) {
@@ -181,8 +185,11 @@ export default function GolfPriceCalculator({
   // A lone golfer has no cart to split, so the surcharge only kicks in once a
   // group of 3+ can't divide evenly into 2-seat carts.
   const needsOddCart = guests >= 3 && guests % 2 !== 0;
-  const cartSurcharge = needsOddCart && oddHeadcountCartFee ? oddHeadcountCartFee : 0;
-  const cartSurchargeUsd = needsOddCart && oddHeadcountCartFeeUsd ? oddHeadcountCartFeeUsd : 0;
+  const oddFee = weekend && oddHeadcountCartFeeWeekend ? oddHeadcountCartFeeWeekend : oddHeadcountCartFee;
+  const oddFeeUsd =
+    weekend && oddHeadcountCartFeeWeekendUsd ? oddHeadcountCartFeeWeekendUsd : oddHeadcountCartFeeUsd;
+  const cartSurcharge = needsOddCart && oddFee ? oddFee : 0;
+  const cartSurchargeUsd = needsOddCart && oddFeeUsd ? oddFeeUsd : 0;
 
   const total = unitPrice * guests + cartSurcharge;
   const totalUsd = unitPriceUsd !== undefined ? unitPriceUsd * guests + cartSurchargeUsd : undefined;
