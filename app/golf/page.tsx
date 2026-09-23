@@ -6,7 +6,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProductCard from "@/components/product/ProductCard";
 import GolfCard from "@/components/golf/GolfCard";
-import GolfCompareTable from "@/components/golf/GolfCompareTable";
+import GolfPriceBoard from "@/components/golf/GolfPriceBoard";
 import SortSelect from "@/components/ui/SortSelect";
 import TravelDateFilter from "@/components/ui/TravelDateFilter";
 import { getAllProducts } from "@/lib/data/products";
@@ -84,7 +84,7 @@ export default async function GolfPage({
         </div>
 
         <div className="mt-6">
-          <GolfCompareTable courses={sortedCourses} />
+          <GolfPriceBoard courses={golfCourses} />
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">

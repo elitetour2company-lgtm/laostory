@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MessageSquare, Clock, CalendarDays, TrendingUp } from "lucide-react";
+import { MessageSquare, Clock, CalendarDays } from "lucide-react";
 import { getDashboardStats } from "@/lib/data/admin-stats";
 import { formatPrice } from "@/lib/format";
 
@@ -17,14 +17,13 @@ export default async function AdminDashboardPage() {
     { label: "오늘 신규 문의", value: stats.todayInquiries, icon: CalendarDays },
     { label: "미처리 문의", value: stats.pendingInquiries, icon: Clock },
     { label: "전체 문의", value: stats.totalInquiries, icon: MessageSquare },
-    { label: "매출 (준비 중)", value: "-", icon: TrendingUp },
   ];
 
   return (
     <div className="p-6 md:p-10">
       <h1 className="text-[22px] font-semibold text-forest">대시보드</h1>
 
-      <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-3">
         {cards.map(({ label, value, icon: Icon }) => (
           <div key={label} className="rounded-md border border-border bg-white p-5">
             <div className="flex items-center justify-between">

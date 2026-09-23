@@ -107,11 +107,18 @@ export default async function AboutPage() {
 
       <Container className="border-t border-border py-10 md:py-14">
         <SectionHeading eyebrow="Our Story" title="라오스토리의 이야기" />
-        <div className="mt-8 rounded-xl border border-dashed border-border bg-ivory p-8 text-center">
-          <p className="text-[14.5px] leading-relaxed text-text-soft">
-            라오스토리가 걸어온 이야기는 아직 준비 중입니다.
-            <br />
-            자세한 소개는 곧 이 자리에 채워질 예정입니다.
+        <div className="mt-8 max-w-3xl space-y-4 text-[15px] leading-[1.9] text-text">
+          <p>
+            라오스토리는 라오스 현지 법인이 직접 운영하는 한국인 맞춤 여행사입니다. 비엔티안,
+            방비엥, 루앙프라방에서 골프, 투어, 차량, 숙소를 현지에서 바로 준비합니다.
+          </p>
+          <p>
+            중간 단계 없이 현지에서 직접 진행하기 때문에 일정이 바뀌거나 문제가 생겨도 빠르게
+            대응할 수 있고, 모든 상담은 한국어로 진행됩니다.
+          </p>
+          <p>
+            상품을 고르기 어렵다면 상담을 신청해 주세요. 인원, 일정, 예산에 맞춰 골프장과 코스,
+            이동 수단까지 함께 제안해 드립니다.
           </p>
         </div>
       </Container>

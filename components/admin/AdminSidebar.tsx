@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Package,
-  Home,
   Flag,
   Compass,
   Car,
@@ -22,7 +21,6 @@ import { SITE_NAME } from "@/lib/config";
 const NAV = [
   { label: "대시보드", href: "/admin", icon: LayoutDashboard },
   { label: "여행상품 관리", href: "/admin/products", icon: Package },
-  { label: "풀빌라 관리", href: "/admin/villas", icon: Home },
   { label: "골프장 관리", href: "/admin/golf", icon: Flag },
   { label: "투어 관리", href: "/admin/tours", icon: Compass },
   { label: "차량 관리", href: "/admin/transport", icon: Car },
@@ -33,7 +31,7 @@ const NAV = [
   { label: "사이트 설정", href: "/admin/settings", icon: Settings },
 ];
 
-export default function AdminSidebar({ adminName }: { adminName: string }) {
+export default function AdminSidebar({ adminName, pendingInquiries = 0 }: { adminName: string; pendingInquiries?: number }) {
   const pathname = usePathname();
 
   return (
@@ -62,6 +60,11 @@ export default function AdminSidebar({ adminName }: { adminName: string }) {
             >
               <Icon size={16} strokeWidth={1.75} />
               {item.label}
+              {item.href === "/admin/inquiries" && pendingInquiries > 0 ? (
+                <span className="ml-auto rounded-full bg-red-500 px-2 py-0.5 text-[11px] font-semibold leading-none text-white">
+                  {pendingInquiries}
+                </span>
+              ) : null}
             </Link>
           );
         })}
