@@ -1,22 +1,40 @@
 import type { GolfCourse } from "@/types";
 
-type Tier = { label: string; price: number; priceUsd?: number };
+type Tier = { label: string; weekday: number; weekend: number; weekdayUsd?: number; weekendUsd?: number };
 
 function buildTiers(c: GolfCourse): Tier[] {
   const tiers: Tier[] = [
-    { label: c.midSeasonLabel || c.peakSeasonLabel ? "그 외 기간" : "연중", price: c.price, priceUsd: c.priceUsd },
+    {
+      label: c.midSeasonLabel || c.peakSeasonLabel ? "그 외 기간" : "연중",
+      weekday: c.price,
+      weekend: c.weekendPrice ?? c.price,
+      weekdayUsd: c.priceUsd,
+      weekendUsd: c.weekendPriceUsd ?? c.priceUsd,
+    },
   ];
   if (c.midSeasonPrice && c.midSeasonLabel) {
-    tiers.push({ label: c.midSeasonLabel, price: c.midSeasonPrice, priceUsd: c.midSeasonPriceUsd });
+    tiers.push({
+      label: c.midSeasonLabel,
+      weekday: c.midSeasonPrice,
+      weekend: c.midSeasonWeekendPrice ?? c.midSeasonPrice,
+      weekdayUsd: c.midSeasonPriceUsd,
+      weekendUsd: c.midSeasonWeekendPriceUsd ?? c.midSeasonPriceUsd,
+    });
   }
   if (c.peakSeasonPrice && c.peakSeasonLabel) {
-    tiers.push({ label: `${c.peakSeasonLabel} 성수기`, price: c.peakSeasonPrice, priceUsd: c.peakSeasonPriceUsd });
+    tiers.push({
+      label: `${c.peakSeasonLabel} 성수기`,
+      weekday: c.peakSeasonPrice,
+      weekend: c.peakSeasonWeekendPrice ?? c.peakSeasonPrice,
+      weekdayUsd: c.peakSeasonPriceUsd,
+      weekendUsd: c.peakSeasonWeekendPriceUsd ?? c.peakSeasonPriceUsd,
+    });
   }
   return tiers;
 }
 
 function lowestUsd(tiers: Tier[]): number | undefined {
-  const usds = tiers.map((t) => t.priceUsd).filter((v): v is number => v !== undefined);
+  const usds = tiers.map((t) => t.weekdayUsd).filter((v): v is number => v !== undefined);
   return usds.length ? Math.min(...usds) : undefined;
 }
 
@@ -30,6 +48,7 @@ export default function GolfPriceList({ courses }: { courses: GolfCourse[] }) {
         {courses.map((course) => {
           const tiers = buildTiers(course);
           const from = lowestUsd(tiers);
+          const splitWeekend = tiers.some((t) => t.weekend !== t.weekday);
           return (
             <details key={course.slug} className="group">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5 marker:content-none">
@@ -60,13 +79,30 @@ export default function GolfPriceList({ courses }: { courses: GolfCourse[] }) {
                 </div>
               </summary>
               <div className="px-4 pb-4">
-                <div className="grid grid-cols-1 gap-1.5 rounded-lg bg-ivory p-3 sm:grid-cols-2">
-                  {tiers.map((t) => (
-                    <div key={t.label} className="flex items-center justify-between gap-2 text-[13px]">
-                      <span className="text-text-soft">{t.label}</span>
-                      <span className="font-semibold text-forest">
-                        {t.priceUsd ? `$${t.priceUsd}` : `₩${t.price.toLocaleString("ko-KR")}`}
+                <div className="rounded-lg bg-ivory p-3">
+                  {splitWeekend ? (
+                    <div className="grid grid-cols-[1fr_4rem_4rem] gap-x-2 pb-1.5 text-[11px] font-medium text-text-soft">
+                      <span>기간</span>
+                      <span className="text-right">주중</span>
+                      <span className="text-right">주말</span>
+                    </div>
+                  ) : null}
+                  {tiers.map((t, i) => (
+                    <div
+                      key={t.label}
+                      className={`grid items-center gap-x-2 py-1.5 ${
+                        splitWeekend ? "grid-cols-[1fr_4rem_4rem]" : "grid-cols-[1fr_4rem]"
+                      } ${i > 0 ? "border-t border-dashed border-border" : ""}`}
+                    >
+                      <span className="text-[13px] text-text-soft">{t.label}</span>
+                      <span className="text-right text-[13.5px] font-semibold text-forest">
+                        {t.weekdayUsd ? `$${t.weekdayUsd}` : `₩${t.weekday.toLocaleString("ko-KR")}`}
                       </span>
+                      {splitWeekend ? (
+                        <span className="text-right text-[13.5px] font-semibold text-forest">
+                          {t.weekendUsd ? `$${t.weekendUsd}` : `₩${t.weekend.toLocaleString("ko-KR")}`}
+                        </span>
+                      ) : null}
                     </div>
                   ))}
                 </div>
