@@ -8,7 +8,7 @@ export const CONTACT = {
   kakaoUrl: process.env.NEXT_PUBLIC_KAKAO_URL ?? "https://pf.kakao.com/_IQNaX/chat",
   blogUrl: process.env.NEXT_PUBLIC_BLOG_URL ?? "https://blog.naver.com/laostorytour",
   telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "#",
-  instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#",
+  instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://www.instagram.com/laostorytour_laos",
   facebookUrl: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "#",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "010-5434-8281",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "laostorytour@naver.com",
