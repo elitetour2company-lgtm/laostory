@@ -40,6 +40,7 @@ const FOOTER_LINKS = [
 
 const SOCIAL = [
   { label: "카카오톡", mark: "K", href: CONTACT.kakaoUrl },
+  { label: "블로그", mark: "B", href: CONTACT.blogUrl },
   { label: "텔레그램", mark: "T", href: CONTACT.telegramUrl },
   { label: "인스타그램", mark: "IG", href: CONTACT.instagramUrl },
   { label: "페이스북", mark: "FB", href: CONTACT.facebookUrl },

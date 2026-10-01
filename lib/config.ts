@@ -6,6 +6,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://laostorytou
 
 export const CONTACT = {
   kakaoUrl: process.env.NEXT_PUBLIC_KAKAO_URL ?? "https://pf.kakao.com/_IQNaX/chat",
+  blogUrl: process.env.NEXT_PUBLIC_BLOG_URL ?? "https://blog.naver.com/laostorytour",
   telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "#",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#",
   facebookUrl: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "#",
