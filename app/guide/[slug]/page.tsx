@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button";
 import { getGuideArticleBySlug, getGuideArticleSlugs } from "@/lib/data/guide";
 import { getImage } from "@/data/images";
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const slugs = await getGuideArticleSlugs();
   return slugs.map((slug) => ({ slug }));

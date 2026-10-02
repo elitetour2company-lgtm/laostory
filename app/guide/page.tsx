@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description: "라오스 여행 시기, 지역 정보, 숙소 고르는 법까지 여행 전 알아두면 좋은 정보를 모았습니다.",
 };
 
+export const revalidate = 60;
+
 export default async function GuidePage() {
   const guideArticles = await getAllGuideArticles();
 
