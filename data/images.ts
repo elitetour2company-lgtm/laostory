@@ -221,6 +221,7 @@ const src = {
   golfBackupTeeOff: img("golf-backup-teeoff.jpg"),
   golfBackupFairwayPath: img("golf-backup-fairwaypath.jpg"),
   wattayAirportShuttle: img("wattay-airport-shuttle.jpg"),
+  wattayAirportExterior: img("wattay-airport-exterior.jpg"),
   thamJangCave: img("tham-jang-cave-entrance.jpg"),
   hotairBalloonVangVieng: img("hotair-balloon-vangvieng.jpg"),
   buggyVangVieng: img("buggy-vangvieng.jpg"),
@@ -493,6 +494,7 @@ type ImageKey =
   | "guide-14"
   | "guide-15"
   | "guide-16"
+  | "guide-17"
   | "guide-currency-exchange"
   | "course-mekong-cc"
   | "course-lao-cc"
@@ -745,6 +747,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-15": src.phaThatLuang,
   // Laos-golf-caddy-cart-tip-guide — real Mekong CC cart path shot, directly on-topic.
   "guide-16": src.mekongCCCartpath,
+  // Laos-travel-medicine-guide — real Wattay International Airport exterior.
+  "guide-17": src.wattayAirportExterior,
   // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
   "guide-currency-exchange": src.laosKipBanknotes,
 
