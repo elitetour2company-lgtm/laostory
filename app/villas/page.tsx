@@ -7,7 +7,7 @@ import TravelDateFilter from "@/components/ui/TravelDateFilter";
 import { getAllVillas } from "@/lib/data/villas";
 
 export const metadata: Metadata = {
-  title: "라오스 풀빌라·호텔",
+  title: "라오스 풀빌라·호텔 예약 | 방비엥·비엔티안·루앙프라방",
   description: "라오스 방비엥, 비엔티안, 루앙프라방의 프라이빗 풀빌라를 비교하고 예약 상담을 신청하세요.",
 };
 

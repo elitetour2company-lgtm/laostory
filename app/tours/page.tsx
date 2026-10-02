@@ -9,7 +9,7 @@ import { getAllTours } from "@/lib/data/tours";
 import { sortItems } from "@/lib/sort";
 
 export const metadata: Metadata = {
-  title: "라오스 투어·액티비티",
+  title: "라오스 투어·액티비티 | 방비엥 원데이투어·루앙프라방",
   description: "방비엥, 루앙프라방의 원데이투어, 반일투어, 액티비티를 확인하고 예약 상담을 신청하세요.",
 };
 

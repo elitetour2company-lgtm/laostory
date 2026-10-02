@@ -14,8 +14,9 @@ import { getAllGolfCourses } from "@/lib/data/golf";
 import { sortItems } from "@/lib/sort";
 
 export const metadata: Metadata = {
-  title: "라오스 골프",
-  description: "라오스 골프 패키지와 골프장 부킹을 한 곳에서 확인하고 예약 상담을 신청하세요.",
+  title: "라오스 골프 여행 | 비엔티안·루앙프라방 골프장 7곳 가격·예약",
+  description:
+    "라오스 골프 여행 전문 라오스토리. 비엔티안, 루앙프라방 골프장 7곳의 그린피·카트·캐디 요금과 패키지를 한 곳에서 확인하고 예약 상담을 신청하세요.",
 };
 
 export default async function GolfPage({

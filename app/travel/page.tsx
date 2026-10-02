@@ -10,7 +10,7 @@ import { sortItems } from "@/lib/sort";
 import { ProductType, TravelTag } from "@/types";
 
 export const metadata: Metadata = {
-  title: "라오스 여행상품",
+  title: "라오스 자유여행·패키지여행 상품",
   description: "라오스 자유여행, 패키지여행 상품을 한눈에 비교하고 예약 상담을 신청하세요.",
 };
 

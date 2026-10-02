@@ -7,7 +7,7 @@ import { getAllDestinations } from "@/lib/data/destinations";
 import { getImage } from "@/data/images";
 
 export const metadata: Metadata = {
-  title: "라오스 여행지",
+  title: "라오스 여행지 추천 | 비엔티안·루앙프라방·방비엥",
   description: "라오스의 매력적인 도시들을 만나보세요.",
 };
 

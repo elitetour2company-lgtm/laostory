@@ -7,7 +7,7 @@ import { getAllGuideArticles } from "@/lib/data/guide";
 import { getImage } from "@/data/images";
 
 export const metadata: Metadata = {
-  title: "라오스 여행정보",
+  title: "라오스 여행정보 | 비자·환전·여행 시기 가이드",
   description: "라오스 여행 시기, 지역 정보, 숙소 고르는 법까지 여행 전 알아두면 좋은 정보를 모았습니다.",
 };
 

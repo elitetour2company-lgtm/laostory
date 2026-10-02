@@ -12,8 +12,9 @@ import { TransportOption } from "@/types";
 import TrainBookingWidget from "@/components/transport/TrainBookingWidget";
 
 export const metadata: Metadata = {
-  title: "라오스 차량·픽업",
-  description: "공항 픽업, 전세밴, 조인밴, 기차표까지 라오스 교통편을 한 곳에서 확인하세요.",
+  title: "라오스 기차·차량·픽업 예약 | 비엔티안-루앙프라방 고속철도",
+  description:
+    "라오스 기차(비엔티안-루앙프라방 고속철도) 예약부터 공항 픽업, 전세밴, 조인밴까지 라오스 교통편을 한 곳에서 확인하세요.",
 };
 
 const CATEGORIES: TransportOption["category"][] = [
