@@ -492,6 +492,7 @@ type ImageKey =
   | "guide-13"
   | "guide-14"
   | "guide-15"
+  | "guide-16"
   | "guide-currency-exchange"
   | "course-mekong-cc"
   | "course-lao-cc"
@@ -742,6 +743,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-14": src.luangPrabangNightMarket,
   // Laos-sim-esim-guide — real Pha That Luang (generic Vientiane/city backdrop).
   "guide-15": src.phaThatLuang,
+  // Laos-golf-caddy-cart-tip-guide — real Longbien CC golden-hour green shot.
+  "guide-16": src.longbienCCGoldenGreen,
   // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
   "guide-currency-exchange": src.laosKipBanknotes,
 
