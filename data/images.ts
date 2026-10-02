@@ -234,6 +234,7 @@ const src = {
   mekongSunsetCruiseLP: img("mekong-sunset-cruise-lp.jpg"),
   blueLagoonVangVieng: img("blue-lagoon-vangvieng.jpg"),
   minivanVientiane: img("minivan-vientiane.jpg"),
+  vientianeTuktukTaxi: img("vientiane-tuktuk-taxi.jpg"),
   // Owner-provided photo (white Toyota HiAce on a palm-lined city street) — homepage category card and all van thumbnails.
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
@@ -754,8 +755,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-17": src.wattayAirportExterior,
   // Laos-golf-bag-airline-baggage-guide — real golf bag over shoulder, directly on-topic.
   "guide-18": src.golfBagCarry,
-  // Laos-golf-course-transport-guide — real Longbien CC entrance sign.
-  "guide-19": src.longbienCCGallery6,
+  // Laos-golf-course-transport-guide — real Vientiane tuk-tuk taxi scene, directly on-topic.
+  "guide-19": src.vientianeTuktukTaxi,
   // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
   "guide-currency-exchange": src.laosKipBanknotes,
 
