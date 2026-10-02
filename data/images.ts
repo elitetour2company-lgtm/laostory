@@ -497,6 +497,7 @@ type ImageKey =
   | "guide-16"
   | "guide-17"
   | "guide-18"
+  | "guide-19"
   | "guide-currency-exchange"
   | "course-mekong-cc"
   | "course-lao-cc"
@@ -753,6 +754,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-17": src.wattayAirportExterior,
   // Laos-golf-bag-airline-baggage-guide — real golf bag over shoulder, directly on-topic.
   "guide-18": src.golfBagCarry,
+  // Laos-golf-course-transport-guide — real Vientiane minivan, directly on-topic.
+  "guide-19": src.minivanVientiane,
   // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
   "guide-currency-exchange": src.laosKipBanknotes,
 
