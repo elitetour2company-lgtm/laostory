@@ -174,7 +174,7 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             name="extraFees"
             rows={4}
             defaultValue={serializeExtraFees(course?.extra_fees ?? undefined)}
-            placeholder={"캐디팁 | 18홀 기준 최소 30만낍(약 15달러)\n클럽 렌탈 | 약 35달러"}
+            placeholder={"캐디팁 | 18홀 기준 최소 30만낍(약 14달러)\n클럽 렌탈 | 약 35달러"}
             className={`${fieldClass} font-mono text-[12.5px]`}
           />
           <span className="mt-1 block text-[11.5px] text-text-soft">형식: 항목 | 내용</span>

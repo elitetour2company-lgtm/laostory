@@ -53,7 +53,7 @@ export function parseSpecialRates(text: string): GolfSpecialRate[] {
   return rates;
 }
 
-// One item per line: "항목 | 내용", e.g. "캐디팁 | 18홀 기준 최소 30만낍(약 15달러)".
+// One item per line: "항목 | 내용", e.g. "캐디팁 | 18홀 기준 최소 30만낍(약 14달러)".
 export function serializeExtraFees(fees: GolfExtraFee[] | undefined): string {
   return (fees ?? []).map((f) => `${f.label} | ${f.value}`).join("\n");
 }
