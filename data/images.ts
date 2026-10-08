@@ -251,7 +251,6 @@ const src = {
   mekongSunsetDondet: img("mekong-sunset-dondet.jpg"),
   lcrTrainFrontview: img("train-lcr-frontview.jpg"),
 
-  mekongCCGallery1: img("mekong-cc-1.png"),
   mekongCCGallery3: img("mekong-cc-4.png"),
 
   laoCCGallery2: img("lao-cc-3.png"),
@@ -270,15 +269,10 @@ const src = {
   lakeviewCCGallery2: img("lakeview-cc-2.png"),
   lakeviewCCGallery3: img("lakeview-cc-3.png"),
   lakeviewCCGallery4: img("lakeview-cc-4.png"),
-  lakeviewCCGallery5: img("lakeview-cc-6.png"),
   lakeviewCCGallery6: img("lakeview-cc-7.png"),
   lakeviewCCGallery7: img("lakeview-cc-8.png"),
   lakeviewCCGallery8: img("lakeview-cc-9.png"),
-  lakeviewCCGallery10: img("lakeview-cc-11.png"),
 
-  booyoungCCGallery1: img("booyoung-cc-1.png"),
-  booyoungCCGallery2: img("booyoung-cc-2.png"),
-  booyoungCCGallery3: img("booyoung-cc-3.png"),
   booyoungCCGallery8: img("booyoung-cc-8.png"),
   booyoungCCGallery10: img("booyoung-cc-10.png"),
   booyoungCCGallery11: img("booyoung-cc-12.png"),
@@ -346,8 +340,6 @@ const src = {
   laoCCAerialTown: img("lao-cc-aerial-town.webp"),
   golfCourseSunriseGreens: img("golf-course-sunrise-greens.jpg"),
   laoCCFairwayPond: img("lao-cc-fairway-pond.webp"),
-  laoCCTopiarySign: img("lao-cc-topiary-sign.jpg"),
-  laoCCElephantMascot: img("lao-cc-elephant-mascot.png"),
   longbienCCClubhouseAerial: img("longbien-cc-clubhouse-aerial.jpg"),
   longbienCCGoldenGreen: img("longbien-cc-golden-green.webp"),
   golfCourseSunsetGreen: img("golf-course-sunset-green.jpg"),
@@ -438,7 +430,6 @@ type ImageKey =
   | "course-mekong-cc"
   | "course-lao-cc"
   | "course-longbien-cc"
-  | "course-mekong-cc-g1"
   | "course-mekong-cc-g3"
   | "course-mekong-cc-g5"
   | "course-mekong-cc-g7"
@@ -447,8 +438,6 @@ type ImageKey =
   | "course-lao-cc-g4"
   | "course-lao-cc-g5"
   | "course-lao-cc-g6"
-  | "course-lao-cc-g7"
-  | "course-lao-cc-g8"
   | "course-longbien-cc-g2"
   | "course-longbien-cc-g3"
   | "course-longbien-cc-g4"
@@ -463,15 +452,10 @@ type ImageKey =
   | "course-lakeview-cc-g2"
   | "course-lakeview-cc-g3"
   | "course-lakeview-cc-g4"
-  | "course-lakeview-cc-g5"
   | "course-lakeview-cc-g6"
   | "course-lakeview-cc-g7"
   | "course-lakeview-cc-g8"
-  | "course-lakeview-cc-g10"
   | "course-booyoung-cc"
-  | "course-booyoung-cc-g1"
-  | "course-booyoung-cc-g2"
-  | "course-booyoung-cc-g3"
   | "course-booyoung-cc-g8"
   | "course-booyoung-cc-g10"
   | "course-booyoung-cc-g11"
@@ -673,7 +657,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-longbien-cc": src.longbienCCWelcomeSignVivid,
 
   // Gallery photos — Mekong Golf & Resort, Vientiane.
-  "course-mekong-cc-g1": src.mekongCCGallery1,
   "course-mekong-cc-g3": src.mekongCCGallery3,
   "course-mekong-cc-g5": src.mekongCCAerial,
   "course-mekong-cc-g7": src.mekongCCCartpath,
@@ -684,8 +667,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-lao-cc-g4": src.laoCCFountainClubhouse,
   "course-lao-cc-g5": src.laoCCAerialTown,
   "course-lao-cc-g6": src.laoCCFairwayPond,
-  "course-lao-cc-g7": src.laoCCTopiarySign,
-  "course-lao-cc-g8": src.laoCCElephantMascot,
 
   // Gallery photos — Longbien Golf Club, Vientiane.
   "course-longbien-cc-g2": src.longbienCCGallery2,
@@ -704,11 +685,9 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-lakeview-cc-g2": src.lakeviewCCGallery2,
   "course-lakeview-cc-g3": src.lakeviewCCGallery3,
   "course-lakeview-cc-g4": src.lakeviewCCGallery4,
-  "course-lakeview-cc-g5": src.lakeviewCCGallery5,
   "course-lakeview-cc-g6": src.lakeviewCCGallery6,
   "course-lakeview-cc-g7": src.lakeviewCCGallery7,
   "course-lakeview-cc-g8": src.lakeviewCCGallery8,
-  "course-lakeview-cc-g10": src.lakeviewCCGallery10,
 
   // Owner-provided real photo of Booyoung (SEA Games) Golf Club, Vientiane.
   "course-booyoung-cc": src.booyoungCCClubhouseAerial,
@@ -719,9 +698,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-asia-club-vangvieng-g2": src.asiaClubVangviengGallery2,
   "course-asia-club-vangvieng-g3": src.asiaClubVangviengGallery3,
   "course-asia-club-vangvieng-g4": src.asiaClubVangviengGallery4,
-  "course-booyoung-cc-g1": src.booyoungCCGallery1,
-  "course-booyoung-cc-g2": src.booyoungCCGallery2,
-  "course-booyoung-cc-g3": src.booyoungCCGallery3,
   "course-booyoung-cc-g8": src.booyoungCCGallery8,
   "course-booyoung-cc-g10": src.booyoungCCGallery10,
   "course-booyoung-cc-g11": src.booyoungCCGallery11,
