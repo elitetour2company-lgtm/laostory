@@ -15,8 +15,8 @@
     }
   ],
   "kv_namespaces": [
-    { "binding": "NEXT_INC_CACHE_KV" },
-    { "binding": "NEXT_TAG_CACHE_KV" }
+    { "binding": "NEXT_INC_CACHE_KV", "id": "b04b675dc6c848ef8c33140d07fc679e" },
+    { "binding": "NEXT_TAG_CACHE_KV", "id": "ef265764288640c98f01c827830c4bf7" }
   ],
   "images": {
     "binding": "IMAGES"
