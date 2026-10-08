@@ -235,6 +235,18 @@ const src = {
   blueLagoonVangVieng: img("blue-lagoon-vangvieng.jpg"),
   minivanVientiane: img("minivan-vientiane.jpg"),
   vientianeTuktukTaxi: img("vientiane-tuktuk-taxi.jpg"),
+  // "Blue Lagoon at Vang Vieng" by Gonzo Gooner, CC BY 3.0 (Wikimedia Commons) — credited in the guide article.
+  blueLagoonTubing: img("vangvieng-blue-lagoon-tubing.jpg"),
+  // "Avenue Lane Xang (Vientiane)" by Christophe95, CC BY-SA 4.0 (Wikimedia Commons) — credited in the guide article.
+  vientianeLaneXangDrive: img("vientiane-lane-xang-avenue.jpg"),
+  // "Pills and medicines 02" by BuhaM, CC BY-SA 4.0 (Wikimedia Commons) — credited in the guide article.
+  travelMedicinePills: img("travel-medicine-pills.jpg"),
+  // Self-made illustration card (no third-party photo) for the taxi-app guide.
+  taxiAppGuideCard: img("taxi-app-guide-card.jpg"),
+  // Self-made illustration card for the packing checklist guide.
+  packingChecklistCard: img("packing-checklist-card.jpg"),
+  // Self-made cheat-sheet card for the exchange-rate guide.
+  exchangeRateGuideCard: img("exchange-rate-guide-card.jpg"),
   // Owner-provided photo (white Toyota HiAce on a palm-lined city street) — homepage category card and all van thumbnails.
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
@@ -499,6 +511,12 @@ type ImageKey =
   | "guide-17"
   | "guide-18"
   | "guide-19"
+  | "guide-20"
+  | "guide-21"
+  | "guide-22"
+  | "guide-23"
+  | "guide-24"
+  | "guide-25"
   | "guide-currency-exchange"
   | "course-mekong-cc"
   | "course-lao-cc"
@@ -756,7 +774,19 @@ export const images: Record<ImageKey, string | undefined> = {
   // Laos-golf-bag-airline-baggage-guide — real golf bag over shoulder, directly on-topic.
   "guide-18": src.golfBagCarry,
   // Laos-golf-course-transport-guide — real Vientiane tuk-tuk taxi scene, directly on-topic.
-  "guide-19": src.vientianeTuktukTaxi,
+  "guide-19": src.longbienCCGoldenGreen,
+  // Vangvieng-blue-lagoon-guide — turquoise water with swimmers, matches the Blue Lagoon topic.
+  "guide-20": src.blueLagoonTubing,
+  // Laos-rental-car-vs-charter-van-guide — real Vientiane avenue seen from the driver's view with SUVs and motorbikes.
+  "guide-21": src.vientianeLaneXangDrive,
+  // Laos-travel-medicine-guide — tablets and capsules, directly on-topic.
+  "guide-22": src.travelMedicinePills,
+  // Laos-taxi-app-guide — own illustration card (LOCA / inDrive / Kokkok summary).
+  "guide-23": src.taxiAppGuideCard,
+  // Laos-travel-packing-checklist — own checklist card.
+  "guide-24": src.packingChecklistCard,
+  // Laos-exchange-rate-calculation-guide — own cheat-sheet card.
+  "guide-25": src.exchangeRateGuideCard,
   // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
   "guide-currency-exchange": src.laosKipBanknotes,
 
