@@ -199,7 +199,6 @@ const src = {
   vangViengHero: img("vangvieng-hero.jpg"),
   muangphuangFloatingBungalows: img("muangphuang-floating-bungalows.jpg"),
   vangViengClouds: img("vangvieng-clouds.jpg"),
-  vangviengBalloonAerialDawn: img("vangvieng-balloon-aerial-dawn.jpg"),
   vangViengPaddy: img("vangvieng-paddy.jpg"),
   vangViengBungalows: img("vangvieng-bungalows.jpg"),
   vangviengPoolvillaReal: img("vangvieng-poolvilla-real.jpg"),
@@ -213,28 +212,16 @@ const src = {
   // Owner-provided night shot of the pool villa used in the golf+villa package (960px original, two crops).
   poolvillaNightTall: img("poolvilla-night-tall.jpg"),
   poolvillaNightWide: img("poolvilla-night-wide.jpg"),
-  tadFane: img("tad-fane-waterfall.jpg"),
-  tadLoElephant: img("tad-lo-elephant.jpg"),
-  riceFarmers: img("rice-farmers.jpg"),
   golfSunsetHill: img("golf-sunset-hill.jpg"),
   golfBunker: img("golf-bunker.jpg"),
   golfBackupTeeOff: img("golf-backup-teeoff.jpg"),
   golfBackupFairwayPath: img("golf-backup-fairwaypath.jpg"),
-  wattayAirportShuttle: img("wattay-airport-shuttle.jpg"),
   wattayAirportExterior: img("wattay-airport-exterior.jpg"),
   golfBagCarry: img("golf-bag-carry.jpg"),
-  thamJangCave: img("tham-jang-cave-entrance.jpg"),
   hotairBalloonVangVieng: img("hotair-balloon-vangvieng.jpg"),
   buggyVangVieng: img("buggy-vangvieng.jpg"),
-  lcrTrainExterior: img("lcr-train-exterior.jpg"),
   // Landscape crop of lcrTrainExterior (the original is portrait, which put the train outside the 21:9 hero band).
   lcrTrainViaductWide: img("lcr-train-viaduct-wide.jpg"),
-  lcrTrainInterior: img("lcr-train-interior.jpg"),
-  vientianeRailwayStation: img("vientiane-railway-station.jpg"),
-  mekongSunsetCruiseLP: img("mekong-sunset-cruise-lp.jpg"),
-  blueLagoonVangVieng: img("blue-lagoon-vangvieng.jpg"),
-  minivanVientiane: img("minivan-vientiane.jpg"),
-  vientianeTuktukTaxi: img("vientiane-tuktuk-taxi.jpg"),
   // "Blue Lagoon at Vang Vieng" by Gonzo Gooner, CC BY 3.0 (Wikimedia Commons) — credited in the guide article.
   blueLagoonTubing: img("vangvieng-blue-lagoon-tubing.jpg"),
   // "Avenue Lane Xang (Vientiane)" by Christophe95, CC BY-SA 4.0 (Wikimedia Commons) — credited in the guide article.
@@ -253,23 +240,16 @@ const src = {
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
   vangviengZiplineRiver: img("vangvieng-zipline-river.jpg"),
-  belizeBluecreekZipline: img("belize-bluecreek-zipline.jpg"),
   vangviengBuggyKarst: img("vangvieng-buggy-karst.jpg"),
   vangviengBuggyMudSplash: img("vangvieng-buggy-mud-splash.jpg"),
-  vangviengKayakAction: img("vangvieng-kayak-action.jpg"),
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
   vangviengZiplineJungle: img("vangvieng-zipline-jungle.jpg"),
-  vangviengThamPhukhamCave: img("vangvieng-tham-phukham-cave.jpg"),
-  caveTubingBelize: img("cave-tubing-belize.jpg"),
   bluelagoon3SwingTower: img("bluelagoon3-swing-tower.jpg"),
   bluelagoon3RopeSwingAction: img("bluelagoon3-rope-swing-action.jpg"),
-  buggy4seatPolaris: img("buggy-4seat-polaris.jpg"),
   vangviengBuggy4seatFamily: img("vangvieng-buggy-4seat-family.jpg"),
   paramotorDondetFront: img("vangvieng-paramotor-sunset.jpg"),
   mekongSunsetDondet: img("mekong-sunset-dondet.jpg"),
   lcrTrainFrontview: img("train-lcr-frontview.jpg"),
-  watPhouChampasak: img("wat-phou-champasak.jpg"),
-  bolavenCoffeePlantation: img("bolaven-coffee-plantation.jpg"),
 
   mekongCCGallery1: img("mekong-cc-1.png"),
   mekongCCGallery3: img("mekong-cc-4.png"),
@@ -309,36 +289,6 @@ const src = {
   asiaClubVangviengGallery2: img("asia-club-vangvieng-3.jpeg"),
   asiaClubVangviengGallery3: img("asia-club-vangvieng-4.jpeg"),
   asiaClubVangviengGallery4: img("asia-club-vangvieng-5.jpeg"),
-
-  yuwanVientianeHero: img("yuwan-vientiane-hero.png"),
-  yuwanVientianeGallery1: img("yuwan-vientiane-room-twin.webp"),
-  yuwanVientianeGallery2: img("yuwan-vientiane-room-king.webp"),
-  yuwanVientianeGallery3: img("yuwan-vientiane-pool.webp"),
-  yuwanVientianeGallery4: img("yuwan-vientiane-lobby.webp"),
-  yuwanVientianeGallery5: img("yuwan-vientiane-restaurant.webp"),
-  yuwanVientianeGallery6: img("yuwan-vientiane-suite.webp"),
-  yuwanVientianeGallery7: img("yuwan-vientiane-bathroom.webp"),
-
-  amariVientianeHero: img("amari-vientiane-hero.png"),
-  amariVientianeGallery1: img("amari-vientiane-sunset-sign.webp"),
-  amariVientianeGallery2: img("amari-vientiane-room-king.webp"),
-  amariVientianeGallery3: img("amari-vientiane-aerial.webp"),
-  amariVientianeGallery4: img("amari-vientiane-lobby.webp"),
-  amariVientianeGallery5: img("amari-vientiane-suite.webp"),
-  amariVientianeGallery6: img("amari-vientiane-restaurant.webp"),
-  amariVientianeGallery7: img("amari-vientiane-pool.webp"),
-  amariVientianeGallery8: img("amari-vientiane-bathroom.webp"),
-  amariVientianeGallery9: img("amari-vientiane-room-twin.webp"),
-
-  muongthanhVientianeHero: img("muongthanh-vientiane-hero.png"),
-  muongthanhVientianeGallery1: img("muongthanh-vientiane-night.webp"),
-  muongthanhVientianeGallery2: img("muongthanh-vientiane-skyrestaurant.webp"),
-  muongthanhVientianeGallery3: img("muongthanh-vientiane-breakfast.webp"),
-  muongthanhVientianeGallery4: img("muongthanh-vientiane-room-king.webp"),
-  muongthanhVientianeGallery5: img("muongthanh-vientiane-lobby.webp"),
-  muongthanhVientianeGallery6: img("muongthanh-vientiane-room-twin.webp"),
-  muongthanhVientianeGallery7: img("muongthanh-vientiane-pool.webp"),
-  muongthanhVientianeGallery8: img("muongthanh-vientiane-bathroom.webp"),
 
   vangviengBluelagoonSwim: img("vangvieng-bluelagoon-swim.png"),
   vangviengBluelagoonSlide: img("vangvieng-bluelagoon-slide.png"),
@@ -390,7 +340,6 @@ const src = {
   mekongCCHero2: img("mekong-cc-hero2.jpg"),
   mekongCCClubhouseBunker: img("mekong-cc-clubhouse-bunker.jpg"),
   mekongCCAerial: img("mekong-cc-aerial.jpg"),
-  mekongCCBunkers: img("mekong-cc-bunkers.jpg"),
   mekongCCCartpath: img("mekong-cc-cartpath.jpg"),
   laoCCAerialClover: img("lao-cc-aerial-clover.jpg"),
   laoCCFountainClubhouse: img("lao-cc-fountain-clubhouse.webp"),
@@ -443,16 +392,12 @@ type ImageKey =
   | "destination-vangvieng"
   | "destination-luangprabang"
   | "destination-pakse"
-  | "destination-pakse-g1"
-  | "destination-pakse-g2"
-  | "product-1"
   | "product-2"
   | "product-noshopping-vientiane"
   | "product-3"
   | "product-4"
   | "product-5"
   | "product-6"
-  | "product-8"
   | "product-9"
   | "product-10"
   | "villa-hero"
@@ -461,33 +406,6 @@ type ImageKey =
   | "villa-3"
   | "poolvilla-night-tall"
   | "poolvilla-night-wide"
-  | "hotel-yuwan-vientiane"
-  | "hotel-yuwan-vientiane-g1"
-  | "hotel-yuwan-vientiane-g2"
-  | "hotel-yuwan-vientiane-g3"
-  | "hotel-yuwan-vientiane-g4"
-  | "hotel-yuwan-vientiane-g5"
-  | "hotel-yuwan-vientiane-g6"
-  | "hotel-yuwan-vientiane-g7"
-  | "hotel-amari-vientiane"
-  | "hotel-amari-vientiane-g1"
-  | "hotel-amari-vientiane-g2"
-  | "hotel-amari-vientiane-g3"
-  | "hotel-amari-vientiane-g4"
-  | "hotel-amari-vientiane-g5"
-  | "hotel-amari-vientiane-g6"
-  | "hotel-amari-vientiane-g7"
-  | "hotel-amari-vientiane-g8"
-  | "hotel-amari-vientiane-g9"
-  | "hotel-muongthanh-vientiane"
-  | "hotel-muongthanh-vientiane-g1"
-  | "hotel-muongthanh-vientiane-g2"
-  | "hotel-muongthanh-vientiane-g3"
-  | "hotel-muongthanh-vientiane-g4"
-  | "hotel-muongthanh-vientiane-g5"
-  | "hotel-muongthanh-vientiane-g6"
-  | "hotel-muongthanh-vientiane-g7"
-  | "hotel-muongthanh-vientiane-g8"
   | "golf-hero"
   | "golf-1"
   | "golf-2"
@@ -500,11 +418,8 @@ type ImageKey =
   | "guide-4"
   | "guide-5"
   | "guide-6"
-  | "guide-7"
   | "guide-8"
-  | "guide-9"
   | "guide-10"
-  | "guide-11"
   | "guide-12"
   | "guide-13"
   | "guide-14"
@@ -526,7 +441,6 @@ type ImageKey =
   | "course-mekong-cc-g1"
   | "course-mekong-cc-g3"
   | "course-mekong-cc-g5"
-  | "course-mekong-cc-g6"
   | "course-mekong-cc-g7"
   | "course-lao-cc-g2"
   | "course-lao-cc-g3"
@@ -583,7 +497,6 @@ type ImageKey =
   | "train-lcr-interior"
   | "train-vientiane-station"
   | "tour-mekong-cruise-lp"
-  | "tour-blue-lagoon"
   | "transport-minivan"
   | "vv-bluelagoon-swim"
   | "vv-bluelagoon-slide"
@@ -668,12 +581,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "destination-luangprabang": src.kuangSiFalls,
   // Tad Fane twin falls with a zipliner — landscape, so the falls survive the 21:9 hero crop (the plain tadFane shot is portrait-ish).
   "destination-pakse": src.bolavenZiplineAction,
-  // Real Wat Phou ruins, Champasak province — genuine Pakse-area landmark.
-  "destination-pakse-g1": src.watPhouChampasak,
-  // Real Bolaven Plateau coffee plantation — genuine Pakse-area landmark.
-  "destination-pakse-g2": src.bolavenCoffeePlantation,
 
-  "product-1": src.riceFarmers,
   // Reuses the real Vang Vieng guesthouse photo (same as villa-1) — accurate location match, no new file needed.
   "product-2": src.vangviengPoolvillaReal,
   "product-noshopping-vientiane": src.vientianePatuxaiSunset,
@@ -684,7 +592,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "product-5": src.mekongRiverfront,
   "product-6": src.kuangSiFalls,
   // Matches the elephant sanctuary activity mentioned in this package's itinerary.
-  "product-8": src.tadLoElephant,
   // Honest non-Laos stand-ins — see golf attribution note below.
   "product-9": src.golfBackupTeeOff,
   "product-10": src.golfBackupFairwayPath,
@@ -698,39 +605,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "villa-2": undefined,
   // Unpublished placeholder row — shares the owner's villa photo so nothing references the deleted Amantaka file.
   "villa-3": src.poolvillaNightTall,
-
-  // Real 유은 호텔 (Vientiane) photography — owner-provided exterior hero plus room/facility photos.
-  "hotel-yuwan-vientiane": src.yuwanVientianeHero,
-  "hotel-yuwan-vientiane-g1": src.yuwanVientianeGallery1,
-  "hotel-yuwan-vientiane-g2": src.yuwanVientianeGallery2,
-  "hotel-yuwan-vientiane-g3": src.yuwanVientianeGallery3,
-  "hotel-yuwan-vientiane-g4": src.yuwanVientianeGallery4,
-  "hotel-yuwan-vientiane-g5": src.yuwanVientianeGallery5,
-  "hotel-yuwan-vientiane-g6": src.yuwanVientianeGallery6,
-  "hotel-yuwan-vientiane-g7": src.yuwanVientianeGallery7,
-
-  // Real 아마리 호텔 (Vientiane) photography — owner-provided sunset drone hero plus room/facility photos.
-  "hotel-amari-vientiane": src.amariVientianeHero,
-  "hotel-amari-vientiane-g1": src.amariVientianeGallery1,
-  "hotel-amari-vientiane-g2": src.amariVientianeGallery2,
-  "hotel-amari-vientiane-g3": src.amariVientianeGallery3,
-  "hotel-amari-vientiane-g4": src.amariVientianeGallery4,
-  "hotel-amari-vientiane-g5": src.amariVientianeGallery5,
-  "hotel-amari-vientiane-g6": src.amariVientianeGallery6,
-  "hotel-amari-vientiane-g7": src.amariVientianeGallery7,
-  "hotel-amari-vientiane-g8": src.amariVientianeGallery8,
-  "hotel-amari-vientiane-g9": src.amariVientianeGallery9,
-
-  // Real 무엉탄 럭셔리 호텔 (Vientiane) photography — owner-provided daytime hero plus room/facility photos.
-  "hotel-muongthanh-vientiane": src.muongthanhVientianeHero,
-  "hotel-muongthanh-vientiane-g1": src.muongthanhVientianeGallery1,
-  "hotel-muongthanh-vientiane-g2": src.muongthanhVientianeGallery2,
-  "hotel-muongthanh-vientiane-g3": src.muongthanhVientianeGallery3,
-  "hotel-muongthanh-vientiane-g4": src.muongthanhVientianeGallery4,
-  "hotel-muongthanh-vientiane-g5": src.muongthanhVientianeGallery5,
-  "hotel-muongthanh-vientiane-g6": src.muongthanhVientianeGallery6,
-  "hotel-muongthanh-vientiane-g7": src.muongthanhVientianeGallery7,
-  "hotel-muongthanh-vientiane-g8": src.muongthanhVientianeGallery8,
 
   // Honest non-Laos stand-ins for all golf slots below — Wikimedia Commons has zero Laos golf course photography (verified). Each slot uses a different photo so no two golf cards repeat the same image.
   "golf-hero": src.golfCourseSunsetGreen,
@@ -752,15 +626,12 @@ export const images: Record<ImageKey, string | undefined> = {
   // Real Vientiane riverfront photo — accurate match for the Vientiane guide.
   "guide-6": src.mekongRiverfront,
   // Real Tad Fane waterfall (Pakse/Bolaven Plateau area) — accurate match for the Pakse guide.
-  "guide-7": src.tadFane,
   // Laos-transportation-guide — real LCR train, directly on-topic.
   "guide-8": src.lcrTrainViaductWide,
   // Laos-visa-guide — real Wattay airport (entry point), reasonable thematic fit.
-  "guide-9": src.wattayAirportShuttle,
   // Laos-safety-tips — generic real Vang Vieng scenery.
   "guide-10": src.vangViengClouds,
   // Laos-budget-guide — generic real Laos countryside.
-  "guide-11": src.riceFarmers,
   // Laos-packing-checklist — generic real Vang Vieng activity scenery.
   "guide-12": src.vangviengKayakRiver,
   // Laos-trip-duration-guide — real Kuang Si Falls, evokes a multi-day itinerary.
@@ -805,7 +676,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-mekong-cc-g1": src.mekongCCGallery1,
   "course-mekong-cc-g3": src.mekongCCGallery3,
   "course-mekong-cc-g5": src.mekongCCAerial,
-  "course-mekong-cc-g6": src.mekongCCBunkers,
   "course-mekong-cc-g7": src.mekongCCCartpath,
 
   // Gallery photos — Lao CC, Vientiane.
@@ -877,7 +747,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "train-lcr-interior": src.lcrTrainFrontview,
   "train-vientiane-station": src.lcrTrainFrontview,
   "tour-mekong-cruise-lp": src.mekongSunsetDondet,
-  "tour-blue-lagoon": src.blueLagoonVangVieng,
   "transport-minivan": src.categoryTransportVan,
 
   // Owner-provided real Vang Vieng activity photos.

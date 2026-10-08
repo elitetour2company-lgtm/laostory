@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
 import Button from "@/components/ui/Button";
-import { getGuideArticleBySlug, getGuideArticleSlugs } from "@/lib/data/guide";
+import {
+  getAllGuideArticles,
+  getGuideArticleBySlug,
+  getGuideArticleSlugs,
+} from "@/lib/data/guide";
 import { getImage } from "@/data/images";
 
 export const revalidate = 3600;
@@ -43,6 +48,18 @@ export default async function GuideDetailPage({
   const { slug } = await params;
   const article = await getGuideArticleBySlug(slug);
   if (!article) notFound();
+
+  const all = await getAllGuideArticles();
+  const others = all.filter((a) => a.slug !== article.slug);
+  const sameCategory = others.filter((a) => a.category === article.category);
+  const rotateFrom = Math.max(
+    0,
+    all.filter((a) => a.category === article.category).findIndex((a) => a.slug === article.slug)
+  );
+  const rotated = sameCategory.length
+    ? [...sameCategory.slice(rotateFrom % sameCategory.length), ...sameCategory.slice(0, rotateFrom % sameCategory.length)]
+    : [];
+  const related = [...rotated, ...others.filter((a) => a.category !== article.category)].slice(0, 3);
 
   return (
     <div className="pb-16">
@@ -90,6 +107,36 @@ export default async function GuideDetailPage({
                   className="h-auto w-full rounded-xl border border-border"
                 />
               ))}
+            </div>
+          ) : null}
+
+          {related.length > 0 ? (
+            <div className="mt-12 border-t border-border pt-8">
+              <h2 className="text-[15px] font-semibold text-forest">함께 읽으면 좋은 글</h2>
+              <div className="mt-4 flex flex-col divide-y divide-border">
+                {related.map((a) => (
+                  <Link
+                    key={a.slug}
+                    href={`/guide/${a.slug}`}
+                    className="group flex gap-4 py-4 first:pt-0"
+                  >
+                    <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden rounded-md">
+                      <CoverImage
+                        src={getImage(a.image)}
+                        alt=""
+                        sizes="112px"
+                        className="transition-transform duration-500 group-hover:scale-[1.04]"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-center">
+                      <p className="text-xs font-medium tracking-wide text-gold">{a.category}</p>
+                      <p className="mt-1 line-clamp-2 text-[14px] font-semibold leading-snug text-text">
+                        {a.title}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           ) : null}
 

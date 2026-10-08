@@ -8,6 +8,16 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "laostory"
+    }
+  ],
+  "kv_namespaces": [
+    { "binding": "NEXT_INC_CACHE_KV" },
+    { "binding": "NEXT_TAG_CACHE_KV" }
+  ],
   "images": {
     "binding": "IMAGES"
   }
