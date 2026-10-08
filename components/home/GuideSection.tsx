@@ -6,10 +6,22 @@ import CoverImage from "@/components/ui/CoverImage";
 import { getAllGuideArticles } from "@/lib/data/guide";
 import { getImage } from "@/data/images";
 
+const FEATURED_SLUGS = [
+  "laos-golf-caddy-tip-cart-fee-guide",
+  "vientiane-golf-course-comparison-2026",
+  "laos-golf-trip-cash-budget-2026",
+  "laos-taxi-app-guide-2026",
+  "laos-exchange-rate-calculation-guide",
+];
+
 export default async function GuideSection() {
   const guideArticles = await getAllGuideArticles();
   if (guideArticles.length === 0) return null;
-  const [featured, ...rest] = guideArticles.slice(0, 5);
+  const picked = FEATURED_SLUGS.map((slug) => guideArticles.find((a) => a.slug === slug)).filter(
+    (a): a is (typeof guideArticles)[number] => Boolean(a)
+  );
+  const fillers = guideArticles.filter((a) => !picked.includes(a));
+  const [featured, ...rest] = [...picked, ...fillers].slice(0, 5);
 
   return (
     <section className="border-t border-border bg-ivory py-20 md:py-28">

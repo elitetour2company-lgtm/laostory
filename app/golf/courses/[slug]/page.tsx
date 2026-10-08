@@ -192,17 +192,43 @@ export default async function GolfCourseDetailPage({
             </div>
           </div>
 
-          {course.extraFees && course.extraFees.length > 0 ? (
+          {(course.extraFees && course.extraFees.length > 0) || course.oddHeadcountCartFeeUsd ? (
             <div className="mt-8 rounded-lg bg-ivory p-5">
               <h3 className="text-[15px] font-semibold text-forest">불포함 · 현장 지불 비용</h3>
               <ul className="mt-3 space-y-2">
-                {course.extraFees.map((fee) => (
+                {(course.extraFees ?? []).map((fee) => (
                   <li key={fee.label} className="flex gap-3 text-[13.5px] text-text">
                     <span className="w-24 flex-shrink-0 text-text-soft">{fee.label}</span>
                     <span>{fee.value}</span>
                   </li>
                 ))}
+                {course.oddHeadcountCartFeeUsd ? (
+                  <li className="flex gap-3 text-[13.5px] text-text">
+                    <span className="w-24 flex-shrink-0 text-text-soft">홀수 인원 카트</span>
+                    <span>
+                      조가 홀수 인원이면 카트 1대 추가 {course.oddHeadcountCartFeeUsd}달러
+                      {course.oddHeadcountCartFeeWeekendUsd &&
+                      course.oddHeadcountCartFeeWeekendUsd !== course.oddHeadcountCartFeeUsd
+                        ? ` (주말 ${course.oddHeadcountCartFeeWeekendUsd}달러)`
+                        : ""}
+                    </span>
+                  </li>
+                ) : null}
               </ul>
+              <div className="mt-4 flex flex-col gap-1.5 border-t border-border pt-3">
+                <Link
+                  href="/guide/laos-golf-caddy-tip-cart-fee-guide"
+                  className="text-[13px] font-medium text-forest underline underline-offset-2"
+                >
+                  캐디팁·카트비 총정리 보기 →
+                </Link>
+                <Link
+                  href="/guide/laos-golf-trip-cash-budget-2026"
+                  className="text-[13px] font-medium text-forest underline underline-offset-2"
+                >
+                  라운딩당 현지 지출 계산하기 →
+                </Link>
+              </div>
             </div>
           ) : null}
 
