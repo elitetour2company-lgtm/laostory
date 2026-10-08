@@ -247,6 +247,8 @@ const src = {
   packingChecklistCard: img("packing-checklist-card.jpg"),
   // Self-made cheat-sheet card for the exchange-rate guide.
   exchangeRateGuideCard: img("exchange-rate-guide-card.jpg"),
+  // Bank of the Lao PDR banknote images, CC BY-SA 4.0 (Wikimedia Commons, uploader credit: bol.gov.la) — credited in the guide article.
+  laosKipNotesGrid: img("laos-kip-notes-grid.jpg"),
   // Owner-provided photo (white Toyota HiAce on a palm-lined city street) — homepage category card and all van thumbnails.
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
@@ -788,7 +790,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // Laos-exchange-rate-calculation-guide — own cheat-sheet card.
   "guide-25": src.exchangeRateGuideCard,
   // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
-  "guide-currency-exchange": src.laosKipBanknotes,
+  "guide-currency-exchange": src.laosKipNotesGrid,
 
   // Owner-provided real photo of Mekong Golf & Resort, Vientiane.
   "course-mekong-cc": src.mekongCCClubhouseBunker,
