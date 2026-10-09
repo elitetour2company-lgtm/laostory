@@ -223,6 +223,8 @@ const src = {
   vvCaveTubingPoolPhoto: img("vv-cave-tubing-pool.jpg"),
   vvKayakRiverTwoPhoto: img("vv-kayak-river-two.jpg"),
   vvZiplinePlatformGroupPhoto: img("vv-zipline-platform-group.jpg"),
+  // Owner-supplied zipline-over-Nam-Song photo (1920x1080), used with permission (confirmed by owner, 2026-10-09).
+  vvZiplineNamsongRiver: img("vv-zipline-namsong-river.jpg"),
   golfSunsetHill: img("golf-sunset-hill.jpg"),
   golfBunker: img("golf-bunker.jpg"),
   golfBackupTeeOff: img("golf-backup-teeoff.jpg"),
@@ -509,6 +511,7 @@ type ImageKey =
   | "vv-p-cave-tubing-pool"
   | "vv-p-kayak-river-two"
   | "vv-p-zipline-platform-group"
+  | "vv-p-zipline-namsong-river"
   | "vv-paramotor-sunset-silhouette"
   | "vientiane-thatluang-day"
   | "vientiane-thatluang-monks"
@@ -764,6 +767,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-p-cave-tubing-pool": src.vvCaveTubingPoolPhoto,
   "vv-p-kayak-river-two": src.vvKayakRiverTwoPhoto,
   "vv-p-zipline-platform-group": src.vvZiplinePlatformGroupPhoto,
+  "vv-p-zipline-namsong-river": src.vvZiplineNamsongRiver,
   "vv-paramotor-sunset-silhouette": src.vangviengParamotorSunsetSilhouette,
 
   // Owner-provided real photos — destinations gallery, Mekong sunset cruise tour gallery, and the LP·VV 3-night free package product gallery.
