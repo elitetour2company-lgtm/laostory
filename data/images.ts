@@ -582,7 +582,7 @@ export const images: Record<ImageKey, string | undefined> = {
   "golf-2": src.golfBunker,
   "golf-3": src.golfBackupTeeOff,
   // Owner's villa photo (wide crop) — replaces the 600px vangviengPoolvillaReal thumbnail.
-  "golf-villa-combo": src.kimcPoolvillaSunsetAerial,
+  "golf-villa-combo": src.poolvillaNightWide,
   "kimc-poolvilla": src.kimcPoolvillaSunsetAerial,
   "kimc-poolvilla-pool-day": src.kimcPoolvillaPoolDay,
   "kimc-poolvilla-pool-night": src.kimcPoolvillaPoolNight,

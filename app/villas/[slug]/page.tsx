@@ -16,6 +16,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, productSchema } from "@/lib/seo/schema";
 import ReviewSection from "@/components/reviews/ReviewSection";
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const slugs = await getVillaSlugs();
   return slugs.map((slug) => ({ slug }));

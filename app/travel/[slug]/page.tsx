@@ -32,6 +32,8 @@ const PRODUCT_TYPE_TO_REVIEW_CATEGORY: Record<
   골프: "GOLF",
 };
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const slugs = await getProductSlugs();
   return slugs.map((slug) => ({ slug }));

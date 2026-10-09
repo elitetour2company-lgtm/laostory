@@ -18,6 +18,8 @@ import { getAllGolfCourses } from "@/lib/data/golf";
 import { getAllTours } from "@/lib/data/tours";
 import { getImage } from "@/data/images";
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const slugs = await getDestinationSlugs();
   return slugs.map((slug) => ({ slug }));

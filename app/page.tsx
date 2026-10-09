@@ -15,6 +15,8 @@ import GuideSection from "@/components/home/GuideSection";
 import FinalCTA from "@/components/home/FinalCTA";
 import { getActiveBanners } from "@/lib/data/banners";
 
+export const revalidate = 3600;
+
 export default async function Home() {
   const banners = await getActiveBanners();
 
