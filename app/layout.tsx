@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileNav from "@/components/layout/MobileNav";
 import KakaoWidget from "@/components/layout/KakaoWidget";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import JsonLd from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <MobileNav />
         <KakaoWidget />
+        <GoogleAnalytics />
       </body>
     </html>
   );
