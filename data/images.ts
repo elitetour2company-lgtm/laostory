@@ -201,9 +201,7 @@ const src = {
   vangViengClouds: img("vangvieng-clouds.jpg"),
   vangViengPaddy: img("vangvieng-paddy.jpg"),
   vangViengBungalows: img("vangvieng-bungalows.jpg"),
-  vangviengPoolvillaReal: img("vangvieng-poolvilla-real.jpg"),
   mekongRiverfront: img("mekong-riverfront.jpg"),
-  laosKipBanknotes: img("laos-kip-banknotes.jpg"),
   phaThatLuang: img("pha-that-luang.jpg"),
   luangPrabangTemple: img("luangprabang-temple.jpg"),
   kuangSiFalls: img("kuang-si-falls.jpg"),
@@ -212,6 +210,19 @@ const src = {
   // Owner-provided night shot of the pool villa used in the golf+villa package (960px original, two crops).
   poolvillaNightTall: img("poolvilla-night-tall.jpg"),
   poolvillaNightWide: img("poolvilla-night-wide.jpg"),
+  // KiM.C Pool Villa (Vientiane) photos from the villa's own site, used with the owner's permission (confirmed by owner, 2026-10-09).
+  kimcPoolvillaSunsetAerial: img("kimc-poolvilla-sunset-aerial.jpg"),
+  kimcPoolvillaPoolDay: img("kimc-poolvilla-pool-day.jpg"),
+  kimcPoolvillaPoolNight: img("kimc-poolvilla-pool-night.jpg"),
+  // Vang Vieng activity photos (1400px), used with the supplier's permission (confirmed by owner, 2026-10-09).
+  vvParamotorTakeoffPhoto: img("vv-paramotor-takeoff.jpg"),
+  vvMountainPanoramaPhoto: img("vv-mountain-panorama.jpg"),
+  vvBalloonsDawnPhoto: img("vv-balloons-dawn.jpg"),
+  vvBuggyLineupPhoto: img("vv-buggy-lineup.jpg"),
+  vvBluelagoonSwimmingPhoto: img("vv-bluelagoon-swimming.jpg"),
+  vvCaveTubingPoolPhoto: img("vv-cave-tubing-pool.jpg"),
+  vvKayakRiverTwoPhoto: img("vv-kayak-river-two.jpg"),
+  vvZiplinePlatformGroupPhoto: img("vv-zipline-platform-group.jpg"),
   golfSunsetHill: img("golf-sunset-hill.jpg"),
   golfBunker: img("golf-bunker.jpg"),
   golfBackupTeeOff: img("golf-backup-teeoff.jpg"),
@@ -234,17 +245,26 @@ const src = {
   packingChecklistCard: img("packing-checklist-card.jpg"),
   // Self-made cheat-sheet card for the exchange-rate guide.
   exchangeRateGuideCard: img("exchange-rate-guide-card.jpg"),
+  // Owner-provided photo of the Korean embassy in Vientiane (guide: emergency contacts), 678x375.
+  emergencyEmbassyPhoto: img("emergency-embassy.jpg"),
+  // Vientiane Lao Development Bank exchange counter, used with the photo owner's permission (confirmed by owner, 2026-10-09).
+  vientianeExchangeCounter: img("vientiane-exchange-counter.jpg"),
+  // "Meter Taxi in Vientiane 01" (Wikimedia Commons), CC BY-SA 3.0 — credited in the guide article.
+  vientianeMeterTaxi: img("vientiane-meter-taxi.jpg"),
+  // "Clothes-travel-voyage-backpack" (Wikimedia Commons / Flickr), CC0 — no credit required.
+  travelPackingBackpack: img("travel-packing-backpack.jpg"),
+  // Basile Morin, Wikimedia Commons, CC BY-SA 4.0 — credited in the guide article.
+  luangPrabangKuangsiTurquoise: img("luangprabang-kuangsi-falls-turquoise.jpg"),
+  luangPrabangPhousiDusk: img("luangprabang-phousi-dusk.jpg"),
   // Bank of the Lao PDR banknote images, CC BY-SA 4.0 (Wikimedia Commons, uploader credit: bol.gov.la) — credited in the guide article.
   laosKipNotesGrid: img("laos-kip-notes-grid.jpg"),
   // Owner-provided photo (white Toyota HiAce on a palm-lined city street) — homepage category card and all van thumbnails.
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
   vangviengZiplineRiver: img("vangvieng-zipline-river.jpg"),
-  vangviengBuggyKarst: img("vangvieng-buggy-karst.jpg"),
   vangviengBuggyMudSplash: img("vangvieng-buggy-mud-splash.jpg"),
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
   vangviengZiplineJungle: img("vangvieng-zipline-jungle.jpg"),
-  bluelagoon3SwingTower: img("bluelagoon3-swing-tower.jpg"),
   bluelagoon3RopeSwingAction: img("bluelagoon3-rope-swing-action.jpg"),
   vangviengBuggy4seatFamily: img("vangvieng-buggy-4seat-family.jpg"),
   paramotorDondetFront: img("vangvieng-paramotor-sunset.jpg"),
@@ -254,27 +274,28 @@ const src = {
   mekongCCGallery3: img("mekong-cc-4.png"),
 
   laoCCGallery2: img("lao-cc-3.png"),
-  laoCCGallery3: img("lao-cc-4.png"),
 
   longbienCCGallery2: img("longbien-cc-2.png"),
   longbienCCGallery3: img("longbien-cc-3.png"),
   longbienCCGallery4: img("longbien-cc-4.png"),
   longbienCCGallery6: img("longbien-cc-7.png"),
-  longbienCCGallery7: img("longbien-cc-8.png"),
   longbienCCGallery8: img("longbien-cc-9.png"),
-  longbienCCGallery9: img("longbien-cc-10.png"),
+  // Long Vien Golf Club photos (1366-1440px) from a booking site, used with the club's permission (confirmed by owner, 2026-10-09).
+  longbienCCSunsetPond: img("longbien-cc-sunset-pond.jpg"),
+  longbienCCBunkerPalms: img("longbien-cc-bunker-palms.jpg"),
+  longbienCCNightLit: img("longbien-cc-night-lit.jpg"),
 
   lakeviewCCBridge: img("lakeview-cc-5.png"),
+  // Lakeview Vientiane Golf Club photos (1920x1439) from a booking site, used with the club's permission (confirmed by owner, 2026-10-09).
+  lakeviewCCLakeCartpath: img("lakeview-cc-lake-cartpath.jpg"),
+  lakeviewCCBunkerPalms: img("lakeview-cc-bunker-palms.jpg"),
+  lakeviewCCPondCartpath: img("lakeview-cc-pond-cartpath.jpg"),
+  lakeviewCCRangeStripes: img("lakeview-cc-range-stripes.jpg"),
   lakeviewCCGallery1: img("lakeview-cc-1.png"),
-  lakeviewCCGallery2: img("lakeview-cc-2.png"),
   lakeviewCCGallery3: img("lakeview-cc-3.png"),
   lakeviewCCGallery4: img("lakeview-cc-4.png"),
-  lakeviewCCGallery6: img("lakeview-cc-7.png"),
   lakeviewCCGallery7: img("lakeview-cc-8.png"),
-  lakeviewCCGallery8: img("lakeview-cc-9.png"),
 
-  booyoungCCGallery8: img("booyoung-cc-8.png"),
-  booyoungCCGallery10: img("booyoung-cc-10.png"),
   booyoungCCGallery11: img("booyoung-cc-12.png"),
   booyoungCCGallery12: img("booyoung-cc-13.png"),
 
@@ -285,53 +306,24 @@ const src = {
   asiaClubVangviengGallery4: img("asia-club-vangvieng-5.jpeg"),
 
   vangviengBluelagoonSwim: img("vangvieng-bluelagoon-swim.png"),
-  vangviengBluelagoonSlide: img("vangvieng-bluelagoon-slide.png"),
-  vangviengBluelagoonView: img("vangvieng-bluelagoon-view.png"),
-  vangviengKayakGroupLaunch: img("vangvieng-kayak-group-launch.png"),
   vangviengKayakPeople: img("vangvieng-kayak-people.png"),
-  vangviengKayakRiver: img("vangvieng-kayak-river.png"),
-  vangviengKayakAerial: img("vangvieng-kayak-aerial.png"),
-  vangviengKayakGreenRiver: img("vangvieng-kayak-green-river.png"),
-  vangviengZiplineWoman: img("vangvieng-zipline-woman.png"),
   vangviengZiplineCanyon: img("vangvieng-zipline-canyon.png"),
-  vangviengZiplineCanopy: img("vangvieng-zipline-canopy.png"),
-  vangviengZiplineGroup: img("vangvieng-zipline-group.png"),
-  vangviengZiplineBridge: img("vangvieng-zipline-bridge.png"),
-  vangviengZiplineRiverBridge: img("vangvieng-zipline-river-bridge.png"),
-  vangviengZiplineCliff: img("vangvieng-zipline-cliff.png"),
-  vangviengCaveInterior1: img("vangvieng-cave-interior1.png"),
-  vangviengCaveStalactite: img("vangvieng-cave-stalactite.png"),
-  vangviengCaveCeiling: img("vangvieng-cave-ceiling.png"),
-  vangviengCaveTubing: img("vangvieng-cave-tubing.png"),
-  vangviengCaveKayak: img("vangvieng-cave-kayak.png"),
-  vangviengCaveWalkway: img("vangvieng-cave-walkway.png"),
-  vangviengBalloonMultiAerial: img("vangvieng-balloon-multi-aerial.png"),
   vangviengBalloonRiverTown: img("vangvieng-balloon-river-town.jpg"),
-  vangviengBalloonSky: img("vangvieng-balloon-sky.png"),
-  vangviengBalloonLaunch: img("vangvieng-balloon-launch.png"),
-  vangviengBalloonMoon: img("vangvieng-balloon-moon.png"),
-  vangviengParamotorPair: img("vangvieng-paramotor-pair.png"),
-  vangviengParamotorPrelaunch: img("vangvieng-paramotor-prelaunch.png"),
-  vangviengParamotorFlying: img("vangvieng-paramotor-flying.png"),
   vangviengBuggyMudWheel: img("vangvieng-buggy-mud-wheel.jpg"),
   vangviengBuggyPovDriving: img("vangvieng-buggy-pov-driving.jpg"),
-  vangviengZiplineWaterfallAerial: img("vangvieng-zipline-waterfall-aerial.jpg"),
   vangviengBluelagoonSwingClean: img("vangvieng-bluelagoon-swing-clean.jpg"),
   vangviengBalloonTwinSunset: img("vangvieng-balloon-twin-sunset.png"),
   vangviengKayakTwoBoats: img("vangvieng-kayak-two-boats.jpg"),
   vangviengKayakBalloonCombo: img("vangvieng-kayak-balloon-combo.jpg"),
   vangviengZiplinePlatformPrep: img("vangvieng-zipline-platform-prep.jpg"),
   vangviengBluelagoonTreeswingPose: img("vangvieng-bluelagoon-treeswing-pose.jpg"),
-  vangviengParamotorTandemSelfie: img("vangvieng-paramotor-tandem-selfie.jpg"),
   vangviengParamotorSunsetSilhouette: img("vangvieng-paramotor-sunset-silhouette.jpg"),
-  vangviengParamotorPovRicefields: img("vangvieng-paramotor-pov-ricefields.jpg"),
   luangprabangGolfCliffRiver: img("luangprabang-golf-cliff-river.webp"),
   luangprabangGolfFlagRiver: img("luangprabang-golf-flag-river.webp"),
   luangprabangGolfClubhouse: img("luangprabang-golf-clubhouse.webp"),
   luangprabangGolfFairwayPavilion: img("luangprabang-golf-fairway-pavilion.webp"),
   luangprabangGolfGreenMountain: img("luangprabang-golf-green-mountain.webp"),
   luangprabangGolfRiverView: img("luangprabang-golf-river-view.webp"),
-  mekongCCHero2: img("mekong-cc-hero2.jpg"),
   mekongCCClubhouseBunker: img("mekong-cc-clubhouse-bunker.jpg"),
   mekongCCAerial: img("mekong-cc-aerial.jpg"),
   mekongCCCartpath: img("mekong-cc-cartpath.jpg"),
@@ -344,7 +336,8 @@ const src = {
   longbienCCGoldenGreen: img("longbien-cc-golden-green.webp"),
   golfCourseSunsetGreen: img("golf-course-sunset-green.jpg"),
   longbienCCWelcomeSignVivid: img("longbien-cc-welcome-sign-vivid.webp"),
-  booyoungCCClubhouseAerial: img("booyoung-cc-clubhouse-aerial.jpg"),
+  // Booyoung (SEA Games) Golf Club fairway + clubhouse, 1440x810 — used with the club's permission (owner confirmed, 2026-10-09).
+  booyoungCCFairwayClubhouse: img("booyoung-cc-fairway-clubhouse.jpg"),
   booyoungCCElephant: img("booyoung-cc-elephant.jpg"),
 
   vientianeThatluangDay: img("vientiane-thatluang-day.jpg"),
@@ -367,7 +360,6 @@ const src = {
   mekongCruiseBoatSailing: img("mekong-cruise-boat-sailing.jpg"),
   mekongCruiseTableSetting: img("mekong-cruise-table-setting.jpg"),
   luangprabangNightmarketNight: img("luangprabang-nightmarket-night.jpg"),
-  luangprabangKuangsiAlt: img("luangprabang-kuangsi-alt.jpg"),
 };
 
 type ImageKey =
@@ -384,7 +376,6 @@ type ImageKey =
   | "destination-vangvieng"
   | "destination-luangprabang"
   | "destination-pakse"
-  | "product-2"
   | "product-noshopping-vientiane"
   | "product-3"
   | "product-4"
@@ -403,6 +394,9 @@ type ImageKey =
   | "golf-2"
   | "golf-3"
   | "golf-villa-combo"
+  | "kimc-poolvilla"
+  | "kimc-poolvilla-pool-day"
+  | "kimc-poolvilla-pool-night"
   | "picks-luangprabang-activity"
   | "guide-1"
   | "guide-2"
@@ -412,7 +406,6 @@ type ImageKey =
   | "guide-6"
   | "guide-8"
   | "guide-10"
-  | "guide-12"
   | "guide-13"
   | "guide-14"
   | "guide-15"
@@ -426,6 +419,14 @@ type ImageKey =
   | "guide-23"
   | "guide-24"
   | "guide-25"
+  | "guide-26"
+  | "guide-27"
+  | "guide-28"
+  | "guide-29"
+  | "guide-30"
+  | "guide-31"
+  | "guide-32"
+  | "guide-33"
   | "guide-currency-exchange"
   | "course-mekong-cc"
   | "course-lao-cc"
@@ -434,7 +435,6 @@ type ImageKey =
   | "course-mekong-cc-g5"
   | "course-mekong-cc-g7"
   | "course-lao-cc-g2"
-  | "course-lao-cc-g3"
   | "course-lao-cc-g4"
   | "course-lao-cc-g5"
   | "course-lao-cc-g6"
@@ -442,22 +442,22 @@ type ImageKey =
   | "course-longbien-cc-g3"
   | "course-longbien-cc-g4"
   | "course-longbien-cc-g6"
-  | "course-longbien-cc-g7"
   | "course-longbien-cc-g8"
-  | "course-longbien-cc-g9"
   | "course-longbien-cc-g10"
   | "course-longbien-cc-g11"
+  | "course-longbien-cc-g21"
+  | "course-longbien-cc-g22"
+  | "course-longbien-cc-g23"
   | "course-lakeview-cc"
   | "course-lakeview-cc-g1"
-  | "course-lakeview-cc-g2"
   | "course-lakeview-cc-g3"
   | "course-lakeview-cc-g4"
-  | "course-lakeview-cc-g6"
   | "course-lakeview-cc-g7"
-  | "course-lakeview-cc-g8"
+  | "course-lakeview-cc-bridge"
+  | "course-lakeview-cc-g21"
+  | "course-lakeview-cc-g22"
+  | "course-lakeview-cc-g23"
   | "course-booyoung-cc"
-  | "course-booyoung-cc-g8"
-  | "course-booyoung-cc-g10"
   | "course-booyoung-cc-g11"
   | "course-booyoung-cc-g12"
   | "course-booyoung-cc-g13"
@@ -484,32 +484,13 @@ type ImageKey =
   | "transport-minivan"
   | "vv-bluelagoon-swim"
   | "vv-bluelagoon-slide"
-  | "vv-bluelagoon-view"
-  | "vv-kayak-group-launch"
   | "vv-kayak-people"
-  | "vv-kayak-river"
-  | "vv-kayak-aerial"
-  | "vv-kayak-green-river"
-  | "vv-zipline-woman"
   | "vv-zipline-canyon"
-  | "vv-zipline-canopy"
   | "vv-zipline-group"
-  | "vv-zipline-bridge"
-  | "vv-zipline-river-bridge"
   | "vv-zipline-cliff"
-  | "vv-cave-interior1"
-  | "vv-cave-stalactite"
-  | "vv-cave-ceiling"
   | "vv-cave-tubing"
   | "vv-cave-kayak"
-  | "vv-cave-walkway"
   | "vv-balloon-multi-aerial"
-  | "vv-balloon-sky"
-  | "vv-balloon-launch"
-  | "vv-balloon-moon"
-  | "vv-paramotor-pair"
-  | "vv-paramotor-prelaunch"
-  | "vv-paramotor-kiting"
   | "vv-buggy-mud-wheel"
   | "vv-buggy-pov-driving"
   | "vv-zipline-waterfall-aerial"
@@ -520,8 +501,15 @@ type ImageKey =
   | "vv-zipline-platform-prep"
   | "vv-bluelagoon-treeswing-pose"
   | "vv-paramotor-tandem-selfie"
+  | "vv-p-paramotor-takeoff"
+  | "vv-p-mountain-panorama"
+  | "vv-p-balloons-dawn"
+  | "vv-p-buggy-lineup"
+  | "vv-p-bluelagoon-swimming"
+  | "vv-p-cave-tubing-pool"
+  | "vv-p-kayak-river-two"
+  | "vv-p-zipline-platform-group"
   | "vv-paramotor-sunset-silhouette"
-  | "vv-paramotor-pov-ricefields"
   | "vientiane-thatluang-day"
   | "vientiane-thatluang-monks"
   | "vientiane-thatluang-night"
@@ -541,8 +529,7 @@ type ImageKey =
   | "mekong-cruise-dinner"
   | "mekong-cruise-boat-sailing"
   | "mekong-cruise-table-setting"
-  | "luangprabang-nightmarket-night"
-  | "luangprabang-kuangsi-alt";
+  | "luangprabang-nightmarket-night";
 
 export const images: Record<ImageKey, string | undefined> = {
   // The wide karst+paddy-reflection shot works far better in the ultra-wide hero band than a portrait
@@ -567,7 +554,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "destination-pakse": src.bolavenZiplineAction,
 
   // Reuses the real Vang Vieng guesthouse photo (same as villa-1) — accurate location match, no new file needed.
-  "product-2": src.vangviengPoolvillaReal,
   "product-noshopping-vientiane": src.vientianePatuxaiSunset,
   // Honest non-Laos stand-in — see golf attribution note above.
   "product-3": src.golfBunker,
@@ -596,7 +582,10 @@ export const images: Record<ImageKey, string | undefined> = {
   "golf-2": src.golfBunker,
   "golf-3": src.golfBackupTeeOff,
   // Owner's villa photo (wide crop) — replaces the 600px vangviengPoolvillaReal thumbnail.
-  "golf-villa-combo": src.poolvillaNightWide,
+  "golf-villa-combo": src.kimcPoolvillaSunsetAerial,
+  "kimc-poolvilla": src.kimcPoolvillaSunsetAerial,
+  "kimc-poolvilla-pool-day": src.kimcPoolvillaPoolDay,
+  "kimc-poolvilla-pool-night": src.kimcPoolvillaPoolNight,
 
   "picks-luangprabang-activity": src.takBatMonks,
 
@@ -617,7 +606,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-10": src.vangViengClouds,
   // Laos-budget-guide — generic real Laos countryside.
   // Laos-packing-checklist — generic real Vang Vieng activity scenery.
-  "guide-12": src.vangviengKayakRiver,
   // Laos-trip-duration-guide — real Kuang Si Falls, evokes a multi-day itinerary.
   "guide-13": src.kuangSiFalls,
   // Laos-food-guide — real Luang Prabang night market, closest real match for food/street-food culture.
@@ -644,6 +632,22 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-24": src.packingChecklistCard,
   // Laos-exchange-rate-calculation-guide — own cheat-sheet card.
   "guide-25": src.exchangeRateGuideCard,
+  // Laos-emergency-contacts-guide — embassy photo.
+  "guide-26": src.emergencyEmbassyPhoto,
+  // Laos-golf-tour-types-guide — Lakeview lake + cart path (replaces the Longbien photo that duplicated guide-19).
+  "guide-27": src.lakeviewCCLakeCartpath,
+  // Laos-exchange-rate guide — real money-exchange counter, Vientiane.
+  "guide-28": src.vientianeExchangeCounter,
+  // Laos-taxi-app guide — yellow Meter Taxi, Vientiane.
+  "guide-29": src.vientianeMeterTaxi,
+  // Laos-travel-packing-checklist guide — travel gear flat lay.
+  "guide-30": src.travelPackingBackpack,
+  // Luang-prabang-travel-course guide — cover: Kuang Si Falls.
+  "guide-31": src.luangPrabangKuangsiTurquoise,
+  // Luang-prabang-travel-course guide — body photo: Phou Si dusk view.
+  "guide-32": src.luangPrabangPhousiDusk,
+  // Laos-solo-golf guide — Lao CC fairway with pond (existing 2000px photo).
+  "guide-33": src.laoCCFairwayPond,
   // Laos-currency-exchange-guide — real Lao Kip banknote denominations, directly on-topic.
   "guide-currency-exchange": src.laosKipNotesGrid,
 
@@ -663,7 +667,6 @@ export const images: Record<ImageKey, string | undefined> = {
 
   // Gallery photos — Lao CC, Vientiane.
   "course-lao-cc-g2": src.laoCCGallery2,
-  "course-lao-cc-g3": src.laoCCGallery3,
   "course-lao-cc-g4": src.laoCCFountainClubhouse,
   "course-lao-cc-g5": src.laoCCAerialTown,
   "course-lao-cc-g6": src.laoCCFairwayPond,
@@ -673,24 +676,26 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-longbien-cc-g3": src.longbienCCGallery3,
   "course-longbien-cc-g4": src.longbienCCGallery4,
   "course-longbien-cc-g6": src.longbienCCGallery6,
-  "course-longbien-cc-g7": src.longbienCCGallery7,
   "course-longbien-cc-g8": src.longbienCCGallery8,
-  "course-longbien-cc-g9": src.longbienCCGallery9,
+  "course-longbien-cc-g21": src.longbienCCSunsetPond,
+  "course-longbien-cc-g22": src.longbienCCBunkerPalms,
+  "course-longbien-cc-g23": src.longbienCCNightLit,
   "course-longbien-cc-g10": src.longbienCCGoldenGreen,
   "course-longbien-cc-g11": src.longbienCCClubhouseAerial,
 
   // Owner-provided real photo of Lakeview CC, Vientiane.
-  "course-lakeview-cc": src.lakeviewCCBridge,
+  "course-lakeview-cc": src.lakeviewCCLakeCartpath,
+  "course-lakeview-cc-bridge": src.lakeviewCCBridge,
+  "course-lakeview-cc-g21": src.lakeviewCCBunkerPalms,
+  "course-lakeview-cc-g22": src.lakeviewCCPondCartpath,
+  "course-lakeview-cc-g23": src.lakeviewCCRangeStripes,
   "course-lakeview-cc-g1": src.lakeviewCCGallery1,
-  "course-lakeview-cc-g2": src.lakeviewCCGallery2,
   "course-lakeview-cc-g3": src.lakeviewCCGallery3,
   "course-lakeview-cc-g4": src.lakeviewCCGallery4,
-  "course-lakeview-cc-g6": src.lakeviewCCGallery6,
   "course-lakeview-cc-g7": src.lakeviewCCGallery7,
-  "course-lakeview-cc-g8": src.lakeviewCCGallery8,
 
   // Owner-provided real photo of Booyoung (SEA Games) Golf Club, Vientiane.
-  "course-booyoung-cc": src.booyoungCCClubhouseAerial,
+  "course-booyoung-cc": src.booyoungCCFairwayClubhouse,
 
   // Owner-provided real photos of Asia Club, Vang Vieng.
   "course-asia-club-vangvieng": src.asiaClubVangviengHero,
@@ -698,8 +703,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-asia-club-vangvieng-g2": src.asiaClubVangviengGallery2,
   "course-asia-club-vangvieng-g3": src.asiaClubVangviengGallery3,
   "course-asia-club-vangvieng-g4": src.asiaClubVangviengGallery4,
-  "course-booyoung-cc-g8": src.booyoungCCGallery8,
-  "course-booyoung-cc-g10": src.booyoungCCGallery10,
   "course-booyoung-cc-g11": src.booyoungCCGallery11,
   "course-booyoung-cc-g12": src.booyoungCCGallery12,
   "course-booyoung-cc-g13": src.booyoungCCElephant,
@@ -728,24 +731,12 @@ export const images: Record<ImageKey, string | undefined> = {
   // Owner-provided real Vang Vieng activity photos.
   "vv-bluelagoon-swim": src.vangviengBluelagoonSwim,
   "vv-bluelagoon-slide": src.vangviengBluelagoonTreeswingPose,
-  "vv-bluelagoon-view": src.vangviengBluelagoonView,
-  "vv-kayak-group-launch": src.vangviengKayakGroupLaunch,
   "vv-kayak-people": src.vangviengKayakPeople,
-  "vv-kayak-river": src.vangviengKayakRiver,
-  "vv-kayak-aerial": src.vangviengKayakAerial,
-  "vv-kayak-green-river": src.vangviengKayakGreenRiver,
-  "vv-zipline-woman": src.vangviengZiplineWoman,
   "vv-zipline-canyon": src.vangviengZiplineCanyon,
-  "vv-zipline-canopy": src.vangviengZiplineCanopy,
   // Real Vang Vieng kayaking action (Nam Song river) — this half-day tour's own kayak element wasn't shown before.
   // Reuses the same zipline photo as vv-elephantcave-oneday (owner's choice).
   "vv-zipline-group": src.vangviengZiplineJungle,
-  "vv-zipline-bridge": src.vangviengZiplineBridge,
-  "vv-zipline-river-bridge": src.vangviengZiplineRiverBridge,
   "vv-zipline-cliff": src.vangviengZiplineRiver,
-  "vv-cave-interior1": src.vangviengCaveInterior1,
-  "vv-cave-stalactite": src.vangviengCaveStalactite,
-  "vv-cave-ceiling": src.vangviengCaveCeiling,
   "vv-cave-tubing": src.bluelagoon3RopeSwingAction,
   // Same real Tham Xang ("Elephant Cave") as "tour-zipline-cave" — this tour also visits it, just without blue lagoon.
   "vv-elephantcave-oneday": src.vangviengZiplineJungle,
@@ -753,14 +744,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // Reuses the Blue Lagoon 1 photo (same destination as vv-bluelagoon-swim) —
   // the old dark cave-interior photo undersold this as a "fun water tour".
   "vv-cave-kayak": src.vangviengBluelagoonSwim,
-  "vv-cave-walkway": src.vangviengCaveWalkway,
   "vv-balloon-multi-aerial": src.vangviengBalloonRiverTown,
-  "vv-balloon-sky": src.vangviengBalloonSky,
-  "vv-balloon-launch": src.vangviengBalloonLaunch,
-  "vv-balloon-moon": src.vangviengBalloonMoon,
-  "vv-paramotor-pair": src.vangviengParamotorPair,
-  "vv-paramotor-prelaunch": src.vangviengParamotorPrelaunch,
-  "vv-paramotor-kiting": src.vangviengParamotorFlying,
   "vv-buggy-mud-wheel": src.vangviengBuggyMudWheel,
   "vv-buggy-pov-driving": src.vangviengBuggyPovDriving,
   // Owner-picked: zipline over turquoise Blue Creek, Belize.
@@ -772,8 +756,15 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-zipline-platform-prep": src.vangviengZiplinePlatformPrep,
   "vv-bluelagoon-treeswing-pose": src.vangviengBluelagoonTreeswingPose,
   "vv-paramotor-tandem-selfie": src.paramotorDondetFront,
+  "vv-p-paramotor-takeoff": src.vvParamotorTakeoffPhoto,
+  "vv-p-mountain-panorama": src.vvMountainPanoramaPhoto,
+  "vv-p-balloons-dawn": src.vvBalloonsDawnPhoto,
+  "vv-p-buggy-lineup": src.vvBuggyLineupPhoto,
+  "vv-p-bluelagoon-swimming": src.vvBluelagoonSwimmingPhoto,
+  "vv-p-cave-tubing-pool": src.vvCaveTubingPoolPhoto,
+  "vv-p-kayak-river-two": src.vvKayakRiverTwoPhoto,
+  "vv-p-zipline-platform-group": src.vvZiplinePlatformGroupPhoto,
   "vv-paramotor-sunset-silhouette": src.vangviengParamotorSunsetSilhouette,
-  "vv-paramotor-pov-ricefields": src.vangviengParamotorPovRicefields,
 
   // Owner-provided real photos — destinations gallery, Mekong sunset cruise tour gallery, and the LP·VV 3-night free package product gallery.
   "vientiane-thatluang-day": src.vientianeThatluangDay,
@@ -796,7 +787,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "mekong-cruise-boat-sailing": src.mekongCruiseBoatSailing,
   "mekong-cruise-table-setting": src.mekongCruiseTableSetting,
   "luangprabang-nightmarket-night": src.luangprabangNightmarketNight,
-  "luangprabang-kuangsi-alt": src.luangprabangKuangsiAlt,
 };
 
 export function getImage(key?: string): string | undefined {
