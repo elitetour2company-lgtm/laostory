@@ -263,7 +263,6 @@ const src = {
   // Owner-provided photo (white Toyota HiAce on a palm-lined city street) — homepage category card and all van thumbnails.
   categoryTransportVan: img("category-transport-van.webp"),
   bolavenZiplineAction: img("bolaven-zipline-action.jpg"),
-  vangviengZiplineRiver: img("vangvieng-zipline-river.jpg"),
   vangviengBuggyMudSplash: img("vangvieng-buggy-mud-splash.jpg"),
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
   vangviengZiplineJungle: img("vangvieng-zipline-jungle.jpg"),
@@ -489,7 +488,6 @@ type ImageKey =
   | "vv-kayak-people"
   | "vv-zipline-canyon"
   | "vv-zipline-group"
-  | "vv-zipline-cliff"
   | "vv-cave-tubing"
   | "vv-cave-kayak"
   | "vv-balloon-multi-aerial"
@@ -739,7 +737,6 @@ export const images: Record<ImageKey, string | undefined> = {
   // Real Vang Vieng kayaking action (Nam Song river) — this half-day tour's own kayak element wasn't shown before.
   // Reuses the same zipline photo as vv-elephantcave-oneday (owner's choice).
   "vv-zipline-group": src.vangviengZiplineJungle,
-  "vv-zipline-cliff": src.vangviengZiplineRiver,
   "vv-cave-tubing": src.bluelagoon3RopeSwingAction,
   // Same real Tham Xang ("Elephant Cave") as "tour-zipline-cave" — this tour also visits it, just without blue lagoon.
   "vv-elephantcave-oneday": src.vangviengZiplineJungle,
