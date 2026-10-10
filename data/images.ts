@@ -219,7 +219,6 @@ const src = {
   vvMountainPanoramaPhoto: img("vv-mountain-panorama.jpg"),
   vvBalloonsDawnPhoto: img("vv-balloons-dawn.jpg"),
   vvBuggyLineupPhoto: img("vv-buggy-lineup.jpg"),
-  vvBluelagoonSwimmingPhoto: img("vv-bluelagoon-swimming.jpg"),
   vvCaveTubingPoolPhoto: img("vv-cave-tubing-pool.jpg"),
   vvKayakRiverTwoPhoto: img("vv-kayak-river-two.jpg"),
   vvZiplinePlatformGroupPhoto: img("vv-zipline-platform-group.jpg"),
@@ -239,8 +238,8 @@ const src = {
   blueLagoonTubing: img("vangvieng-blue-lagoon-tubing.jpg"),
   // "Avenue Lane Xang (Vientiane)" by Christophe95, CC BY-SA 4.0 (Wikimedia Commons) — credited in the guide article.
   vientianeLaneXangDrive: img("vientiane-lane-xang-avenue.jpg"),
-  // "Pills and medicines 02" by BuhaM, CC BY-SA 4.0 (Wikimedia Commons) — credited in the guide article.
-  travelMedicinePills: img("travel-medicine-pills.jpg"),
+  // First-aid kit flat lay (945x630) — chosen by the owner, who says it is a free-to-use photo (2026-10-10).
+  travelMedicineFirstaid: img("travel-medicine-firstaid.jpg"),
   // Self-made illustration card (no third-party photo) for the taxi-app guide.
   taxiAppGuideCard: img("taxi-app-guide-card.jpg"),
   // Self-made illustration card for the packing checklist guide.
@@ -253,8 +252,8 @@ const src = {
   vientianeExchangeCounter: img("vientiane-exchange-counter.jpg"),
   // "Meter Taxi in Vientiane 01" (Wikimedia Commons), CC BY-SA 3.0 — credited in the guide article.
   vientianeMeterTaxi: img("vientiane-meter-taxi.jpg"),
-  // "Clothes-travel-voyage-backpack" (Wikimedia Commons / Flickr), CC0 — no credit required.
-  travelPackingBackpack: img("travel-packing-backpack.jpg"),
+  // Travel gear flat lay (1600x1066) — chosen by the owner, who says it is a free-to-use photo (2026-10-10).
+  travelPackingFlatlay: img("travel-packing-flatlay.jpg"),
   // Basile Morin, Wikimedia Commons, CC BY-SA 4.0 — credited in the guide article.
   luangPrabangKuangsiTurquoise: img("luangprabang-kuangsi-falls-turquoise.jpg"),
   luangPrabangPhousiDusk: img("luangprabang-phousi-dusk.jpg"),
@@ -267,7 +266,18 @@ const src = {
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
   vangviengZiplineJungle: img("vangvieng-zipline-jungle.jpg"),
   bluelagoon3RopeSwingAction: img("bluelagoon3-rope-swing-action.jpg"),
-  vangviengBuggy4seatFamily: img("vangvieng-buggy-4seat-family.jpg"),
+  // Blue Lagoon 3 (raft + parasol side), 1800x1013 — owner's own photo (confirmed by owner, 2026-10-10).
+  vvBluelagoon3RaftParasol: img("vv-bluelagoon3-raft-parasol.jpg"),
+  // Blue Lagoon 1 (big tree + swing rope), 1800x1013 — owner's own photo (confirmed by owner, 2026-10-10).
+  vvBluelagoon1SwingTree: img("vv-bluelagoon1-swing-tree.jpg"),
+  // Nam Song river kayaking with karst mountains, 1800x1125 — owner's own photo (confirmed by owner, 2026-10-10).
+  vvKayakNamsongDrone: img("vv-kayak-namsong-drone.jpg"),
+  // Kayak group on a green river with karst, 900x600 — used with the supplier's permission (confirmed by owner, 2026-10-10); other operator's vest/paddle text blurred.
+  vvHalfdayKayakRiver: img("vv-halfday-kayak-river.jpg"),
+  // Paramotors over the Vang Vieng valley, 1280x698 (bottom 22px cropped to remove a third-party watermark) — owner says free-to-use / permitted (2026-10-10).
+  vvParamotorValley: img("vv-paramotor-valley.jpg"),
+  // Hot-air balloons at sunset over the Nam Song, 1200x627 — owner says free-to-use (2026-10-10).
+  vvBalloonSunsetNamsong: img("vv-balloon-sunset-namsong.jpg"),  vangviengBuggy4seatFamily: img("vangvieng-buggy-4seat-family.jpg"),
   paramotorDondetFront: img("vangvieng-paramotor-sunset.jpg"),
   mekongSunsetDondet: img("mekong-sunset-dondet.jpg"),
   lcrTrainFrontview: img("train-lcr-frontview.jpg"),
@@ -489,6 +499,12 @@ type ImageKey =
   | "vv-zipline-canyon"
   | "vv-zipline-group"
   | "vv-cave-tubing"
+  | "vv-bluelagoon3-raft"
+  | "vv-bluelagoon1-swing"
+  | "vv-kayak-namsong"
+  | "vv-halfday-kayak"
+  | "vv-paramotor-valley"
+  | "vv-balloon-sunset-namsong"
   | "vv-cave-kayak"
   | "vv-balloon-multi-aerial"
   | "vv-buggy-mud-wheel"
@@ -505,7 +521,6 @@ type ImageKey =
   | "vv-p-mountain-panorama"
   | "vv-p-balloons-dawn"
   | "vv-p-buggy-lineup"
-  | "vv-p-bluelagoon-swimming"
   | "vv-p-cave-tubing-pool"
   | "vv-p-kayak-river-two"
   | "vv-p-zipline-platform-group"
@@ -626,7 +641,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // Laos-rental-car-vs-charter-van-guide — real Vientiane avenue seen from the driver's view with SUVs and motorbikes.
   "guide-21": src.vientianeLaneXangDrive,
   // Laos-travel-medicine-guide — tablets and capsules, directly on-topic.
-  "guide-22": src.travelMedicinePills,
+  "guide-22": src.travelMedicineFirstaid,
   // Laos-taxi-app-guide — own illustration card (LOCA / inDrive / Kokkok summary).
   "guide-23": src.taxiAppGuideCard,
   // Laos-travel-packing-checklist — own checklist card.
@@ -642,7 +657,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // Laos-taxi-app guide — yellow Meter Taxi, Vientiane.
   "guide-29": src.vientianeMeterTaxi,
   // Laos-travel-packing-checklist guide — travel gear flat lay.
-  "guide-30": src.travelPackingBackpack,
+  "guide-30": src.travelPackingFlatlay,
   // Luang-prabang-travel-course guide — cover: Kuang Si Falls.
   "guide-31": src.luangPrabangKuangsiTurquoise,
   // Luang-prabang-travel-course guide — body photo: Phou Si dusk view.
@@ -738,7 +753,12 @@ export const images: Record<ImageKey, string | undefined> = {
   // Reuses the same zipline photo as vv-elephantcave-oneday (owner's choice).
   "vv-zipline-group": src.vangviengZiplineJungle,
   "vv-cave-tubing": src.bluelagoon3RopeSwingAction,
-  // Same real Tham Xang ("Elephant Cave") as "tour-zipline-cave" — this tour also visits it, just without blue lagoon.
+  "vv-bluelagoon3-raft": src.vvBluelagoon3RaftParasol,
+  "vv-bluelagoon1-swing": src.vvBluelagoon1SwingTree,
+  "vv-kayak-namsong": src.vvKayakNamsongDrone,
+  "vv-halfday-kayak": src.vvHalfdayKayakRiver,
+  "vv-paramotor-valley": src.vvParamotorValley,
+  "vv-balloon-sunset-namsong": src.vvBalloonSunsetNamsong,  // Same real Tham Xang ("Elephant Cave") as "tour-zipline-cave" — this tour also visits it, just without blue lagoon.
   "vv-elephantcave-oneday": src.vangviengZiplineJungle,
   // Tham Phu Kham is the actual cave directly above Blue Lagoon 1 — matches this tour's specific "블루라군1" stop.
   // Reuses the Blue Lagoon 1 photo (same destination as vv-bluelagoon-swim) —
@@ -760,7 +780,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-p-mountain-panorama": src.vvMountainPanoramaPhoto,
   "vv-p-balloons-dawn": src.vvBalloonsDawnPhoto,
   "vv-p-buggy-lineup": src.vvBuggyLineupPhoto,
-  "vv-p-bluelagoon-swimming": src.vvBluelagoonSwimmingPhoto,
   "vv-p-cave-tubing-pool": src.vvCaveTubingPoolPhoto,
   "vv-p-kayak-river-two": src.vvKayakRiverTwoPhoto,
   "vv-p-zipline-platform-group": src.vvZiplinePlatformGroupPhoto,
