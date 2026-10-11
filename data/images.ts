@@ -215,13 +215,11 @@ const src = {
   kimcPoolvillaPoolDay: img("kimc-poolvilla-pool-day.jpg"),
   kimcPoolvillaPoolNight: img("kimc-poolvilla-pool-night.jpg"),
   // Vang Vieng activity photos (1400px), used with the supplier's permission (confirmed by owner, 2026-10-09).
-  vvParamotorTakeoffPhoto: img("vv-paramotor-takeoff.jpg"),
   vvMountainPanoramaPhoto: img("vv-mountain-panorama.jpg"),
   vvBalloonsDawnPhoto: img("vv-balloons-dawn.jpg"),
   vvBuggyLineupPhoto: img("vv-buggy-lineup.jpg"),
   vvCaveTubingPoolPhoto: img("vv-cave-tubing-pool.jpg"),
   vvKayakRiverTwoPhoto: img("vv-kayak-river-two.jpg"),
-  vvZiplinePlatformGroupPhoto: img("vv-zipline-platform-group.jpg"),
   // Owner-supplied zipline-over-Nam-Song photo (1920x1080), used with permission (confirmed by owner, 2026-10-09).
   vvZiplineNamsongRiver: img("vv-zipline-namsong-river.jpg"),
   golfSunsetHill: img("golf-sunset-hill.jpg"),
@@ -265,7 +263,6 @@ const src = {
   vangviengBuggyMudSplash: img("vangvieng-buggy-mud-splash.jpg"),
   vangviengThamXangCave: img("vangvieng-tham-xang-cave.jpg"),
   vangviengZiplineJungle: img("vangvieng-zipline-jungle.jpg"),
-  bluelagoon3RopeSwingAction: img("bluelagoon3-rope-swing-action.jpg"),
   // Blue Lagoon 3 (raft + parasol side), 1800x1013 — owner's own photo (confirmed by owner, 2026-10-10).
   vvBluelagoon3RaftParasol: img("vv-bluelagoon3-raft-parasol.jpg"),
   // Blue Lagoon 1 (big tree + swing rope), 1800x1013 — owner's own photo (confirmed by owner, 2026-10-10).
@@ -319,7 +316,6 @@ const src = {
   vangviengBluelagoonSwim: img("vangvieng-bluelagoon-swim.png"),
   vangviengKayakPeople: img("vangvieng-kayak-people.png"),
   vangviengZiplineCanyon: img("vangvieng-zipline-canyon.png"),
-  vangviengBalloonRiverTown: img("vangvieng-balloon-river-town.jpg"),
   vangviengBuggyMudWheel: img("vangvieng-buggy-mud-wheel.jpg"),
   vangviengBuggyPovDriving: img("vangvieng-buggy-pov-driving.jpg"),
   vangviengBluelagoonSwingClean: img("vangvieng-bluelagoon-swing-clean.jpg"),
@@ -498,7 +494,6 @@ type ImageKey =
   | "vv-kayak-people"
   | "vv-zipline-canyon"
   | "vv-zipline-group"
-  | "vv-cave-tubing"
   | "vv-bluelagoon3-raft"
   | "vv-bluelagoon1-swing"
   | "vv-kayak-namsong"
@@ -506,7 +501,6 @@ type ImageKey =
   | "vv-paramotor-valley"
   | "vv-balloon-sunset-namsong"
   | "vv-cave-kayak"
-  | "vv-balloon-multi-aerial"
   | "vv-buggy-mud-wheel"
   | "vv-buggy-pov-driving"
   | "vv-zipline-waterfall-aerial"
@@ -517,13 +511,11 @@ type ImageKey =
   | "vv-zipline-platform-prep"
   | "vv-bluelagoon-treeswing-pose"
   | "vv-paramotor-tandem-selfie"
-  | "vv-p-paramotor-takeoff"
   | "vv-p-mountain-panorama"
   | "vv-p-balloons-dawn"
   | "vv-p-buggy-lineup"
   | "vv-p-cave-tubing-pool"
   | "vv-p-kayak-river-two"
-  | "vv-p-zipline-platform-group"
   | "vv-p-zipline-namsong-river"
   | "vv-paramotor-sunset-silhouette"
   | "vientiane-thatluang-day"
@@ -752,7 +744,6 @@ export const images: Record<ImageKey, string | undefined> = {
   // Real Vang Vieng kayaking action (Nam Song river) — this half-day tour's own kayak element wasn't shown before.
   // Reuses the same zipline photo as vv-elephantcave-oneday (owner's choice).
   "vv-zipline-group": src.vangviengZiplineJungle,
-  "vv-cave-tubing": src.bluelagoon3RopeSwingAction,
   "vv-bluelagoon3-raft": src.vvBluelagoon3RaftParasol,
   "vv-bluelagoon1-swing": src.vvBluelagoon1SwingTree,
   "vv-kayak-namsong": src.vvKayakNamsongDrone,
@@ -764,7 +755,6 @@ export const images: Record<ImageKey, string | undefined> = {
   // Reuses the Blue Lagoon 1 photo (same destination as vv-bluelagoon-swim) —
   // the old dark cave-interior photo undersold this as a "fun water tour".
   "vv-cave-kayak": src.vangviengBluelagoonSwim,
-  "vv-balloon-multi-aerial": src.vangviengBalloonRiverTown,
   "vv-buggy-mud-wheel": src.vangviengBuggyMudWheel,
   "vv-buggy-pov-driving": src.vangviengBuggyPovDriving,
   // Owner-picked: zipline over turquoise Blue Creek, Belize.
@@ -776,13 +766,11 @@ export const images: Record<ImageKey, string | undefined> = {
   "vv-zipline-platform-prep": src.vangviengZiplinePlatformPrep,
   "vv-bluelagoon-treeswing-pose": src.vangviengBluelagoonTreeswingPose,
   "vv-paramotor-tandem-selfie": src.paramotorDondetFront,
-  "vv-p-paramotor-takeoff": src.vvParamotorTakeoffPhoto,
   "vv-p-mountain-panorama": src.vvMountainPanoramaPhoto,
   "vv-p-balloons-dawn": src.vvBalloonsDawnPhoto,
   "vv-p-buggy-lineup": src.vvBuggyLineupPhoto,
   "vv-p-cave-tubing-pool": src.vvCaveTubingPoolPhoto,
   "vv-p-kayak-river-two": src.vvKayakRiverTwoPhoto,
-  "vv-p-zipline-platform-group": src.vvZiplinePlatformGroupPhoto,
   "vv-p-zipline-namsong-river": src.vvZiplineNamsongRiver,
   "vv-paramotor-sunset-silhouette": src.vangviengParamotorSunsetSilhouette,
 
