@@ -238,12 +238,6 @@ const src = {
   vientianeLaneXangDrive: img("vientiane-lane-xang-avenue.jpg"),
   // First-aid kit flat lay (945x630) — chosen by the owner, who says it is a free-to-use photo (2026-10-10).
   travelMedicineFirstaid: img("travel-medicine-firstaid.jpg"),
-  // Self-made illustration card (no third-party photo) for the taxi-app guide.
-  taxiAppGuideCard: img("taxi-app-guide-card.jpg"),
-  // Self-made illustration card for the packing checklist guide.
-  packingChecklistCard: img("packing-checklist-card.jpg"),
-  // Self-made cheat-sheet card for the exchange-rate guide.
-  exchangeRateGuideCard: img("exchange-rate-guide-card.jpg"),
   // Owner-provided photo of the Korean embassy in Vientiane (guide: emergency contacts), 678x375.
   emergencyEmbassyPhoto: img("emergency-embassy.jpg"),
   // Vientiane Lao Development Bank exchange counter, used with the photo owner's permission (confirmed by owner, 2026-10-09).
@@ -423,9 +417,6 @@ type ImageKey =
   | "guide-20"
   | "guide-21"
   | "guide-22"
-  | "guide-23"
-  | "guide-24"
-  | "guide-25"
   | "guide-26"
   | "guide-27"
   | "guide-28"
@@ -634,12 +625,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-21": src.vientianeLaneXangDrive,
   // Laos-travel-medicine-guide — tablets and capsules, directly on-topic.
   "guide-22": src.travelMedicineFirstaid,
-  // Laos-taxi-app-guide — own illustration card (LOCA / inDrive / Kokkok summary).
-  "guide-23": src.taxiAppGuideCard,
-  // Laos-travel-packing-checklist — own checklist card.
-  "guide-24": src.packingChecklistCard,
-  // Laos-exchange-rate-calculation-guide — own cheat-sheet card.
-  "guide-25": src.exchangeRateGuideCard,
   // Laos-emergency-contacts-guide — embassy photo.
   "guide-26": src.emergencyEmbassyPhoto,
   // Laos-golf-tour-types-guide — Lakeview lake + cart path (replaces the Longbien photo that duplicated guide-19).
