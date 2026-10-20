@@ -211,7 +211,6 @@ const src = {
   poolvillaNightTall: img("poolvilla-night-tall.jpg"),
   poolvillaNightWide: img("poolvilla-night-wide.jpg"),
   // KiM.C Pool Villa (Vientiane) photos from the villa's own site, used with the owner's permission (confirmed by owner, 2026-10-09).
-  kimcPoolvillaSunsetAerial: img("kimc-poolvilla-sunset-aerial.jpg"),
   kimcPoolvillaPoolDay: img("kimc-poolvilla-pool-day.jpg"),
   kimcPoolvillaPoolNight: img("kimc-poolvilla-pool-night.jpg"),
   // Vang Vieng activity photos (1400px), used with the supplier's permission (confirmed by owner, 2026-10-09).
@@ -335,7 +334,6 @@ const src = {
   laoCCFairwayPond: img("lao-cc-fairway-pond.webp"),
   longbienCCClubhouseAerial: img("longbien-cc-clubhouse-aerial.jpg"),
   longbienCCGoldenGreen: img("longbien-cc-golden-green.webp"),
-  golfCourseSunsetGreen: img("golf-course-sunset-green.jpg"),
   longbienCCWelcomeSignVivid: img("longbien-cc-welcome-sign-vivid.webp"),
   // Booyoung (SEA Games) Golf Club fairway + clubhouse, 1440x810 — used with the club's permission (owner confirmed, 2026-10-09).
   booyoungCCFairwayClubhouse: img("booyoung-cc-fairway-clubhouse.jpg"),
@@ -390,12 +388,10 @@ type ImageKey =
   | "villa-3"
   | "poolvilla-night-tall"
   | "poolvilla-night-wide"
-  | "golf-hero"
   | "golf-1"
   | "golf-2"
   | "golf-3"
   | "golf-villa-combo"
-  | "kimc-poolvilla"
   | "kimc-poolvilla-pool-day"
   | "kimc-poolvilla-pool-night"
   | "picks-luangprabang-activity"
@@ -576,13 +572,11 @@ export const images: Record<ImageKey, string | undefined> = {
   "villa-3": src.poolvillaNightTall,
 
   // Honest non-Laos stand-ins for all golf slots below — Wikimedia Commons has zero Laos golf course photography (verified). Each slot uses a different photo so no two golf cards repeat the same image.
-  "golf-hero": src.golfCourseSunsetGreen,
   "golf-1": src.golfSunsetHill,
   "golf-2": src.golfBunker,
   "golf-3": src.golfBackupTeeOff,
   // Owner's villa photo (wide crop) — replaces the 600px vangviengPoolvillaReal thumbnail.
   "golf-villa-combo": src.poolvillaNightWide,
-  "kimc-poolvilla": src.kimcPoolvillaSunsetAerial,
   "kimc-poolvilla-pool-day": src.kimcPoolvillaPoolDay,
   "kimc-poolvilla-pool-night": src.kimcPoolvillaPoolNight,
 

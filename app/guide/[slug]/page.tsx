@@ -63,29 +63,26 @@ export default async function GuideDetailPage({
 
   return (
     <div className="pb-16">
-      <div className="relative aspect-[16/9] w-full overflow-hidden md:aspect-[21/9]">
-        <CoverImage
-          src={getImage(article.image)}
-          alt={article.title}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-forest/5 to-transparent" />
-        <Container className="absolute inset-x-0 bottom-0 pb-6 md:pb-10">
-          <p className="text-xs font-medium tracking-wide text-gold-soft">
-            {article.category}
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-[24px] font-semibold text-white md:text-[34px]">
+      <Container className="pt-24 md:pt-32">
+        <div className="mx-auto max-w-2xl">
+          <p className="text-xs font-medium tracking-wide text-gold">{article.category}</p>
+          <h1 className="font-display mt-2 text-[26px] font-semibold leading-tight text-forest md:text-[34px]">
             {article.title}
           </h1>
-        </Container>
-      </div>
-
-      <Container className="mt-8 md:mt-12">
-        <div className="mx-auto max-w-2xl">
-          <p className="text-[15px] leading-relaxed text-text-soft">
+          <p className="mt-4 text-[15px] leading-relaxed text-text-soft md:text-base">
             {article.excerpt}
           </p>
+
+          {getImage(article.image) ? (
+            <div className="relative mt-7 aspect-[16/10] w-full overflow-hidden rounded-xl bg-ivory">
+              <CoverImage
+                src={getImage(article.image)}
+                alt={article.title}
+                priority
+                sizes="(min-width: 768px) 672px, 100vw"
+              />
+            </div>
+          ) : null}
 
           <div className="mt-8 space-y-5 border-t border-border pt-8">
             {(article.content ?? []).map((paragraph, i) => (

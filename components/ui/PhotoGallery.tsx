@@ -4,10 +4,20 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
+const MOSAIC_CELLS: Record<number, string[]> = {
+  1: ["col-span-4 row-span-2"],
+  2: ["col-span-2 row-span-2", "col-span-2 row-span-2"],
+  3: ["col-span-2 row-span-2", "col-span-2", "col-span-2"],
+  4: ["col-span-2 row-span-2", "col-span-2", "", ""],
+  5: ["col-span-2 row-span-2", "", "", "", ""],
+};
+
 export default function PhotoGallery({
   photos,
+  variant = "grid",
 }: {
   photos: { key: string; src: string; alt: string }[];
+  variant?: "grid" | "mosaic";
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -29,26 +39,81 @@ export default function PhotoGallery({
 
   if (photos.length === 0) return null;
 
+  const shown = Math.min(photos.length, 5);
+  const cells = MOSAIC_CELLS[shown];
+
   return (
     <>
-      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
-        {photos.map((photo, i) => (
-          <button
-            key={`${photo.key}-${i}`}
-            type="button"
-            onClick={() => setOpenIndex(i)}
-            className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-border"
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes="(min-width: 640px) 33vw, 50vw"
-              className="object-cover contrast-[1.05] saturate-[1.12] brightness-[1.02] transition-transform duration-300 group-hover:scale-[1.05]"
-            />
-          </button>
-        ))}
-      </div>
+      {variant === "mosaic" ? (
+        <>
+          <div className="-mx-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 pb-1 md:hidden">
+            {photos.map((photo, i) => (
+              <button
+                key={`m-${photo.key}-${i}`}
+                type="button"
+                onClick={() => setOpenIndex(i)}
+                className="relative aspect-[4/3] w-[88%] shrink-0 snap-center overflow-hidden rounded-xl bg-border"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  priority={i === 0}
+                  sizes="88vw"
+                  className="object-cover contrast-[1.05] saturate-[1.12] brightness-[1.02]"
+                />
+                <span className="absolute bottom-3 right-3 rounded-full bg-black/55 px-2.5 py-1 text-[11px] text-white">
+                  {i + 1} / {photos.length}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="hidden h-[420px] grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-2xl md:grid">
+            {photos.slice(0, shown).map((photo, i) => (
+              <button
+                key={`d-${photo.key}-${i}`}
+                type="button"
+                onClick={() => setOpenIndex(i)}
+                className={`group relative overflow-hidden bg-border ${cells[i]}`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  priority={i === 0}
+                  sizes={i === 0 ? "(min-width: 768px) 40vw, 100vw" : "20vw"}
+                  className="object-cover contrast-[1.05] saturate-[1.12] brightness-[1.02] transition-transform duration-300 group-hover:scale-[1.04]"
+                />
+                {i === shown - 1 && photos.length > shown ? (
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/45 text-[14px] font-medium text-white">
+                    사진 {photos.length}장 모두 보기
+                  </span>
+                ) : null}
+              </button>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+          {photos.map((photo, i) => (
+            <button
+              key={`${photo.key}-${i}`}
+              type="button"
+              onClick={() => setOpenIndex(i)}
+              className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-border"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(min-width: 640px) 33vw, 50vw"
+                className="object-cover contrast-[1.05] saturate-[1.12] brightness-[1.02] transition-transform duration-300 group-hover:scale-[1.05]"
+              />
+            </button>
+          ))}
+        </div>
+      )}
 
       {openIndex !== null ? (
         <div

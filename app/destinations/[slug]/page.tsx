@@ -4,7 +4,8 @@ import Link from "next/link";
 import { ArrowRight, MapPin, Lightbulb } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import CoverImage from "@/components/ui/CoverImage";
+import DetailHeading from "@/components/ui/DetailHeading";
+import { buildPhotos } from "@/lib/photos";
 import PhotoGallery from "@/components/ui/PhotoGallery";
 import ProductCard from "@/components/product/ProductCard";
 import VillaCard from "@/components/villa/VillaCard";
@@ -78,26 +79,17 @@ export default async function DestinationDetailPage({
 
   return (
     <div className="pb-16">
-      <div className="relative h-[360px] w-full overflow-hidden md:h-[460px]">
-        <CoverImage
-          src={getImage(destination.image)}
-          alt={destination.name}
-          priority
-          sizes="100vw"
+      <Container className="pt-24 md:pt-28">
+        <PhotoGallery
+          variant="mosaic"
+          photos={buildPhotos(destination.image, destination.gallery, destination.name)}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/70 via-forest/10 to-forest/30" />
-        <Container className="absolute inset-x-0 bottom-0 pb-8 md:pb-12">
-          <p className="font-display text-[11px] tracking-[0.3em] text-gold-soft">
-            {destination.nameEn}
-          </p>
-          <h1 className="font-display mt-2 text-[30px] font-semibold text-white md:text-[42px]">
-            {destination.name}
-          </h1>
-          <p className="mt-2 max-w-lg text-[14.5px] text-white/80 md:text-base">
-            {destination.description}
-          </p>
-        </Container>
-      </div>
+        <DetailHeading
+          eyebrow={destination.nameEn}
+          title={destination.name}
+          subtitle={destination.description}
+        />
+      </Container>
 
       <Container className="mt-10 md:mt-14">
         <SectionHeading eyebrow="Things To Do" title="이런 것들을 즐길 수 있어요" />
@@ -113,27 +105,6 @@ export default async function DestinationDetailPage({
           ))}
         </div>
       </Container>
-
-      {destination.gallery.length > 0 && (
-        <Container className="mt-14 border-t border-border pt-10 md:mt-16 md:pt-14">
-          <SectionHeading eyebrow="Photo Gallery" title="여행지 사진" />
-          <div className="mt-6">
-            <PhotoGallery
-              photos={[
-                ...(getImage(destination.image)
-                  ? [{ key: "hero", src: getImage(destination.image)!, alt: destination.name }]
-                  : []),
-                ...destination.gallery
-                  .map((key, i) => {
-                    const src = getImage(key);
-                    return src ? { key, src, alt: `${destination.name} 사진 ${i + 2}` } : null;
-                  })
-                  .filter((p): p is { key: string; src: string; alt: string } => p !== null),
-              ]}
-            />
-          </div>
-        </Container>
-      )}
 
       {relatedProducts.length > 0 && (
         <Container className="mt-14 border-t border-border pt-10 md:mt-16 md:pt-14">

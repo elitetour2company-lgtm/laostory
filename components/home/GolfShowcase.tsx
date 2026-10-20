@@ -24,15 +24,7 @@ export default async function GolfShowcase() {
           </Link>
         </div>
 
-        <div className="relative mt-10 aspect-[16/7] overflow-hidden rounded-xl md:mt-12">
-          <CoverImage
-            src={getImage("golf-hero")}
-            alt="라오스 골프 코스"
-            sizes="(min-width: 1280px) 1216px, 100vw"
-          />
-        </div>
-
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-12 md:grid-cols-3">
           {golfCourses.map((course) => (
             <GolfCard key={course.slug} course={course} />
           ))}

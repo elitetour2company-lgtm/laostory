@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Check, X as XIcon, BedDouble, UtensilsCrossed, MapPin, MessageCircleQuestion } from "lucide-react";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
+import DetailHeading from "@/components/ui/DetailHeading";
+import { buildPhotos } from "@/lib/photos";
 import PhotoGallery from "@/components/ui/PhotoGallery";
 import BookingProcess from "@/components/ui/BookingProcess";
 import TravelNotices from "@/components/ui/TravelNotices";
@@ -102,31 +104,25 @@ export default async function TravelDetailPage({
           path: `/travel/${product.slug}`,
         })}
       />
-      <div className="relative aspect-[16/9] w-full overflow-hidden md:aspect-[21/9]">
-        <CoverImage
-          src={getImage(product.image)}
-          alt={product.title}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-forest/5 to-transparent" />
-        <div className="absolute right-4 top-20 flex items-center gap-2 md:top-24">
-          <ShareButton title={product.title} />
-          <WishlistButton type="travel" slug={product.slug} />
-        </div>
-        <Container className="absolute inset-x-0 bottom-0 pb-6 md:pb-10">
-          <p className="text-xs font-medium tracking-wide text-gold-soft">
-            {product.category} · {product.destination}
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-[26px] font-semibold text-white md:text-[38px]">
-            {product.title}
-          </h1>
-        </Container>
-      </div>
-
-      <Container className="mt-8 grid grid-cols-1 gap-10 md:mt-12 md:grid-cols-[1fr_340px]">
+      <Container className="grid grid-cols-1 gap-10 pt-24 md:grid-cols-[1fr_340px] md:pt-28">
         <div>
-          <div className="flex flex-wrap items-center gap-2">
+          <PhotoGallery
+            variant="mosaic"
+            photos={buildPhotos(product.image, product.gallery, product.title)}
+          />
+          <DetailHeading
+            className="md:hidden"
+            eyebrow={`${product.category} · ${product.destination}`}
+            title={product.title}
+            actions={
+              <>
+                <ShareButton title={product.title} />
+                <WishlistButton type="travel" slug={product.slug} />
+              </>
+            }
+          />
+
+          <div className="mt-5 flex flex-wrap items-center gap-2">
             {product.badge ? <Badge tone="forest">{product.badge}</Badge> : null}
             {product.tags.map((tag) => (
               <Badge key={tag} tone="gold">
@@ -142,24 +138,6 @@ export default async function TravelDetailPage({
           <p className="mt-5 text-[15px] leading-relaxed text-text md:text-base">
             {product.description}
           </p>
-
-          {product.gallery.length > 0 ? (
-            <div className="mt-6">
-              <PhotoGallery
-                photos={[
-                  ...(getImage(product.image)
-                    ? [{ key: "hero", src: getImage(product.image)!, alt: product.title }]
-                    : []),
-                  ...product.gallery
-                    .map((key, i) => {
-                      const src = getImage(key);
-                      return src ? { key, src, alt: `${product.title} 사진 ${i + 2}` } : null;
-                    })
-                    .filter((p): p is { key: string; src: string; alt: string } => p !== null),
-                ]}
-              />
-            </div>
-          ) : null}
 
           {product.destinationHighlights?.length ? (
             <div className="mt-10">
@@ -370,6 +348,18 @@ export default async function TravelDetailPage({
         </div>
 
         <aside className="hidden h-fit rounded-xl border border-border bg-white p-6 md:sticky md:top-28 md:block">
+          <DetailHeading
+            compact
+            eyebrow={`${product.category} · ${product.destination}`}
+            title={product.title}
+            chips={[product.duration, ...(product.included ?? []).slice(0, 3)]}
+            actions={
+              <>
+                <ShareButton title={product.title} />
+                <WishlistButton type="travel" slug={product.slug} />
+              </>
+            }
+          />
           <GuestPriceCalculator
             itemName={product.title}
             topLabel={product.duration}

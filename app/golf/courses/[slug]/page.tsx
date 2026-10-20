@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MapPin, Check, X as XIcon } from "lucide-react";
 import Container from "@/components/ui/Container";
-import CoverImage from "@/components/ui/CoverImage";
+import DetailHeading from "@/components/ui/DetailHeading";
+import { buildPhotos } from "@/lib/photos";
 import PhotoGallery from "@/components/ui/PhotoGallery";
 import BookingProcess from "@/components/ui/BookingProcess";
 import TravelNotices from "@/components/ui/TravelNotices";
@@ -76,32 +77,30 @@ export default async function GolfCourseDetailPage({
           path: `/golf/courses/${course.slug}`,
         })}
       />
-      <div className="relative aspect-[16/9] w-full overflow-hidden md:aspect-[21/9]">
-        <CoverImage
-          src={getImage(course.image)}
-          alt={course.name}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-forest/5 to-transparent" />
-        <div className="absolute right-4 top-20 flex items-center gap-2 md:top-24">
-          <ShareButton title={course.name} />
-          <WishlistButton type="golf" slug={course.slug} />
-        </div>
-        <Container className="absolute inset-x-0 bottom-0 pb-6 md:pb-10">
-          <p className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-gold-soft">
-            <MapPin size={13} strokeWidth={2} />
-            {course.location}
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-[26px] font-semibold text-white md:text-[38px]">
-            {course.name}
-          </h1>
-        </Container>
-      </div>
-
-      <Container className="mt-8 grid grid-cols-1 gap-10 md:mt-12 md:grid-cols-[1fr_340px]">
+      <Container className="grid grid-cols-1 gap-10 pt-24 md:grid-cols-[1fr_340px] md:pt-28">
         <div>
-          <div className="grid grid-cols-2 gap-3 border-b border-border pb-8 sm:grid-cols-4">
+          <PhotoGallery
+            variant="mosaic"
+            photos={buildPhotos(course.image, course.gallery, course.name)}
+          />
+          <DetailHeading
+            className="md:hidden"
+            eyebrow={
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={13} strokeWidth={2} />
+                {course.location}
+              </span>
+            }
+            title={course.name}
+            actions={
+              <>
+                <ShareButton title={course.name} />
+                <WishlistButton type="golf" slug={course.slug} />
+              </>
+            }
+          />
+
+          <div className="mt-6 grid grid-cols-2 gap-3 border-b border-border pb-8 sm:grid-cols-4">
             <div className="rounded-lg bg-ivory p-4">
               <p className="text-[20px] font-semibold text-forest">{course.holes}</p>
               <p className="mt-0.5 text-[12px] text-text-soft">홀 수</p>
@@ -137,24 +136,6 @@ export default async function GolfCourseDetailPage({
           <p className="mt-6 text-[15px] leading-relaxed text-text md:text-base">
             {course.description}
           </p>
-
-          {course.gallery.length > 0 ? (
-            <div className="mt-8">
-              <PhotoGallery
-                photos={[
-                  ...(getImage(course.image)
-                    ? [{ key: "hero", src: getImage(course.image)!, alt: course.name }]
-                    : []),
-                  ...course.gallery
-                    .map((key, i) => {
-                      const src = getImage(key);
-                      return src ? { key, src, alt: `${course.name} 사진 ${i + 2}` } : null;
-                    })
-                    .filter((p): p is { key: string; src: string; alt: string } => p !== null),
-                ]}
-              />
-            </div>
-          ) : null}
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
             <div>
@@ -275,6 +256,28 @@ export default async function GolfCourseDetailPage({
         </div>
 
         <aside className="hidden h-fit rounded-xl border border-border bg-white p-6 md:sticky md:top-28 md:block">
+          <DetailHeading
+            compact
+            eyebrow={
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={13} strokeWidth={2} />
+                {course.location}
+              </span>
+            }
+            title={course.name}
+            chips={[
+              `${course.holes}홀`,
+              `난이도 ${course.difficulty}`,
+              course.includesCart ? "카트 포함" : "카트 없음",
+              course.includesCaddie ? "캐디 포함" : "캐디 별도",
+            ]}
+            actions={
+              <>
+                <ShareButton title={course.name} />
+                <WishlistButton type="golf" slug={course.slug} />
+              </>
+            }
+          />
           <GolfPriceCalculator
             itemName={course.name}
             price={course.price}

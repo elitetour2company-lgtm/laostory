@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, MapPin, Check, X as XIcon } from "lucide-react";
 import Container from "@/components/ui/Container";
-import CoverImage from "@/components/ui/CoverImage";
+import DetailHeading from "@/components/ui/DetailHeading";
+import { buildPhotos } from "@/lib/photos";
 import Badge from "@/components/ui/Badge";
 import PhotoGallery from "@/components/ui/PhotoGallery";
 import BookingProcess from "@/components/ui/BookingProcess";
@@ -85,32 +86,30 @@ export default async function TourDetailPage({
           path: `/tours/${tour.slug}`,
         })}
       />
-      <div className="relative aspect-[16/9] w-full overflow-hidden md:aspect-[21/9]">
-        <CoverImage
-          src={getImage(tour.image)}
-          alt={tour.title}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-forest/5 to-transparent" />
-        <div className="absolute right-4 top-20 flex items-center gap-2 md:top-24">
-          <ShareButton title={tour.title} />
-          <WishlistButton type="tour" slug={tour.slug} />
-        </div>
-        <Container className="absolute inset-x-0 bottom-0 pb-6 md:pb-10">
-          <p className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-gold-soft">
-            <MapPin size={13} strokeWidth={2} />
-            {tour.destination}
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-[26px] font-semibold text-white md:text-[38px]">
-            {tour.title}
-          </h1>
-        </Container>
-      </div>
-
-      <Container className="mt-8 grid grid-cols-1 gap-10 md:mt-12 md:grid-cols-[1fr_340px]">
+      <Container className="grid grid-cols-1 gap-10 pt-24 md:grid-cols-[1fr_340px] md:pt-28">
         <div>
-          <div className="flex flex-wrap items-center gap-2">
+          <PhotoGallery
+            variant="mosaic"
+            photos={buildPhotos(tour.image, tour.gallery, tour.title)}
+          />
+          <DetailHeading
+            className="md:hidden"
+            eyebrow={
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={13} strokeWidth={2} />
+                {tour.destination}
+              </span>
+            }
+            title={tour.title}
+            actions={
+              <>
+                <ShareButton title={tour.title} />
+                <WishlistButton type="tour" slug={tour.slug} />
+              </>
+            }
+          />
+
+          <div className="mt-5 flex flex-wrap items-center gap-2">
             <Badge tone="forest">{tour.category}</Badge>
             <span className="inline-flex items-center gap-1.5 text-[13.5px] text-text-soft">
               <Clock size={14} strokeWidth={1.5} />
@@ -125,24 +124,6 @@ export default async function TourDetailPage({
           <p className="mt-5 text-[15px] leading-relaxed text-text md:text-base">
             {tour.description}
           </p>
-
-          {tour.gallery.length > 0 ? (
-            <div className="mt-6">
-              <PhotoGallery
-                photos={[
-                  ...(getImage(tour.image)
-                    ? [{ key: "hero", src: getImage(tour.image)!, alt: tour.title }]
-                    : []),
-                  ...tour.gallery
-                    .map((key, i) => {
-                      const src = getImage(key);
-                      return src ? { key, src, alt: `${tour.title} 사진 ${i + 2}` } : null;
-                    })
-                    .filter((p): p is { key: string; src: string; alt: string } => p !== null),
-                ]}
-              />
-            </div>
-          ) : null}
 
           <div className="mt-10">
             <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
@@ -241,6 +222,23 @@ export default async function TourDetailPage({
         </div>
 
         <aside className="hidden h-fit rounded-xl border border-border bg-white p-6 md:sticky md:top-28 md:block">
+          <DetailHeading
+            compact
+            eyebrow={
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={13} strokeWidth={2} />
+                {tour.destination}
+              </span>
+            }
+            title={tour.title}
+            chips={[tour.duration, ...(tour.included ?? []).slice(0, 3)]}
+            actions={
+              <>
+                <ShareButton title={tour.title} />
+                <WishlistButton type="tour" slug={tour.slug} />
+              </>
+            }
+          />
           <GuestPriceCalculator
             itemName={tour.title}
             unitLabel={priceBasis}
