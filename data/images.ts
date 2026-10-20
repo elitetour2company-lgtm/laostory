@@ -352,7 +352,6 @@ const src = {
   vangviengNamsongBridge: img("vangvieng-namsong-bridge.jpg"),
   vangviengBalloonPanorama: img("vangvieng-balloon-panorama.jpg"),
   vangviengViewpointFlag: img("vangvieng-viewpoint-flag.jpg"),
-  vangviengRiverSunset: img("vangvieng-river-sunset.jpg"),
   mekongCruiseCocktail: img("mekong-cruise-cocktail.jpg"),
   mekongCruiseDinner: img("mekong-cruise-dinner.jpg"),
   mekongCruiseBoatSailing: img("mekong-cruise-boat-sailing.jpg"),
@@ -372,7 +371,6 @@ type ImageKey =
   | "category-transport"
   | "destination-vientiane"
   | "destination-vangvieng"
-  | "destination-vangvieng-hero"
   | "destination-luangprabang"
   | "destination-pakse"
   | "product-noshopping-vientiane"
@@ -476,6 +474,7 @@ type ImageKey =
   | "transport-minivan"
   | "vv-bluelagoon-swim"
   | "vv-bluelagoon-slide"
+  | "vv-bluelagoon-tubing"
   | "vv-kayak-people"
   | "vv-zipline-canyon"
   | "vv-zipline-group"
@@ -542,7 +541,6 @@ export const images: Record<ImageKey, string | undefined> = {
 
   "destination-vientiane": src.phaThatLuang,
   "destination-vangvieng": src.vangviengViewpointFlag,
-  "destination-vangvieng-hero": src.vangviengRiverSunset,
   "destination-luangprabang": src.kuangSiFalls,
   // Tad Fane twin falls with a zipliner — landscape, so the falls survive the 21:9 hero crop (the plain tadFane shot is portrait-ish).
   "destination-pakse": src.bolavenZiplineAction,
@@ -715,6 +713,7 @@ export const images: Record<ImageKey, string | undefined> = {
   // Owner-provided real Vang Vieng activity photos.
   "vv-bluelagoon-swim": src.vangviengBluelagoonSwim,
   "vv-bluelagoon-slide": src.vangviengBluelagoonTreeswingPose,
+  "vv-bluelagoon-tubing": src.blueLagoonTubing,
   "vv-kayak-people": src.vangviengKayakPeople,
   "vv-zipline-canyon": src.vangviengZiplineCanyon,
   // Real Vang Vieng kayaking action (Nam Song river) — this half-day tour's own kayak element wasn't shown before.

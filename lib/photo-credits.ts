@@ -36,5 +36,4 @@ export const PHOTO_CREDITS: PhotoCredit[] = [
   { title: "Laos-China-Railway Station in Vientiane", author: "Dominik Landwehr", license: "CC BY-SA 4.0" },
   { title: "Nissan Civilian in Vientiane", author: "Ilya Plekhanov", license: "CC BY-SA 3.0" },
   { title: "Airport shuttle bus at Wattay International Airport", author: "Mx. Granger", license: "CC0 1.0" },
-  { title: "Exploring Vang Vieng - By River", author: "Discover Laos (Laos Tourism Board 후원)", license: "사용 허락을 받아 게재" },
 ];

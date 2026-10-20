@@ -6,7 +6,7 @@ export const ourPicks = [
       "짚라인, 동굴 튜빙, 카약, 블루라군 다이빙까지 하루 만에 즐기는 방비엥 대표 액티비티 코스.",
     meta: "원데이투어 · 방비엥",
     href: "/tours/vang-vieng-oneday-zipline-cave-kayak-bluelagoon1",
-    imageKey: "vangvieng-namsong-bridge",
+    imageKey: "vv-bluelagoon-tubing",
   },
   {
     tag: "에디터 픽",
