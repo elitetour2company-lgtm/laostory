@@ -34,6 +34,7 @@ const FOOTER_LINKS = [
       { label: "예약·취소 규정", href: "/legal/refund-policy" },
       { label: "이용약관", href: "/legal/terms" },
       { label: "개인정보처리방침", href: "/legal/privacy" },
+      { label: "사진 출처", href: "/photo-credits" },
     ],
   },
 ];

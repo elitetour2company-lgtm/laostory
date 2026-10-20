@@ -279,10 +279,11 @@ const src = {
   longbienCCGallery2: img("longbien-cc-2.png"),
   longbienCCGallery3: img("longbien-cc-3.png"),
   longbienCCGallery4: img("longbien-cc-4.png"),
-  longbienCCGallery6: img("longbien-cc-7.png"),
   longbienCCGallery8: img("longbien-cc-9.png"),
   // Long Vien Golf Club photos (1366-1440px) from a booking site, used with the club's permission (confirmed by owner, 2026-10-09).
   longbienCCSunsetPond: img("longbien-cc-sunset-pond.jpg"),
+  longbienCCBunkerSky: img("longbien-cc-bunker-sky.jpg"),
+  lakeviewCCPalmsGreen: img("lakeview-cc-palms-green.jpg"),
   longbienCCBunkerPalms: img("longbien-cc-bunker-palms.jpg"),
   longbienCCNightLit: img("longbien-cc-night-lit.jpg"),
 
@@ -292,13 +293,10 @@ const src = {
   lakeviewCCBunkerPalms: img("lakeview-cc-bunker-palms.jpg"),
   lakeviewCCPondCartpath: img("lakeview-cc-pond-cartpath.jpg"),
   lakeviewCCRangeStripes: img("lakeview-cc-range-stripes.jpg"),
-  lakeviewCCGallery1: img("lakeview-cc-1.png"),
-  lakeviewCCGallery3: img("lakeview-cc-3.png"),
   lakeviewCCGallery4: img("lakeview-cc-4.png"),
   lakeviewCCGallery7: img("lakeview-cc-8.png"),
 
   booyoungCCGallery11: img("booyoung-cc-12.png"),
-  booyoungCCGallery12: img("booyoung-cc-13.png"),
 
   asiaClubVangviengHero: img("asia-club-vangvieng-2.jpeg"),
   asiaClubVangviengGallery1: img("asia-club-vangvieng-1.jpeg"),
@@ -354,6 +352,7 @@ const src = {
   vangviengNamsongBridge: img("vangvieng-namsong-bridge.jpg"),
   vangviengBalloonPanorama: img("vangvieng-balloon-panorama.jpg"),
   vangviengViewpointFlag: img("vangvieng-viewpoint-flag.jpg"),
+  vangviengRiverSunset: img("vangvieng-river-sunset.jpg"),
   mekongCruiseCocktail: img("mekong-cruise-cocktail.jpg"),
   mekongCruiseDinner: img("mekong-cruise-dinner.jpg"),
   mekongCruiseBoatSailing: img("mekong-cruise-boat-sailing.jpg"),
@@ -373,6 +372,7 @@ type ImageKey =
   | "category-transport"
   | "destination-vientiane"
   | "destination-vangvieng"
+  | "destination-vangvieng-hero"
   | "destination-luangprabang"
   | "destination-pakse"
   | "product-noshopping-vientiane"
@@ -435,16 +435,15 @@ type ImageKey =
   | "course-longbien-cc-g2"
   | "course-longbien-cc-g3"
   | "course-longbien-cc-g4"
-  | "course-longbien-cc-g6"
   | "course-longbien-cc-g8"
   | "course-longbien-cc-g10"
   | "course-longbien-cc-g11"
+  | "course-longbien-cc-hero"
+  | "course-lakeview-cc-hero"
   | "course-longbien-cc-g21"
   | "course-longbien-cc-g22"
   | "course-longbien-cc-g23"
   | "course-lakeview-cc"
-  | "course-lakeview-cc-g1"
-  | "course-lakeview-cc-g3"
   | "course-lakeview-cc-g4"
   | "course-lakeview-cc-g7"
   | "course-lakeview-cc-bridge"
@@ -453,7 +452,6 @@ type ImageKey =
   | "course-lakeview-cc-g23"
   | "course-booyoung-cc"
   | "course-booyoung-cc-g11"
-  | "course-booyoung-cc-g12"
   | "course-booyoung-cc-g13"
   | "course-asia-club-vangvieng"
   | "course-asia-club-vangvieng-g1"
@@ -544,6 +542,7 @@ export const images: Record<ImageKey, string | undefined> = {
 
   "destination-vientiane": src.phaThatLuang,
   "destination-vangvieng": src.vangviengViewpointFlag,
+  "destination-vangvieng-hero": src.vangviengRiverSunset,
   "destination-luangprabang": src.kuangSiFalls,
   // Tad Fane twin falls with a zipliner — landscape, so the falls survive the 21:9 hero crop (the plain tadFane shot is portrait-ish).
   "destination-pakse": src.bolavenZiplineAction,
@@ -662,8 +661,9 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-longbien-cc-g2": src.longbienCCGallery2,
   "course-longbien-cc-g3": src.longbienCCGallery3,
   "course-longbien-cc-g4": src.longbienCCGallery4,
-  "course-longbien-cc-g6": src.longbienCCGallery6,
   "course-longbien-cc-g8": src.longbienCCGallery8,
+  "course-longbien-cc-hero": src.longbienCCBunkerSky,
+  "course-lakeview-cc-hero": src.lakeviewCCPalmsGreen,
   "course-longbien-cc-g21": src.longbienCCSunsetPond,
   "course-longbien-cc-g22": src.longbienCCBunkerPalms,
   "course-longbien-cc-g23": src.longbienCCNightLit,
@@ -676,8 +676,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-lakeview-cc-g21": src.lakeviewCCBunkerPalms,
   "course-lakeview-cc-g22": src.lakeviewCCPondCartpath,
   "course-lakeview-cc-g23": src.lakeviewCCRangeStripes,
-  "course-lakeview-cc-g1": src.lakeviewCCGallery1,
-  "course-lakeview-cc-g3": src.lakeviewCCGallery3,
   "course-lakeview-cc-g4": src.lakeviewCCGallery4,
   "course-lakeview-cc-g7": src.lakeviewCCGallery7,
 
@@ -691,7 +689,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "course-asia-club-vangvieng-g3": src.asiaClubVangviengGallery3,
   "course-asia-club-vangvieng-g4": src.asiaClubVangviengGallery4,
   "course-booyoung-cc-g11": src.booyoungCCGallery11,
-  "course-booyoung-cc-g12": src.booyoungCCGallery12,
   "course-booyoung-cc-g13": src.booyoungCCElephant,
 
   // Real Luang Prabang Golf Club photos, owner-provided from a site they previously operated.

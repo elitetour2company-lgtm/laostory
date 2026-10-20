@@ -73,7 +73,7 @@ export default async function DestinationGrid() {
           <DestinationCard
             dest={main}
             className="h-full"
-            sizes="(min-width: 768px) 50vw, 100vw"
+            sizes="(min-width: 1280px) 600px, 50vw"
           />
           <div className="grid h-full grid-rows-3 gap-4">
             {rest.map((dest) => (
@@ -81,7 +81,7 @@ export default async function DestinationGrid() {
                 key={dest.slug}
                 dest={dest}
                 className="h-full"
-                sizes="(min-width: 768px) 25vw, 50vw"
+                sizes="(min-width: 1280px) 600px, 50vw"
               />
             ))}
           </div>
