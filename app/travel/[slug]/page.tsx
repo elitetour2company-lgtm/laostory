@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, X as XIcon, BedDouble, UtensilsCrossed, MapPin, Route, MessageCircleQuestion } from "lucide-react";
-import { getItineraryItems, getItineraryNote, getItineraryTitle } from "@/lib/itinerary-details";
+import { getItineraryItems, getItineraryGuide, getItineraryTitle } from "@/lib/itinerary-details";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
 import DetailHeading from "@/components/ui/DetailHeading";
@@ -177,11 +177,7 @@ export default async function TravelDetailPage({
               <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
                 일정
               </h2>
-              {getItineraryNote(product.slug) ? (
-                <p className="mt-2 text-[13px] leading-relaxed text-text-soft">
-                  {getItineraryNote(product.slug)}
-                </p>
-              ) : null}
+              
               <div className="mt-5 flex flex-col divide-y divide-border border-t border-b border-border">
                 {product.itinerary.map((day) => {
                   const items = getItineraryItems(product.slug, day.day);
@@ -202,43 +198,43 @@ export default async function TravelDetailPage({
                       </p>
                       {items ? (
                         <ul className="mt-3 flex flex-col gap-3">
-                          {items.map((item, i) =>
-                            item.kind === "stop" ? (
+                          {items.map((item, i) => {
+                            const isStop = item.kind === "stop";
+                            const isMove = item.kind === "move";
+                            const title = item.kind === "stop" ? item.name : item.kind === "move" ? item.route : item.text;
+                            const body =
+                              item.kind === "stop"
+                                ? item.text
+                                : item.kind === "move"
+                                  ? [
+                                      item.mode || item.time
+                                        ? `교통수단 : ${[item.mode, item.time].filter(Boolean).join(", ")}`
+                                        : "",
+                                      item.sub ?? "",
+                                    ]
+                                      .filter(Boolean)
+                                      .join(" · ")
+                                  : item.sub;
+                            return (
                               <li key={i} className="flex gap-2.5">
-                                <MapPin
-                                  size={15}
-                                  strokeWidth={1.75}
-                                  className="mt-0.5 flex-shrink-0 text-gold"
-                                />
-                                <div>
-                                  <p className="text-[14px] font-semibold text-text">{item.name}</p>
-                                  <p className="mt-0.5 text-[13px] leading-relaxed text-text-soft">
-                                    {item.text}
+                                {isStop ? (
+                                  <MapPin size={15} strokeWidth={1.75} className="mt-0.5 flex-shrink-0 text-gold" />
+                                ) : isMove ? (
+                                  <Route size={15} strokeWidth={1.75} className="mt-0.5 flex-shrink-0 text-forest/70" />
+                                ) : (
+                                  <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-border" />
+                                )}
+                                <div className="min-w-0">
+                                  <p className={`text-[14px] ${isStop ? "font-semibold text-text" : "font-medium text-text"}`}>
+                                    {title}
                                   </p>
+                                  {body ? (
+                                    <p className="mt-0.5 text-[13px] leading-relaxed text-text-soft">{body}</p>
+                                  ) : null}
                                 </div>
                               </li>
-                            ) : item.kind === "move" ? (
-                              <li
-                                key={i}
-                                className="flex items-start gap-2.5 rounded-md bg-ivory px-3 py-2 text-[12.5px] text-text-soft"
-                              >
-                                <Route
-                                  size={15}
-                                  strokeWidth={1.75}
-                                  className="mt-0.5 flex-shrink-0 text-forest/70"
-                                />
-                                <span>
-                                  <span className="font-medium text-text">{item.route}</span>
-                                  {" · "}교통수단 : {item.mode}
-                                  {item.time ? `, ${item.time}` : ""}
-                                </span>
-                              </li>
-                            ) : (
-                              <li key={i} className="pl-[25px] text-[13px] text-text-soft">
-                                {item.text}
-                              </li>
-                            )
-                          )}
+                            );
+                          })}
                         </ul>
                       ) : (
                         <p className="mt-1 text-[13.5px] leading-relaxed text-text-soft">
@@ -270,6 +266,13 @@ export default async function TravelDetailPage({
                   );
                 })}
               </div>
+              {getItineraryGuide(product.slug) ? (
+                <ul className="mt-4 flex flex-col gap-1.5 rounded-xl bg-surface-soft p-4 text-[13px] leading-relaxed text-text-soft">
+                  {getItineraryGuide(product.slug)!.map((g) => (
+                    <li key={g}>· {g}</li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           ) : null}
 
