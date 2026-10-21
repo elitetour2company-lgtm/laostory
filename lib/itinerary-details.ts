@@ -1745,6 +1745,41 @@ export function getItineraryTitle(slug: string, day: number): string | undefined
   return TITLES[slug]?.[day - 1];
 }
 
+const OPTIONS: Record<string, string[]> = {
+ "laos-golf-3courses-sightseeing-3nights": [
+  "한국인 가이드·현지인 가이드 (사전 요청 시 별도 배정)"
+ ],
+ "laos-golf-4courses-sightseeing-4nights": [
+  "한국인 가이드·현지인 가이드 (사전 요청 시 별도 배정)"
+ ],
+ "laos-golf-vientiane-vangvieng-3nights": [
+  "한국인 가이드·현지인 가이드 (사전 요청 시 별도 배정)"
+ ],
+ "laos-golf-vientiane-vangvieng-4nights": [
+  "한국인 가이드·현지인 가이드 (사전 요청 시 별도 배정)"
+ ],
+ "laos-golf-allinone-3nights": [
+  "한국인 가이드·현지인 가이드 (사전 요청 시 별도 배정)",
+  "방비엥 관광 (상담 문의)"
+ ],
+ "laos-golf-allinone-4nights": [
+  "한국인 가이드·현지인 가이드 (사전 요청 시 별도 배정)",
+  "방비엥 관광 (상담 문의)"
+ ],
+ "laos-golf-vvip-3nights": [
+  "1인 1실 사용",
+  "방비엥 관광 (상담 문의)"
+ ],
+ "laos-golf-vvip-4nights": [
+  "1인 1실 사용",
+  "방비엥 관광 (상담 문의)"
+ ]
+};
+
+export function getItineraryOptions(slug: string): string[] | undefined {
+  return OPTIONS[slug];
+}
+
 export function getItineraryGuide(slug: string): string[] | undefined {
   return GUIDES[slug];
 }

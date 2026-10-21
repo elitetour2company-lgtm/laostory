@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, X as XIcon, BedDouble, UtensilsCrossed, MapPin, Route, MessageCircleQuestion } from "lucide-react";
-import { getItineraryItems, getItineraryGuide, getItineraryTitle } from "@/lib/itinerary-details";
+import { getItineraryItems, getItineraryGuide, getItineraryOptions, getItineraryTitle } from "@/lib/itinerary-details";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
 import DetailHeading from "@/components/ui/DetailHeading";
@@ -352,6 +352,20 @@ export default async function TravelDetailPage({
               ) : null}
             </div>
           )}
+
+          {getItineraryOptions(product.slug) ? (
+            <div className="mt-8">
+              <h3 className="text-[15px] font-semibold text-forest">선택사항</h3>
+              <ul className="mt-3 space-y-2.5">
+                {getItineraryOptions(product.slug)!.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-[13.5px] text-text">
+                    <Check size={15} strokeWidth={2} className="mt-0.5 flex-shrink-0 text-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
 
           <TravelNotices type={product.type === "골프" ? "golf" : "travel"} />
 
