@@ -299,6 +299,7 @@ const src = {
   booyoungCCGallery11: img("booyoung-cc-12.png"),
 
   asiaClubVangviengHero: img("asia-club-vangvieng-2.jpeg"),
+  asiaClubVangviengLakeCrop: img("asia-club-vangvieng-lake-crop.jpg"),
   asiaClubVangviengGallery1: img("asia-club-vangvieng-1.jpeg"),
   asiaClubVangviengGallery2: img("asia-club-vangvieng-3.jpeg"),
   asiaClubVangviengGallery3: img("asia-club-vangvieng-4.jpeg"),
@@ -452,6 +453,7 @@ type ImageKey =
   | "course-booyoung-cc-g11"
   | "course-booyoung-cc-g13"
   | "course-asia-club-vangvieng"
+  | "course-asia-club-vangvieng-lake"
   | "course-asia-club-vangvieng-g1"
   | "course-asia-club-vangvieng-g2"
   | "course-asia-club-vangvieng-g3"
@@ -682,6 +684,7 @@ export const images: Record<ImageKey, string | undefined> = {
 
   // Owner-provided real photos of Asia Club, Vang Vieng.
   "course-asia-club-vangvieng": src.asiaClubVangviengHero,
+  "course-asia-club-vangvieng-lake": src.asiaClubVangviengLakeCrop,
   "course-asia-club-vangvieng-g1": src.asiaClubVangviengGallery1,
   "course-asia-club-vangvieng-g2": src.asiaClubVangviengGallery2,
   "course-asia-club-vangvieng-g3": src.asiaClubVangviengGallery3,

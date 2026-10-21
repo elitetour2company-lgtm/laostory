@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Check, X as XIcon, BedDouble, UtensilsCrossed, MapPin, MessageCircleQuestion } from "lucide-react";
+import { Check, X as XIcon, BedDouble, UtensilsCrossed, MapPin, Route, MessageCircleQuestion } from "lucide-react";
+import { getItineraryItems, getItineraryNote, getItineraryTitle } from "@/lib/itinerary-details";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
 import DetailHeading from "@/components/ui/DetailHeading";
@@ -176,8 +177,16 @@ export default async function TravelDetailPage({
               <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
                 일정
               </h2>
+              {getItineraryNote(product.slug) ? (
+                <p className="mt-2 text-[13px] leading-relaxed text-text-soft">
+                  {getItineraryNote(product.slug)}
+                </p>
+              ) : null}
               <div className="mt-5 flex flex-col divide-y divide-border border-t border-b border-border">
-                {product.itinerary.map((day) => (
+                {product.itinerary.map((day) => {
+                  const items = getItineraryItems(product.slug, day.day);
+                  const dayTitle = getItineraryTitle(product.slug, day.day) ?? day.title;
+                  return (
                   <div key={day.day} className="flex gap-5 py-5">
                     <span className="font-display flex-shrink-0 text-[15px] font-semibold text-gold">
                       Day {day.day}
@@ -187,13 +196,55 @@ export default async function TravelDetailPage({
                         <CoverImage src={getImage(day.image)} alt={day.title} sizes="112px" />
                       </div>
                     ) : null}
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-[14.5px] font-semibold text-text">
-                        {day.title}
+                        {dayTitle}
                       </p>
-                      <p className="mt-1 text-[13.5px] leading-relaxed text-text-soft">
-                        {day.description}
-                      </p>
+                      {items ? (
+                        <ul className="mt-3 flex flex-col gap-3">
+                          {items.map((item, i) =>
+                            item.kind === "stop" ? (
+                              <li key={i} className="flex gap-2.5">
+                                <MapPin
+                                  size={15}
+                                  strokeWidth={1.75}
+                                  className="mt-0.5 flex-shrink-0 text-gold"
+                                />
+                                <div>
+                                  <p className="text-[14px] font-semibold text-text">{item.name}</p>
+                                  <p className="mt-0.5 text-[13px] leading-relaxed text-text-soft">
+                                    {item.text}
+                                  </p>
+                                </div>
+                              </li>
+                            ) : item.kind === "move" ? (
+                              <li
+                                key={i}
+                                className="flex items-start gap-2.5 rounded-md bg-ivory px-3 py-2 text-[12.5px] text-text-soft"
+                              >
+                                <Route
+                                  size={15}
+                                  strokeWidth={1.75}
+                                  className="mt-0.5 flex-shrink-0 text-forest/70"
+                                />
+                                <span>
+                                  <span className="font-medium text-text">{item.route}</span>
+                                  {" · "}교통수단 : {item.mode}
+                                  {item.time ? `, ${item.time}` : ""}
+                                </span>
+                              </li>
+                            ) : (
+                              <li key={i} className="pl-[25px] text-[13px] text-text-soft">
+                                {item.text}
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      ) : (
+                        <p className="mt-1 text-[13.5px] leading-relaxed text-text-soft">
+                          {day.description}
+                        </p>
+                      )}
                       {day.hotel || day.meals?.length ? (
                         <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1.5">
                           {day.hotel ? (
@@ -216,7 +267,8 @@ export default async function TravelDetailPage({
                       ) : null}
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ) : null}
