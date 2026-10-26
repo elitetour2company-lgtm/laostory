@@ -369,7 +369,6 @@ type ImageKey =
   | "guide-20"
   | "guide-26"
   | "guide-27"
-  | "guide-taxi-apps"
   | "guide-33"
   | "course-mekong-cc"
   | "course-lao-cc"
@@ -546,8 +545,6 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-27": src.lakeviewCCLakeCartpath,
   // Laos-exchange-rate guide — real money-exchange counter, Vientiane.
   // Laos-taxi-app guide — yellow Meter Taxi, Vientiane.
-  // Laos-taxi-app-guide-2026 — app icon comparison card (LOCA, Maxim, Green SM, Kokkok).
-  "guide-taxi-apps": img("guide-taxi-apps.png"),
   // Laos-travel-packing-checklist guide — travel gear flat lay.
   // Luang-prabang-travel-course guide — cover: Kuang Si Falls.
   // Luang-prabang-travel-course guide — body photo: Phou Si dusk view.
