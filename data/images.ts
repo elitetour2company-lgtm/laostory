@@ -416,6 +416,7 @@ type ImageKey =
   | "guide-27"
   | "guide-28"
   | "guide-29"
+  | "guide-taxi-apps"
   | "guide-30"
   | "guide-31"
   | "guide-32"
