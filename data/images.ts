@@ -626,6 +626,8 @@ export const images: Record<ImageKey, string | undefined> = {
   "guide-28": src.vientianeExchangeCounter,
   // Laos-taxi-app guide — yellow Meter Taxi, Vientiane.
   "guide-29": src.vientianeMeterTaxi,
+  // Laos-taxi-app-guide-2026 — app icon comparison card (LOCA, Maxim, Green SM, Kokkok).
+  "guide-taxi-apps": img("guide-taxi-apps.png"),
   // Laos-travel-packing-checklist guide — travel gear flat lay.
   "guide-30": src.travelPackingFlatlay,
   // Luang-prabang-travel-course guide — cover: Kuang Si Falls.
