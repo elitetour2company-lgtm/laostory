@@ -4,6 +4,7 @@ import { MessageCircle, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
 import PageHeader from "@/components/ui/PageHeader";
 import ConsultationForm from "@/components/consultation/ConsultationForm";
+import KakaoContactButton from "@/components/layout/KakaoContactButton";
 import { CONTACT } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -38,13 +39,10 @@ export default function ConsultationPage() {
                 더 빠른 상담을 원하신다면
               </p>
               <div className="mt-4 space-y-3">
-                <a
-                  href={CONTACT.kakaoUrl}
-                  className="flex items-center gap-2.5 text-[13.5px] text-text hover:text-forest"
-                >
+                <KakaoContactButton className="flex items-center gap-2.5 text-[13.5px] text-text hover:text-forest">
                   <MessageCircle size={16} strokeWidth={1.5} />
                   카카오톡 1:1 문의
-                </a>
+                </KakaoContactButton>
                 <p className="flex items-center gap-2.5 text-[13.5px] text-text-soft">
                   <Phone size={16} strokeWidth={1.5} />
                   {CONTACT.phone}

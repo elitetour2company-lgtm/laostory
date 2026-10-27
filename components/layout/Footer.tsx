@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "@/components/ui/Container";
+import { openKakaoContact } from "@/components/layout/KakaoContact";
 import { SITE_NAME, SITE_NAME_EN, CONTACT, BUSINESS } from "@/lib/config";
 
 const FOOTER_LINKS = [
@@ -40,12 +41,14 @@ const FOOTER_LINKS = [
 ];
 
 const SOCIAL = [
-  { label: "카카오톡", mark: "K", href: CONTACT.kakaoUrl },
   { label: "블로그", mark: "B", href: CONTACT.blogUrl },
   { label: "텔레그램", mark: "T", href: CONTACT.telegramUrl },
   { label: "인스타그램", mark: "IG", href: CONTACT.instagramUrl },
   { label: "페이스북", mark: "FB", href: CONTACT.facebookUrl },
 ];
+
+const SOCIAL_BUTTON_CLASS =
+  "flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[11px] font-medium tracking-tight text-white/70 transition-colors hover:border-gold hover:text-gold";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -67,12 +70,20 @@ export default function Footer() {
               골프, 풀빌라, 단체여행까지 라오스 전문가가 함께합니다.
             </p>
             <div className="mt-6 flex gap-3">
+              <button
+                type="button"
+                onClick={openKakaoContact}
+                aria-label="카카오톡"
+                className={SOCIAL_BUTTON_CLASS}
+              >
+                K
+              </button>
               {SOCIAL.filter((item) => item.href && item.href !== "#").map(({ label, href, mark }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[11px] font-medium tracking-tight text-white/70 transition-colors hover:border-gold hover:text-gold"
+                  className={SOCIAL_BUTTON_CLASS}
                 >
                   {mark}
                 </a>

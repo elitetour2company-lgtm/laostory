@@ -5,7 +5,11 @@ export const SITE_DESCRIPTION =
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://laostorytour.com";
 
 export const CONTACT = {
-  kakaoUrl: process.env.NEXT_PUBLIC_KAKAO_URL ?? "https://pf.kakao.com/_IQNaX/chat",
+  kakaoId: process.env.NEXT_PUBLIC_KAKAO_ID ?? "laostorytour",
+  // 카카오톡 "친구 추가 > QR코드" 화면을 캡처해 public/images 에 넣은 뒤 경로를 적는다 (예: "/images/kakao-qr.png").
+  kakaoQr: process.env.NEXT_PUBLIC_KAKAO_QR ?? "/images/kakao-qr.png",
+  // 위 QR코드가 가리키는 친구 추가 주소. 휴대폰에서는 누르면 카카오톡 친구 추가 화면이 열린다.
+  kakaoQrLink: process.env.NEXT_PUBLIC_KAKAO_QR_LINK ?? "https://qr.kakao.com/talk/c8oorc_DyshUYfobwgohFzArXYI-",
   blogUrl: process.env.NEXT_PUBLIC_BLOG_URL ?? "https://blog.naver.com/laostorytour",
   telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "#",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://www.instagram.com/laostorytour_laos",
