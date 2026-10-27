@@ -121,8 +121,8 @@ export default function Footer() {
             운영허가번호 : {BUSINESS.tourismLicense}
           </p>
           <p className="mt-1.5">
-            주소 : {BUSINESS.address} | 대표전화 : {CONTACT.phone} | 현지
-            연락처 : +856 20 5204 7483 | 이메일 : {CONTACT.email}
+            주소 : {BUSINESS.address} | 대표전화 : {CONTACT.phone} | 카카오톡
+            ID : {CONTACT.kakaoId} | 이메일 : {CONTACT.email}
           </p>
           <p className="mt-4 text-white/50">
             © {year} {SITE_NAME_EN}. All rights reserved.
