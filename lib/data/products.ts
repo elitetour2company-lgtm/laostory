@@ -1,5 +1,12 @@
 import { supabaseServer } from "@/lib/supabase/server";
-import { Product, ProductType, ItineraryDay, CustomizationQA, DestinationHighlight } from "@/types";
+import {
+  Product,
+  ProductType,
+  ItineraryDay,
+  CustomizationQA,
+  DestinationHighlight,
+  RouteSummaryItem,
+} from "@/types";
 import { getRatingSummaries } from "@/lib/data/reviews";
 
 const TYPE_MAP: Record<string, ProductType> = {
@@ -32,6 +39,12 @@ type ProductRow = {
   min_participants: number | null;
   customization_qa: CustomizationQA[] | null;
   destination_highlights: DestinationHighlight[] | null;
+  overview_points: string[] | null;
+  route_summary: RouteSummaryItem[] | null;
+  stay_note: string | null;
+  before_you_book: string[] | null;
+  optional_tours: string[] | null;
+  consult_note: string | null;
 };
 
 function mapRow(row: ProductRow): Product {
@@ -58,6 +71,12 @@ function mapRow(row: ProductRow): Product {
     minParticipants: row.min_participants ?? undefined,
     customizationQA: row.customization_qa ?? undefined,
     destinationHighlights: row.destination_highlights ?? undefined,
+    overviewPoints: row.overview_points ?? undefined,
+    routeSummary: row.route_summary ?? undefined,
+    stayNote: row.stay_note ?? undefined,
+    beforeYouBook: row.before_you_book ?? undefined,
+    optionalTours: row.optional_tours ?? undefined,
+    consultNote: row.consult_note ?? undefined,
   };
 }
 

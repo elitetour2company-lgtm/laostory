@@ -9,6 +9,13 @@ export interface ItineraryDay {
   hotel?: string;
   meals?: string[];
   image?: string;
+  imageCaption?: string;
+}
+
+export interface RouteSummaryItem {
+  day: string;
+  title: string;
+  text: string;
 }
 
 export interface CustomizationQA {
@@ -21,6 +28,7 @@ export interface DestinationHighlight {
   title: string;
   description: string;
   image?: string;
+  imageCaption?: string;
 }
 
 export interface Product {
@@ -48,6 +56,14 @@ export interface Product {
   minParticipants?: number;
   customizationQA?: CustomizationQA[];
   destinationHighlights?: DestinationHighlight[];
+  /** Short "at a glance" bullets shown under the intro. */
+  overviewPoints?: string[];
+  /** One-line-per-day summary shown before the detailed itinerary. */
+  routeSummary?: RouteSummaryItem[];
+  stayNote?: string;
+  beforeYouBook?: string[];
+  optionalTours?: string[];
+  consultNote?: string;
 }
 
 export interface Villa {

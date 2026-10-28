@@ -6,6 +6,36 @@ export type ItineraryItem =
 
 type DayMap = Record<number, ItineraryItem[]>;
 
+// 일정표의 방문지 이름에 맞는 사진. 같은 장소는 어느 상품에서나 같은 사진을 씁니다.
+const STOP_PHOTOS: { test: RegExp; key: string; caption: string }[] = [
+  { test: /꽝시/, key: "luangprabang-kuangsi-bridge", caption: "꽝시폭포" },
+  { test: /푸시산/, key: "luangprabang-phousi-sunset", caption: "푸시산에서 본 루앙프라방" },
+  { test: /왓\s?씨엥통/, key: "luangprabang-wat-xiengthong-treemosaic", caption: "왓 씨엥통의 생명의 나무 모자이크" },
+  { test: /몽족 야시장/, key: "luangprabang-nightmarket-night", caption: "루앙프라방 야시장" },
+  { test: /호파깨우/, key: "vientiane-haw-phra-kaew", caption: "왓호파깨우" },
+  { test: /시싸켓/, key: "vientiane-wat-sisaket", caption: "왓시싸켓" },
+  { test: /붓다파크/, key: "vientiane-buddha-park", caption: "붓다파크의 조각상" },
+  { test: /비엔티안 야시장/, key: "vientiane-night-market", caption: "비엔티안 야시장" },
+  { test: /루앙프라방 새벽 탁발/, key: "luangprabang-almsgiving-morning", caption: "새벽 탁발" },
+  { test: /탐논|탐쌍/, key: "vv-p-cave-tubing-pool", caption: "동굴 튜빙" },
+  { test: /카약/, key: "vv-kayak-namsong", caption: "남쏭강 카약" },
+  { test: /블루라군/, key: "vv-bluelagoon-swim", caption: "블루라군" },
+  { test: /탓루앙/, key: "vientiane-thatluang-day", caption: "탓루앙 사원" },
+  { test: /빠뚜싸이/, key: "vientiane-patuxai-sunset", caption: "빠뚜싸이" },
+];
+
+// 기차 이동 구간 사진 (고속철도).
+export function getMovePhoto(mode?: string): { key: string; caption: string } | undefined {
+  return mode && mode.includes("기차")
+    ? { key: "lcr-train-platform", caption: "라오스-중국 고속철도" }
+    : undefined;
+}
+
+export function getStopPhoto(name: string): { key: string; caption: string } | undefined {
+  const hit = STOP_PHOTOS.find((p) => p.test.test(name));
+  return hit ? { key: hit.key, caption: hit.caption } : undefined;
+}
+
 const DETAILS: Record<string, DayMap> = {
  "vientiane-vangvieng-noshopping-package": {
   "1": [

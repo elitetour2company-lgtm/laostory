@@ -1,8 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Check, X as XIcon, BedDouble, UtensilsCrossed, MapPin, Route, MessageCircleQuestion } from "lucide-react";
-import { getItineraryItems, getItineraryGuide, getItineraryOptions, getItineraryTitle } from "@/lib/itinerary-details";
+import {
+  Check,
+  X as XIcon,
+  BedDouble,
+  UtensilsCrossed,
+  MapPin,
+  Route,
+  MessageCircleQuestion,
+  Info,
+  MessagesSquare,
+} from "lucide-react";
+import {
+  getItineraryItems,
+  getItineraryGuide,
+  getItineraryOptions,
+  getItineraryTitle,
+  getStopPhoto,
+  getMovePhoto,
+} from "@/lib/itinerary-details";
 import Container from "@/components/ui/Container";
 import CoverImage from "@/components/ui/CoverImage";
 import DetailHeading from "@/components/ui/DetailHeading";
@@ -140,6 +157,43 @@ export default async function TravelDetailPage({
             {product.description}
           </p>
 
+          {product.overviewPoints?.length ? (
+            <div className="mt-8 rounded-xl border border-border bg-ivory p-5 md:p-6">
+              <h2 className="text-[16px] font-semibold text-forest md:text-[17px]">
+                이 여행 한눈에
+              </h2>
+              <ul className="mt-3.5 space-y-2.5">
+                {product.overviewPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-text">
+                    <Check size={16} strokeWidth={2} className="mt-1 flex-shrink-0 text-forest" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {product.routeSummary?.length ? (
+            <div className="mt-10">
+              <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
+                이렇게 흘러갑니다
+              </h2>
+              <p className="mt-1.5 text-[13px] text-text-soft">
+                기본 흐름입니다. 시간별 자세한 일정은 아래 일정표에 있습니다.
+              </p>
+              <ol className="mt-5 flex flex-col gap-5 border-l border-border pl-5">
+                {product.routeSummary.map((item) => (
+                  <li key={item.day} className="relative">
+                    <span className="absolute -left-[26px] top-1.5 h-2.5 w-2.5 rounded-full bg-gold" />
+                    <p className="text-[12px] font-medium tracking-wide text-gold">{item.day}</p>
+                    <p className="mt-0.5 text-[14.5px] font-semibold text-text">{item.title}</p>
+                    <p className="mt-1 text-[13.5px] leading-relaxed text-text-soft">{item.text}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ) : null}
+
           {product.destinationHighlights?.length ? (
             <div className="mt-10">
               <h2 className="text-[18px] font-semibold text-forest md:text-[20px]">
@@ -153,7 +207,16 @@ export default async function TravelDetailPage({
                   >
                     {h.image ? (
                       <div className="relative aspect-[16/10] w-full">
-                        <CoverImage src={getImage(h.image)} alt={h.city} sizes="(min-width: 768px) 50vw, 100vw" />
+                        <CoverImage
+                          src={getImage(h.image)}
+                          alt={h.imageCaption ?? h.city}
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                        />
+                        {h.imageCaption ? (
+                          <p className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-4 pb-2.5 pt-8 text-[12px] text-white">
+                            {h.imageCaption}
+                          </p>
+                        ) : null}
                       </div>
                     ) : null}
                     <div className="p-5">
@@ -189,7 +252,7 @@ export default async function TravelDetailPage({
                     </span>
                     {day.image ? (
                       <div className="relative hidden h-20 w-28 flex-shrink-0 overflow-hidden rounded-lg sm:block">
-                        <CoverImage src={getImage(day.image)} alt={day.title} sizes="112px" />
+                        <CoverImage src={getImage(day.image)} alt={day.imageCaption ?? day.title} sizes="112px" />
                       </div>
                     ) : null}
                     <div className="min-w-0 flex-1">
@@ -231,6 +294,28 @@ export default async function TravelDetailPage({
                                   {body ? (
                                     <p className="mt-0.5 text-[13px] leading-relaxed text-text-soft">{body}</p>
                                   ) : null}
+                                  {(() => {
+                                    const photo = isStop
+                                      ? getStopPhoto(title)
+                                      : isMove
+                                        ? getMovePhoto(item.kind === "move" ? item.mode : undefined)
+                                        : undefined;
+                                    const src = photo ? getImage(photo.key) : undefined;
+                                    return photo && src ? (
+                                      <figure className="mt-2.5">
+                                        <div className="relative aspect-[16/9] w-full max-w-sm overflow-hidden rounded-lg">
+                                          <CoverImage
+                                            src={src}
+                                            alt={photo.caption}
+                                            sizes="(min-width: 768px) 384px, 90vw"
+                                          />
+                                        </div>
+                                        <figcaption className="mt-1.5 text-[12px] text-text-soft">
+                                          {photo.caption}
+                                        </figcaption>
+                                      </figure>
+                                    ) : null;
+                                  })()}
                                 </div>
                               </li>
                             );
@@ -273,6 +358,16 @@ export default async function TravelDetailPage({
                   ))}
                 </ul>
               ) : null}
+            </div>
+          ) : null}
+
+          {product.stayNote ? (
+            <div className="mt-10 rounded-xl border border-border bg-white p-5 md:p-6">
+              <h2 className="flex items-center gap-2 text-[16px] font-semibold text-forest md:text-[17px]">
+                <BedDouble size={18} strokeWidth={1.75} />
+                숙소는 이렇게 정해요
+              </h2>
+              <p className="mt-3 text-[14px] leading-relaxed text-text-soft">{product.stayNote}</p>
             </div>
           ) : null}
 
@@ -367,7 +462,45 @@ export default async function TravelDetailPage({
             </div>
           ) : null}
 
+          {product.optionalTours?.length ? (
+            <div className="mt-8">
+              <h3 className="text-[15px] font-semibold text-forest">선택관광</h3>
+              <ul className="mt-3 space-y-2.5">
+                {product.optionalTours.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-[13.5px] text-text">
+                    <Check size={15} strokeWidth={2} className="mt-0.5 flex-shrink-0 text-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {product.beforeYouBook?.length ? (
+            <div className="mt-10 rounded-xl bg-surface-soft p-5 md:p-6">
+              <h2 className="flex items-center gap-2 text-[16px] font-semibold text-forest md:text-[17px]">
+                <Info size={18} strokeWidth={1.75} />
+                예약 전에 알아두실 것
+              </h2>
+              <ul className="mt-3.5 space-y-2.5">
+                {product.beforeYouBook.map((item) => (
+                  <li key={item} className="flex gap-2.5 text-[13.5px] leading-relaxed text-text-soft">
+                    <span className="mt-[9px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
           <TravelNotices type={product.type === "골프" ? "golf" : "travel"} />
+
+          {product.consultNote ? (
+            <div className="mt-10 flex items-start gap-3 rounded-xl border border-forest/20 bg-forest/5 p-5">
+              <MessagesSquare size={20} strokeWidth={1.75} className="mt-0.5 flex-shrink-0 text-forest" />
+              <p className="text-[14px] leading-relaxed text-text">{product.consultNote}</p>
+            </div>
+          ) : null}
 
           <div className="mt-10">
             <BookingProcess />

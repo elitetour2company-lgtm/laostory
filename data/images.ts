@@ -310,6 +310,18 @@ const src = {
   booyoungCCElephant: img("booyoung-cc-elephant.jpg"),
 
   vientianeThatluangDay: img("vientiane-thatluang-day.jpg"),
+  // "View from Mount Phou Si at sunset in Luang Prabang Laos", Basile Morin, Wikimedia Commons, CC BY-SA 4.0 (1280px version) — credited on /photo-credits.
+  luangprabangPhousiSunset: img("luangprabang-phousi-sunset.jpg"),
+  // Wikimedia Commons, credited on /photo-credits (2026-10-28): Haw Phra Kaew 1 (Christophe95, CC BY-SA 4.0).
+  vientianeHawPhraKaew: img("vientiane-haw-phra-kaew.jpg"),
+  // Wat Si Saket front view, Vientiane (Basile Morin, CC BY-SA 4.0).
+  vientianeWatSisaket: img("vientiane-wat-sisaket.jpg"),
+  // Xieng Khuan (Buddha Park) 4244859658 (yeowatzup, CC BY 2.0).
+  vientianeBuddhaPark: img("vientiane-buddha-park.jpg"),
+  // Vientiane Night Market 3 (Christophe95, CC BY-SA 4.0).
+  vientianeNightMarket: img("vientiane-night-market.jpg"),
+  // Laos-China Railway train at the platform (Dominik Landwehr, CC BY-SA 4.0).
+  lcrTrainPlatform: img("lcr-train-platform.jpg"),
   vientianeThatluangMonks: img("vientiane-thatluang-monks.jpg"),
   vientianeThatluangNight: img("vientiane-thatluang-night.jpg"),
   vientianePatuxaiSunset: img("vientiane-patuxai-sunset.jpg"),
@@ -442,6 +454,12 @@ type ImageKey =
   | "vv-p-kayak-river-two"
   | "vv-paramotor-sunset-silhouette"
   | "vientiane-thatluang-day"
+  | "luangprabang-phousi-sunset"
+  | "vientiane-haw-phra-kaew"
+  | "vientiane-wat-sisaket"
+  | "vientiane-buddha-park"
+  | "vientiane-night-market"
+  | "lcr-train-platform"
   | "vientiane-thatluang-monks"
   | "vientiane-thatluang-night"
   | "vientiane-patuxai-sunset"
@@ -657,6 +675,12 @@ export const images: Record<ImageKey, string | undefined> = {
 
   // Owner-provided real photos — destinations gallery, Mekong sunset cruise tour gallery, and the LP·VV 3-night free package product gallery.
   "vientiane-thatluang-day": src.vientianeThatluangDay,
+  "luangprabang-phousi-sunset": src.luangprabangPhousiSunset,
+  "vientiane-haw-phra-kaew": src.vientianeHawPhraKaew,
+  "vientiane-wat-sisaket": src.vientianeWatSisaket,
+  "vientiane-buddha-park": src.vientianeBuddhaPark,
+  "vientiane-night-market": src.vientianeNightMarket,
+  "lcr-train-platform": src.lcrTrainPlatform,
   "vientiane-thatluang-monks": src.vientianeThatluangMonks,
   "vientiane-thatluang-night": src.vientianeThatluangNight,
   "vientiane-patuxai-sunset": src.vientianePatuxaiSunset,
