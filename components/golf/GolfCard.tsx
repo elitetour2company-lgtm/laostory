@@ -5,13 +5,15 @@ import { formatPrice, formatPriceUsd } from "@/lib/format";
 import CoverImage from "@/components/ui/CoverImage";
 import WishlistButton from "@/components/ui/WishlistButton";
 import { getImage } from "@/data/images";
+import { currentGolfPrice } from "@/lib/golf-season";
 
 export default function GolfCard({ course }: { course: GolfCourse }) {
+  const current = currentGolfPrice(course);
   return (
     <div className="group relative overflow-hidden rounded-xl border border-border bg-white transition-shadow duration-300 hover:shadow-[0_8px_28px_-8px_rgba(18,60,50,0.18)]">
       <Link
         href={`/golf/courses/${course.slug}`}
-        aria-label={`${course.name} - ${formatPrice(course.price)}`}
+        aria-label={`${course.name} - ${formatPrice(current.price)}`}
         className="absolute inset-0 z-10"
       />
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -51,7 +53,7 @@ export default function GolfCard({ course }: { course: GolfCourse }) {
         <div className="mt-4 flex items-center justify-between border-t border-border pt-3.5">
           <span className="text-[13px] text-text-soft">그린피</span>
           <span className="flex flex-col items-end">
-            {course.originalPrice && course.originalPrice > course.price ? (
+            {!current.seasonal && course.originalPrice && course.originalPrice > course.price ? (
               <span className="flex items-center gap-1.5 text-[11px]">
                 <span className="text-text-soft/70 line-through">
                   {formatPrice(course.originalPrice)}
@@ -64,13 +66,15 @@ export default function GolfCard({ course }: { course: GolfCourse }) {
                 </span>
               </span>
             ) : null}
-            <span className="text-[10px] text-text-soft/80">1인기준</span>
-            <span className="text-[15px] font-semibold text-forest">
-              {formatPrice(course.price)}
+            <span className="text-[10px] text-text-soft/80">
+              {current.weekendDiffers ? "1인기준 · 평일" : "1인기준"}
             </span>
-            {course.priceUsd ? (
+            <span className="text-[15px] font-semibold text-forest">
+              {formatPrice(current.price)}
+            </span>
+            {current.priceUsd ? (
               <span className="text-[11px] text-text-soft">
-                {formatPriceUsd(course.priceUsd)}
+                {formatPriceUsd(current.priceUsd)}
               </span>
             ) : null}
           </span>

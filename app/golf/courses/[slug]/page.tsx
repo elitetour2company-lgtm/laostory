@@ -17,6 +17,7 @@ import { getReviewsForProduct } from "@/lib/data/reviews";
 import { getImage } from "@/data/images";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, productSchema } from "@/lib/seo/schema";
+import { currentGolfPrice } from "@/lib/golf-season";
 import ReviewSection from "@/components/reviews/ReviewSection";
 
 export const revalidate = 3600;
@@ -73,7 +74,7 @@ export default async function GolfCourseDetailPage({
           name: course.name,
           description: course.description,
           image: getImage(course.image),
-          price: course.price,
+          price: currentGolfPrice(course).price,
           path: `/golf/courses/${course.slug}`,
         })}
       />
@@ -198,20 +199,6 @@ export default async function GolfCourseDetailPage({
                   </li>
                 ) : null}
               </ul>
-              <div className="mt-4 flex flex-col gap-1.5 border-t border-border pt-3">
-                <Link
-                  href="/guide/laos-golf-caddy-tip-cart-fee-guide"
-                  className="text-[13px] font-medium text-forest underline underline-offset-2"
-                >
-                  캐디팁·카트비 총정리 보기 →
-                </Link>
-                <Link
-                  href="/guide/laos-golf-trip-cash-budget-2026"
-                  className="text-[13px] font-medium text-forest underline underline-offset-2"
-                >
-                  라운딩당 현지 지출 계산하기 →
-                </Link>
-              </div>
             </div>
           ) : null}
 

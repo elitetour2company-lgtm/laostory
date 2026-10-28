@@ -1,4 +1,5 @@
 import type { GolfCourse } from "@/types";
+import { currentGolfPrice } from "@/lib/golf-season";
 
 type Tier = { label: string; weekday: number; weekend: number; weekdayUsd?: number; weekendUsd?: number };
 
@@ -47,7 +48,8 @@ export default function GolfPriceList({ courses }: { courses: GolfCourse[] }) {
       <div className="divide-y divide-border">
         {courses.map((course) => {
           const tiers = buildTiers(course);
-          const from = lowestUsd(tiers);
+          const now = currentGolfPrice(course);
+          const from = now.priceUsd ?? lowestUsd(tiers);
           const splitWeekend = tiers.some((t) => t.weekend !== t.weekday);
           return (
             <details key={course.slug} className="group">
