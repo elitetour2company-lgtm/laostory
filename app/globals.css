@@ -61,6 +61,9 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-kr);
+  /* Break Korean lines at spaces, not in the middle of a word. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 * {
