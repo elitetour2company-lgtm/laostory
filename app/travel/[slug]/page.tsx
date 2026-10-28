@@ -93,13 +93,20 @@ export default async function TravelDetailPage({
   const reviews = await getReviewsForProduct("product", product.slug);
 
   const cityCount = product.destination.split("·").length;
-  const totalMeals =
-    product.itinerary?.reduce((sum, day) => sum + (day.meals?.length ?? 0), 0) ?? 0;
+  // Count only meals we actually provide (not "불포함", not airline meals).
+  const providedMeals =
+    product.itinerary?.flatMap((day) =>
+      (day.meals ?? []).filter((m) => !/불포함|기내식/.test(m))
+    ) ?? [];
+  const totalMeals = providedMeals.length;
+  const breakfastOnly = totalMeals > 0 && providedMeals.every((m) => m.startsWith("조식"));
+  // Only all-inclusive (VVIP) products promise meals; the others leave meals to the guest.
+  const isAllInclusive = product.slug.includes("vvip");
 
   const productStats: { value: string; label: string }[] = [
     { value: product.duration, label: "일정" },
     { value: `${product.included?.length ?? 0}가지`, label: "포함사항" },
-    ...(totalMeals > 0 ? [{ value: `${totalMeals}회`, label: "식사 포함" }] : []),
+    ...(isAllInclusive && totalMeals > 0 ? [{ value: `${totalMeals}회`, label: breakfastOnly ? "조식 포함" : "식사 포함" }] : []),
     { value: `${cityCount}개`, label: "방문 도시" },
     ...(product.minParticipants ? [{ value: `${product.minParticipants}명`, label: "최소 인원" }] : []),
   ];
@@ -206,7 +213,7 @@ export default async function TravelDetailPage({
                     className="overflow-hidden rounded-xl border border-border bg-white"
                   >
                     {h.image ? (
-                      <div className="relative aspect-[16/10] w-full">
+                      <div className="relative aspect-[16/9] w-full">
                         <CoverImage
                           src={getImage(h.image)}
                           alt={h.imageCaption ?? h.city}
@@ -251,7 +258,7 @@ export default async function TravelDetailPage({
                       Day {day.day}
                     </span>
                     {day.image ? (
-                      <div className="relative hidden h-20 w-28 flex-shrink-0 overflow-hidden rounded-lg sm:block">
+                      <div className="relative hidden aspect-[16/9] w-32 flex-shrink-0 self-start overflow-hidden rounded-lg sm:block">
                         <CoverImage src={getImage(day.image)} alt={day.imageCaption ?? day.title} sizes="112px" />
                       </div>
                     ) : null}
@@ -287,7 +294,7 @@ export default async function TravelDetailPage({
                                 ) : (
                                   <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-border" />
                                 )}
-                                <div className="min-w-0">
+                                <div className="min-w-0 flex-1">
                                   <p className={`text-[14px] ${isStop ? "font-semibold text-text" : "font-medium text-text"}`}>
                                     {title}
                                   </p>

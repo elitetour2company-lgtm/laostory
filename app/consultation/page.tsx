@@ -9,7 +9,7 @@ import { CONTACT } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "1:1 여행상담",
-  description: "라오스 여행 전문가에게 1:1로 맞춤 여행 상담을 신청하세요.",
+  description: "라오스 여행 전문가에게 1:1로 맞춤 여행 상담을 신청하세요. 회원가입 없이 이름과 연락처만 남기면 일정과 견적을 안내해 드립니다.",
 };
 
 export default function ConsultationPage() {

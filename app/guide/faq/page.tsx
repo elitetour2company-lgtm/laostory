@@ -7,7 +7,7 @@ import { faqPageSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
   title: "자주 묻는 질문",
-  description: "라오스 여행 예약, 결제, 취소, 비자 등 자주 묻는 질문을 모았습니다.",
+  description: "라오스 여행 예약 방법, 결제, 취소·환불, 비자, 환전, 골프 클럽 지참까지 자주 묻는 질문을 한곳에 모았습니다.",
 };
 
 const FAQS = [

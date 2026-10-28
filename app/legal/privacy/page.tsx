@@ -4,7 +4,7 @@ import { SITE_NAME, BUSINESS, CONTACT } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침",
-  description: `${SITE_NAME}의 개인정보 수집 및 이용에 관한 방침을 확인하세요.`,
+  description: `${SITE_NAME}의 개인정보 수집 항목, 이용 목적, 보유 기간, 제3자 제공 등 개인정보 처리 방침을 안내합니다.`,
 };
 
 export default function PrivacyPage() {

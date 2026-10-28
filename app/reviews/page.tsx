@@ -9,7 +9,7 @@ import { Review } from "@/types";
 
 export const metadata: Metadata = {
   title: "라오스 여행 후기",
-  description: "라오스 여행을 다녀온 고객들의 이야기를 만나보세요.",
+  description: "라오스 골프, 방비엥 투어, 자유여행을 다녀온 고객들의 생생한 후기를 확인하고 여행을 계획해 보세요.",
 };
 
 const CATEGORIES: ("전체" | Review["category"])[] = [

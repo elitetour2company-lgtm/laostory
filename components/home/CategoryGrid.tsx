@@ -12,6 +12,7 @@ import { getAllVillas } from "@/lib/data/villas";
 import { getAllGolfCourses } from "@/lib/data/golf";
 import { getAllTours } from "@/lib/data/tours";
 import { getAllTransportOptions } from "@/lib/data/transport";
+import { currentGolfPrice } from "@/lib/golf-season";
 
 function stats(count: number, minPrice: number | null) {
   if (count === 0 || minPrice === null) return null;
@@ -43,7 +44,10 @@ async function getCategoryStats(): Promise<Record<string, string | null>> {
     "풀빌라·호텔": stats(villas.length, min(villas.map((v) => v.price))),
     골프여행: stats(
       golfProducts.length + golfCourses.length,
-      min([...golfProducts.map((p) => p.price), ...golfCourses.map((c) => c.price)])
+      min([
+        ...golfProducts.map((p) => p.price),
+        ...golfCourses.map((c) => currentGolfPrice(c).price),
+      ])
     ),
     "투어·액티비티": stats(tours.length, min(tours.map((t) => t.price))),
     "차량·픽업": stats(

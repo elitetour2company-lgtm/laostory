@@ -4,7 +4,7 @@ import { SITE_NAME } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "예약·취소 규정",
-  description: `${SITE_NAME}의 예약 및 취소, 환불 규정을 확인하세요.`,
+  description: `${SITE_NAME}의 예약 확정 기준과 상품별 취소·환불 규정을 확인하세요. 골프, 투어, 차량, 기차표별로 안내합니다.`,
 };
 
 export default function RefundPolicyPage() {

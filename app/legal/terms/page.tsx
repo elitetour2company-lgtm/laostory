@@ -4,7 +4,7 @@ import { SITE_NAME, BUSINESS } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "이용약관",
-  description: `${SITE_NAME} 서비스 이용약관을 확인하세요.`,
+  description: `${SITE_NAME} 여행상품 소개, 상담, 예약 문의 서비스 이용약관과 예약·계약 성립 기준을 안내합니다.`,
 };
 
 export default function TermsPage() {

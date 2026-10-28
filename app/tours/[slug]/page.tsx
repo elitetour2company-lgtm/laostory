@@ -16,6 +16,7 @@ import StatTiles from "@/components/ui/StatTiles";
 import { getTourBySlug, getTourSlugs } from "@/lib/data/tours";
 import { getReviewsForProduct } from "@/lib/data/reviews";
 import { getImage } from "@/data/images";
+import { metaDescription } from "@/lib/seo/meta";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, productSchema } from "@/lib/seo/schema";
 import ReviewSection from "@/components/reviews/ReviewSection";
@@ -38,7 +39,7 @@ export async function generateMetadata({
   const image = getImage(tour.image);
   return {
     title: tour.title,
-    description: tour.description,
+    description: metaDescription(`${tour.description} 현지 전문가가 예약부터 픽업까지 도와드립니다.`),
     openGraph: {
       title: tour.title,
       description: tour.description,

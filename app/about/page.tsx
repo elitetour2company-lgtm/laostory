@@ -14,7 +14,7 @@ import { CONTACT } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "회사소개",
-  description: "라오스에 상주하는 현지 전문가가 만드는 라오스토리를 소개합니다.",
+  description: "라오스에 상주하는 현지 전문가가 골프, 투어, 차량, 숙소를 직접 준비하는 한국인 맞춤 여행사 라오스토리를 소개합니다.",
 };
 
 const WHY_US_POINTS = [

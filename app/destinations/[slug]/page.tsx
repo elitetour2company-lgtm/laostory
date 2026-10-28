@@ -18,6 +18,7 @@ import { getAllVillas } from "@/lib/data/villas";
 import { getAllGolfCourses } from "@/lib/data/golf";
 import { getAllTours } from "@/lib/data/tours";
 import { getImage } from "@/data/images";
+import { metaDescription } from "@/lib/seo/meta";
 
 export const revalidate = 3600;
 
@@ -37,7 +38,7 @@ export async function generateMetadata({
   const image = getImage(destination.image);
   return {
     title: destination.name,
-    description: destination.description,
+    description: metaDescription(`${destination.description} ${destination.name} 여행상품과 가볼 만한 곳, 여행 팁을 확인해 보세요.`),
     openGraph: {
       title: destination.name,
       description: destination.description,

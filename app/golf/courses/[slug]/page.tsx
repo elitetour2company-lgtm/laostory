@@ -18,6 +18,7 @@ import { getImage } from "@/data/images";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, productSchema } from "@/lib/seo/schema";
 import { currentGolfPrice } from "@/lib/golf-season";
+import { metaDescription } from "@/lib/seo/meta";
 import ReviewSection from "@/components/reviews/ReviewSection";
 
 export const revalidate = 3600;
@@ -38,10 +39,10 @@ export async function generateMetadata({
   const image = getImage(course.image);
   return {
     title: course.name,
-    description: course.description,
+    description: metaDescription(course.description),
     openGraph: {
       title: course.name,
-      description: course.description,
+      description: metaDescription(course.description),
       images: [image ?? "/images/vangvieng-hero.jpg"],
       locale: "ko_KR",
       type: "website",

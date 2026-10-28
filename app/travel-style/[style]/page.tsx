@@ -16,7 +16,7 @@ export const STYLE_CONFIG = {
   couple: {
     label: "커플",
     eyebrow: "Couple",
-    description: "둘만의 시간에 집중할 수 있는 라오스 커플 여행 상품을 모았습니다.",
+    description: "둘만의 시간에 집중할 수 있는 라오스 커플 여행 상품을 모았습니다. 풀빌라 골프와 자유일정 패키지를 비교해 보세요.",
     match: (p: Product) => p.tags.includes("커플"),
     showVillas: false,
     showGolf: false,
@@ -24,7 +24,7 @@ export const STYLE_CONFIG = {
   family: {
     label: "가족",
     eyebrow: "Family",
-    description: "아이와 함께해도 편안한 동선의 가족 여행 상품과 숙소를 모았습니다.",
+    description: "아이와 함께해도 편안한 동선의 가족 여행 상품과 숙소를 모았습니다. 쇼핑센터 없는 자유일정 패키지를 비교해 보세요.",
     match: (p: Product) => p.tags.includes("가족"),
     showVillas: true,
     showGolf: false,
@@ -32,7 +32,7 @@ export const STYLE_CONFIG = {
   friends: {
     label: "친구",
     eyebrow: "Friends",
-    description: "친구들과 함께 즐기기 좋은 액티비티 중심의 여행 상품을 모았습니다.",
+    description: "친구들과 함께 즐기기 좋은 액티비티 중심의 여행 상품을 모았습니다. 방비엥 동굴·카약·블루라군 일정을 확인해 보세요.",
     match: (p: Product) => p.tags.includes("친구"),
     showVillas: false,
     showGolf: false,
@@ -40,7 +40,7 @@ export const STYLE_CONFIG = {
   golf: {
     label: "골프",
     eyebrow: "Golf",
-    description: "라운딩부터 숙소까지, 골퍼를 위한 여행 상품과 골프장을 모았습니다.",
+    description: "라운딩부터 숙소까지, 골퍼를 위한 라오스 골프 여행 상품과 골프장을 모았습니다. 올인원부터 VVIP까지 비교해 보세요.",
     match: (p: Product) => p.type === "골프",
     showVillas: false,
     showGolf: true,
@@ -48,7 +48,7 @@ export const STYLE_CONFIG = {
   relax: {
     label: "휴양",
     eyebrow: "Relax",
-    description: "프라이빗 풀빌라에서 온전히 쉬어가는 휴양 중심 여행 상품을 모았습니다.",
+    description: "프라이빗 풀빌라에서 온전히 쉬어가는 휴양 중심 여행 상품을 모았습니다. 일정과 숙소는 1:1 상담으로 맞춰 드립니다.",
     match: (p: Product) => p.type === "풀빌라",
     showVillas: true,
     showGolf: false,

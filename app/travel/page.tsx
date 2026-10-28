@@ -11,7 +11,7 @@ import { ProductType, TravelTag } from "@/types";
 
 export const metadata: Metadata = {
   title: "라오스 자유여행·패키지여행 상품",
-  description: "라오스 자유여행, 패키지여행 상품을 한눈에 비교하고 예약 상담을 신청하세요.",
+  description: "라오스 자유여행, 패키지여행, 골프패키지를 일정과 포함사항까지 한눈에 비교하고 예약 상담을 신청하세요.",
 };
 
 const FILTERS: { label: string; value: "all" | ProductType; queryAlias?: string }[] = [

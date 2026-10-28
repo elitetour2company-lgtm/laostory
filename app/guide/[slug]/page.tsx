@@ -1,3 +1,4 @@
+import { metaDescription } from "@/lib/seo/meta";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -29,7 +30,7 @@ export async function generateMetadata({
   const image = getImage(article.image);
   return {
     title: article.title,
-    description: article.excerpt,
+    description: metaDescription(`${article.excerpt} 라오스토리가 정리한 라오스 여행정보입니다.`),
     openGraph: {
       title: article.title,
       description: article.excerpt,

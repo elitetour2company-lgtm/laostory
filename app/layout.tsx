@@ -18,6 +18,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "./" },
   title: {
     default: `${SITE_NAME} | 라오스 현지 전문 여행사`,
     template: `%s | ${SITE_NAME}`,

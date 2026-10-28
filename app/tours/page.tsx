@@ -10,7 +10,7 @@ import { sortItems } from "@/lib/sort";
 
 export const metadata: Metadata = {
   title: "라오스 투어·액티비티 | 방비엥 원데이투어·루앙프라방",
-  description: "방비엥, 루앙프라방의 원데이투어, 반일투어, 액티비티를 확인하고 예약 상담을 신청하세요.",
+  description: "방비엥, 루앙프라방의 원데이투어, 반일투어, 짚라인·카약·열기구 액티비티를 확인하고 예약 상담을 신청하세요.",
 };
 
 const CATEGORIES = ["전체", "원데이투어", "반일투어", "액티비티"] as const;
