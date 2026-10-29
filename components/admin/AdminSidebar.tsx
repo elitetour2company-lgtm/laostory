@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -14,6 +15,8 @@ import {
   Image as ImageIcon,
   Settings,
   LogOut,
+  Menu,
+  X,
 } from "lucide-react";
 import { logoutAction } from "@/lib/admin/actions";
 import { SITE_NAME } from "@/lib/config";
@@ -31,11 +34,17 @@ const NAV = [
   { label: "사이트 설정", href: "/admin/settings", icon: Settings },
 ];
 
-export default function AdminSidebar({ adminName, pendingInquiries = 0 }: { adminName: string; pendingInquiries?: number }) {
-  const pathname = usePathname();
-
+function SidebarBody({
+  adminName,
+  pendingInquiries,
+  pathname,
+}: {
+  adminName: string;
+  pendingInquiries: number;
+  pathname: string;
+}) {
   return (
-    <aside className="flex h-screen w-60 flex-shrink-0 flex-col border-r border-border bg-white">
+    <>
       <div className="border-b border-border px-6 py-5">
         <p className="text-[15px] font-semibold text-forest">{SITE_NAME}</p>
         <p className="mt-0.5 text-[10px] tracking-[0.3em] text-gold">ADMIN</p>
@@ -82,6 +91,66 @@ export default function AdminSidebar({ adminName, pendingInquiries = 0 }: { admi
           </button>
         </form>
       </div>
-    </aside>
+    </>
+  );
+}
+
+export default function AdminSidebar({ adminName, pendingInquiries = 0 }: { adminName: string; pendingInquiries?: number }) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  // Close the phone menu after navigating to another admin page.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  return (
+    <>
+      {/* Phone: top bar with a menu button */}
+      <header className="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-white px-4 py-3 md:hidden">
+        <div>
+          <p className="text-[14px] font-semibold text-forest">{SITE_NAME}</p>
+          <p className="text-[9px] tracking-[0.3em] text-gold">ADMIN</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="메뉴 열기"
+          className="relative rounded-md p-2 text-forest"
+        >
+          <Menu size={22} strokeWidth={1.75} />
+          {pendingInquiries > 0 ? (
+            <span className="absolute right-0.5 top-0.5 h-2.5 w-2.5 rounded-full bg-red-500" />
+          ) : null}
+        </button>
+      </header>
+
+      {open ? (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <button
+            type="button"
+            aria-label="메뉴 닫기"
+            onClick={() => setOpen(false)}
+            className="absolute inset-0 bg-black/40"
+          />
+          <aside className="absolute inset-y-0 left-0 flex w-64 flex-col bg-white shadow-xl">
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="메뉴 닫기"
+              className="absolute right-3 top-3 rounded-md p-1.5 text-text-soft"
+            >
+              <X size={18} strokeWidth={1.75} />
+            </button>
+            <SidebarBody adminName={adminName} pendingInquiries={pendingInquiries} pathname={pathname} />
+          </aside>
+        </div>
+      ) : null}
+
+      {/* Desktop: fixed-width sidebar as before */}
+      <aside className="hidden h-screen w-60 flex-shrink-0 flex-col border-r border-border bg-white md:flex">
+        <SidebarBody adminName={adminName} pendingInquiries={pendingInquiries} pathname={pathname} />
+      </aside>
+    </>
   );
 }

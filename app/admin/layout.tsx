@@ -16,9 +16,9 @@ export default async function AdminLayout({ children }: { children: ReactNode })
     .catch(() => 0);
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <AdminSidebar adminName={session.name} pendingInquiries={pendingInquiries} />
-      <main className="min-h-screen flex-1 bg-bg">{children}</main>
+      <main className="min-h-screen min-w-0 flex-1 bg-bg">{children}</main>
     </div>
   );
 }

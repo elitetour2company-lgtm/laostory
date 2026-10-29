@@ -28,7 +28,53 @@ export default async function AdminInquiriesPage() {
         총 {inquiries.length}건의 상담 문의
       </p>
 
-      <div className="mt-6 overflow-x-auto rounded-md border border-border bg-white">
+      {/* Phone: one card per inquiry */}
+      <div className="mt-6 space-y-3 md:hidden">
+        {inquiries.map((inquiry) => (
+          <div key={inquiry.id} className="rounded-md border border-border bg-white p-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-[15px] font-semibold text-text">{inquiry.name}</p>
+                <a
+                  href={`tel:${inquiry.phone}`}
+                  className="mt-0.5 inline-block text-[13.5px] font-medium text-forest underline underline-offset-2"
+                >
+                  {inquiry.phone}
+                </a>
+              </div>
+              <p className="whitespace-nowrap text-[12px] text-text-soft">
+                {new Date(inquiry.created_at).toLocaleDateString("ko-KR")}
+              </p>
+            </div>
+            <dl className="mt-3 grid grid-cols-[64px_1fr] gap-x-3 gap-y-1.5 text-[13px]">
+              <dt className="text-text-soft">지역·스타일</dt>
+              <dd className="text-text">
+                {[inquiry.region, inquiry.style].filter(Boolean).join(" · ") || "-"}
+              </dd>
+              <dt className="text-text-soft">여행일</dt>
+              <dd className="text-text">{inquiry.travel_date ?? "-"}</dd>
+              <dt className="text-text-soft">인원</dt>
+              <dd className="text-text">{inquiry.guests ?? "-"}</dd>
+              <dt className="text-text-soft">예산</dt>
+              <dd className="text-text">{inquiry.budget ?? "-"}</dd>
+            </dl>
+            <p className="mt-3 whitespace-pre-line break-words rounded-sm bg-ivory p-3 text-[13px] leading-relaxed text-text">
+              {inquiry.message}
+            </p>
+            <div className="mt-3">
+              <InquiryStatusSelect id={inquiry.id} status={inquiry.status} />
+            </div>
+          </div>
+        ))}
+        {inquiries.length === 0 ? (
+          <p className="py-10 text-center text-[13.5px] text-text-soft">
+            아직 접수된 문의가 없습니다.
+          </p>
+        ) : null}
+      </div>
+
+      {/* PC: table */}
+      <div className="mt-6 hidden overflow-x-auto rounded-md border border-border bg-white md:block">
         <table className="w-full min-w-[800px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-border bg-ivory text-[12px] text-text-soft">
