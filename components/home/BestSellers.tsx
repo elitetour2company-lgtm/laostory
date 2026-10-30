@@ -26,7 +26,7 @@ export default async function BestSellers() {
 
         <div className="mt-10 grid grid-cols-2 gap-3 md:mt-12 md:grid-cols-4 md:gap-5">
           {bestSellerProducts.map((product) => (
-            <div key={product.slug}>
+            <div key={product.slug} className="h-full">
               <ProductCard product={product} hideFeaturedBadge />
             </div>
           ))}
