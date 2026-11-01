@@ -25,6 +25,7 @@ export default function CoverImage({
       fill
       priority={priority}
       sizes={sizes}
+      unoptimized={src.startsWith("/api/")}
       className={`object-cover contrast-[1.05] saturate-[1.12] brightness-[1.02] ${className}`}
     />
   );
