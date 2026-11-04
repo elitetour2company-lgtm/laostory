@@ -37,6 +37,40 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
+export function articleSchema({
+  headline,
+  description,
+  image,
+  path,
+  datePublished,
+  dateModified,
+}: {
+  headline: string;
+  description: string;
+  image?: string;
+  path: string;
+  datePublished?: string;
+  dateModified?: string;
+}) {
+  const absoluteImage = image
+    ? image.startsWith("http")
+      ? image
+      : `${SITE_URL}${image}`
+    : undefined;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline,
+    description,
+    ...(absoluteImage ? { image: [absoluteImage] } : {}),
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ? { dateModified } : {}),
+    mainEntityOfPage: `${SITE_URL}${path}`,
+    author: { "@type": "Organization", name: SITE_NAME },
+    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  };
+}
+
 export function productSchema({
   name,
   description,

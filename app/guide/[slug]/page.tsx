@@ -11,8 +11,26 @@ import {
   getGuideArticleSlugs,
 } from "@/lib/data/guide";
 import { getImage } from "@/data/images";
+import JsonLd from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/seo/schema";
 
 export const revalidate = 3600;
+
+type ProductLink = { label: string; desc: string; href: string };
+
+const DEFAULT_PRODUCT_LINKS: ProductLink[] = [
+  { label: "여행 상품 보기", desc: "골프·자유일정 패키지를 한눈에 비교해요", href: "/travel" },
+  { label: "차량·픽업 예약", desc: "공항 픽업, 조인밴, 기차표 요금 확인", href: "/transport" },
+  { label: "방비엥·루앙프라방 투어", desc: "액티비티와 원데이투어 모아보기", href: "/tours" },
+];
+
+const PRODUCT_LINKS_BY_SLUG: Record<string, ProductLink[]> = {
+  "vientiane-airport-to-vangvieng-guide-2026": [
+    { label: "차량·픽업 예약하기", desc: "공항 전용 픽업과 조인밴, 기차표 요금 보기", href: "/transport" },
+    { label: "방비엥 투어 보기", desc: "원데이투어와 액티비티 요금 확인", href: "/tours" },
+    { label: "방비엥 여행 정보", desc: "방비엥 지역 소개와 추천 상품", href: "/destinations/vang-vieng" },
+  ],
+};
 
 export async function generateStaticParams() {
   const slugs = await getGuideArticleSlugs();
@@ -61,9 +79,28 @@ export default async function GuideDetailPage({
     ? [...sameCategory.slice(rotateFrom % sameCategory.length), ...sameCategory.slice(0, rotateFrom % sameCategory.length)]
     : [];
   const related = [...rotated, ...others.filter((a) => a.category !== article.category)].slice(0, 3);
+  const productLinks = PRODUCT_LINKS_BY_SLUG[article.slug] ?? DEFAULT_PRODUCT_LINKS;
+  const path = `/guide/${article.slug}`;
 
   return (
     <div className="pb-16">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "홈", path: "/" },
+          { name: "여행정보", path: "/guide" },
+          { name: article.title, path },
+        ])}
+      />
+      <JsonLd
+        data={articleSchema({
+          headline: article.title,
+          description: article.excerpt,
+          image: getImage(article.image),
+          path,
+          datePublished: article.createdAt,
+          dateModified: article.updatedAt ?? article.createdAt,
+        })}
+      />
       <Container className="pt-24 md:pt-32">
         <div className="mx-auto max-w-2xl">
           <p className="text-xs font-medium tracking-wide text-gold">{article.category}</p>
@@ -107,6 +144,25 @@ export default async function GuideDetailPage({
               ))}
             </div>
           ) : null}
+
+          <div className="mt-12 border-t border-border pt-8">
+            <h2 className="text-[15px] font-semibold text-forest">이 글과 함께 보면 좋은 상품</h2>
+            <div className="mt-4 flex flex-col divide-y divide-border rounded-xl border border-border bg-white">
+              {productLinks.map((p) => (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  className="flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-ivory"
+                >
+                  <span>
+                    <span className="block text-[14.5px] font-semibold text-text">{p.label}</span>
+                    <span className="mt-0.5 block text-[13px] text-text-soft">{p.desc}</span>
+                  </span>
+                  <span aria-hidden className="text-forest">→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {related.length > 0 ? (
             <div className="mt-12 border-t border-border pt-8">

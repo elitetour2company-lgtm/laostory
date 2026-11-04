@@ -224,6 +224,8 @@ export interface GuideArticle {
   image?: string;
   content?: string[];
   images?: string[];
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Notice {

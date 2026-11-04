@@ -26,6 +26,7 @@ export default function ConsultationForm() {
       ? initialStyle
       : STYLES[0];
 
+  const [moreOpen, setMoreOpen] = useState(Boolean(initialTravelDate || initialStyle));
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -111,55 +112,6 @@ export default function ConsultationForm() {
             className={fieldClass}
           />
         </label>
-        <label>
-          <span className={labelClass}>여행 예정일</span>
-          <input
-            name="travelDate"
-            type="date"
-            defaultValue={initialTravelDate}
-            className={fieldClass}
-          />
-        </label>
-        <label>
-          <span className={labelClass}>인원</span>
-          <select name="guests" defaultValue={GUESTS[0]} className={fieldClass}>
-            {GUESTS.map((g) => (
-              <option key={g} value={g}>
-                {g}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span className={labelClass}>희망 지역</span>
-          <select name="region" defaultValue={REGIONS[0]} className={fieldClass}>
-            {REGIONS.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span className={labelClass}>여행 스타일</span>
-          <select name="style" defaultValue={defaultStyle} className={fieldClass}>
-            {STYLES.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="sm:col-span-2">
-          <span className={labelClass}>예산</span>
-          <select name="budget" defaultValue={BUDGETS[0]} className={fieldClass}>
-            {BUDGETS.map((b) => (
-              <option key={b} value={b}>
-                {b}
-              </option>
-            ))}
-          </select>
-        </label>
         <label className="sm:col-span-2">
           <span className={labelClass}>문의 내용 *</span>
           <textarea
@@ -171,6 +123,72 @@ export default function ConsultationForm() {
           />
         </label>
       </div>
+
+      <details
+        open={moreOpen}
+        onToggle={(e) => setMoreOpen(e.currentTarget.open)}
+        className="group mt-6 rounded-lg border border-border"
+      >
+        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3.5 text-[14px] font-medium text-forest [&::-webkit-details-marker]:hidden">
+          <span>
+            더 알려주시면 좋아요 <span className="text-text-soft">(선택)</span>
+          </span>
+          <span aria-hidden className="text-text-soft transition-transform group-open:rotate-180">
+            ▾
+          </span>
+        </summary>
+        <div className="grid grid-cols-1 gap-6 px-4 pb-5 pt-1 sm:grid-cols-2">
+          <label>
+            <span className={labelClass}>여행 예정일</span>
+            <input
+              name="travelDate"
+              type="date"
+              defaultValue={initialTravelDate}
+              className={fieldClass}
+            />
+          </label>
+          <label>
+            <span className={labelClass}>인원</span>
+            <select name="guests" defaultValue={GUESTS[0]} className={fieldClass}>
+              {GUESTS.map((g) => (
+                <option key={g} value={g}>
+                  {g}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span className={labelClass}>희망 지역</span>
+            <select name="region" defaultValue={REGIONS[0]} className={fieldClass}>
+              {REGIONS.map((r) => (
+                <option key={r} value={r}>
+                  {r}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span className={labelClass}>여행 스타일</span>
+            <select name="style" defaultValue={defaultStyle} className={fieldClass}>
+              {STYLES.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="sm:col-span-2">
+            <span className={labelClass}>예산</span>
+            <select name="budget" defaultValue={BUDGETS[0]} className={fieldClass}>
+              {BUDGETS.map((b) => (
+                <option key={b} value={b}>
+                  {b}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      </details>
 
       <label className="mt-7 flex items-start gap-2.5 text-[13px] text-text-soft">
         <input
