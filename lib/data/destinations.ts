@@ -21,7 +21,7 @@ function mapRow(row: DestinationRow): Destination {
     image: row.image ?? undefined,
     gallery: row.gallery ?? [],
     highlights: row.highlights,
-    travelTips: row.travel_tips,
+    travelTips: row.travel_tips.map((t) => t.replace("약 3~4시간", "약 1시간 30분~2시간")),
   };
 }
 
