@@ -16,7 +16,7 @@ import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
 import GuideBody from "@/components/guide/GuideBody";
 import { parseGuideBlocks, faqItemsOf } from "@/lib/guide/blocks";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 type ProductLink = { label: string; desc: string; href: string };
 
