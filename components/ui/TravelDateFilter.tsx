@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CalendarDays } from "lucide-react";
@@ -8,7 +9,10 @@ type Props = {
   style?: string;
 };
 
-export default function TravelDateFilter({ style }: Props) {
+const LABEL_CLASS =
+  "flex items-center gap-1.5 rounded-full border border-border bg-white px-4 py-2.5 text-[14px] text-text-soft transition-colors hover:border-forest";
+
+function TravelDateFilterInner({ style }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -32,7 +36,7 @@ export default function TravelDateFilter({ style }: Props) {
 
   return (
     <div className="flex items-center gap-2.5">
-      <label className="flex items-center gap-1.5 rounded-full border border-border bg-white px-4 py-2.5 text-[14px] text-text-soft transition-colors hover:border-forest">
+      <label className={LABEL_CLASS}>
         <CalendarDays size={15} strokeWidth={1.75} />
         <span className="hidden sm:inline">여행 예정일</span>
         <input
@@ -52,5 +56,29 @@ export default function TravelDateFilter({ style }: Props) {
         </Link>
       ) : null}
     </div>
+  );
+}
+
+// useSearchParams() must sit inside a Suspense boundary so the page itself can be built
+// statically (fast + cacheable). The fallback looks the same as the empty-date state.
+export default function TravelDateFilter({ style }: Props) {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex items-center gap-2.5">
+          <label className={LABEL_CLASS}>
+            <CalendarDays size={15} strokeWidth={1.75} />
+            <span className="hidden sm:inline">여행 예정일</span>
+            <input
+              type="date"
+              aria-label="여행 예정일"
+              className="bg-transparent text-text outline-none [color-scheme:light]"
+            />
+          </label>
+        </div>
+      }
+    >
+      <TravelDateFilterInner style={style} />
+    </Suspense>
   );
 }
