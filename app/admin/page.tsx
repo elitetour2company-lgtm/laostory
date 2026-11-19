@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MessageSquare, Clock, CalendarDays } from "lucide-react";
 import { getDashboardStats } from "@/lib/data/admin-stats";
-import { formatPrice } from "@/lib/format";
+import { formatAdminPrice } from "@/lib/format";
 
 const STATUS_LABEL: Record<string, string> = {
   PENDING: "대기중",
@@ -24,8 +24,13 @@ export default async function AdminDashboardPage() {
       <h1 className="text-[22px] font-semibold text-forest">대시보드</h1>
 
       <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-3">
-        {cards.map(({ label, value, icon: Icon }) => (
-          <div key={label} className="rounded-md border border-border bg-white p-5">
+        {cards.map(({ label, value, icon: Icon }, index) => (
+          <div
+            key={label}
+            className={`rounded-md border border-border bg-white p-5 ${
+              index === cards.length - 1 ? "col-span-2 lg:col-span-1" : ""
+            }`}
+          >
             <div className="flex items-center justify-between">
               <p className="text-[12.5px] text-text-soft">{label}</p>
               <Icon size={16} strokeWidth={1.5} className="text-gold" />
@@ -41,7 +46,7 @@ export default async function AdminDashboardPage() {
             <p className="text-[14px] font-semibold text-forest">최근 문의</p>
             <Link
               href="/admin/inquiries"
-              className="text-[12.5px] font-medium text-forest hover:text-forest-light"
+              className="-my-2 shrink-0 whitespace-nowrap py-2 pl-3 text-[12.5px] font-medium text-forest hover:text-forest-light"
             >
               전체보기
             </Link>
@@ -50,11 +55,17 @@ export default async function AdminDashboardPage() {
             <ul className="divide-y divide-border">
               {stats.recentInquiries.map((inquiry) => (
                 <li key={inquiry.id} className="px-5 py-3.5">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[13.5px] font-medium text-text">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="min-w-0 truncate text-[13.5px] font-medium text-text">
                       {inquiry.name}
                     </p>
-                    <span className="text-[11px] text-text-soft">
+                    <span
+                      className={`shrink-0 whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ${
+                        inquiry.status === "PENDING"
+                          ? "bg-red-50 text-red-600"
+                          : "bg-ivory text-text-soft"
+                      }`}
+                    >
                       {STATUS_LABEL[inquiry.status] ?? inquiry.status}
                     </span>
                   </div>
@@ -80,18 +91,18 @@ export default async function AdminDashboardPage() {
               {stats.featuredProducts.map((product) => (
                 <li
                   key={product.slug}
-                  className="flex items-center justify-between px-5 py-3.5"
+                  className="flex items-start justify-between gap-3 px-5 py-3.5"
                 >
-                  <div>
-                    <p className="text-[13.5px] font-medium text-text">
+                  <div className="min-w-0 flex-1">
+                    <p className="break-words text-[13.5px] font-medium leading-snug text-text">
                       {product.title}
                     </p>
                     <p className="mt-0.5 text-[12px] text-text-soft">
                       {product.category}
                     </p>
                   </div>
-                  <span className="text-[13px] font-semibold text-forest">
-                    {formatPrice(product.price)}
+                  <span className="shrink-0 whitespace-nowrap pt-0.5 text-[13px] font-semibold text-forest">
+                    {formatAdminPrice(product.price)}
                   </span>
                 </li>
               ))}
@@ -112,14 +123,19 @@ export default async function AdminDashboardPage() {
               {stats.recentReviews.map((review) => (
                 <li
                   key={review.id}
-                  className="flex items-center justify-between px-5 py-3.5"
+                  className="flex items-start justify-between gap-3 px-5 py-3.5"
                 >
-                  <div>
-                    <p className="text-[13.5px] font-medium text-text">
-                      {review.customer_name} · {review.product}
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[13.5px] font-medium leading-snug text-text">
+                      {review.customer_name}
+                    </p>
+                    <p className="mt-0.5 break-words text-[12.5px] leading-snug text-text-soft">
+                      {review.product}
                     </p>
                   </div>
-                  <span className="text-[12.5px] text-gold">★ {review.rating}</span>
+                  <span className="shrink-0 whitespace-nowrap pt-0.5 text-[12.5px] text-gold">
+                    ★ {review.rating}
+                  </span>
                 </li>
               ))}
             </ul>

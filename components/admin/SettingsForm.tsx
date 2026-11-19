@@ -5,7 +5,7 @@ import { updateSettingsAction, SettingsFormState } from "@/lib/admin/settings-ac
 import { SiteSettings } from "@/lib/data/admin-settings";
 
 const fieldClass =
-  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[14px] text-text outline-none focus:border-forest";
+  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[16px] text-text outline-none focus:border-forest md:text-[14px]";
 const labelClass = "mb-1.5 block text-[12.5px] font-medium text-text-soft";
 
 const FIELDS: { key: string; label: string; placeholder?: string }[] = [
@@ -51,7 +51,7 @@ export default function SettingsForm({ settings }: { settings: SiteSettings }) {
       <button
         type="submit"
         disabled={pending}
-        className="rounded-sm bg-forest px-7 py-3 text-[14px] font-medium text-white hover:bg-forest-light disabled:opacity-60"
+        className="w-full rounded-sm bg-forest px-7 py-3.5 text-[15px] font-medium text-white hover:bg-forest-light disabled:opacity-60 md:w-auto md:py-3 md:text-[14px]"
       >
         {pending ? "저장 중..." : "저장"}
       </button>

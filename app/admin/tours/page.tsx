@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { getAdminTours } from "@/lib/data/admin-tours";
-import { formatPrice } from "@/lib/format";
+import { formatAdminPrice } from "@/lib/format";
 import DeleteButton from "@/components/admin/DeleteButton";
+import AdminMobileCard, { MobileEditLink } from "@/components/admin/AdminMobileCard";
 import { deleteTourAction } from "@/lib/admin/tour-actions";
 
 export const dynamic = "force-dynamic";
@@ -18,21 +19,46 @@ export default async function AdminToursPage() {
 
   return (
     <div className="p-6 md:p-10">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-[22px] font-semibold text-forest">투어 관리</h1>
           <p className="mt-1 text-[13px] text-text-soft">총 {tours.length}개 투어</p>
         </div>
         <Link
           href="/admin/tours/new"
-          className="inline-flex items-center gap-1.5 rounded-sm bg-forest px-4 py-2.5 text-[13.5px] font-medium text-white hover:bg-forest-light"
+          className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm bg-forest px-4 py-2.5 text-[13.5px] font-medium text-white hover:bg-forest-light"
         >
           <Plus size={15} strokeWidth={2} />
           새 투어 추가
         </Link>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-md border border-border bg-white">
+      {/* Phone: one card per row (tables are PC only) */}
+      <div className="mt-6 space-y-3 md:hidden">
+        {tours.map((tour) => (
+          <AdminMobileCard
+            key={tour.id}
+            title={tour.title}
+            meta={[CATEGORY_LABEL[tour.category] ?? tour.category, tour.destination]}
+            right={formatAdminPrice(tour.price)}
+          >
+            <MobileEditLink href={`/admin/tours/${tour.id}/edit`} />
+            <DeleteButton
+              variant="button"
+              id={tour.id}
+              action={deleteTourAction}
+              confirmMessage={`"${tour.title}" 투어를 삭제하시겠습니까?`}
+            />
+          </AdminMobileCard>
+        ))}
+        {tours.length === 0 ? (
+          <p className="py-10 text-center text-[13.5px] text-text-soft">
+            등록된 투어가 없습니다.
+          </p>
+        ) : null}
+      </div>
+
+      <div className="mt-6 hidden overflow-x-auto rounded-md border border-border bg-white md:block">
         <table className="w-full min-w-[680px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-border bg-ivory text-[12px] text-text-soft">
@@ -54,7 +80,7 @@ export default async function AdminToursPage() {
                   {tour.destination}
                 </td>
                 <td className="whitespace-nowrap px-4 py-3.5 text-text-soft">
-                  {formatPrice(tour.price)}
+                  {formatAdminPrice(tour.price)}
                 </td>
                 <td className="whitespace-nowrap px-4 py-3.5">
                   <div className="flex items-center gap-3">

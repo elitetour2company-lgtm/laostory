@@ -61,7 +61,7 @@ function SidebarBody({
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-6 py-2.5 text-[13.5px] font-medium transition-colors ${
+              className={`flex items-center gap-3 px-6 py-3 text-[13.5px] font-medium transition-colors md:py-2.5 ${
                 isActive
                   ? "bg-forest/5 text-forest"
                   : "text-text-soft hover:bg-forest/5 hover:text-text"
@@ -84,7 +84,7 @@ function SidebarBody({
         <form action={logoutAction}>
           <button
             type="submit"
-            className="mt-2 inline-flex items-center gap-1.5 text-[12.5px] font-medium text-text-soft hover:text-forest"
+            className="mt-1 inline-flex items-center gap-1.5 py-2 text-[12.5px] font-medium text-text-soft hover:text-forest"
           >
             <LogOut size={13} strokeWidth={1.75} />
             로그아웃
@@ -116,7 +116,7 @@ export default function AdminSidebar({ adminName, pendingInquiries = 0 }: { admi
           type="button"
           onClick={() => setOpen(true)}
           aria-label="메뉴 열기"
-          className="relative rounded-md p-2 text-forest"
+          className="relative -mr-1 rounded-md p-2.5 text-forest"
         >
           <Menu size={22} strokeWidth={1.75} />
           {pendingInquiries > 0 ? (
@@ -138,7 +138,7 @@ export default function AdminSidebar({ adminName, pendingInquiries = 0 }: { admi
               type="button"
               onClick={() => setOpen(false)}
               aria-label="메뉴 닫기"
-              className="absolute right-3 top-3 rounded-md p-1.5 text-text-soft"
+              className="absolute right-2 top-2 rounded-md p-2.5 text-text-soft"
             >
               <X size={18} strokeWidth={1.75} />
             </button>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { getAdminReviews } from "@/lib/data/admin-reviews";
 import DeleteButton from "@/components/admin/DeleteButton";
+import AdminMobileCard, { MobileEditLink } from "@/components/admin/AdminMobileCard";
 import { deleteReviewAction } from "@/lib/admin/review-actions";
 
 export const dynamic = "force-dynamic";
@@ -19,21 +20,46 @@ export default async function AdminReviewsPage() {
 
   return (
     <div className="p-6 md:p-10">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-[22px] font-semibold text-forest">후기 관리</h1>
           <p className="mt-1 text-[13px] text-text-soft">총 {reviews.length}개 후기</p>
         </div>
         <Link
           href="/admin/reviews/new"
-          className="inline-flex items-center gap-1.5 rounded-sm bg-forest px-4 py-2.5 text-[13.5px] font-medium text-white hover:bg-forest-light"
+          className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm bg-forest px-4 py-2.5 text-[13.5px] font-medium text-white hover:bg-forest-light"
         >
           <Plus size={15} strokeWidth={2} />
           새 후기 추가
         </Link>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-md border border-border bg-white">
+      {/* Phone: one card per row (tables are PC only) */}
+      <div className="mt-6 space-y-3 md:hidden">
+        {reviews.map((review) => (
+          <AdminMobileCard
+            key={review.id}
+            title={review.customer_name}
+            meta={[CATEGORY_LABEL[review.category] ?? review.category, review.product, review.is_sample ? "샘플 후기" : "실제 후기"]}
+            right={`★ ${review.rating}`}
+          >
+            <MobileEditLink href={`/admin/reviews/${review.id}/edit`} />
+            <DeleteButton
+              variant="button"
+              id={review.id}
+              action={deleteReviewAction}
+              confirmMessage={`"${review.customer_name}" 후기를 삭제하시겠습니까?`}
+            />
+          </AdminMobileCard>
+        ))}
+        {reviews.length === 0 ? (
+          <p className="py-10 text-center text-[13.5px] text-text-soft">
+            등록된 후기가 없습니다.
+          </p>
+        ) : null}
+      </div>
+
+      <div className="mt-6 hidden overflow-x-auto rounded-md border border-border bg-white md:block">
         <table className="w-full min-w-[720px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-border bg-ivory text-[12px] text-text-soft">

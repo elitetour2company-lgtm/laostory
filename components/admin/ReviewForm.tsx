@@ -20,7 +20,7 @@ const MAX_FILE_BYTES = 5 * 1024 * 1024;
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp"];
 
 const fieldClass =
-  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[14px] text-text outline-none focus:border-forest";
+  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[16px] text-text outline-none focus:border-forest md:text-[14px]";
 const labelClass = "mb-1.5 block text-[12.5px] font-medium text-text-soft";
 
 export default function ReviewForm({ review }: { review?: AdminReviewRow }) {
@@ -155,7 +155,7 @@ export default function ReviewForm({ review }: { review?: AdminReviewRow }) {
                   type="button"
                   onClick={() => removePhoto(url)}
                   aria-label="사진 삭제"
-                  className="absolute right-0.5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80"
+                  className="absolute right-0.5 top-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 md:h-5 md:w-5"
                 >
                   <X size={12} strokeWidth={2.5} />
                 </button>
@@ -164,7 +164,7 @@ export default function ReviewForm({ review }: { review?: AdminReviewRow }) {
           </div>
         ) : null}
 
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-sm border border-dashed border-border px-4 py-2.5 text-[13px] font-medium text-text-soft transition-colors hover:border-forest hover:text-forest">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-sm border border-dashed border-border px-4 py-3 text-[13.5px] md:py-2.5 md:text-[13px] font-medium text-text-soft transition-colors hover:border-forest hover:text-forest">
           {uploading ? (
             <Loader2 size={15} strokeWidth={2} className="animate-spin" />
           ) : (
@@ -193,7 +193,7 @@ export default function ReviewForm({ review }: { review?: AdminReviewRow }) {
           type="checkbox"
           name="isSample"
           defaultChecked={review?.is_sample ?? false}
-          className="h-4 w-4 accent-forest"
+          className="h-5 w-5 accent-forest md:h-4 md:w-4"
         />
         <span className="text-[13.5px] text-text">
           샘플 후기 (실제 고객 후기가 아닌 예시 데이터)
@@ -207,7 +207,7 @@ export default function ReviewForm({ review }: { review?: AdminReviewRow }) {
       <button
         type="submit"
         disabled={pending || uploading}
-        className="rounded-sm bg-forest px-7 py-3 text-[14px] font-medium text-white hover:bg-forest-light disabled:opacity-60"
+        className="w-full rounded-sm bg-forest px-7 py-3.5 text-[15px] font-medium text-white hover:bg-forest-light disabled:opacity-60 md:w-auto md:py-3 md:text-[14px]"
       >
         {pending ? "저장 중..." : "저장"}
       </button>

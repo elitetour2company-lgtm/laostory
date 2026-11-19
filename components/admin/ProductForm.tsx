@@ -12,7 +12,7 @@ const TYPE_OPTIONS = [
 ];
 
 const fieldClass =
-  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[14px] text-text outline-none focus:border-forest";
+  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[16px] text-text outline-none focus:border-forest md:text-[14px]";
 const labelClass = "mb-1.5 block text-[12.5px] font-medium text-text-soft";
 
 export default function ProductForm({ product }: { product?: AdminProductRow }) {
@@ -182,7 +182,7 @@ export default function ProductForm({ product }: { product?: AdminProductRow }) 
           placeholder={
             '[\n  { "day": 1, "title": "도착", "description": "공항 픽업 후 숙소 체크인", "hotel": "OO호텔", "meals": ["석식"], "image": "kuang-si-falls" }\n]'
           }
-          className={`${fieldClass} resize-none font-mono text-[12.5px]`}
+          className={`${fieldClass} resize-none font-mono text-[15px] md:text-[12.5px]`}
         />
       </label>
 
@@ -201,7 +201,7 @@ export default function ProductForm({ product }: { product?: AdminProductRow }) 
           placeholder={
             '[\n  { "city": "루앙프라방", "title": "새벽 탁발의 도시", "description": "유네스코 세계문화유산으로...", "image": "luangprabang-almsgiving-morning" }\n]'
           }
-          className={`${fieldClass} resize-none font-mono text-[12.5px]`}
+          className={`${fieldClass} resize-none font-mono text-[15px] md:text-[12.5px]`}
         />
       </label>
 
@@ -218,7 +218,7 @@ export default function ProductForm({ product }: { product?: AdminProductRow }) 
           placeholder={
             '[\n  { "question": "새벽 탁발은 너무 이른데요", "answer": "빼셔도 됩니다. 대신 그 시간에 더 주무시고..." }\n]'
           }
-          className={`${fieldClass} resize-none font-mono text-[12.5px]`}
+          className={`${fieldClass} resize-none font-mono text-[15px] md:text-[12.5px]`}
         />
       </label>
 
@@ -227,7 +227,7 @@ export default function ProductForm({ product }: { product?: AdminProductRow }) 
           type="checkbox"
           name="featured"
           defaultChecked={product?.featured}
-          className="h-4 w-4 accent-forest"
+          className="h-5 w-5 accent-forest md:h-4 md:w-4"
         />
         <span className="text-[13.5px] text-text">
           베스트셀러(홈페이지 추천 상품)로 노출
@@ -241,7 +241,7 @@ export default function ProductForm({ product }: { product?: AdminProductRow }) 
       <button
         type="submit"
         disabled={pending}
-        className="rounded-sm bg-forest px-7 py-3 text-[14px] font-medium text-white hover:bg-forest-light disabled:opacity-60"
+        className="w-full rounded-sm bg-forest px-7 py-3.5 text-[15px] font-medium text-white hover:bg-forest-light disabled:opacity-60 md:w-auto md:py-3 md:text-[14px]"
       >
         {pending ? "저장 중..." : "저장"}
       </button>

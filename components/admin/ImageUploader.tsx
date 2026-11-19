@@ -84,7 +84,7 @@ export default function ImageUploader({
                 type="button"
                 aria-label="사진 삭제"
                 onClick={() => onChange(value.filter((u) => u !== url))}
-                className="absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80"
+                className="absolute right-1 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 md:h-6 md:w-6"
               >
                 <X size={14} strokeWidth={2} />
               </button>
@@ -105,7 +105,7 @@ export default function ImageUploader({
         type="button"
         disabled={busy}
         onClick={() => inputRef.current?.click()}
-        className="inline-flex items-center gap-2 rounded-sm border border-border bg-white px-4 py-2.5 text-[13.5px] font-medium text-text hover:border-forest hover:text-forest disabled:opacity-60"
+        className="inline-flex items-center gap-2 rounded-sm border border-border bg-white px-4 py-3 text-[13.5px] md:py-2.5 font-medium text-text hover:border-forest hover:text-forest disabled:opacity-60"
       >
         <ImagePlus size={16} strokeWidth={1.75} />
         {busy ? "올리는 중..." : multiple ? "사진 추가" : "사진 선택"}

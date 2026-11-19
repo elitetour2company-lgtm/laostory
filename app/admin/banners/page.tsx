@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { getAdminBanners } from "@/lib/data/admin-banners";
 import DeleteButton from "@/components/admin/DeleteButton";
+import AdminMobileCard, { MobileEditLink } from "@/components/admin/AdminMobileCard";
 import { deleteBannerAction } from "@/lib/admin/banner-actions";
 
 export const dynamic = "force-dynamic";
@@ -11,21 +12,45 @@ export default async function AdminBannersPage() {
 
   return (
     <div className="p-6 md:p-10">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-[22px] font-semibold text-forest">배너 관리</h1>
           <p className="mt-1 text-[13px] text-text-soft">총 {banners.length}개 배너</p>
         </div>
         <Link
           href="/admin/banners/new"
-          className="inline-flex items-center gap-1.5 rounded-sm bg-forest px-4 py-2.5 text-[13.5px] font-medium text-white hover:bg-forest-light"
+          className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm bg-forest px-4 py-2.5 text-[13.5px] font-medium text-white hover:bg-forest-light"
         >
           <Plus size={15} strokeWidth={2} />
           새 배너 추가
         </Link>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-md border border-border bg-white">
+      {/* Phone: one card per row (tables are PC only) */}
+      <div className="mt-6 space-y-3 md:hidden">
+        {banners.map((banner) => (
+          <AdminMobileCard
+            key={banner.id}
+            title={banner.title}
+            meta={[`순서 ${banner.sort_order}`, banner.is_active ? "노출 중" : "숨김"]}
+          >
+            <MobileEditLink href={`/admin/banners/${banner.id}/edit`} />
+            <DeleteButton
+              variant="button"
+              id={banner.id}
+              action={deleteBannerAction}
+              confirmMessage={`"${banner.title}" 배너를 삭제하시겠습니까?`}
+            />
+          </AdminMobileCard>
+        ))}
+        {banners.length === 0 ? (
+          <p className="py-10 text-center text-[13.5px] text-text-soft">
+            등록된 배너가 없습니다.
+          </p>
+        ) : null}
+      </div>
+
+      <div className="mt-6 hidden overflow-x-auto rounded-md border border-border bg-white md:block">
         <table className="w-full min-w-[600px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-border bg-ivory text-[12px] text-text-soft">

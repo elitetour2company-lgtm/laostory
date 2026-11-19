@@ -2,6 +2,11 @@ export function formatPrice(price: number): string {
   return `₩${price.toLocaleString("ko-KR")}~`;
 }
 
+// Admin lists: a 0 price means "price on request" on the public site, so show the same words.
+export function formatAdminPrice(price: number): string {
+  return price > 0 ? formatPrice(price) : "가격 문의";
+}
+
 export function formatPriceUsd(price: number): string {
   return `$${price.toLocaleString("en-US")}~`;
 }

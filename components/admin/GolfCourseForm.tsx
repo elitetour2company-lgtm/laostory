@@ -12,7 +12,7 @@ const DIFFICULTY_OPTIONS = [
 ];
 
 const fieldClass =
-  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[14px] text-text outline-none focus:border-forest";
+  "w-full rounded-sm border border-border bg-white px-3.5 py-2.5 text-[16px] text-text outline-none focus:border-forest md:text-[14px]";
 const labelClass = "mb-1.5 block text-[12.5px] font-medium text-text-soft";
 
 export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow }) {
@@ -159,7 +159,7 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             placeholder={
               "스포츠데이(월·목) | 66 | 92000 | 4월~9월 | 월,목 |\n오후 특가(평일) | 80 | 112000 | 10월~10월 | 화,수,금 | 오후"
             }
-            className={`${fieldClass} font-mono text-[12.5px]`}
+            className={`${fieldClass} font-mono text-[15px] md:text-[12.5px]`}
           />
           <span className="mt-1 block text-[11.5px] text-text-soft">
             형식: 이름 | 달러 | 원 | 적용 월(비우면 연중) | 요일(비우면 매일) | 옵션. 옵션의 &quot;오후&quot;는 오후 티타임 선택 시에만,
@@ -175,7 +175,7 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             rows={4}
             defaultValue={serializeExtraFees(course?.extra_fees ?? undefined)}
             placeholder={"캐디팁 | 18홀 기준 최소 30만낍(약 14달러)\n클럽 렌탈 | 약 35달러"}
-            className={`${fieldClass} font-mono text-[12.5px]`}
+            className={`${fieldClass} font-mono text-[15px] md:text-[12.5px]`}
           />
           <span className="mt-1 block text-[11.5px] text-text-soft">형식: 항목 | 내용</span>
         </label>
@@ -358,7 +358,7 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             type="checkbox"
             name="includesCaddie"
             defaultChecked={course?.includes_caddie}
-            className="h-4 w-4 accent-forest"
+            className="h-5 w-5 accent-forest md:h-4 md:w-4"
           />
           <span className="text-[13.5px] text-text">캐디 포함</span>
         </label>
@@ -367,7 +367,7 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
             type="checkbox"
             name="includesCart"
             defaultChecked={course?.includes_cart}
-            className="h-4 w-4 accent-forest"
+            className="h-5 w-5 accent-forest md:h-4 md:w-4"
           />
           <span className="text-[13.5px] text-text">카트 포함</span>
         </label>
@@ -380,7 +380,7 @@ export default function GolfCourseForm({ course }: { course?: AdminGolfCourseRow
       <button
         type="submit"
         disabled={pending}
-        className="rounded-sm bg-forest px-7 py-3 text-[14px] font-medium text-white hover:bg-forest-light disabled:opacity-60"
+        className="w-full rounded-sm bg-forest px-7 py-3.5 text-[15px] font-medium text-white hover:bg-forest-light disabled:opacity-60 md:w-auto md:py-3 md:text-[14px]"
       >
         {pending ? "저장 중..." : "저장"}
       </button>

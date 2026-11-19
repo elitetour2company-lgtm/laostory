@@ -29,7 +29,7 @@ export default function InquiryStatusSelect({
           updateInquiryStatus(id, next);
         });
       }}
-      className="rounded-sm border border-border bg-white px-2.5 py-1.5 text-[12.5px] text-text outline-none disabled:opacity-60"
+      className="w-full rounded-sm border border-border bg-white px-3 py-2.5 text-[16px] text-text outline-none disabled:opacity-60 md:w-auto md:px-2.5 md:py-1.5 md:text-[12.5px]"
     >
       {STATUSES.map((s) => (
         <option key={s.value} value={s.value}>

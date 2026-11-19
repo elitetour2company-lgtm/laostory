@@ -17,7 +17,7 @@ export default function LoginForm() {
           type="email"
           required
           autoComplete="email"
-          className="w-full border-b border-border bg-transparent py-2.5 text-[15px] text-text outline-none focus:border-forest"
+          className="w-full border-b border-border bg-transparent py-2.5 text-[16px] text-text outline-none focus:border-forest md:text-[15px]"
         />
       </label>
       <label className="block">
@@ -29,7 +29,7 @@ export default function LoginForm() {
           type="password"
           required
           autoComplete="current-password"
-          className="w-full border-b border-border bg-transparent py-2.5 text-[15px] text-text outline-none focus:border-forest"
+          className="w-full border-b border-border bg-transparent py-2.5 text-[16px] text-text outline-none focus:border-forest md:text-[15px]"
         />
       </label>
 
