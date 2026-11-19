@@ -12,7 +12,9 @@ import {
 } from "@/lib/data/guide";
 import { getImage } from "@/data/images";
 import JsonLd from "@/components/seo/JsonLd";
-import { articleSchema, breadcrumbSchema } from "@/lib/seo/schema";
+import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
+import GuideBody from "@/components/guide/GuideBody";
+import { parseGuideBlocks, faqItemsOf } from "@/lib/guide/blocks";
 
 export const revalidate = 3600;
 
@@ -81,6 +83,8 @@ export default async function GuideDetailPage({
   const related = [...rotated, ...others.filter((a) => a.category !== article.category)].slice(0, 3);
   const productLinks = PRODUCT_LINKS_BY_SLUG[article.slug] ?? DEFAULT_PRODUCT_LINKS;
   const path = `/guide/${article.slug}`;
+  const blocks = parseGuideBlocks(article.content ?? []);
+  const faqItems = faqItemsOf(blocks);
 
   return (
     <div className="pb-16">
@@ -101,6 +105,7 @@ export default async function GuideDetailPage({
           dateModified: article.updatedAt ?? article.createdAt,
         })}
       />
+      {faqItems.length > 0 ? <JsonLd data={faqSchema(faqItems)} /> : null}
       <Container className="pt-24 md:pt-32">
         <div className="mx-auto max-w-2xl">
           <p className="text-xs font-medium tracking-wide text-gold">{article.category}</p>
@@ -122,13 +127,7 @@ export default async function GuideDetailPage({
             </div>
           ) : null}
 
-          <div className="mt-8 space-y-5 border-t border-border pt-8">
-            {(article.content ?? []).map((paragraph, i) => (
-              <p key={i} className="text-[15px] leading-relaxed text-text">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <GuideBody blocks={blocks} />
 
           {article.images && article.images.length > 0 ? (
             <div className="mt-8 space-y-4">
@@ -137,7 +136,7 @@ export default async function GuideDetailPage({
                 <img
                   key={src}
                   src={src}
-                  alt=""
+                  alt={`${article.title} 사진`}
                   loading="lazy"
                   className="h-auto w-full rounded-xl border border-border"
                 />

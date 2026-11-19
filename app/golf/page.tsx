@@ -11,9 +11,9 @@ import { getAllGolfCourses } from "@/lib/data/golf";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "라오스 골프 여행 | 비엔티안·루앙프라방 골프장 7곳 가격·예약",
+  title: "라오스 골프 | 골프여행·골프투어·황제골프 패키지, 골프장 7곳 요금·예약",
   description:
-    "라오스 골프 여행 전문 라오스토리. 비엔티안, 루앙프라방 골프장 7곳의 그린피·카트·캐디 요금과 패키지를 한 곳에서 확인하고 예약 상담을 신청하세요.",
+    "라오스 골프여행·골프투어 전문 라오스토리. 풀빌라·전용차량·캐디가 포함된 황제골프 패키지와 비엔티안·방비엥·루앙프라방 골프장 7곳의 그린피·카트·캐디 요금을 한 곳에서 확인하고 예약 상담을 신청하세요.",
 };
 
 export default async function GolfPage() {
@@ -27,8 +27,8 @@ export default async function GolfPage() {
     <>
       <PageHeader
         eyebrow="Laos Golf"
-        title="골프"
-        description="라운딩부터 숙소까지 묶은 골프패키지, 원하는 골프장만 예약하는 골프부킹까지."
+        title="라오스 골프"
+        description="골프여행·골프투어 패키지(풀빌라·전용차량·캐디 포함)부터 원하는 골프장만 예약하는 골프부킹까지."
       />
 
       <div className="sticky top-16 z-30 border-b border-border bg-white/95 backdrop-blur-sm md:top-20">

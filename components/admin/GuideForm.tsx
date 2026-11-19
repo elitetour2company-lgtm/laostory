@@ -75,6 +75,10 @@ export default function GuideForm({ article }: { article?: AdminGuideArticleRow 
           rows={10}
           className={`${fieldClass} resize-none`}
         />
+        <span className="mt-1.5 block text-[12px] leading-relaxed text-text-soft">
+          소제목은 줄 맨 앞에 <b>## 제목</b>, 작은 소제목은 <b>### 제목</b>, 문장 속 링크는{" "}
+          <b>[글자](/주소)</b>, 질문은 <b>Q. 질문</b> 다음 문단에 답을 쓰면 됩니다. 쓰지 않으면 예전처럼 문단으로만 보여요.
+        </span>
       </label>
 
       <div>
