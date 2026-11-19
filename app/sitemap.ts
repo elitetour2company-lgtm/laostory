@@ -8,6 +8,9 @@ import { getGuideArticleSlugs } from "@/lib/data/guide";
 import { getDestinationSlugs } from "@/lib/data/destinations";
 import { STYLE_CONFIG } from "@/app/travel-style/[style]/page";
 
+// Rebuilt at most once an hour so guides added in the database appear without a redeploy.
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [productSlugs, villaSlugs, golfSlugs, tourSlugs, guideSlugs, destinationSlugs] =
     await Promise.all([
