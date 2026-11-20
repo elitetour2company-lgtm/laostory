@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GOLF_GUIDE_LINKS } from "@/lib/golf-guide-links";
+import { golfCourseFaq } from "@/lib/golf-faq";
 import { MapPin, Check, X as XIcon } from "lucide-react";
 import Container from "@/components/ui/Container";
 import DetailHeading from "@/components/ui/DetailHeading";
@@ -17,7 +18,7 @@ import { getGolfCourseBySlug, getGolfCourseSlugs } from "@/lib/data/golf";
 import { getReviewsForProduct } from "@/lib/data/reviews";
 import { getImage } from "@/data/images";
 import JsonLd from "@/components/seo/JsonLd";
-import { breadcrumbSchema, productSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, productSchema, faqSchema } from "@/lib/seo/schema";
 import { currentGolfPrice } from "@/lib/golf-season";
 import { metaDescription } from "@/lib/seo/meta";
 import ReviewSection from "@/components/reviews/ReviewSection";
@@ -71,6 +72,7 @@ export default async function GolfCourseDetailPage({
   if (!course) notFound();
 
   const reviews = await getReviewsForProduct("golf_course", course.slug);
+  const faqItems = golfCourseFaq(course);
 
   return (
     <div className="pb-24 md:pb-16">
@@ -90,6 +92,7 @@ export default async function GolfCourseDetailPage({
           path: `/golf/courses/${course.slug}`,
         })}
       />
+      {faqItems.length > 0 ? <JsonLd data={faqSchema(faqItems)} /> : null}
       <Container className="grid grid-cols-1 gap-10 pt-24 md:grid-cols-[1fr_340px] md:pt-28">
         <div>
           <PhotoGallery
@@ -211,6 +214,28 @@ export default async function GolfCourseDetailPage({
                   </li>
                 ) : null}
               </ul>
+            </div>
+          ) : null}
+
+          {faqItems.length > 0 ? (
+            <div className="mt-10">
+              <h2 className="text-[18px] font-semibold text-forest">
+                {course.name} 자주 묻는 질문
+              </h2>
+              <div className="mt-4 space-y-3">
+                {faqItems.map((item) => (
+                  <details
+                    key={item.q}
+                    className="group rounded-xl border border-border bg-white px-5 py-4"
+                  >
+                    <summary className="cursor-pointer list-none text-[14.5px] font-semibold leading-snug text-text">
+                      <span className="mr-2 text-gold">Q.</span>
+                      {item.q}
+                    </summary>
+                    <p className="mt-3 text-[14px] leading-relaxed text-text-soft">{item.a}</p>
+                  </details>
+                ))}
+              </div>
             </div>
           ) : null}
 
