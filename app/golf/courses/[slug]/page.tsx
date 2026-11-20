@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GOLF_GUIDE_LINKS } from "@/lib/golf-guide-links";
 import { MapPin, Check, X as XIcon } from "lucide-react";
 import Container from "@/components/ui/Container";
 import DetailHeading from "@/components/ui/DetailHeading";
@@ -222,6 +223,15 @@ export default async function GolfCourseDetailPage({
           <div className="mt-10 border-t border-border pt-6">
             <p className="text-[12px] font-medium text-text-soft">함께 보면 좋아요</p>
             <div className="mt-2.5 flex flex-col gap-2">
+              {GOLF_GUIDE_LINKS.map((g) => (
+                <Link
+                  key={g.href}
+                  href={g.href}
+                  className="text-[13px] font-medium text-forest underline underline-offset-2"
+                >
+                  {g.label} →
+                </Link>
+              ))}
               <Link
                 href="/golf"
                 className="text-[13px] font-medium text-forest underline underline-offset-2"

@@ -7,6 +7,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import GolfView, { GolfSections } from "@/components/golf/GolfView";
 import { getAllProducts } from "@/lib/data/products";
 import { getAllGolfCourses } from "@/lib/data/golf";
+import { GOLF_GUIDE_LINKS } from "@/lib/golf-guide-links";
 
 export const revalidate = 3600;
 
@@ -51,6 +52,23 @@ export default async function GolfPage() {
       <Suspense fallback={<GolfSections packages={golfPackages} courses={golfCourses} />}>
         <GolfView packages={golfPackages} courses={golfCourses} />
       </Suspense>
+
+      <Container className="pb-10 md:pb-14">
+        <div className="mx-auto max-w-2xl rounded-xl border border-border bg-ivory p-6">
+          <h2 className="text-[15px] font-semibold text-forest">라오스 골프 여행 가이드</h2>
+          <div className="mt-3 flex flex-col gap-2.5">
+            {GOLF_GUIDE_LINKS.map((g) => (
+              <Link
+                key={g.href}
+                href={g.href}
+                className="text-[14px] font-medium text-forest underline underline-offset-2"
+              >
+                {g.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </Container>
 
       <Container className="pb-14 text-center md:pb-20">
         <Link
