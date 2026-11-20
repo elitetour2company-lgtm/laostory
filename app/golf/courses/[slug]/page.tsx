@@ -28,6 +28,16 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+const SEARCH_TITLES: Record<string, string> = {
+  "longbien-cc": "라오스 비엔티안 롱비엔CC 골프장 예약 | 18홀 그린피·캐디·카트 포함 요금",
+  "lakeview-cc": "라오스 비엔티안 레이크뷰CC 골프장 예약 | 18홀 그린피·캐디·카트 포함 요금",
+  "booyoung-cc": "라오스 비엔티안 부영CC 골프장 예약 | 18홀 그린피·캐디·카트 포함 요금",
+  "mekong-cc": "라오스 비엔티안 메콩CC 골프장 예약 | 18홀 그린피·캐디·카트 포함 요금",
+  "lao-cc": "라오스 비엔티안 라오CC 골프장 예약 | 18홀 그린피·캐디 포함 요금",
+  "asia-club-vangvieng": "라오스 방비엥 아시아클럽 골프장 예약 | 요금·코스 정보",
+  "luang-prabang-golf-club": "라오스 루앙프라방 골프클럽 예약 | 18홀 요금·코스 정보",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -38,10 +48,10 @@ export async function generateMetadata({
   if (!course) return {};
   const image = getImage(course.image);
   return {
-    title: course.name,
+    title: SEARCH_TITLES[course.slug] ?? course.name,
     description: metaDescription(course.description),
     openGraph: {
-      title: course.name,
+      title: SEARCH_TITLES[course.slug] ?? course.name,
       description: metaDescription(course.description),
       images: [image ?? "/images/vangvieng-hero.jpg"],
       locale: "ko_KR",
