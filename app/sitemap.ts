@@ -8,7 +8,7 @@ import { getGuideArticleSlugs } from "@/lib/data/guide";
 import { getDestinationSlugs } from "@/lib/data/destinations";
 import { STYLE_CONFIG } from "@/app/travel-style/[style]/page";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [productSlugs, villaSlugs, golfSlugs, tourSlugs, guideSlugs, destinationSlugs] =
