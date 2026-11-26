@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   // localhost — dev-only, has no effect on a real deployment.
   allowedDevOrigins: ["192.168.101.15"],
   images: {
+    // Serve photos straight from static assets. Resizing them in the Worker exceeded the free plan's CPU limit.
+    unoptimized: true,
     // Source photos are capped at 1920px wide — don't request (and upscale) larger.
     deviceSizes: [390, 640, 750, 828, 1080, 1280, 1920],
     imageSizes: [96, 112, 128, 256],
